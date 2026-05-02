@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard SISBEN IV – Cundinamarca</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --azul-oscuro: #1a237e;
+    --azul-medio: #1565c0;
+    --azul-claro: #42a5f5;
+    --verde:  #26a69a;
+    --naranja: #ef6c00;
+    --rojo:   #c62828;
+    --morado: #6a1b9a;
+    --fondo:  #f0f4f8;
+    --card:   #ffffff;
+    --texto:  #1e2a38;
+    --gris:   #607d8b;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI',sans-serif; background:var(--fondo); color:var(--texto); }
+
+  /* ── Header ── */
+  header {
+    background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-medio) 100%);
+    color:#fff; padding:28px 40px;
+    display:flex; align-items:center; gap:20px;
+  }
+  header .logo { font-size:2.5rem; }
+  header h1 { font-size:1.6rem; font-weight:700; }
+  header p  { font-size:.9rem; opacity:.85; margin-top:4px; }
+
+  /* ── Nav ── */
+  nav {
+    background:#fff; border-bottom:3px solid var(--azul-claro);
+    display:flex; gap:0; overflow-x:auto;
+  }
+  nav a {
+    padding:14px 22px; text-decoration:none; color:var(--gris);
+    font-weight:600; font-size:.85rem; letter-spacing:.5px;
+    border-bottom:3px solid transparent; white-space:nowrap;
+    transition:all .2s;
+  }
+  nav a:hover, nav a.active {
+    color:var(--azul-medio); border-bottom-color:var(--azul-medio);
+  }
+
+  /* ── KPI Cards ── */
+  .kpi-row {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:16px; padding:28px 32px 8px;
+  }
+  .kpi {
+    background:var(--card); border-radius:12px;
+    padding:20px; box-shadow:0 2px 8px rgba(0,0,0,.08);
+    border-top:4px solid var(--azul-claro);
+    text-align:center;
+  }
+  .kpi .val { font-size:2rem; font-weight:800; color:var(--azul-oscuro); }
+  .kpi .lbl { font-size:.78rem; color:var(--gris); margin-top:4px; text-transform:uppercase; letter-spacing:.5px; }
+
+  /* ── Sections ── */
+  .section { display:none; padding:20px 32px 40px; }
+  .section.active { display:block; }
+
+  /* ── Grid de gráficas ── */
+  .charts-grid {
+    display:grid; gap:24px;
+    grid-template-columns:repeat(auto-fit,minmax(480px,1fr));
+  }
+  .chart-card {
+    background:var(--card); border-radius:14px;
+    padding:24px; box-shadow:0 2px 12px rgba(0,0,0,.08);
+  }
+  .chart-card h3 { font-size:1rem; color:var(--azul-oscuro); margin-bottom:16px; font-weight:700; }
+  .chart-card canvas { max-height:320px; }
+
+  /* full width card */
+  .chart-card.full { grid-column:1/-1; }
+
+  /* ── Tabla KMeans ── */
+  table { width:100%; border-collapse:collapse; margin-top:12px; }
+  th { background:var(--azul-oscuro); color:#fff; padding:10px 14px; font-size:.82rem; text-align:left; }
+  td { padding:10px 14px; font-size:.88rem; border-bottom:1px solid #e0e0e0; }
+  tr:nth-child(even) td { background:#f5f7ff; }
+
+  /* badge cluster */
+  .badge {
+    display:inline-block; padding:3px 10px; border-radius:20px;
+    font-size:.78rem; font-weight:700; color:#fff;
+  }
+  .b0{background:#1565c0} .b1{background:#26a69a} .b2{background:#ef6c00} .b3{background:#6a1b9a}
+
+  /* ── Info box ── */
+  .info-box {
+    background:#e3f2fd; border-left:4px solid var(--azul-claro);
+    border-radius:8px; padding:16px 20px; margin-bottom:20px; font-size:.9rem; line-height:1.6;
+  }
+  footer {
+    text-align:center; padding:20px; color:var(--gris); font-size:.8rem;
+    border-top:1px solid #ddd; margin-top:20px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">📊</div>
+  <div>
+    <h1>Dashboard SISBEN IV – Cundinamarca</h1>
+    <p>Análisis de pobreza multidimensional · Minería de datos · 2024</p>
+  </div>
+</header>
+
+<nav id="nav">
+  <a href="#" class="active" onclick="showSection('overview',this)">🏠 Resumen</a>
+  <a href="#" onclick="showSection('sisben',this)">📋 SISBEN</a>
+  <a href="#" onclick="showSection('carencias',this)">⚠️ Carencias</a>
+  <a href="#" onclick="showSection('kmeans',this)">🔵 KMeans</a>
+  <a href="#" onclick="showSection('correlacion',this)">🔗 Correlación</a>
+  <a href="#" onclick="showSection('municipios',this)">🏙️ Municipios</a>
+</nav>
+
+<!-- ── KPIs siempre visibles ── -->
+<div class="kpi-row">
+  <div class="kpi"><div class="val">{{ stats.total }}</div><div class="lbl">Total personas</div></div>
+  <div class="kpi"><div class="val">{{ stats.pobres }}</div><div class="lbl">Personas pobres IPM</div></div>
+  <div class="kpi"><div class="val">{{ stats.pct_pob }}</div><div class="lbl">Tasa de pobreza</div></div>
+  <div class="kpi"><div class="val">{{ stats.ipm_avg }}</div><div class="lbl">IPM score promedio</div></div>
+  <div class="kpi"><div class="val">{{ stats.municipios }}</div><div class="lbl">Municipios</div></div>
+  <div class="kpi"><div class="val">{{ stats.clusters }}</div><div class="lbl">Clusters KMeans</div></div>
+</div>
+
+<!-- ══════════════ OVERVIEW ══════════════ -->
+<div id="overview" class="section active">
+  <div class="info-box">
+    Análisis de <strong>{{ stats.total }} personas</strong> registradas en el SISBEN IV de Cundinamarca (2024).
+    El <strong>{{ stats.pct_pob }}</strong> vive en condición de pobreza multidimensional (IPM).
+    Se identificaron <strong>{{ stats.clusters }} clusters</strong> mediante K-Means sobre 15 indicadores de carencia.
+  </div>
+  <div class="charts-grid">
+    <div class="chart-card"><h3>Distribución por Grupo SISBEN</h3><canvas id="c_sisben_pie"></canvas></div>
+    <div class="chart-card"><h3>Actividad Económica vs Pobreza</h3><canvas id="c_actividad"></canvas></div>
+    <div class="chart-card"><h3>Género por Grupo SISBEN</h3><canvas id="c_genero"></canvas></div>
+    <div class="chart-card"><h3>IPM Score por Grupo SISBEN (Boxplot simplificado)</h3><canvas id="c_ipm_box"></canvas></div>
+  </div>
+</div>
+
+<!-- ══════════════ SISBEN ══════════════ -->
+<div id="sisben" class="section">
+  <div class="charts-grid">
+    <div class="chart-card"><h3>Distribución SISBEN – Barras</h3><canvas id="c_sisben_bar"></canvas></div>
+    <div class="chart-card"><h3>Estado de Pobreza IPM</h3><canvas id="c_pobre_pie"></canvas></div>
+  </div>
+</div>
+
+<!-- ══════════════ CARENCIAS ══════════════ -->
+<div id="carencias" class="section">
+  <div class="charts-grid">
+    <div class="chart-card full"><h3>Total de Carencias por Indicador (I1–I15)</h3><canvas id="c_carencias_bar"></canvas></div>
+  </div>
+</div>
+
+<!-- ══════════════ KMEANS ══════════════ -->
+<div id="kmeans" class="section">
+  <div class="info-box">
+    K-Means aplicado sobre los 15 indicadores de carencia IPM. Los 4 clusters revelan perfiles de vulnerabilidad diferenciados.
+  </div>
+  <div id="kmeans_table_container"></div>
+  <br>
+  <div class="charts-grid">
+    <div class="chart-card full"><h3>Composición de Clusters por Grupo SISBEN</h3><canvas id="c_kmeans_bar"></canvas></div>
+    <div class="chart-card full"><h3>Perfil de Carencias por Cluster (Radar)</h3><canvas id="c_radar"></canvas></div>
+  </div>
+</div>
+
+<!-- ══════════════ CORRELACIÓN ══════════════ -->
+<div id="correlacion" class="section">
+  <div class="chart-card full">
+    <h3>Heatmap de Correlación entre Indicadores de Carencia</h3>
+    <canvas id="c_corr" style="max-height:520px"></canvas>
+  </div>
+</div>
+
+<!-- ══════════════ MUNICIPIOS ══════════════ -->
+<div id="municipios" class="section">
+  <div class="chart-card full"><h3>IPM Score Promedio – Top 15 Municipios</h3><canvas id="c_muni"></canvas></div>
+</div>
+
+<footer>Proyecto Minería de Datos · SISBEN IV Cundinamarca 2024 · Datos: datos.gov.co</footer>
+
+<script>
+// ── Paleta ──────────────────────────────────────────────────────────────────
+const COLORS = {
+  A: '#c62828', B: '#ef6c00', C: '#f9a825', D: '#2e7d32',
+  clusters: ['#1565c0','#26a69a','#ef6c00','#6a1b9a'],
+  heat: (v) => {
+    const r = v > 0 ? Math.round(v*220) : 0;
+    const b = v < 0 ? Math.round(-v*220) : 0;
+    return `rgba(${r},${Math.round(Math.abs(v)*40)},${b},0.85)`;
+  }
+};
+const GRUPO_COLORS = [COLORS.A, COLORS.B, COLORS.C, COLORS.D];
+
+// ── Navegación ───────────────────────────────────────────────────────────────
+function showSection(id, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(el) el.classList.add('active');
+  return false;
+}
+
+// ── Fetch helper ─────────────────────────────────────────────────────────────
+async function get(url) {
+  const r = await fetch(url); return r.json();
+}
+
+// ── Inicializar todas las gráficas ───────────────────────────────────────────
+async function initCharts() {
+
+  // 1. SISBEN PIE
+  const sd = await get('/api/sisben_dist');
+  new Chart(document.getElementById('c_sisben_pie'), {
+    type:'doughnut',
+    data:{ labels:sd.grupo, datasets:[{ data:sd.total, backgroundColor:GRUPO_COLORS, borderWidth:2 }] },
+    options:{ plugins:{ legend:{ position:'bottom' } } }
+  });
+
+  // 2. SISBEN BAR
+  new Chart(document.getElementById('c_sisben_bar'), {
+    type:'bar',
+    data:{ labels:sd.grupo, datasets:[{ label:'Personas', data:sd.total, backgroundColor:GRUPO_COLORS }] },
+    options:{ plugins:{ legend:{display:false} }, scales:{ y:{ beginAtZero:true } } }
+  });
+
+  // 3. Estado pobreza
+  new Chart(document.getElementById('c_pobre_pie'), {
+    type:'pie',
+    data:{ labels:['Pobre IPM','No pobre'],
+           datasets:[{ data:[186205,129407], backgroundColor:['#c62828','#2e7d32'] }] },
+    options:{ plugins:{ legend:{ position:'bottom' } } }
+  });
+
+  // 4. Carencias
+  const cd = await get('/api/carencias');
+  const barColors = cd.indicador.map((_,i) => `hsl(${200+i*10},70%,50%)`);
+  new Chart(document.getElementById('c_carencias_bar'), {
+    type:'bar',
+    data:{ labels:cd.label, datasets:[{ label:'Total personas', data:cd.total, backgroundColor:barColors }] },
+    options:{ indexAxis:'y', plugins:{ legend:{display:false} }, scales:{ x:{ beginAtZero:true } } }
+  });
+
+  // 5. KMeans composición
+  const km = await get('/api/kmeans');
+  const grupos = ['A – Pobreza extrema','B – Pobreza moderada','C – Vulnerable','D – No pobre'];
+  new Chart(document.getElementById('c_kmeans_bar'), {
+    type:'bar',
+    data:{ labels: km.clusters.map(c=>`Cluster ${c}`),
+           datasets: grupos.map((g,i)=>({ label:g, data:km[g]||[], backgroundColor:GRUPO_COLORS[i] })) },
+    options:{ plugins:{ legend:{ position:'bottom' } }, scales:{ x:{ stacked:true }, y:{ stacked:true } } }
+  });
+
+  // 6. IPM boxplot simplificado (barras de mediana + rango IQR)
+  const bx = await get('/api/ipm_boxplot');
+  const bxLabels = Object.keys(bx);
+  new Chart(document.getElementById('c_ipm_box'), {
+    type:'bar',
+    data:{ labels:bxLabels,
+           datasets:[
+             { label:'Mediana IPM', data:bxLabels.map(g=>bx[g].median), backgroundColor:GRUPO_COLORS },
+             { label:'Promedio IPM', data:bxLabels.map(g=>bx[g].mean), backgroundColor:'rgba(0,0,0,0.15)', type:'line', borderColor:'#333', pointRadius:5 }
+           ]},
+    options:{ plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true, max:14 } } }
+  });
+
+  // 7. Actividad económica vs pobreza
+  const av = await get('/api/actividad_pobreza');
+  new Chart(document.getElementById('c_actividad'), {
+    type:'bar',
+    data:{ labels:av.actividades,
+           datasets:[
+             { label:'Pobre', data:av.pobre, backgroundColor:'#c62828' },
+             { label:'No pobre', data:av.no_pobre, backgroundColor:'#2e7d32' }
+           ]},
+    options:{ plugins:{ legend:{ position:'bottom' } }, scales:{ x:{ stacked:true }, y:{ stacked:true } } }
+  });
+
+  // 8. Radar clusters
+  const rd = await get('/api/radar_clusters');
+  const radarColors = ['#1565c0','#26a69a','#ef6c00','#6a1b9a'];
+  const radarDatasets = Object.keys(rd).filter(k=>k!=='labels').map((k,i)=>({
+    label:k, data:rd[k],
+    borderColor:radarColors[i], backgroundColor:radarColors[i]+'33', borderWidth:2, pointRadius:3
+  }));
+  new Chart(document.getElementById('c_radar'), {
+    type:'radar',
+    data:{ labels:rd.labels, datasets:radarDatasets },
+    options:{ plugins:{ legend:{ position:'bottom' } }, scales:{ r:{ min:0, max:1, ticks:{stepSize:.2} } } }
+  });
+
+  // 9. Heatmap correlación (como scatter + background color)
+  const corr = await get('/api/correlacion');
+  const corrCtx = document.getElementById('c_corr').getContext('2d');
+  const n = corr.keys.length;
+  const points = [];
+  corr.matrix.forEach((row,i) => row.forEach((val,j) => {
+    points.push({ x:j, y:i, v:val });
+  }));
+  new Chart(corrCtx, {
+    type:'scatter',
+    data:{ datasets:[{ data:points, backgroundColor: points.map(p=>COLORS.heat(p.v)), pointRadius:18, pointStyle:'rect' }] },
+    options:{
+      plugins:{ legend:{display:false},
+        tooltip:{ callbacks:{ label: ctx => {
+          const p=ctx.raw; return `${corr.keys[p.x]} ↔ ${corr.keys[p.y]}: ${p.v.toFixed(2)}`;
+        }}}},
+      scales:{
+        x:{ min:-0.5, max:n-0.5, ticks:{ callback:(_,i)=>corr.keys[i]||'' }, grid:{display:false} },
+        y:{ min:-0.5, max:n-0.5, ticks:{ callback:(_,i)=>corr.keys[i]||'' }, grid:{display:false} }
+      }
+    }
+  });
+
+  // 10. Municipios
+  const mv = await get('/api/ipm_municipio');
+  new Chart(document.getElementById('c_muni'), {
+    type:'bar',
+    data:{ labels:mv.municipio,
+           datasets:[{ label:'IPM Promedio', data:mv.ipm_promedio,
+             backgroundColor: mv.ipm_promedio.map(v=>`hsl(${220-v*15},70%,50%)`) }] },
+    options:{ indexAxis:'y', plugins:{ legend:{display:false} }, scales:{ x:{ beginAtZero:true, max:14 } } }
+  });
+
+  // 11. Género vs SISBEN
+  const gn = await get('/api/genero_sisben');
+  new Chart(document.getElementById('c_genero'), {
+    type:'bar',
+    data:{ labels:gn.sexos,
+           datasets: gn.grupos.map((g,i)=>({ label:g, data:gn.values.map(r=>r[i]), backgroundColor:GRUPO_COLORS[i] })) },
+    options:{ plugins:{ legend:{ position:'bottom' } }, scales:{ x:{ stacked:true }, y:{ stacked:true } } }
+  });
+
+  // 12. Tabla KMeans
+  const ks = await get('/api/kmeans_stats');
+  let html = `<table><tr><th>Cluster</th><th>Total personas</th><th>IPM promedio</th><th>% Pobre IPM</th></tr>`;
+  ks.forEach(r => {
+    html += `<tr><td><span class="badge b${r.cluster_kmeans}">Cluster ${r.cluster_kmeans}</span></td>
+             <td>${r.total.toLocaleString()}</td><td>${r.ipm_mean}</td><td>${r.pct_pobre}%</td></tr>`;
+  });
+  html += '</table>';
+  document.getElementById('kmeans_table_container').innerHTML = html;
+}
+
+initCharts();
+</script>
+</body>
+</html>

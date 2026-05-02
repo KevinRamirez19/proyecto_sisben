@@ -1,0 +1,31 @@
+﻿sisben_sk,Grupo_cod,Clasificacion_cod,Nivel,grupo_desc,clasificacion_desc
+1,1,11,1,A – Pobreza extrema,A1
+2,1,12,2,A – Pobreza extrema,A2
+3,1,13,3,A – Pobreza extrema,A3
+4,1,14,4,A – Pobreza extrema,A4
+5,1,15,5,A – Pobreza extrema,A5
+6,2,21,1,B – Pobreza moderada,B1
+7,2,22,2,B – Pobreza moderada,B2
+8,2,23,3,B – Pobreza moderada,B3
+9,2,24,4,B – Pobreza moderada,B4
+10,2,25,5,B – Pobreza moderada,B5
+11,2,26,6,B – Pobreza moderada,B6
+12,2,27,7,B – Pobreza moderada,B7
+13,3,31,13,C – Vulnerable,C1
+14,3,32,2,C – Vulnerable,C2
+15,3,33,3,C – Vulnerable,C3
+16,3,34,4,C – Vulnerable,C4
+17,3,35,5,C – Vulnerable,C5
+18,3,36,6,C – Vulnerable,C6
+19,3,37,7,C – Vulnerable,C7
+20,3,38,8,C – Vulnerable,C8
+21,3,39,9,C – Vulnerable,C9
+22,4,41,18,D – No pobre,D1
+23,4,42,21,D – No pobre,D2
+24,4,43,3,D – No pobre,D3
+25,4,44,4,D – No pobre,D4
+26,4,45,5,D – No pobre,D5
+27,4,46,6,D – No pobre,D6
+28,4,47,7,D – No pobre,D7
+29,4,48,8,D – No pobre,D8
+30,4,49,9,D – No pobre,D9
