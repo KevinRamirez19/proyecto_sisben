@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Problemática · SISBEN IV Cundinamarca</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 
 <body>
@@ -41,74 +42,341 @@
         <a href="index.html">Inicio</a>
         <span class="breadcrumb__sep">/</span>
         <span>Problema, Justificación y Objetivos</span>
-
-        <div class="pgc-layout">
-            <aside class="pgc-nav">
-                <div class="pgc-nav__label">Contenido</div>
-                <ul class="pgc-nav__list">
-                    <li class="pgc-nav__item"><a href="#problematica" class="active"><span
-                                class="pgc-nav__num">01</span>Problemática</a></li>
-                    <li class="pgc-nav__item"><a href="#justificacion"><span
-                                class="pgc-nav__num">02</span>Justificación</a></li>
-                    <li class="pgc-nav__item"><a href="#planteamiento"><span
-                                class="pgc-nav__num">03</span>Planteamiento</a></li>
-                    <li class="pgc-nav__item"><a href="#objetivos"><span class="pgc-nav__num">04</span>Objetivos</a>
-                    </li>
-                    <li class="pgc-nav__item"><a href="#alcance"><span class="pgc-nav__num">05</span>Alcance</a></li>
-                </ul>
-            </aside>
-            <main class="pgc-content">
-                <section id="problematica">
-                    <span class="section__tag">01</span>
-                    <h2>Problemática</h2>
-                    <p>Colombia enfrenta una de las tasas de desigualdad más altas de América Latina, con un coeficiente
-                        de Gini que históricamente supera el 0,50. Cundinamarca, como departamento satélite de la
-                        capital del país, concentra una heterogeneidad socioeconómica significativa: mientras los
-                        municipios del norte y el occidente registran altos niveles de exclusión, las zonas periurbanas
-                        de Bogotá muestran patrones distintos de pobreza urbana.</p>
-                    <p>A pesar de los esfuerzos del Estado colombiano por focalizar la inversión social a través del
-                        Sistema de Identificación de Potenciales Beneficiarios de Programas Sociales (SISBEN IV),
-                        persisten brechas estructurales que dificultan la asignación eficiente de recursos y subsidios.
-                    </p>
-
-                    <div class="info-box">
-                        <strong>Contexto SISBEN IV:</strong> incorpora una metodología multidimensional que clasifica a
-                        los hogares en grupos de pobreza (A – Pobreza extrema, B – Pobreza moderada, C – Vulnerable y D
-                        – No pobre) a partir de <strong>15 indicadores de carencia</strong> agrupados en cinco
-                        dimensiones: educación, trabajo, salud, vivienda y condiciones del hogar.
-                    </div>
-
-                    <p>La información disponible en el repositorio de datos abiertos del DNP para Cundinamarca —315.612
-                        registros del Barrido IV (2024)— ha sido escasamente analizada con técnicas de minería de datos
-                        que permitan descubrir patrones latentes, identificar perfiles de vulnerabilidad y apoyar la
-                        toma de decisiones con base en evidencia.</p>
-
-                    <h3>Problemas concretos identificados</h3>
-                    <ul class="obj-list">
-                        <li class="obj-item">
-                            <div class="obj-num">1</div>
-                            <div class="obj-text"><strong>Ineficiencia en la focalización:</strong> los subsidios llegan
-                                a hogares que no son los más vulnerables mientras los más críticos quedan excluidos del
-                                sistema de protección social.</div>
-                        </li>
-                        <li class="obj-item">
-                            <div class="obj-num">2</div>
-                            <div class="obj-text"><strong>Invisibilidad de perfiles emergentes:</strong> la
-                                clasificación binaria (pobre / no pobre) oculta patrones de co-ocurrencia de carencias
-                                que requieren intervenciones diferenciadas por territorio y grupo poblacional.</div>
-                        </li>
-                        <li class="obj-item">
-                            <div class="obj-num">3</div>
-                            <div class="obj-text"><strong>Limitada capacidad predictiva:</strong> sin modelos que
-                                vinculen características socioeconómicas con el nivel de pobreza multidimensional, la
-                                planeación de políticas carece de soporte analítico robusto.</div>
-                        </li>
-                    </ul>
-                </section>
-                <hr class="divider">
-            </main>
-        </div>
     </div>
+
+    <div class="pgc-layout">
+
+        <aside class="pgc-nav">
+            <div class="pgc-nav__label">Contenido</div>
+            <ul class="pgc-nav__list">
+                <li class="pgc-nav__item"><a href="#problematica" class="active"><span
+                            class="pgc-nav__num">01</span>Problemática</a></li>
+                <li class="pgc-nav__item"><a href="#justificacion"><span class="pgc-nav__num">02</span>Justificación</a>
+                </li>
+                <li class="pgc-nav__item"><a href="#planteamiento"><span class="pgc-nav__num">03</span>Planteamiento</a>
+                </li>
+                <li class="pgc-nav__item"><a href="#objetivos"><span class="pgc-nav__num">04</span>Objetivos</a></li>
+                <li class="pgc-nav__item"><a href="#alcance"><span class="pgc-nav__num">05</span>Alcance</a></li>
+            </ul>
+        </aside>
+
+        <main class="pgc-content">
+
+            <section id="problematica">
+                <span class="section__tag">01</span>
+                <h2>Problemática</h2>
+                <p>Colombia enfrenta una de las tasas de desigualdad más altas de América Latina, con un coeficiente de
+                    Gini que históricamente supera el 0,50. Cundinamarca, como departamento satélite de la capital del
+                    país, concentra una heterogeneidad socioeconómica significativa: mientras los municipios del norte y
+                    el occidente registran altos niveles de exclusión, las zonas periurbanas de Bogotá muestran patrones
+                    distintos de pobreza urbana.</p>
+                <p>A pesar de los esfuerzos del Estado colombiano por focalizar la inversión social a través del Sistema
+                    de Identificación de Potenciales Beneficiarios de Programas Sociales (SISBEN IV), persisten brechas
+                    estructurales que dificultan la asignación eficiente de recursos y subsidios.</p>
+
+                <div class="info-box">
+                    <strong>Contexto SISBEN IV:</strong> incorpora una metodología multidimensional que clasifica a los
+                    hogares en grupos de pobreza (A – Pobreza extrema, B – Pobreza moderada, C – Vulnerable y D – No
+                    pobre) a partir de <strong>15 indicadores de carencia</strong> agrupados en cinco dimensiones:
+                    educación, trabajo, salud, vivienda y condiciones del hogar.
+                </div>
+
+                <p>La información disponible en el repositorio de datos abiertos del DNP para Cundinamarca —315.612
+                    registros del Barrido IV (2024)— ha sido escasamente analizada con técnicas de minería de datos que
+                    permitan descubrir patrones latentes, identificar perfiles de vulnerabilidad y apoyar la toma de
+                    decisiones con base en evidencia.</p>
+
+                <h3>Problemas concretos identificados</h3>
+                <ul class="obj-list">
+                    <li class="obj-item">
+                        <div class="obj-num">1</div>
+                        <div class="obj-text"><strong>Ineficiencia en la focalización:</strong> los subsidios llegan a
+                            hogares que no son los más vulnerables mientras los más críticos quedan excluidos del
+                            sistema de protección social.</div>
+                    </li>
+                    <li class="obj-item">
+                        <div class="obj-num">2</div>
+                        <div class="obj-text"><strong>Invisibilidad de perfiles emergentes:</strong> la clasificación
+                            binaria (pobre / no pobre) oculta patrones de co-ocurrencia de carencias que requieren
+                            intervenciones diferenciadas por territorio y grupo poblacional.</div>
+                    </li>
+                    <li class="obj-item">
+                        <div class="obj-num">3</div>
+                        <div class="obj-text"><strong>Limitada capacidad predictiva:</strong> sin modelos que vinculen
+                            características socioeconómicas con el nivel de pobreza multidimensional, la planeación de
+                            políticas carece de soporte analítico robusto.</div>
+                    </li>
+                </ul>
+            </section>
+
+            <hr class="divider">
+
+            <section id="justificacion">
+                <span class="section__tag">02</span>
+                <h2>Justificación</h2>
+                <p>El presente proyecto se justifica desde tres perspectivas complementarias que evidencian su
+                    pertinencia académica, social y tecnológica.</p>
+
+                <div class="just-card">
+                    <div class="just-card__header">
+                        <div class="just-icon just-icon--a">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <h3>Relevancia social</h3>
+                    </div>
+                    <p>Cundinamarca registra, según el análisis del SISBEN IV 2024, que el <strong>59 % de sus personas
+                            encuestadas</strong> se encuentran en condición de pobreza multidimensional (IPM). Los
+                        indicadores más críticos son la falta de aseguramiento en salud (I8, con más de 203.000 personas
+                        afectadas) y la ausencia de logro educativo (I1, con 197.000 casos). Disponer de análisis
+                        granulares y dashboards interactivos permite a los gobernadores, secretarías de bienestar y
+                        organizaciones de la sociedad civil comprender la magnitud y distribución del fenómeno para
+                        diseñar intervenciones focalizadas.</p>
+                </div>
+
+                <div class="just-card">
+                    <div class="just-card__header">
+                        <div class="just-icon just-icon--b">
+                            <svg viewBox="0 0 24 24">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                            </svg>
+                        </div>
+                        <h3>Relevancia científica y técnica</h3>
+                    </div>
+                    <p>La aplicación de técnicas de minería de datos —concretamente el algoritmo K-Means sobre variables
+                        binarias de carencia— sobre un conjunto de más de 315.000 registros reales constituye un
+                        ejercicio de ciencia de datos aplicada de alta pertinencia académica. La segmentación en cuatro
+                        clusters permite validar si la clasificación institucional del SISBEN coincide con agrupaciones
+                        estadísticas emergentes, aportando evidencia empírica sobre la coherencia del sistema de
+                        medición.</p>
+                </div>
+
+                <div class="just-card">
+                    <div class="just-card__header">
+                        <div class="just-icon just-icon--c">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg>
+                        </div>
+                        <h3>Relevancia tecnológica</h3>
+                    </div>
+                    <p>La construcción de una aplicación web interactiva con Flask, Chart.js y un modelo de datos
+                        estrella (Data Warehouse dimensional con tablas dim_persona, dim_sisben, dim_municipio,
+                        dim_zona, dim_tiempo y fact_persona) demuestra la integración de competencias de ingeniería de
+                        software, bases de datos analíticas y visualización de datos. El uso de datos gubernamentales
+                        abiertos promueve el principio de transparencia alineado con las directrices del Plan Nacional
+                        de Datos del DNP.</p>
+                </div>
+            </section>
+
+            <hr class="divider">
+
+            <section id="planteamiento">
+                <span class="section__tag">03</span>
+                <h2>Planteamiento del Problema</h2>
+
+                <h3>Pregunta de investigación</h3>
+                <div class="pregunta-box">
+                    <p>¿De qué manera la aplicación de técnicas de minería de datos —particularmente el algoritmo
+                        K-Means— sobre los registros del SISBEN IV de Cundinamarca (2024) permite identificar perfiles
+                        diferenciados de vulnerabilidad socioeconómica que contribuyan a mejorar la comprensión de la
+                        pobreza multidimensional en el departamento?</p>
+                </div>
+
+                <h3>Hallazgos del análisis preliminar</h3>
+                <p>El análisis descriptivo del dataset revela situaciones que motivan la investigación:</p>
+                <div class="tabla-wrapper">
+                    <table class="tabla-hallazgos">
+                        <thead>
+                            <tr>
+                                <th>Dimensión</th>
+                                <th>Hallazgo</th>
+                                <th>Implicación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pobreza IPM</td>
+                                <td>59 % clasificados como pobres (186.205 personas)</td>
+                                <td>Alta carga sobre el sistema de protección social</td>
+                            </tr>
+                            <tr>
+                                <td>Carencia más frecuente</td>
+                                <td>I8 – Sin aseguramiento en salud: 203.000 personas</td>
+                                <td>Prioridad en política de salud universal</td>
+                            </tr>
+                            <tr>
+                                <td>Grupo SISBEN dominante</td>
+                                <td>B – Pobreza moderada: 34,8 % del total</td>
+                                <td>Necesidad de intervención diferenciada</td>
+                            </tr>
+                            <tr>
+                                <td>Distribución por zona</td>
+                                <td>60,6 % en cabecera urbana</td>
+                                <td>Pobreza urbana como fenómeno emergente</td>
+                            </tr>
+                            <tr>
+                                <td>Género</td>
+                                <td>51 % mujeres, 49 % hombres</td>
+                                <td>Perspectiva de género en el análisis</td>
+                            </tr>
+                            <tr>
+                                <td>Clusters K-Means</td>
+                                <td>4 grupos con perfiles diferenciados</td>
+                                <td>Segmentación estadística complementaria</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <hr class="divider">
+
+
+            <section id="objetivos">
+                <span class="section__tag">04</span>
+                <h2>Objetivos</h2>
+
+                <h3>Objetivo general</h3>
+                <div class="info-box">
+                    Aplicar técnicas de minería de datos sobre el conjunto de registros del SISBEN IV de Cundinamarca
+                    (2024) para identificar y caracterizar perfiles de vulnerabilidad socioeconómica mediante algoritmos
+                    de clustering (K-Means) y análisis multidimensional de pobreza, visualizados a través de un
+                    dashboard web interactivo.
+                </div>
+
+                <h3>Objetivos específicos</h3>
+                <ul class="obj-list">
+                    <li class="obj-item">
+                        <div class="obj-num">1</div>
+                        <div class="obj-text">Construir un modelo de datos dimensional (esquema estrella) que integre
+                            las tablas fact_persona, dim_persona, dim_sisben, dim_municipio, dim_zona y dim_tiempo para
+                            facilitar el análisis OLAP de la información.</div>
+                    </li>
+                    <li class="obj-item">
+                        <div class="obj-num">2</div>
+                        <div class="obj-text">Realizar un análisis exploratorio de datos (EDA) que describa la
+                            distribución de variables sociodemográficas y de carencias (I1–I15), identificando los
+                            indicadores de mayor prevalencia.</div>
+                    </li>
+                    <li class="obj-item">
+                        <div class="obj-num">3</div>
+                        <div class="obj-text">Aplicar el algoritmo K-Means sobre los 15 indicadores binarios de carencia
+                            IPM para segmentar la población en grupos homogéneos, determinando el k óptimo mediante el
+                            método del codo y la métrica de silueta en Orange Data Mining.</div>
+                    </li>
+                    <li class="obj-item">
+                        <div class="obj-num">4</div>
+                        <div class="obj-text">Comparar los clusters estadísticos obtenidos con la clasificación
+                            institucional del SISBEN (grupos A, B, C, D) para evaluar la coherencia entre la
+                            segmentación automática y la categorización oficial.</div>
+                    </li>
+                    <li class="obj-item">
+                        <div class="obj-num">5</div>
+                        <div class="obj-text">Analizar la estructura de correlación entre los 15 indicadores de carencia
+                            para identificar patrones de co-ocurrencia que revelen dimensiones latentes de la pobreza
+                            multidimensional.</div>
+                    </li>
+                    <li class="obj-item">
+                        <div class="obj-num">6</div>
+                        <div class="obj-text">Desarrollar un dashboard interactivo con Power BI y una aplicación Flask
+                            con Chart.js que presente los resultados mediante visualizaciones dinámicas filtradas por
+                            zona, grupo SISBEN, cluster y municipio.</div>
+                    </li>
+                    <li class="obj-item">
+                        <div class="obj-num">7</div>
+                        <div class="obj-text">Generar recomendaciones de política pública orientadas a la focalización
+                            eficiente de programas sociales con base en los perfiles de vulnerabilidad identificados.
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <hr class="divider">
+
+            <section id="alcance">
+                <span class="section__tag">05</span>
+                <h2>Alcance y Limitaciones</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+                    <div class="card card--flat">
+                        <h3 style="color:var(--verde);font-size:1rem;margin-bottom:14px">✓ Alcance</h3>
+                        <ul class="obj-list" style="gap:8px">
+                            <li class="obj-item" style="padding:10px 14px">
+                                <div class="obj-text" style="font-size:.85rem">315.612 personas · Barrido IV · 2024
+                                </div>
+                            </li>
+                            <li class="obj-item" style="padding:10px 14px">
+                                <div class="obj-text" style="font-size:.85rem">EDA, K-Means, análisis de correlación
+                                </div>
+                            </li>
+                            <li class="obj-item" style="padding:10px 14px">
+                                <div class="obj-text" style="font-size:.85rem">Python, Orange, Flask, Power BI</div>
+                            </li>
+                            <li class="obj-item" style="padding:10px 14px">
+                                <div class="obj-text" style="font-size:.85rem">Dashboard web + documento técnico</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card card--flat">
+                        <h3 style="color:var(--rojo);font-size:1rem;margin-bottom:14px">⚠ Limitaciones</h3>
+                        <ul class="obj-list" style="gap:8px">
+                            <li class="obj-item" style="padding:10px 14px">
+                                <div class="obj-text" style="font-size:.85rem">Corte único 2024-S1, sin análisis
+                                    longitudinal</div>
+                            </li>
+                            <li class="obj-item" style="padding:10px 14px">
+                                <div class="obj-text" style="font-size:.85rem">Coordenadas DIVIPOLA pendientes en
+                                    algunos municipios</div>
+                            </li>
+                            <li class="obj-item" style="padding:10px 14px">
+                                <div class="obj-text" style="font-size:.85rem">Análisis restringido a Cundinamarca</div>
+                            </li>
+                            <li class="obj-item" style="padding:10px 14px">
+                                <div class="obj-text" style="font-size:.85rem">Variables binarias limitan K-Means
+                                    euclidiano</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div>
+                <div class="footer__brand">SISBEN IV · Cundinamarca</div>
+                <p class="footer__desc">Proyecto de minería de datos · 2024</p>
+            </div>
+            <div class="footer__links">
+                <h4>Páginas</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="pgc.html">Problema</a></li>
+                    <li><a href="datos.html">Fuente de datos</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="https://www.datos.gov.co/Estad-sticas-Nacionales/DNP-Sisb-n-Personas/hq2v-5umk/about_data"
+                            target="_blank">datos.gov.co</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>© 2024 · Proyecto Minería de Datos</span>
+            <span>Datos: DNP – SISBEN IV</span>
+        </div>
+    </footer>
+
 </body>
 
 </html>
