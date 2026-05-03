@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISBEN IV Cundinamarca - Analisis de Pobreza Multidimensional</title>
+    <link rel="stylesheet" href="/proyecto_sisben/static/css/styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="navbar__inner">
+            <a href="index.html" class="navbar__brand">
+                <div class="navvbar__brand-dot">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 3h18v18H3z" opacity=".3" />
+                        <path d="M7 17l4-8 4 8M9.5 13h5" />
+                    </svg>
+                </div>
+                SISBEN IV Cundinamarca
+            </a>
+            <ul class="navbar__links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="pgc.html">Problema</a></li>
+                <li><a href="datos.html">Datos</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero__inner">
+            <div class="fade-up">
+                <div class="hero__tag">
+                    <div class="hero__tag-dot">
+                        Mineria de Datos · Cundinamarca 2026
+                    </div>
+                    <h1>Analisis de <em>pobreza</em> multidimensional con SISBEN IV</h1>
+                    <p class="hero__lead">
+                        Aplicacion de tecnicas de mineria de datos -K-Means, IPM y analisis dimensionnal- sobre 315.612
+                        registros del SISBEN IV para identificar perfiles de vulnerabilidad socioeconomica en
+                        Cundinamarca.
+                    </p>
+                    <div class="hero__btns">
+                        <a href="pgc.html" class="btn btn--ghost">Ver problema de investigacion</a>
+                        <a href="datos.html" class="btn btn--ghost">Fuente de datos</a>
+                    </div>
+                </div>
+                <div class="hero__stats fade-up fade-up--2">
+                    <div class="hero__stat">
+                        <div class="hero__stat-val">315K</div>
+                        <div class="hero__stat-lbl">Personas registradas</div>
+                        <div class="hero__stat-trend">↑ Barrido IV 2024</div>
+                    </div>
+                    <div class="hero__stat">
+                        <div class="hero__stat-val">59%</div>
+                        <div class="hero__stat-lbl">Tasa de pobreza IPM</div>
+                        <div class="hero__stat-trend">186.205 personas</div>
+                    </div>
+                    <div class="hero__stat">
+                        <div class="hero__stat-val">15</div>
+                        <div class="hero__stat-lbl">Indicadores de carencia</div>
+                        <div class="hero__stat-trend">I1 - I15</div>
+                    </div>
+                    <div class="hero__stat">
+                        <div class="hero__stat-val">4</div>
+                        <div class="hero__stat-lbl">Clusters K-Means</div>
+                        <div class="hero__stat-trend">Orange Data Mining</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section__header fade-up">
+                <span class="section__tag">Motivacion</span>
+                <h2 class="section__title"> ¿Por que analizar el SISBEN IV con mineria de datos?</h2>
+                <p class="section__subtitle">La clasificacion de institucional revela donde estan los pobres, pero no cómo se agrupan ni que patrones de carencia los definen.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card fade-up fade-up--1">
+                    <div class="why-card__icon why-card__icon--azul">
+                        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/>
+                            <path d="m21 21-4.35-4.35"/></svg>
+                    </div>
+                    <h3>Descubrir patrones ocultos</h3>
+                    <p>K-Means revela agrupaciones estadisticas que la clasificacion A-B-C-D no captura: personas con el mismo grupo SISBEN pueden tener perfiles de carencia muy distintos.</p>
+                </div>
+                <div class="why-card fade-up fade-up--2">
+                    <div class="why-card__icon why-card__icon--verde">
+                        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h3>Evidencia para la planeacion</h3>
+                    <p>El analisis del IPM y las carencias I1-I15 por municipio, zona y actividad economica genera insumos cuantitativos para la toma de decisiones del DNP y la gobernacion.</p>
+                </div>
+            </div>
+        </div>
+    </section>>
+    
+</body>
+
+</html>
