@@ -1,106 +1,203 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SISBEN IV Cundinamarca - Analisis de Pobreza Multidimensional</title>
-    <link rel="stylesheet" href="/proyecto_sisben/static/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SISBEN IV · Cundinamarca — Análisis de Pobreza Multidimensional</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
-    <nav class="navbar">
-        <div class="navbar__inner">
-            <a href="index.html" class="navbar__brand">
-                <div class="navvbar__brand-dot">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M3 3h18v18H3z" opacity=".3" />
-                        <path d="M7 17l4-8 4 8M9.5 13h5" />
-                    </svg>
-                </div>
-                SISBEN IV Cundinamarca
-            </a>
-            <ul class="navbar__links">
-                <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="pgc.html">Problema</a></li>
-                <li><a href="datos.html">Datos</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <section class="hero">
-        <div class="hero__inner">
-            <div class="fade-up">
-                <div class="hero__tag">
-                    <div class="hero__tag-dot">
-                        Mineria de Datos · Cundinamarca 2026
-                    </div>
-                    <h1>Analisis de <em>pobreza</em> multidimensional con SISBEN IV</h1>
-                    <p class="hero__lead">
-                        Aplicacion de tecnicas de mineria de datos -K-Means, IPM y analisis dimensionnal- sobre 315.612
-                        registros del SISBEN IV para identificar perfiles de vulnerabilidad socioeconomica en
-                        Cundinamarca.
-                    </p>
-                    <div class="hero__btns">
-                        <a href="pgc.html" class="btn btn--ghost">Ver problema de investigacion</a>
-                        <a href="datos.html" class="btn btn--ghost">Fuente de datos</a>
-                    </div>
-                </div>
-                <div class="hero__stats fade-up fade-up--2">
-                    <div class="hero__stat">
-                        <div class="hero__stat-val">315K</div>
-                        <div class="hero__stat-lbl">Personas registradas</div>
-                        <div class="hero__stat-trend">↑ Barrido IV 2024</div>
-                    </div>
-                    <div class="hero__stat">
-                        <div class="hero__stat-val">59%</div>
-                        <div class="hero__stat-lbl">Tasa de pobreza IPM</div>
-                        <div class="hero__stat-trend">186.205 personas</div>
-                    </div>
-                    <div class="hero__stat">
-                        <div class="hero__stat-val">15</div>
-                        <div class="hero__stat-lbl">Indicadores de carencia</div>
-                        <div class="hero__stat-trend">I1 - I15</div>
-                    </div>
-                    <div class="hero__stat">
-                        <div class="hero__stat-val">4</div>
-                        <div class="hero__stat-lbl">Clusters K-Means</div>
-                        <div class="hero__stat-trend">Orange Data Mining</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href="index.html" class="navbar__brand">
+      <div class="navbar__brand-dot">
+        <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z" opacity=".3"/><path d="M7 17l4-8 4 8M9.5 13h5"/></svg>
+      </div>
+      SISBEN IV · Cundinamarca
+    </a>
+    <ul class="navbar__links">
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="pgc.html">Problema</a></li>
+      <li><a href="datos.html">Datos</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <section class="section">
-        <div class="container">
-            <div class="section__header fade-up">
-                <span class="section__tag">Motivacion</span>
-                <h2 class="section__title"> ¿Por que analizar el SISBEN IV con mineria de datos?</h2>
-                <p class="section__subtitle">La clasificacion de institucional revela donde estan los pobres, pero no cómo se agrupan ni que patrones de carencia los definen.</p>
-            </div>
-            <div class="why-grid">
-                <div class="why-card fade-up fade-up--1">
-                    <div class="why-card__icon why-card__icon--azul">
-                        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/>
-                            <path d="m21 21-4.35-4.35"/></svg>
-                    </div>
-                    <h3>Descubrir patrones ocultos</h3>
-                    <p>K-Means revela agrupaciones estadisticas que la clasificacion A-B-C-D no captura: personas con el mismo grupo SISBEN pueden tener perfiles de carencia muy distintos.</p>
-                </div>
-                <div class="why-card fade-up fade-up--2">
-                    <div class="why-card__icon why-card__icon--verde">
-                        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                    </div>
-                    <h3>Evidencia para la planeacion</h3>
-                    <p>El analisis del IPM y las carencias I1-I15 por municipio, zona y actividad economica genera insumos cuantitativos para la toma de decisiones del DNP y la gobernacion.</p>
-                </div>
-            </div>
+
+<section class="hero">
+  <div class="hero__inner">
+    <div class="fade-up">
+      <div class="hero__tag">
+        <div class="hero__tag-dot"></div>
+        Minería de Datos · Cundinamarca 2024
+      </div>
+      <h1>Análisis de <em>pobreza</em> multidimensional con SISBEN IV</h1>
+      <p class="hero__lead">
+        Aplicación de técnicas de minería de datos —K-Means, IPM y análisis dimensional— sobre 315.612 registros del SISBEN IV para identificar perfiles de vulnerabilidad socioeconómica en Cundinamarca.
+      </p>
+      <div class="hero__btns">
+        <a href="pgc.html" class="btn btn--ghost">Ver problema de investigación</a>
+        <a href="datos.html" class="btn btn--ghost">Fuente de datos</a>
+      </div>
+    </div>
+    <div class="hero__stats fade-up fade-up--2">
+      <div class="hero__stat">
+        <div class="hero__stat-val">315k</div>
+        <div class="hero__stat-lbl">Personas registradas</div>
+        <div class="hero__stat-trend">↑ Barrido IV · 2024</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-val">59%</div>
+        <div class="hero__stat-lbl">Tasa de pobreza IPM</div>
+        <div class="hero__stat-trend">186.205 personas</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-val">15</div>
+        <div class="hero__stat-lbl">Indicadores de carencia</div>
+        <div class="hero__stat-trend">I1 — I15</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-val">4</div>
+        <div class="hero__stat-lbl">Clusters K-Means</div>
+        <div class="hero__stat-trend">Orange Data Mining</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="section__header fade-up">
+      <span class="section__tag">Motivación</span>
+      <h2 class="section__title">¿Por qué analizar el SISBEN IV con minería de datos?</h2>
+      <p class="section__subtitle">La clasificación institucional revela dónde están los pobres, pero no cómo se agrupan ni qué patrones de carencia los definen.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-up fade-up--1">
+        <div class="why-card__icon why-card__icon--azul">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         </div>
-    </section>>
-    
+        <h3>Descubrir patrones ocultos</h3>
+        <p>K-Means revela agrupaciones estadísticas que la clasificación A–B–C–D no captura: personas con el mismo grupo SISBEN pueden tener perfiles de carencia muy distintos.</p>
+      </div>
+      <div class="why-card fade-up fade-up--2">
+        <div class="why-card__icon why-card__icon--verde">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Focalización de políticas</h3>
+        <p>Identificar perfiles de vulnerabilidad permite orientar subsidios y programas sociales hacia los hogares con mayor concentración de carencias simultáneas.</p>
+      </div>
+      <div class="why-card fade-up fade-up--3">
+        <div class="why-card__icon why-card__icon--acento">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Evidencia para la planeación</h3>
+        <p>El análisis del IPM y las carencias I1–I15 por municipio, zona y actividad económica genera insumos cuantitativos para la toma de decisiones del DNP y la gobernación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header fade-up">
+      <span class="section__tag">Estructura del proyecto</span>
+      <h2 class="section__title">Explora las secciones</h2>
+      <p class="section__subtitle">Cada página profundiza en una dimensión del análisis.</p>
+    </div>
+    <div class="pages-grid">
+      <a href="pgc.html" class="page-link-card page-link-card--a fade-up fade-up--1">
+        <div class="page-link-card__num">Sección 02</div>
+        <h3>Problema, Justificación y Objetivos</h3>
+        <p>Marco conceptual del proyecto: problemática social, justificación de la investigación, planteamiento y objetivos específicos.</p>
+        <div class="page-link-card__arrow">Ir a PGC →</div>
+      </a>
+      <a href="datos.html" class="page-link-card page-link-card--b fade-up fade-up--2">
+        <div class="page-link-card__num">Sección 03</div>
+        <h3>Fuente de Datos</h3>
+        <p>Descripción del dataset SISBEN IV del DNP disponible en datos.gov.co: estructura, variables, cobertura y proceso de adquisición.</p>
+        <div class="page-link-card__arrow">Ver fuente →</div>
+      </a>
+      <a href="dashboard.html" class="page-link-card page-link-card--c fade-up fade-up--3">
+        <div class="page-link-card__num">Sección 04</div>
+        <h3>Análisis y Dashboard</h3>
+        <p>Resultados del análisis exploratorio y del modelo K-Means visualizados en dashboards interactivos de Power BI.</p>
+        <div class="page-link-card__arrow">Ver análisis →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section--white">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
+      <div class="fade-up">
+        <span class="section__tag">Metodología</span>
+        <h2 class="section__title">CRISP-DM aplicado al SISBEN IV</h2>
+        <p style="margin-bottom:28px">El proyecto sigue el estándar de la industria para minería de datos, adaptado al contexto de política social colombiana.</p>
+        <a href="pgc.html" class="btn btn--outline">Leer planteamiento completo</a>
+      </div>
+      <div class="timeline fade-up fade-up--2">
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__title">1 · Comprensión del negocio</div>
+          <div class="timeline__desc">Marco normativo SISBEN IV, identificación de necesidades de política pública y definición de preguntas de investigación.</div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__title">2 · Comprensión y preparación de datos</div>
+          <div class="timeline__desc">EDA sobre 315.612 registros, diseño del esquema estrella, unpivot de indicadores I1–I15 y limpieza en Power Query.</div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__title">3 · Modelado K-Means</div>
+          <div class="timeline__desc">Aplicación del algoritmo K-Means (k=4) en Orange Data Mining, validación con silueta y método del codo.</div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__title">4 · Evaluación y despliegue</div>
+          <div class="timeline__desc">Comparación de clusters con grupos SISBEN, dashboard Power BI con 20 visualizaciones y aplicación Flask.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__brand">SISBEN IV · Cundinamarca</div>
+      <p class="footer__desc">Proyecto de minería de datos aplicado al análisis de pobreza multidimensional. Datos del Departamento Nacional de Planeación (DNP) — Colombia 2024.</p>
+    </div>
+    <div class="footer__links">
+      <h4>Páginas</h4>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="pgc.html">Problema</a></li>
+        <li><a href="datos.html">Fuente de datos</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </div>
+    <div class="footer__links">
+      <h4>Recursos</h4>
+      <ul>
+        <li><a href="https://www.datos.gov.co/Estad-sticas-Nacionales/DNP-Sisb-n-Personas/hq2v-5umk/about_data" target="_blank">datos.gov.co</a></li>
+        <li><a href="https://orangedatamining.com/" target="_blank">Orange Data Mining</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2024 · Proyecto Minería de Datos · Cundinamarca</span>
+    <span>Datos: DNP – SISBEN IV · datos.gov.co</span>
+  </div>
+</footer>
+
 </body>
-
 </html>
