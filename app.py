@@ -131,6 +131,10 @@ def api_kmeans():
         result[col] = clust[col].tolist()
     return jsonify(result)
 
+@app.route('/kmeans')
+def kmeans():
+    """K-Means con Orange Data Mining."""
+    return render_template('kmeans.html', stats=STATS)
 
 @app.route('/api/ipm_boxplot')
 def api_ipm():

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K-Means · SISBEN IV Cundinamarca</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href="{{ url_for('index') }}" class="navbar__brand">
+      <svg class="navbar__logo" width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="21,2 37,2 45,21 37,40 21,40 13,21" fill="#0D2B5E" stroke="#3B7DD8" stroke-width="1.2"/>
+        <polygon points="23,6 35,6 41,21 35,36 23,36 17,21" fill="#1A4FA0"/>
+        <text x="21" y="27" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="700" fill="#D4860A">S</text>
+        <circle cx="8"  cy="12" r="3.5" fill="#3B7DD8"/>
+        <circle cx="8"  cy="30" r="3"   fill="#D4860A"/>
+        <circle cx="4"  cy="21" r="2.5" fill="#1A7A4A"/>
+        <line x1="13" y1="17" x2="11" y2="13" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
+        <line x1="13" y1="25" x2="11" y2="29" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
+        <line x1="13" y1="21" x2="7"  y2="21" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
+      </svg>
+      <span class="navbar__brand-text">SISBEN IV <span class="navbar__brand-sub">· Cundinamarca</span></span>
+    </a>
+    <ul class="navbar__links">
+      <li><a href="{{ url_for('index') }}">Inicio</a></li>
+      <li><a href="{{ url_for('pgc') }}">Problema</a></li>
+      <li><a href="{{ url_for('datos') }}">Datos</a></li>
+      <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+      <li><a href="{{ url_for('kmeans') }}" class="active">K-Means</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <div class="page-hero__tag">Orange Data Mining</div>
+    <h1>K-Means <em>(Orange)</em></h1>
+    <p>Segmentación no supervisada de los 315.612 registros SISBEN IV usando K-Means con k=4, aplicada sobre los 15 indicadores binarios de carencia (I1–I15).</p>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <a href="{{ url_for('index') }}">Inicio</a>
+  <span class="breadcrumb__sep">/</span>
+  <a href="{{ url_for('dashboard') }}">Análisis y Dashboard</a>
+  <span class="breadcrumb__sep">/</span>
+  <span>K-Means</span>
+</div>
+
+<div class="dash-main">
+
+  <!-- KPIs del modelo -->
+  <div class="section__header fade-up">
+    <span class="section__tag">Configuración del modelo</span>
+    <h2 class="section__title">Parámetros K-Means</h2>
+    <p class="section__subtitle">Configuración aplicada en Orange Data Mining sobre los indicadores de carencia del SISBEN IV.</p>
+  </div>
+
+  <div class="kmeans-metrics fade-up">
+    <div class="kmeans-metric kmeans-metric--azul">
+      <div class="kmeans-metric__label">Algoritmo</div>
+      <div class="kmeans-metric__val">K-Means</div>
+      <div class="kmeans-metric__sub">Distancia euclidiana</div>
+    </div>
+    <div class="kmeans-metric kmeans-metric--acento">
+      <div class="kmeans-metric__label">Clusters</div>
+      <div class="kmeans-metric__val">k = 4</div>
+      <div class="kmeans-metric__sub">Validado con método del codo</div>
+    </div>
+    <div class="kmeans-metric kmeans-metric--verde">
+      <div class="kmeans-metric__label">Variables</div>
+      <div class="kmeans-metric__val">15</div>
+      <div class="kmeans-metric__sub">Indicadores binarios I1–I15</div>
+    </div>
+    <div class="kmeans-metric kmeans-metric--purpura">
+      <div class="kmeans-metric__label">Re-inicios</div>
+      <div class="kmeans-metric__val">10</div>
+      <div class="kmeans-metric__sub">100 iteraciones máx.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Flujo de trabajo -->
+  <div class="section__header fade-up">
+    <span class="section__tag">Metodología</span>
+    <h2 class="section__title">Flujo en Orange Data Mining</h2>
+    <p class="section__subtitle">Pipeline completo desde la carga del dataset hasta la evaluación del modelo de clustering.</p>
+  </div>
+
+  <div class="kmeans-flow-horiz fade-up">
+    <div class="kmeans-flow-step">
+      <div class="kmeans-flow-step__dot kmeans-flow-step__dot--azul">1</div>
+      <div class="kmeans-flow-step__title">CSV File</div>
+      <div class="kmeans-flow-step__desc">Carga de fact_persona.csv con variables I1–I15 normalizadas</div>
+    </div>
+    <div class="kmeans-flow-arrow">→</div>
+    <div class="kmeans-flow-step">
+      <div class="kmeans-flow-step__dot kmeans-flow-step__dot--acento">2</div>
+      <div class="kmeans-flow-step__title">Select Columns</div>
+      <div class="kmeans-flow-step__desc">Selección de los 15 indicadores binarios de carencia</div>
+    </div>
+    <div class="kmeans-flow-arrow">→</div>
+    <div class="kmeans-flow-step">
+      <div class="kmeans-flow-step__dot kmeans-flow-step__dot--verde">3</div>
+      <div class="kmeans-flow-step__title">k-Means</div>
+      <div class="kmeans-flow-step__desc">k=4, distancia euclidiana, 10 re-inicios, 100 iteraciones</div>
+    </div>
+    <div class="kmeans-flow-arrow">→</div>
+    <div class="kmeans-flow-step">
+      <div class="kmeans-flow-step__dot kmeans-flow-step__dot--purpura">4</div>
+      <div class="kmeans-flow-step__title">Evaluación</div>
+      <div class="kmeans-flow-step__desc">Box Plot · Silhouette · Método del codo</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Perfiles de clusters -->
+  <div class="section__header fade-up">
+    <span class="section__tag">Resultados</span>
+    <h2 class="section__title">Perfiles de los 4 clusters</h2>
+    <p class="section__subtitle">Cada cluster agrupa personas con patrones similares de carencia, revelando heterogeneidad que la clasificación A–D no captura.</p>
+  </div>
+
+  <div class="kmeans-clusters-grid fade-up">
+    <div class="kmeans-cluster-card kmeans-cluster-card--acento">
+      <div class="kmeans-cluster-card__num">Cluster 0</div>
+      <div class="kmeans-cluster-card__name">Alta vulnerabilidad</div>
+      <div class="kmeans-cluster-card__desc">Concentra las mayores carencias simultáneas en educación, salud y vivienda. Fuerte predominio de los grupos A y B del SISBEN institucional.</div>
+      <div class="kmeans-cluster-card__tags">
+        <span>Sin logro educativo</span>
+        <span>Sin aseguramiento salud</span>
+        <span>Pisos inadecuados</span>
+      </div>
+    </div>
+    <div class="kmeans-cluster-card kmeans-cluster-card--azul">
+      <div class="kmeans-cluster-card__num">Cluster 1</div>
+      <div class="kmeans-cluster-card__name">Carencias laborales</div>
+      <div class="kmeans-cluster-card__desc">Desempleo de larga duración e informalidad como carencias dominantes. Baja presencia de carencias de vivienda. Grupo B–C predominante.</div>
+      <div class="kmeans-cluster-card__tags">
+        <span>Desempleo larga duración</span>
+        <span>Empleo informal</span>
+        <span>Sin protección vejez</span>
+      </div>
+    </div>
+    <div class="kmeans-cluster-card kmeans-cluster-card--verde">
+      <div class="kmeans-cluster-card__num">Cluster 2</div>
+      <div class="kmeans-cluster-card__name">Vulnerabilidad media</div>
+      <div class="kmeans-cluster-card__desc">Carencias moderadas concentradas en protección a la vejez y acceso a servicios de salud. Perfil predominantemente urbano. Grupo C.</div>
+      <div class="kmeans-cluster-card__tags">
+        <span>Sin protección vejez</span>
+        <span>Sin acceso a salud</span>
+        <span>Rezago escolar</span>
+      </div>
+    </div>
+    <div class="kmeans-cluster-card kmeans-cluster-card--purpura">
+      <div class="kmeans-cluster-card__num">Cluster 3</div>
+      <div class="kmeans-cluster-card__name">Baja carencia</div>
+      <div class="kmeans-cluster-card__desc">Perfil de menor privación relativa con pocas carencias activas. Predominio del grupo D – No pobre. Mayor concentración en zonas urbanas.</div>
+      <div class="kmeans-cluster-card__tags">
+        <span>Empleo informal residual</span>
+        <span>Sin logro educativo leve</span>
+        <span>Grupo D mayoritario</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Validación del modelo -->
+  <div class="section__header fade-up">
+    <span class="section__tag">Validación</span>
+    <h2 class="section__title">Evaluación del modelo</h2>
+    <p class="section__subtitle">Criterios utilizados para seleccionar k=4 y validar la calidad de la segmentación.</p>
+  </div>
+
+  <div class="kmeans-validation fade-up">
+    <div class="kmeans-val-card">
+      <div class="kmeans-val-card__icon kmeans-val-card__icon--azul">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h4>Método del codo</h4>
+      <p>Se evaluaron valores de k entre 2 y 8. La curva de inercia mostró un punto de inflexión claro en k=4, justificando la elección de 4 clusters.</p>
+    </div>
+    <div class="kmeans-val-card">
+      <div class="kmeans-val-card__icon kmeans-val-card__icon--acento">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <h4>Coeficiente de silueta</h4>
+      <p>El análisis de silueta en Orange Data Mining confirmó una separación aceptable entre clusters, con valores positivos en la mayoría de observaciones.</p>
+    </div>
+    <div class="kmeans-val-card">
+      <div class="kmeans-val-card__icon kmeans-val-card__icon--verde">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </div>
+      <h4>Matriz de contingencia</h4>
+      <p>Comparación entre los clusters K-Means y los grupos SISBEN institucionales (A–D) para evaluar coherencia entre la segmentación estadística y la clasificación oficial.</p>
+    </div>
+    <div class="kmeans-val-card">
+      <div class="kmeans-val-card__icon kmeans-val-card__icon--purpura">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <h4>Box Plot por cluster</h4>
+      <p>Distribución del IPM score por cluster visualizada en Orange, verificando que cada grupo presenta una distribución diferenciada del índice de pobreza multidimensional.</p>
+    </div>
+  </div>
+
+
+
+</div>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__brand">SISBEN IV · Cundinamarca</div>
+      <p class="footer__desc">Proyecto de minería de datos · 2024</p>
+    </div>
+    <div class="footer__links">
+      <h4>Páginas</h4>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+        <li><a href="{{ url_for('pgc') }}">Problema</a></li>
+        <li><a href="{{ url_for('datos') }}">Fuente de datos</a></li>
+        <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li><a href="{{ url_for('kmeans') }}">K-Means</a></li>
+      </ul>
+    </div>
+    <div class="footer__links">
+      <h4>Herramientas</h4>
+      <ul>
+        <li><a href="https://www.datos.gov.co/Estad-sticas-Nacionales/DNP-Sisb-n-Personas/hq2v-5umk/about_data" target="_blank">datos.gov.co</a></li>
+        <li><a href="https://orangedatamining.com/" target="_blank">Orange Data Mining</a></li>
+        <li><a href="https://powerbi.microsoft.com/" target="_blank">Power BI</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2024 · Proyecto Minería de Datos</span>
+    <span>Datos: DNP – SISBEN IV</span>
+  </div>
+</footer>
+
+</body>
+</html>
