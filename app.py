@@ -9,7 +9,7 @@ app = Flask(__name__)
 BASE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(BASE, 'data')
 
-print("⏳ Cargando datos SISBEN IV...")
+print(" Cargando datos SISBEN IV...")
 
 fact      = pd.read_csv(os.path.join(DATA, 'fact_persona.csv'),  encoding='utf-8-sig')
 sisben    = pd.read_csv(os.path.join(DATA, 'dim_sisben.csv'),    encoding='utf-8-sig')
@@ -23,7 +23,7 @@ df = (fact
       .merge(municipio, on='municipio_sk')
       .merge(zona,      on='zona_sk'))
 
-print(f"✅ Datos cargados: {len(df):,} registros")
+print(f" Datos cargados: {len(df):,} registros")
 
 CARENCIAS = ['I1','I2','I3','I4','I5','I6','I7',
              'I8','I9','I10','I11','I12','I13','I14','I15']
