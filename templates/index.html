@@ -4,24 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SISBEN IV · Cundinamarca — Análisis de Pobreza Multidimensional</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
 </head>
 <body>
 
-
 <nav class="navbar">
   <div class="navbar__inner">
-    <a href="index.html" class="navbar__brand">
-      <div class="navbar__brand-dot">
-        <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z" opacity=".3"/><path d="M7 17l4-8 4 8M9.5 13h5"/></svg>
-      </div>
-      SISBEN IV · Cundinamarca
+    <a href="{{ url_for('index') }}" class="navbar__brand">
+      <svg class="navbar__logo" width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="21,2 37,2 45,21 37,40 21,40 13,21" fill="#0D2B5E" stroke="#3B7DD8" stroke-width="1.2"/>
+        <polygon points="23,6 35,6 41,21 35,36 23,36 17,21" fill="#1A4FA0"/>
+        <text x="21" y="27" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="700" fill="#D4860A">S</text>
+        <circle cx="8"  cy="12" r="3.5" fill="#3B7DD8"/>
+        <circle cx="8"  cy="30" r="3"   fill="#D4860A"/>
+        <circle cx="4"  cy="21" r="2.5" fill="#1A7A4A"/>
+        <line x1="13" y1="17" x2="11" y2="13" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
+        <line x1="13" y1="25" x2="11" y2="29" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
+        <line x1="13" y1="21" x2="7"  y2="21" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
+      </svg>
+      <span class="navbar__brand-text">SISBEN IV <span class="navbar__brand-sub">· Cundinamarca</span></span>
     </a>
     <ul class="navbar__links">
-      <li><a href="index.html" class="active">Inicio</a></li>
-      <li><a href="pgc.html">Problema</a></li>
-      <li><a href="datos.html">Datos</a></li>
-      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="{{ url_for('index') }}" class="active">Inicio</a></li>
+      <li><a href="{{ url_for('pgc') }}">Problema</a></li>
+      <li><a href="{{ url_for('datos') }}">Datos</a></li>
+      <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
     </ul>
   </div>
 </nav>
@@ -39,18 +47,18 @@
         Aplicación de técnicas de minería de datos —K-Means, IPM y análisis dimensional— sobre 315.612 registros del SISBEN IV para identificar perfiles de vulnerabilidad socioeconómica en Cundinamarca.
       </p>
       <div class="hero__btns">
-        <a href="pgc.html" class="btn btn--ghost">Ver problema de investigación</a>
-        <a href="datos.html" class="btn btn--ghost">Fuente de datos</a>
+        <a href="{{ url_for('pgc') }}" class="btn btn--ghost">Ver problema de investigación</a>
+        <a href="{{ url_for('datos') }}" class="btn btn--ghost">Fuente de datos</a>
       </div>
     </div>
     <div class="hero__stats fade-up fade-up--2">
       <div class="hero__stat">
-        <div class="hero__stat-val">315k</div>
+        <div class="hero__stat-val">{{ stats.total }}</div>
         <div class="hero__stat-lbl">Personas registradas</div>
         <div class="hero__stat-trend">↑ Barrido IV · 2024</div>
       </div>
       <div class="hero__stat">
-        <div class="hero__stat-val">59%</div>
+        <div class="hero__stat-val">{{ stats.pct_pob }}</div>
         <div class="hero__stat-lbl">Tasa de pobreza IPM</div>
         <div class="hero__stat-trend">186.205 personas</div>
       </div>
@@ -67,7 +75,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="section">
   <div class="container">
@@ -111,19 +118,19 @@
       <p class="section__subtitle">Cada página profundiza en una dimensión del análisis.</p>
     </div>
     <div class="pages-grid">
-      <a href="pgc.html" class="page-link-card page-link-card--a fade-up fade-up--1">
+      <a href="{{ url_for('pgc') }}" class="page-link-card page-link-card--a fade-up fade-up--1">
         <div class="page-link-card__num">Sección 02</div>
         <h3>Problema, Justificación y Objetivos</h3>
         <p>Marco conceptual del proyecto: problemática social, justificación de la investigación, planteamiento y objetivos específicos.</p>
         <div class="page-link-card__arrow">Ir a PGC →</div>
       </a>
-      <a href="datos.html" class="page-link-card page-link-card--b fade-up fade-up--2">
+      <a href="{{ url_for('datos') }}" class="page-link-card page-link-card--b fade-up fade-up--2">
         <div class="page-link-card__num">Sección 03</div>
         <h3>Fuente de Datos</h3>
         <p>Descripción del dataset SISBEN IV del DNP disponible en datos.gov.co: estructura, variables, cobertura y proceso de adquisición.</p>
         <div class="page-link-card__arrow">Ver fuente →</div>
       </a>
-      <a href="dashboard.html" class="page-link-card page-link-card--c fade-up fade-up--3">
+      <a href="{{ url_for('dashboard') }}" class="page-link-card page-link-card--c fade-up fade-up--3">
         <div class="page-link-card__num">Sección 04</div>
         <h3>Análisis y Dashboard</h3>
         <p>Resultados del análisis exploratorio y del modelo K-Means visualizados en dashboards interactivos de Power BI.</p>
@@ -139,30 +146,35 @@
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
       <div class="fade-up">
         <span class="section__tag">Metodología</span>
-        <h2 class="section__title">CRISP-DM aplicado al SISBEN IV</h2>
-        <p style="margin-bottom:28px">El proyecto sigue el estándar de la industria para minería de datos, adaptado al contexto de política social colombiana.</p>
-        <a href="pgc.html" class="btn btn--outline">Leer planteamiento completo</a>
+        <h2 class="section__title">Metodología SEMMA aplicada al SISBEN IV</h2>
+        <p style="margin-bottom:28px">El proyecto sigue la metodología <strong>SEMMA</strong> de SAS Institute — <em>Sample, Explore, Modify, Model, Assess</em> — adaptada al análisis de pobreza multidimensional en Cundinamarca.</p>
+        <a href="{{ url_for('pgc') }}" class="btn btn--outline">Leer planteamiento completo</a>
       </div>
       <div class="timeline fade-up fade-up--2">
         <div class="timeline__item">
           <div class="timeline__dot"></div>
-          <div class="timeline__title">1 · Comprensión del negocio</div>
-          <div class="timeline__desc">Marco normativo SISBEN IV, identificación de necesidades de política pública y definición de preguntas de investigación.</div>
+          <div class="timeline__title">S · Sample — Muestra</div>
+          <div class="timeline__desc">Selección de los 315.612 registros del Barrido IV del SISBEN en Cundinamarca (2024) disponibles en datos.gov.co. Definición del universo de análisis y variables de interés.</div>
         </div>
         <div class="timeline__item">
           <div class="timeline__dot"></div>
-          <div class="timeline__title">2 · Comprensión y preparación de datos</div>
-          <div class="timeline__desc">EDA sobre 315.612 registros, diseño del esquema estrella, unpivot de indicadores I1–I15 y limpieza en Power Query.</div>
+          <div class="timeline__title">E · Explore — Exploración</div>
+          <div class="timeline__desc">Análisis exploratorio (EDA): distribuciones de variables sociodemográficas, prevalencia de carencias I1–I15, identificación de valores atípicos y patrones iniciales.</div>
         </div>
         <div class="timeline__item">
           <div class="timeline__dot"></div>
-          <div class="timeline__title">3 · Modelado K-Means</div>
-          <div class="timeline__desc">Aplicación del algoritmo K-Means (k=4) en Orange Data Mining, validación con silueta y método del codo.</div>
+          <div class="timeline__title">M · Modify — Modificación</div>
+          <div class="timeline__desc">Diseño del esquema estrella, normalización, creación de variables derivadas (grupo_edad, Estado Pobreza), unpivot de indicadores y limpieza en Power Query.</div>
         </div>
         <div class="timeline__item">
           <div class="timeline__dot"></div>
-          <div class="timeline__title">4 · Evaluación y despliegue</div>
-          <div class="timeline__desc">Comparación de clusters con grupos SISBEN, dashboard Power BI con 20 visualizaciones y aplicación Flask.</div>
+          <div class="timeline__title">M · Model — Modelado</div>
+          <div class="timeline__desc">Aplicación del algoritmo K-Means (k=4) en Orange Data Mining sobre los 15 indicadores binarios de carencia. Validación con silueta y método del codo.</div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__title">A · Assess — Evaluación</div>
+          <div class="timeline__desc">Comparación de clusters con grupos SISBEN institucionales, análisis de coherencia, dashboard Power BI con 20 visualizaciones y aplicación Flask interactiva.</div>
         </div>
       </div>
     </div>
@@ -179,10 +191,10 @@
     <div class="footer__links">
       <h4>Páginas</h4>
       <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="pgc.html">Problema</a></li>
-        <li><a href="datos.html">Fuente de datos</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+        <li><a href="{{ url_for('pgc') }}">Problema</a></li>
+        <li><a href="{{ url_for('datos') }}">Fuente de datos</a></li>
+        <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
       </ul>
     </div>
     <div class="footer__links">

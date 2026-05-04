@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fuente de Datos · SISBEN IV Cundinamarca</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href="{{ url_for('index') }}" class="navbar__brand">
+      <svg class="navbar__logo" width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="21,2 37,2 45,21 37,40 21,40 13,21" fill="#0D2B5E" stroke="#3B7DD8" stroke-width="1.2"/>
+        <polygon points="23,6 35,6 41,21 35,36 23,36 17,21" fill="#1A4FA0"/>
+        <text x="21" y="27" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="700" fill="#D4860A">S</text>
+        <circle cx="8"  cy="12" r="3.5" fill="#3B7DD8"/>
+        <circle cx="8"  cy="30" r="3"   fill="#D4860A"/>
+        <circle cx="4"  cy="21" r="2.5" fill="#1A7A4A"/>
+        <line x1="13" y1="17" x2="11" y2="13" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
+        <line x1="13" y1="25" x2="11" y2="29" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
+        <line x1="13" y1="21" x2="7"  y2="21" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
+      </svg>
+      <span class="navbar__brand-text">SISBEN IV <span class="navbar__brand-sub">· Cundinamarca</span></span>
+    </a>
+    <ul class="navbar__links">
+      <li><a href="{{ url_for('index') }}">Inicio</a></li>
+      <li><a href="{{ url_for('pgc') }}">Problema</a></li>
+      <li><a href="{{ url_for('datos') }}" class="active">Datos</a></li>
+      <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <div class="page-hero__tag"> Dataset</div>
+    <h1>Fuente de Datos</h1>
+    <p>Descripción del conjunto de datos SISBEN IV del Departamento Nacional de Planeación (DNP), disponible en el portal de datos abiertos de Colombia.</p>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <a href="{{ url_for('index') }}">Inicio</a>
+  <span class="breadcrumb__sep">/</span>
+  <span>Fuente de Datos</span>
+</div>
+
+<div class="datos-main">
+
+
+  <div class="fuente-card fade-up">
+    <div>
+      <div class="fuente-card__badge">
+        <div class="fuente-card__badge-dot"></div>
+        Datos abiertos · Acceso público
+      </div>
+      <h2>DNP – SISBEN Personas · Cundinamarca</h2>
+      <p>Registro oficial de personas clasificadas en el Sistema de Identificación de Potenciales Beneficiarios de Programas Sociales (SISBEN IV) para el departamento de Cundinamarca. Publicado por el Departamento Nacional de Planeación en el portal datos.gov.co.</p>
+    </div>
+    <div class="fuente-card__cta">
+      <div class="fuente-card__logo">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <a href="https://www.datos.gov.co/Estad-sticas-Nacionales/DNP-Sisb-n-Personas/hq2v-5umk/about_data" target="_blank" class="btn btn--primary">
+        Ir al dataset ↗
+      </a>
+    </div>
+  </div>
+
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Metadatos</span>
+    <h2 class="section__title">Características del dataset</h2>
+  </div>
+  <div class="meta-grid fade-up">
+    <div class="meta-item">
+      <div class="meta-item__label">Total de registros</div>
+      <div class="meta-item__val">315.612</div>
+      <div class="meta-item__sub">personas individuales</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-item__label">Cobertura geográfica</div>
+      <div class="meta-item__val">Cundinamarca</div>
+      <div class="meta-item__sub">Colombia · múltiples municipios</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-item__label">Año de corte</div>
+      <div class="meta-item__val">2024 · S1</div>
+      <div class="meta-item__sub">Barrido IV del SISBEN</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-item__label">Formato original</div>
+      <div class="meta-item__val">CSV / API</div>
+      <div class="meta-item__sub">datos.gov.co (Socrata)</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-item__label">Publicado por</div>
+      <div class="meta-item__val">DNP</div>
+      <div class="meta-item__sub">Dep. Nacional de Planeación</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-item__label">Indicadores IPM</div>
+      <div class="meta-item__val">15 (I1–I15)</div>
+      <div class="meta-item__sub">variables binarias de carencia</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="var-section fade-up">
+    <span class="section__tag">Estructura</span>
+    <h2 class="section__title" style="margin-bottom:8px">Variables del modelo dimensional</h2>
+    <p class="section__subtitle">El dataset fue transformado en un esquema estrella con 1 tabla de hechos y 5 dimensiones.</p>
+
+    <div class="var-section">
+      <h3> Claves del esquema</h3>
+      <div class="var-chips">
+        <span class="var-chip var-chip--key"><span class="var-chip__dot"></span>persona_fact_sk</span>
+        <span class="var-chip var-chip--key"><span class="var-chip__dot"></span>municipio_sk</span>
+        <span class="var-chip var-chip--key"><span class="var-chip__dot"></span>persona_sk</span>
+        <span class="var-chip var-chip--key"><span class="var-chip__dot"></span>sisben_sk</span>
+        <span class="var-chip var-chip--key"><span class="var-chip__dot"></span>zona_sk</span>
+        <span class="var-chip var-chip--key"><span class="var-chip__dot"></span>tiempo_sk</span>
+      </div>
+    </div>
+
+    <div class="var-section">
+      <h3> Indicadores de carencia IPM (variables objetivo)</h3>
+      <div class="var-chips">
+        <span class="var-chip var-chip--fact">I1 · Sin logro educativo</span>
+        <span class="var-chip var-chip--fact">I2 · Analfabetismo</span>
+        <span class="var-chip var-chip--fact">I3 · Asistencia escolar</span>
+        <span class="var-chip var-chip--fact">I4 · Rezago escolar</span>
+        <span class="var-chip var-chip--fact">I5 · Trabajo infantil</span>
+        <span class="var-chip var-chip--fact">I6 · Desempleo larga duración</span>
+        <span class="var-chip var-chip--fact">I7 · Empleo informal</span>
+        <span class="var-chip var-chip--fact">I8 · Sin aseguramiento salud</span>
+        <span class="var-chip var-chip--fact">I9 · Sin acceso servicios salud</span>
+        <span class="var-chip var-chip--fact">I10 · Sin protección vejez</span>
+        <span class="var-chip var-chip--fact">I11 · Sin agua mejorada</span>
+        <span class="var-chip var-chip--fact">I12 · Inadecuada eliminación excretas</span>
+        <span class="var-chip var-chip--fact">I13 · Pisos inadecuados</span>
+        <span class="var-chip var-chip--fact">I14 · Paredes inadecuadas</span>
+        <span class="var-chip var-chip--fact">I15 · Hacinamiento crítico</span>
+      </div>
+    </div>
+
+    <div class="var-section">
+      <h3> Variables sociodemográficas</h3>
+      <div class="var-chips">
+        <span class="var-chip">sexo</span>
+        <span class="var-chip">edad</span>
+        <span class="var-chip">grupo_edad</span>
+        <span class="var-chip">alfabetismo</span>
+        <span class="var-chip">nivel_educativo</span>
+        <span class="var-chip">cotiza_pension</span>
+        <span class="var-chip">actividad_economica</span>
+        <span class="var-chip">zona_desc</span>
+        <span class="var-chip">nom_municipio</span>
+        <span class="var-chip">grupo_desc</span>
+        <span class="var-chip">clasificacion_desc</span>
+        <span class="var-chip">ipm_score</span>
+        <span class="var-chip">es_pobre_ipm</span>
+        <span class="var-chip">cluster_kmeans</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="esquema-box fade-up">
+    <span class="section__tag">Arquitectura</span>
+    <h3>Esquema estrella — Data Warehouse</h3>
+    <div class="schema-grid">
+      <div class="schema-dim">
+        <div class="schema-dim__name">dim_municipio</div>
+        <div class="schema-dim__cols">municipio_sk · cod_mpio · nom_municipio · nom_departamento · latitud · longitud</div>
+      </div>
+      <div class="schema-dim">
+        <div class="schema-dim__name">dim_persona</div>
+        <div class="schema-dim__cols">persona_sk · sexo · edad · alfabetismo · nivel_educativo · cotiza_pension · actividad_economica · grupo_edad</div>
+      </div>
+      <div class="schema-dim">
+        <div class="schema-dim__name">dim_sisben</div>
+        <div class="schema-dim__cols">sisben_sk · Grupo_cod · Nivel · grupo_desc · clasificacion_desc</div>
+      </div>
+      <div></div>
+      <div class="schema-fact">
+        <div class="schema-fact__name">fact_persona</div>
+        <div class="schema-fact__cols">persona_fact_sk · I1–I15 · ipm_score · es_pobre_ipm · cluster_kmeans · H_5</div>
+      </div>
+      <div></div>
+      <div class="schema-dim">
+        <div class="schema-dim__name">dim_zona</div>
+        <div class="schema-dim__cols">zona_sk · zona_cod · zona_desc · tipo</div>
+      </div>
+      <div class="schema-dim">
+        <div class="schema-dim__name">dim_tiempo</div>
+        <div class="schema-dim__cols">tiempo_sk · anio_corte · semestre · version_barrido · descripcion</div>
+      </div>
+      <div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+
+  <div class="fade-up">
+    <span class="section__tag">Proceso</span>
+    <h2 class="section__title">¿Cómo se obtuvieron los datos?</h2>
+    <p class="section__subtitle">El dataset fue descargado directamente del portal de datos abiertos del Estado colombiano y procesado en un esquema dimensional.</p>
+    <div class="proceso-steps">
+      <div class="proceso-step">
+        <div class="proceso-step__num">PASO 1</div>
+        <h4>Acceso al portal</h4>
+        <p>Descarga directa desde datos.gov.co, sección Estadísticas Nacionales · DNP – SISBEN Personas. Formato CSV.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-step__num">PASO 2</div>
+        <h4>Limpieza y transformación</h4>
+        <p>Normalización de campos, reemplazo de códigos por descripciones, creación de columnas derivadas (grupo_edad, Estado Pobreza, cluster_kmeans).</p>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-step__num">PASO 3</div>
+        <h4>Modelado dimensional</h4>
+        <p>Separación en tablas dimensionales y tabla de hechos siguiendo el patrón de esquema estrella para análisis OLAP.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-step__num">PASO 4</div>
+        <h4>Carga en Power BI y Flask</h4>
+        <p>Importación con Power Query, configuración de relaciones y unpivot de I1–I15. Carga paralela en aplicación Flask con Pandas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Licencia -->
+  <div class="licencia-box fade-up">
+    <div class="licencia-icon"></div>
+    <div>
+      <h4>Licencia y atribución</h4>
+      <p>Los datos son de acceso público y fueron publicados por el Departamento Nacional de Planeación (DNP) de Colombia en el portal <strong>datos.gov.co</strong> bajo los principios de datos abiertos del Estado colombiano. Su uso en este proyecto es exclusivamente académico e investigativo. Referencia: <em>DNP – SISBEN Personas / hq2v-5umk · Barrido IV 2024.</em></p>
+    </div>
+  </div>
+
+</div>
+
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__brand">SISBEN IV · Cundinamarca</div>
+      <p class="footer__desc">Proyecto de minería de datos · 2024</p>
+    </div>
+    <div class="footer__links">
+      <h4>Páginas</h4>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+        <li><a href="{{ url_for('pgc') }}">Problema</a></li>
+        <li><a href="{{ url_for('datos') }}">Fuente de datos</a></li>
+        <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+      </ul>
+    </div>
+    <div class="footer__links">
+      <h4>Fuente</h4>
+      <ul>
+        <li><a href="https://www.datos.gov.co/Estad-sticas-Nacionales/DNP-Sisb-n-Personas/hq2v-5umk/about_data" target="_blank">DNP · datos.gov.co</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2024 · Proyecto Minería de Datos</span>
+    <span>Datos: DNP – SISBEN IV</span>
+  </div>
+</footer>
+
+</body>
+</html>
