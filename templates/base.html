@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}SISBEN IV · Cundinamarca{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href="{{ url_for('index') }}" class="navbar__brand">
+      <div class="navbar__brand-dot">
+        <svg viewBox="0 0 24 24" fill="white" width="14" height="14">
+          <path d="M3 3h18v18H3z" opacity=".3"/>
+          <path d="M7 17l4-8 4 8M9.5 13h5" stroke="white" fill="none" stroke-width="2"/>
+        </svg>
+      </div>
+      SISBEN IV · Cundinamarca
+    </a>
+    <ul class="navbar__links">
+      <li><a href="{{ url_for('index') }}"     {% if active == 'index'     %}class="active"{% endif %}>Inicio</a></li>
+      <li><a href="{{ url_for('pgc') }}"       {% if active == 'pgc'       %}class="active"{% endif %}>Problema</a></li>
+      <li><a href="{{ url_for('datos') }}"     {% if active == 'datos'     %}class="active"{% endif %}>Datos</a></li>
+      <li><a href="{{ url_for('dashboard') }}" {% if active == 'dashboard' %}class="active"{% endif %}>Dashboard</a></li>
+    </ul>
+  </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__brand">SISBEN IV · Cundinamarca</div>
+      <p class="footer__desc">Proyecto de minería de datos aplicado al análisis de pobreza multidimensional. Datos del Departamento Nacional de Planeación (DNP) — Colombia 2024.</p>
+    </div>
+    <div class="footer__links">
+      <h4>Páginas</h4>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+        <li><a href="{{ url_for('pgc') }}">Problema</a></li>
+        <li><a href="{{ url_for('datos') }}">Fuente de datos</a></li>
+        <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+      </ul>
+    </div>
+    <div class="footer__links">
+      <h4>Recursos</h4>
+      <ul>
+        <li><a href="https://www.datos.gov.co/Estad-sticas-Nacionales/DNP-Sisb-n-Personas/hq2v-5umk/about_data" target="_blank">datos.gov.co</a></li>
+        <li><a href="https://orangedatamining.com/" target="_blank">Orange Data Mining</a></li>
+        <li><a href="https://powerbi.microsoft.com/" target="_blank">Power BI</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2024 · Proyecto Minería de Datos · Cundinamarca</span>
+    <span>Datos: DNP – SISBEN IV · datos.gov.co</span>
+  </div>
+</footer>
+
+{% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análisis · SISBEN IV Cundinamarca</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href="{{ url_for('index') }}" class="navbar__brand">
+      <div class="navbar__brand-dot">
+        <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M3 3h18v18H3z" opacity=".3"/><path d="M7 17l4-8 4 8M9.5 13h5" stroke="white" fill="none" stroke-width="2"/></svg>
+      </div>
+      SISBEN IV · Cundinamarca
+    </a>
+    <ul class="navbar__links">
+      <li><a href="{{ url_for('index') }}">Inicio</a></li>
+      <li><a href="{{ url_for('pgc') }}">Problema</a></li>
+      <li><a href="{{ url_for('datos') }}">Datos</a></li>
+      <li><a href="{{ url_for('dashboard') }}" class="active">Dashboard</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <div class="page-hero__tag">📊 Power BI</div>
+    <h1>Análisis y Dashboard</h1>
+    <p>Resultados del análisis exploratorio y del modelo K-Means sobre el SISBEN IV de Cundinamarca, visualizados en dashboards interactivos de Power BI.</p>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <a href="{{ url_for('index') }}">Inicio</a>
+  <span class="breadcrumb__sep">/</span>
+  <span>Análisis y Dashboard</span>
+</div>
+
+<div class="dash-main">
+
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Resumen ejecutivo</span>
+    <h2 class="section__title">Hallazgos principales</h2>
+    <p class="section__subtitle">Cifras clave extraídas del análisis de los 315.612 registros del SISBEN IV.</p>
+  </div>
+  <div class="kpi-mini-grid fade-up">
+    <div class="kpi-mini"><div class="kpi-mini__val">{{ stats.total }}</div><div class="kpi-mini__lbl">Personas analizadas</div></div>
+    <div class="kpi-mini"><div class="kpi-mini__val">{{ stats.pct_pob }}</div><div class="kpi-mini__lbl">Tasa pobreza IPM</div></div>
+    <div class="kpi-mini"><div class="kpi-mini__val">{{ stats.carencia_top }}</div><div class="kpi-mini__lbl">Carencia más frecuente</div></div>
+    <div class="kpi-mini"><div class="kpi-mini__val">4</div><div class="kpi-mini__lbl">Clusters K-Means</div></div>
+    <div class="kpi-mini"><div class="kpi-mini__val">20</div><div class="kpi-mini__lbl">Visualizaciones PBI</div></div>
+    <div class="kpi-mini"><div class="kpi-mini__val">6</div><div class="kpi-mini__lbl">Páginas del reporte</div></div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section__header fade-up">
+    <span class="section__tag section__tag--acento">Power BI Embedded</span>
+    <h2 class="section__title">Dashboard interactivo</h2>
+    <p class="section__subtitle">El reporte de Power BI se incrustará aquí mediante un iframe de embed público. Mientras tanto, se presenta la estructura del análisis.</p>
+  </div>
+
+  <div class="pbi-placeholder fade-up">
+    <div class="pbi-placeholder__icon">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><path d="M7 6h.01M12 6h.01"/></svg>
+    </div>
+    <h3>Dashboard Power BI</h3>
+    <p>Aquí se incrustará el reporte publicado de Power BI. Para publicar, ve a Power BI Service → Publicar en web → copia el código iframe y reemplaza este bloque.</p>
+    <code>&lt;iframe src="TU_URL_EMBED_AQUI" frameborder="0" allowfullscreen="true" width="100%" height="520"&gt;&lt;/iframe&gt;</code>
+  </div>
+
+  <hr class="divider">
+
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Estructura</span>
+    <h2 class="section__title">Páginas del reporte Power BI</h2>
+    <p class="section__subtitle">El dashboard está organizado en 6 páginas temáticas, cada una con sus visualizaciones específicas.</p>
+  </div>
+
+  <div class="paginas-list fade-up">
+    <div class="pagina-item">
+      <div class="pagina-num">01</div>
+      <div class="pagina-info">
+        <h4>KPIs y resumen general</h4>
+        <p>Tarjetas de indicadores clave, torta estado de pobreza IPM, zona urbano vs rural</p>
+      </div>
+      <div class="pagina-badges"><span class="done-badge">✓ Completa</span></div>
+    </div>
+    <div class="pagina-item">
+      <div class="pagina-num">02</div>
+      <div class="pagina-info">
+        <h4>Perfil social</h4>
+        <p>Cotización a pensión, pobreza por zona, nivel educativo por grupo SISBEN, género</p>
+      </div>
+      <div class="pagina-badges"><span class="done-badge">✓ Completa</span></div>
+    </div>
+    <div class="pagina-item">
+      <div class="pagina-num">03</div>
+      <div class="pagina-info">
+        <h4>Distribución SISBEN</h4>
+        <p>Grupos A–D, grupo de edad, alfabetismo, actividad económica vs pobreza</p>
+      </div>
+      <div class="pagina-badges"><span class="done-badge">✓ Completa</span></div>
+    </div>
+    <div class="pagina-item">
+      <div class="pagina-num">04</div>
+      <div class="pagina-info">
+        <h4>Mapa geográfico</h4>
+        <p>Distribución por municipio con mapa de burbujas, filtros de clasificación y departamento</p>
+      </div>
+      <div class="pagina-badges"><span class="done-badge">✓ Completa</span></div>
+    </div>
+    <div class="pagina-item">
+      <div class="pagina-num">05</div>
+      <div class="pagina-info">
+        <h4>Carencias IPM</h4>
+        <p>Barras I1–I15, heatmap carencias × grupo SISBEN, radar de perfiles por cluster</p>
+      </div>
+      <div class="pagina-badges"><span class="coming">En desarrollo</span></div>
+    </div>
+    <div class="pagina-item">
+      <div class="pagina-num">06</div>
+      <div class="pagina-info">
+        <h4>Clusters K-Means</h4>
+        <p>Scatter IPM vs Nivel, barras 100% clusters, matriz de contingencia, boxplot municipios</p>
+      </div>
+      <div class="pagina-badges"><span class="coming">En desarrollo</span></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Dimensiones del análisis</span>
+    <h2 class="section__title">¿Qué analiza el dashboard?</h2>
+  </div>
+
+  <div class="analisis-grid fade-up">
+    <div class="analisis-card">
+      <div class="analisis-card__header">
+        <div class="analisis-card__icon ic-a">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <div>
+          <div class="analisis-card__title">Análisis sociodemográfico</div>
+          <div class="analisis-card__sub">Género · Edad · Educación · Actividad</div>
+        </div>
+      </div>
+      <div class="analisis-card__body">
+        <p>Distribución de la población por sexo, grupos de edad (0-5 y 6-12 años), nivel educativo y actividad económica, cruzada con los grupos SISBEN y el estado de pobreza IPM.</p>
+      </div>
+    </div>
+
+    <div class="analisis-card">
+      <div class="analisis-card__header">
+        <div class="analisis-card__icon ic-b">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div>
+          <div class="analisis-card__title">Indicadores de pobreza multidimensional</div>
+          <div class="analisis-card__sub">IPM · I1–I15 · Carencias</div>
+        </div>
+      </div>
+      <div class="analisis-card__body">
+        <p>Análisis de los 15 indicadores de carencia del IPM: prevalencia individual, co-ocurrencia, correlación y contribución al score total de pobreza multidimensional.</p>
+      </div>
+    </div>
+
+    <div class="analisis-card">
+      <div class="analisis-card__header">
+        <div class="analisis-card__icon ic-c">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div>
+          <div class="analisis-card__title">Segmentación K-Means</div>
+          <div class="analisis-card__sub">4 clusters · Orange Data Mining</div>
+        </div>
+      </div>
+      <div class="analisis-card__body">
+        <p>Perfiles estadísticos de los 4 clusters identificados mediante K-Means sobre los indicadores I1–I15, comparados con la clasificación institucional SISBEN A–D.</p>
+      </div>
+    </div>
+
+    <div class="analisis-card">
+      <div class="analisis-card__header">
+        <div class="analisis-card__icon ic-d">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="analisis-card__title">Análisis geográfico</div>
+          <div class="analisis-card__sub">Municipios · Zonas · Mapa</div>
+        </div>
+      </div>
+      <div class="analisis-card__body">
+        <p>Distribución territorial de la pobreza multidimensional en Cundinamarca: comparación entre municipios, diferencias urbano-rural y ranking por IPM promedio.</p>
+      </div>
+    </div>
+
+    <div class="analisis-card">
+      <div class="analisis-card__header">
+        <div class="analisis-card__icon ic-e">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </div>
+        <div>
+          <div class="analisis-card__title">Correlación de carencias</div>
+          <div class="analisis-card__sub">Heatmap · Co-ocurrencia</div>
+        </div>
+      </div>
+      <div class="analisis-card__body">
+        <p>Matriz de correlación entre los 15 indicadores de carencia para identificar qué privaciones tienden a presentarse simultáneamente y cuáles son independientes entre sí.</p>
+      </div>
+    </div>
+
+    <div class="analisis-card">
+      <div class="analisis-card__header">
+        <div class="analisis-card__icon ic-f">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <div class="analisis-card__title">Modelo dimensional</div>
+          <div class="analisis-card__sub">Esquema estrella · OLAP</div>
+        </div>
+      </div>
+      <div class="analisis-card__body">
+        <p>El Data Warehouse en esquema estrella permite análisis multidimensionales (OLAP) filtrando por cualquier combinación de dimensiones: persona, municipio, zona, tiempo y clasificación SISBEN.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__brand">SISBEN IV · Cundinamarca</div>
+      <p class="footer__desc">Proyecto de minería de datos · 2024</p>
+    </div>
+    <div class="footer__links">
+      <h4>Páginas</h4>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+        <li><a href="{{ url_for('pgc') }}">Problema</a></li>
+        <li><a href="{{ url_for('datos') }}">Fuente de datos</a></li>
+        <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+      </ul>
+    </div>
+    <div class="footer__links">
+      <h4>Herramientas</h4>
+      <ul>
+        <li><a href="https://www.datos.gov.co/Estad-sticas-Nacionales/DNP-Sisb-n-Personas/hq2v-5umk/about_data" target="_blank">datos.gov.co</a></li>
+        <li><a href="https://orangedatamining.com/" target="_blank">Orange Data Mining</a></li>
+        <li><a href="https://powerbi.microsoft.com/" target="_blank">Power BI</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2024 · Proyecto Minería de Datos</span>
+    <span>Datos: DNP – SISBEN IV</span>
+  </div>
+</footer>
+
+</body>
+</html>

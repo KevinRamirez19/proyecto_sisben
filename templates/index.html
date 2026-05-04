@@ -4,24 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SISBEN IV · Cundinamarca — Análisis de Pobreza Multidimensional</title>
-  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
 </head>
 <body>
 
-
 <nav class="navbar">
   <div class="navbar__inner">
-    <a href="index.html" class="navbar__brand">
+    <a href="{{ url_for('index') }}" class="navbar__brand">
       <div class="navbar__brand-dot">
         <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z" opacity=".3"/><path d="M7 17l4-8 4 8M9.5 13h5"/></svg>
       </div>
       SISBEN IV · Cundinamarca
     </a>
     <ul class="navbar__links">
-      <li><a href="index.html" class="active">Inicio</a></li>
-      <li><a href="pgc.html">Problema</a></li>
-      <li><a href="datos.html">Datos</a></li>
-      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="{{ url_for('index') }}" class="active">Inicio</a></li>
+      <li><a href="{{ url_for('pgc') }}">Problema</a></li>
+      <li><a href="{{ url_for('datos') }}">Datos</a></li>
+      <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
     </ul>
   </div>
 </nav>
@@ -39,18 +39,18 @@
         Aplicación de técnicas de minería de datos —K-Means, IPM y análisis dimensional— sobre 315.612 registros del SISBEN IV para identificar perfiles de vulnerabilidad socioeconómica en Cundinamarca.
       </p>
       <div class="hero__btns">
-        <a href="pgc.html" class="btn btn--ghost">Ver problema de investigación</a>
-        <a href="datos.html" class="btn btn--ghost">Fuente de datos</a>
+        <a href="{{ url_for('pgc') }}" class="btn btn--ghost">Ver problema de investigación</a>
+        <a href="{{ url_for('datos') }}" class="btn btn--ghost">Fuente de datos</a>
       </div>
     </div>
     <div class="hero__stats fade-up fade-up--2">
       <div class="hero__stat">
-        <div class="hero__stat-val">315k</div>
+        <div class="hero__stat-val">{{ stats.total }}</div>
         <div class="hero__stat-lbl">Personas registradas</div>
         <div class="hero__stat-trend">↑ Barrido IV · 2024</div>
       </div>
       <div class="hero__stat">
-        <div class="hero__stat-val">59%</div>
+        <div class="hero__stat-val">{{ stats.pct_pob }}</div>
         <div class="hero__stat-lbl">Tasa de pobreza IPM</div>
         <div class="hero__stat-trend">186.205 personas</div>
       </div>
@@ -67,7 +67,6 @@
     </div>
   </div>
 </section>
-
 
 <section class="section">
   <div class="container">
@@ -111,19 +110,19 @@
       <p class="section__subtitle">Cada página profundiza en una dimensión del análisis.</p>
     </div>
     <div class="pages-grid">
-      <a href="pgc.html" class="page-link-card page-link-card--a fade-up fade-up--1">
+      <a href="{{ url_for('pgc') }}" class="page-link-card page-link-card--a fade-up fade-up--1">
         <div class="page-link-card__num">Sección 02</div>
         <h3>Problema, Justificación y Objetivos</h3>
         <p>Marco conceptual del proyecto: problemática social, justificación de la investigación, planteamiento y objetivos específicos.</p>
         <div class="page-link-card__arrow">Ir a PGC →</div>
       </a>
-      <a href="datos.html" class="page-link-card page-link-card--b fade-up fade-up--2">
+      <a href="{{ url_for('datos') }}" class="page-link-card page-link-card--b fade-up fade-up--2">
         <div class="page-link-card__num">Sección 03</div>
         <h3>Fuente de Datos</h3>
         <p>Descripción del dataset SISBEN IV del DNP disponible en datos.gov.co: estructura, variables, cobertura y proceso de adquisición.</p>
         <div class="page-link-card__arrow">Ver fuente →</div>
       </a>
-      <a href="dashboard.html" class="page-link-card page-link-card--c fade-up fade-up--3">
+      <a href="{{ url_for('dashboard') }}" class="page-link-card page-link-card--c fade-up fade-up--3">
         <div class="page-link-card__num">Sección 04</div>
         <h3>Análisis y Dashboard</h3>
         <p>Resultados del análisis exploratorio y del modelo K-Means visualizados en dashboards interactivos de Power BI.</p>
@@ -141,7 +140,7 @@
         <span class="section__tag">Metodología</span>
         <h2 class="section__title">CRISP-DM aplicado al SISBEN IV</h2>
         <p style="margin-bottom:28px">El proyecto sigue el estándar de la industria para minería de datos, adaptado al contexto de política social colombiana.</p>
-        <a href="pgc.html" class="btn btn--outline">Leer planteamiento completo</a>
+        <a href="{{ url_for('pgc') }}" class="btn btn--outline">Leer planteamiento completo</a>
       </div>
       <div class="timeline fade-up fade-up--2">
         <div class="timeline__item">
@@ -179,10 +178,10 @@
     <div class="footer__links">
       <h4>Páginas</h4>
       <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="pgc.html">Problema</a></li>
-        <li><a href="datos.html">Fuente de datos</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+        <li><a href="{{ url_for('pgc') }}">Problema</a></li>
+        <li><a href="{{ url_for('datos') }}">Fuente de datos</a></li>
+        <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
       </ul>
     </div>
     <div class="footer__links">
