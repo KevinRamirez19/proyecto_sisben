@@ -138,30 +138,35 @@
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
       <div class="fade-up">
         <span class="section__tag">Metodología</span>
-        <h2 class="section__title">CRISP-DM aplicado al SISBEN IV</h2>
-        <p style="margin-bottom:28px">El proyecto sigue el estándar de la industria para minería de datos, adaptado al contexto de política social colombiana.</p>
+        <h2 class="section__title">Metodología SEMMA aplicada al SISBEN IV</h2>
+        <p style="margin-bottom:28px">El proyecto sigue la metodología <strong>SEMMA</strong> de SAS Institute — <em>Sample, Explore, Modify, Model, Assess</em> — adaptada al análisis de pobreza multidimensional en Cundinamarca.</p>
         <a href="{{ url_for('pgc') }}" class="btn btn--outline">Leer planteamiento completo</a>
       </div>
       <div class="timeline fade-up fade-up--2">
         <div class="timeline__item">
           <div class="timeline__dot"></div>
-          <div class="timeline__title">1 · Comprensión del negocio</div>
-          <div class="timeline__desc">Marco normativo SISBEN IV, identificación de necesidades de política pública y definición de preguntas de investigación.</div>
+          <div class="timeline__title">S · Sample — Muestra</div>
+          <div class="timeline__desc">Selección de los 315.612 registros del Barrido IV del SISBEN en Cundinamarca (2024) disponibles en datos.gov.co. Definición del universo de análisis y variables de interés.</div>
         </div>
         <div class="timeline__item">
           <div class="timeline__dot"></div>
-          <div class="timeline__title">2 · Comprensión y preparación de datos</div>
-          <div class="timeline__desc">EDA sobre 315.612 registros, diseño del esquema estrella, unpivot de indicadores I1–I15 y limpieza en Power Query.</div>
+          <div class="timeline__title">E · Explore — Exploración</div>
+          <div class="timeline__desc">Análisis exploratorio (EDA): distribuciones de variables sociodemográficas, prevalencia de carencias I1–I15, identificación de valores atípicos y patrones iniciales.</div>
         </div>
         <div class="timeline__item">
           <div class="timeline__dot"></div>
-          <div class="timeline__title">3 · Modelado K-Means</div>
-          <div class="timeline__desc">Aplicación del algoritmo K-Means (k=4) en Orange Data Mining, validación con silueta y método del codo.</div>
+          <div class="timeline__title">M · Modify — Modificación</div>
+          <div class="timeline__desc">Diseño del esquema estrella, normalización, creación de variables derivadas (grupo_edad, Estado Pobreza), unpivot de indicadores y limpieza en Power Query.</div>
         </div>
         <div class="timeline__item">
           <div class="timeline__dot"></div>
-          <div class="timeline__title">4 · Evaluación y despliegue</div>
-          <div class="timeline__desc">Comparación de clusters con grupos SISBEN, dashboard Power BI con 20 visualizaciones y aplicación Flask.</div>
+          <div class="timeline__title">M · Model — Modelado</div>
+          <div class="timeline__desc">Aplicación del algoritmo K-Means (k=4) en Orange Data Mining sobre los 15 indicadores binarios de carencia. Validación con silueta y método del codo.</div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div class="timeline__title">A · Assess — Evaluación</div>
+          <div class="timeline__desc">Comparación de clusters con grupos SISBEN institucionales, análisis de coherencia, dashboard Power BI con 20 visualizaciones y aplicación Flask interactiva.</div>
         </div>
       </div>
     </div>
