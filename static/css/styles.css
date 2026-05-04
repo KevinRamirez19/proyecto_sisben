@@ -84,13 +84,21 @@ p:last-child { margin-bottom: 0; }
   font-weight: 400; flex-shrink: 0;
   text-decoration: none;
 }
-.navbar__brand-dot {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: var(--azul-medio);
-  display: flex; align-items: center; justify-content: center;
+.navbar__logo {
   flex-shrink: 0;
+  transition: transform var(--trans);
 }
-.navbar__brand-dot svg { width: 14px; height: 14px; fill: #fff; }
+.navbar__brand:hover .navbar__logo { transform: scale(1.06); }
+.navbar__brand-text {
+  font-family: var(--font-titulo);
+  font-size: 1.1rem; font-weight: 400;
+  color: var(--azul-oscuro);
+  line-height: 1.2;
+}
+.navbar__brand-sub {
+  color: var(--texto-suave);
+  font-size: .95rem;
+}
 .navbar__links {
   display: flex; gap: 4px; list-style: none;
   margin-left: auto;
