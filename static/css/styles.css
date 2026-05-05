@@ -1364,3 +1364,355 @@ tbody tr:hover td { background: var(--azul-suave); }
       border: 1px solid #a8d5b5; border-radius: 20px;
       padding: 2px 8px;
     }
+
+
+
+    /* ============================================================
+   K-MEANS (ORANGE) — Sección dashboard
+   ============================================================ */
+
+/* Tarjetas de métricas */
+.kmeans-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+  .kmeans-metrics { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .kmeans-metrics { grid-template-columns: 1fr; }
+}
+
+.kmeans-metric {
+  background: #fff;
+  border: 1px solid #dce6f5;
+  border-radius: 12px;
+  padding: 24px 22px;
+  border-top-width: 4px;
+}
+
+.kmeans-metric--azul    { border-top-color: #1A4FA0; }
+.kmeans-metric--acento  { border-top-color: #D4860A; }
+.kmeans-metric--verde   { border-top-color: #1A7A4A; }
+.kmeans-metric--purpura { border-top-color: #6B48C8; }
+
+.kmeans-metric__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.kmeans-metric--azul    .kmeans-metric__label { color: #1A4FA0; }
+.kmeans-metric--acento  .kmeans-metric__label { color: #D4860A; }
+.kmeans-metric--verde   .kmeans-metric__label { color: #1A7A4A; }
+.kmeans-metric--purpura .kmeans-metric__label { color: #6B48C8; }
+
+.kmeans-metric__val {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0D2B5E;
+  margin-bottom: 6px;
+}
+
+.kmeans-metric__sub {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Panel principal (dos columnas) */
+.kmeans-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 760px) {
+  .kmeans-panel { grid-template-columns: 1fr; }
+}
+
+/* Columna izquierda — perfiles de clusters */
+.kmeans-clusters {
+  background: #0D2B5E;
+  border-radius: 14px;
+  padding: 32px 28px;
+}
+
+.kmeans-clusters__title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 20px;
+}
+
+.kmeans-cluster-item {
+  background: rgba(255,255,255,0.07);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border-left-width: 3px;
+  border-left-style: solid;
+}
+
+.kmeans-cluster-item--acento  { border-left-color: #D4860A; }
+.kmeans-cluster-item--azul    { border-left-color: #3B7DD8; }
+.kmeans-cluster-item--verde   { border-left-color: #1A9A5E; }
+.kmeans-cluster-item--purpura { border-left-color: #9B7FE0; }
+
+.kmeans-cluster-item__name {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.kmeans-cluster-item--acento  .kmeans-cluster-item__name { color: #F5A93A; }
+.kmeans-cluster-item--azul    .kmeans-cluster-item__name { color: #7BB8F5; }
+.kmeans-cluster-item--verde   .kmeans-cluster-item__name { color: #6DD4A0; }
+.kmeans-cluster-item--purpura .kmeans-cluster-item__name { color: #C3BAF0; }
+
+.kmeans-cluster-item__desc {
+  font-size: 13px;
+  color: #c9d8ef;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   K-MEANS PAGE
+   ============================================================ */
+
+/* Métricas */
+.kmeans-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+@media (max-width: 900px) { .kmeans-metrics { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 500px) { .kmeans-metrics { grid-template-columns: 1fr; } }
+
+.kmeans-metric {
+  background: #fff;
+  border: 1px solid #dce6f5;
+  border-radius: 12px;
+  padding: 24px 22px;
+  border-top: 4px solid transparent;
+}
+.kmeans-metric--azul    { border-top-color: #1A4FA0; }
+.kmeans-metric--acento  { border-top-color: #D4860A; }
+.kmeans-metric--verde   { border-top-color: #1A7A4A; }
+.kmeans-metric--purpura { border-top-color: #6B48C8; }
+
+.kmeans-metric__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.kmeans-metric--azul    .kmeans-metric__label { color: #1A4FA0; }
+.kmeans-metric--acento  .kmeans-metric__label { color: #D4860A; }
+.kmeans-metric--verde   .kmeans-metric__label { color: #1A7A4A; }
+.kmeans-metric--purpura .kmeans-metric__label { color: #6B48C8; }
+
+.kmeans-metric__val {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0D2B5E;
+  margin-bottom: 6px;
+}
+.kmeans-metric__sub { font-size: 13px; color: #6b7280; }
+
+/* Flujo horizontal */
+.kmeans-flow-horiz {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.kmeans-flow-step {
+  flex: 1;
+  min-width: 160px;
+  background: #fff;
+  border: 1px solid #dce6f5;
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+}
+.kmeans-flow-step__dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  border: 2px solid;
+  margin: 0 auto 14px;
+}
+.kmeans-flow-step__dot--azul    { background:#EDF2FB; border-color:#1A4FA0; color:#1A4FA0; }
+.kmeans-flow-step__dot--acento  { background:#FEF3E2; border-color:#D4860A; color:#D4860A; }
+.kmeans-flow-step__dot--verde   { background:#E8F5EE; border-color:#1A7A4A; color:#1A7A4A; }
+.kmeans-flow-step__dot--purpura { background:#F0EDF9; border-color:#6B48C8; color:#6B48C8; }
+
+.kmeans-flow-step__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0D2B5E;
+  margin-bottom: 8px;
+}
+.kmeans-flow-step__desc { font-size: 13px; color: #6b7280; line-height: 1.5; }
+
+.kmeans-flow-arrow {
+  font-size: 22px;
+  color: #3B7DD8;
+  align-self: center;
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+@media (max-width: 700px) { .kmeans-flow-arrow { display: none; } }
+
+/* Cards de clusters */
+.kmeans-clusters-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+@media (max-width: 700px) { .kmeans-clusters-grid { grid-template-columns: 1fr; } }
+
+.kmeans-cluster-card {
+  background: #0D2B5E;
+  border-radius: 14px;
+  padding: 28px 26px;
+  border-left: 5px solid transparent;
+}
+.kmeans-cluster-card--acento  { border-left-color: #D4860A; }
+.kmeans-cluster-card--azul    { border-left-color: #3B7DD8; }
+.kmeans-cluster-card--verde   { border-left-color: #1A9A5E; }
+.kmeans-cluster-card--purpura { border-left-color: #9B7FE0; }
+
+.kmeans-cluster-card__num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.kmeans-cluster-card--acento  .kmeans-cluster-card__num { color: #F5A93A; }
+.kmeans-cluster-card--azul    .kmeans-cluster-card__num { color: #7BB8F5; }
+.kmeans-cluster-card--verde   .kmeans-cluster-card__num { color: #6DD4A0; }
+.kmeans-cluster-card--purpura .kmeans-cluster-card__num { color: #C3BAF0; }
+
+.kmeans-cluster-card__name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.kmeans-cluster-card__desc {
+  font-size: 14px;
+  color: #c9d8ef;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.kmeans-cluster-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.kmeans-cluster-card__tags span {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  color: #e2ecf8;
+}
+
+/* Validación */
+.kmeans-validation {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+@media (max-width: 900px) { .kmeans-validation { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 500px) { .kmeans-validation { grid-template-columns: 1fr; } }
+
+.kmeans-val-card {
+  background: #fff;
+  border: 1px solid #dce6f5;
+  border-radius: 12px;
+  padding: 24px 20px;
+}
+.kmeans-val-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.kmeans-val-card__icon svg { width: 20px; height: 20px; }
+
+.kmeans-val-card__icon--azul    { background: #EDF2FB; color: #1A4FA0; }
+.kmeans-val-card__icon--acento  { background: #FEF3E2; color: #D4860A; }
+.kmeans-val-card__icon--verde   { background: #E8F5EE; color: #1A7A4A; }
+.kmeans-val-card__icon--purpura { background: #F0EDF9; color: #6B48C8; }
+
+.kmeans-val-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0D2B5E;
+  margin: 0 0 8px;
+}
+.kmeans-val-card p { font-size: 13px; color: #6b7280; line-height: 1.6; margin: 0; }
+
+/* Banner resultado */
+.kmeans-result {
+  background: linear-gradient(135deg, #0D2B5E 0%, #1A4FA0 100%);
+  border-radius: 14px;
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.kmeans-result__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #93b8e8;
+  margin-bottom: 10px;
+}
+.kmeans-result__text {
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.65;
+  max-width: 660px;
+}
+.btn--acento {
+  background: #D4860A;
+  color: #fff;
+  border: none;
+  padding: 13px 26px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.btn--acento:hover { background: #b8720a; color: #fff; }
