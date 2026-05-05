@@ -12,29 +12,24 @@
 <body>
 
     <nav class="navbar">
-  <div class="navbar__inner">
-    <a href="{{ url_for('index') }}" class="navbar__brand">
-      <svg class="navbar__logo" width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="21,2 37,2 45,21 37,40 21,40 13,21" fill="#0D2B5E" stroke="#3B7DD8" stroke-width="1.2"/>
-        <polygon points="23,6 35,6 41,21 35,36 23,36 17,21" fill="#1A4FA0"/>
-        <text x="21" y="27" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="700" fill="#D4860A">S</text>
-        <circle cx="8"  cy="12" r="3.5" fill="#3B7DD8"/>
-        <circle cx="8"  cy="30" r="3"   fill="#D4860A"/>
-        <circle cx="4"  cy="21" r="2.5" fill="#1A7A4A"/>
-        <line x1="13" y1="17" x2="11" y2="13" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
-        <line x1="13" y1="25" x2="11" y2="29" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
-        <line x1="13" y1="21" x2="7"  y2="21" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
-      </svg>
-      <span class="navbar__brand-text">SISBEN IV <span class="navbar__brand-sub">· Cundinamarca</span></span>
-    </a>
-    <ul class="navbar__links">
-      <li><a href="{{ url_for('index') }}">Inicio</a></li>
-      <li><a href="{{ url_for('pgc') }}" class="active">Problema</a></li>
-      <li><a href="{{ url_for('datos') }}">Datos</a></li>
-      <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
-    </ul>
-  </div>
-</nav>
+        <div class="navbar__inner">
+            <a href="{{ url_for('index') }}" class="navbar__brand">
+                <div class="navbar__brand-dot">
+                    <svg viewBox="0 0 24 24" fill="white" width="14" height="14">
+                        <path d="M3 3h18v18H3z" opacity=".3" />
+                        <path d="M7 17l4-8 4 8M9.5 13h5" stroke="white" fill="none" stroke-width="2" />
+                    </svg>
+                </div>
+                SISBEN IV · Cundinamarca
+            </a>
+            <ul class="navbar__links">
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('pgc') }}" class="active">Problema</a></li>
+                <li><a href="{{ url_for('datos') }}">Datos</a></li>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="page-hero">
         <div class="page-hero__inner">
