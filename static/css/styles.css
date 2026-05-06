@@ -1348,7 +1348,10 @@ tbody tr:hover td { background: var(--azul-suave); }
       border-top: 3px solid var(--azul-claro);
       box-shadow: var(--sombra-card);
     }
-    .kpi-mini__val { font-size: 1.7rem; font-weight: 600; color: var(--azul-oscuro); font-family: var(--font-titulo); line-height: 1; }
+    .kpi-mini--wide {
+      grid-column: span 2;
+     } 
+    .kpi-mini__val { font-size: 1.7rem; font-weight: 600; color: var(--azul-oscuro); font-family: var(--font-titulo); line-height: 1; hyphens: auto; } 
     .kpi-mini__lbl { font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--texto-suave); margin-top: 5px; }
 
    
