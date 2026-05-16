@@ -1,489 +1,106 @@
 {% extends "base.html" %}
-{% block title %}Dashboard · SISBEN IV Cundinamarca{% endblock %}
+{% block title %}Datos · SISBEN IV Cundinamarca{% endblock %}
+ 
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style_dashboard2.css') }}">
 {% endblock %}
+ 
 {% block content %}
 
-<div class="dash-hero">
-  <div class="dash-hero__inner">
-    <div>
-      <div class="dash-hero__tag">
-        <span class="dash-hero__dot"></span>
-        Dashboard analítico
+<div class="d2-hero">
+  <div class="d2-hero__inner">
+    <div class="d2-hero__left">
+      <div class="d2-badge">
+        <span class="d2-badge__dot"></span>
+        Explorador de datos · SISBEN IV
       </div>
-      <h1>SISBEN IV · Cundinamarca</h1>
-      <p>Visualización interactiva de pobreza multidimensional — 116 municipios, 315,612 registros, período 2021-2024.</p>
+      <h1 class="d2-hero__title">Cundinamarca <span>2021–2024</span></h1>
+      <p class="d2-hero__desc">Consulta interactiva de registros — 315,612 personas · 116 municipios · 15 indicadores IPM</p>
     </div>
-    <div class="dash-hero__meta">
-      <div class="dash-meta-pill">
-        <strong>315,612</strong>
-        personas registradas
-      </div>
-      <div class="dash-meta-pill">
-        <strong>116</strong>
-        municipios
-      </div>
-      <div class="dash-meta-pill">
-        <strong>2021-2024</strong>
-        barrido SISBEN IV
-      </div>
+    <div class="d2-hero__pills">
+      <div class="d2-pill"><strong>315,612</strong><span>registros</span></div>
+      <div class="d2-pill"><strong>116</strong><span>municipios</span></div>
+      <div class="d2-pill"><strong>59.0%</strong><span>pobreza IPM</span></div>
+      <div class="d2-pill"><strong>4</strong><span>grupos SISBEN</span></div>
     </div>
   </div>
 </div>
 
-<div class="dash-body">
-      <div class="kpi-row">
-
-    <div class="kpi-box kpi-box--azul">
-      <div class="kpi-box__icon">
-        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      </div>
-      <div class="kpi-box__label">Personas registradas</div>
-      <div class="kpi-box__val">315,612</div>
-      <div class="kpi-box__sub">116 municipios de Cundinamarca</div>
-      <div class="kpi-box_bar"><div class="kpi-box_bar-fill" style="width:100%"></div></div>
-    </div>
-
-    <div class="kpi-box kpi-box--rojo">
-      <div class="kpi-box__icon">
-        <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      </div>
-      <div class="kpi-box__label">Pobres IPM</div>
-      <div class="kpi-box__val">59.0%</div>
-      <div class="kpi-box__sub">186,205 personas en pobreza multidimensional</div>
-      <div class="kpi-box_bar"><div class="kpi-box_bar-fill" style="width:59%"></div></div>
-    </div>
-
-    <div class="kpi-box kpi-box--acento">
-      <div class="kpi-box__icon">
-        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      </div>
-      <div class="kpi-box__label">IPM Score promedio</div>
-      <div class="kpi-box__val">3.31</div>
-      <div class="kpi-box__sub">de 15 privaciones posibles por persona</div>
-      <div class="kpi-box_bar"><div class="kpi-box_bar-fill" style="width:22%"></div></div>
-    </div>
-
-    <div class="kpi-box kpi-box--verde">
-      <div class="kpi-box__icon">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      </div>
-      <div class="kpi-box__label">No pobres IPM</div>
-      <div class="kpi-box__val">41.0%</div>
-      <div class="kpi-box__sub">129,407 personas fuera de pobreza IPM</div>
-      <div class="kpi-box_bar"><div class="kpi-box_bar-fill" style="width:41%"></div></div>
-    </div>
-
+<div class="d2-tabs-bar">
+  <div class="d2-tabs-inner">
+    <button class="d2-tab d2-tab--active" data-tab="municipios">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Municipios
+    </button>
+    <button class="d2-tab" data-tab="indicadores">
+      <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Indicadores IPM
+    </button>
+    <button class="d2-tab" data-tab="grupos">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Grupos SISBEN
+    </button>
+    <button class="d2-tab" data-tab="zona">
+      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Zona
+    </button>
+    <button class="d2-tab" data-tab="modelos">
+      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      Modelos ML
+    </button>
   </div>
+</div>
 
-<div class="dash-grid-main">
+<div class="d2-body">
 
-    <!-- Grupos SISBEN -->
-    <div class="panel">
-      <div class="panel__head">
-        <div class="panel__head-left">
-          <div class="panel__icon pi--azul">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div>
-            <div class="panel__title">Distribución por grupo SISBEN IV</div>
-            <div class="panel__sub">Clasificación A–Pobreza extrema hasta D–No pobre</div>
-          </div>
+<div class="d2-panel" id="tab-municipios">
+     <div class="d2-filters">
+      <div class="d2-filter-group">
+        <label class="d2-filter-label">Buscar municipio</label>
+        <div class="d2-search-wrap">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input class="d2-search" id="muni-search" type="text" placeholder="Ej: Soacha, Zipaquirá...">
         </div>
       </div>
-      <div class="panel__body">
-        <div class="grupos-wrap">
-          <!-- Donut SVG manual -->
-          <svg class="donut-svg" width="160" height="160" viewBox="0 0 160 160">
-            <!-- A: 22.9% → 82.4° → stroke-dasharray: 82.4 360 -->
-            <circle cx="80" cy="80" r="54" fill="none" stroke="#eee" stroke-width="22"/>
-            <!-- D: 11.6% -->
-            <circle cx="80" cy="80" r="54" fill="none" stroke="#1a7a4a" stroke-width="22"
-              stroke-dasharray="24.8 315.2" stroke-dashoffset="0" transform="rotate(-90 80 80)"/>
-            <!-- C: 30.7% -->
-            <circle cx="80" cy="80" r="54" fill="none" stroke="#3b7dd8" stroke-width="22"
-              stroke-dasharray="65.8 274.2" stroke-dashoffset="-24.8" transform="rotate(-90 80 80)"/>
-            <!-- B: 34.8% -->
-            <circle cx="80" cy="80" r="54" fill="none" stroke="#d4860a" stroke-width="22"
-              stroke-dasharray="74.5 265.5" stroke-dashoffset="-90.6" transform="rotate(-90 80 80)"/>
-            <!-- A: 22.9% -->
-            <circle cx="80" cy="80" r="54" fill="none" stroke="#c0392b" stroke-width="22"
-              stroke-dasharray="49 291" stroke-dashoffset="-165.1" transform="rotate(-90 80 80)"/>
-            <text x="80" y="76" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#0d2b5e">59%</text>
-            <text x="80" y="94" text-anchor="middle" font-family="system-ui" font-size="10" fill="#6b7fa3">pobre IPM</text>
-          </svg>
-
-          <div class="grupos-legend">
-            <div class="grupo-row">
-              <div class="grupo-dot" style="background:#c0392b"></div>
-              <div class="grupo-info">
-                <div class="grupo-info__name">A – Pobreza extrema</div>
-                <div class="grupo-info__pct">72,310 personas · ipm_avg 4.71</div>
-              </div>
-              <div class="grupo-bar-wrap">
-                <div class="grupo-bar"><div class="grupo-bar-fill" style="width:65%;background:#c0392b"></div></div>
-              </div>
-              <span style="font-size:.82rem;font-weight:700;color:#c0392b;width:36px;text-align:right">22.9%</span>
-            </div>
-            <div class="grupo-row">
-              <div class="grupo-dot" style="background:#d4860a"></div>
-              <div class="grupo-info">
-                <div class="grupo-info__name">B – Pobreza moderada</div>
-                <div class="grupo-info__pct">109,712 personas · ipm_avg 3.74</div>
-              </div>
-              <div class="grupo-bar-wrap">
-                <div class="grupo-bar"><div class="grupo-bar-fill" style="width:100%;background:#d4860a"></div></div>
-              </div>
-              <span style="font-size:.82rem;font-weight:700;color:#d4860a;width:36px;text-align:right">34.8%</span>
-            </div>
-            <div class="grupo-row">
-              <div class="grupo-dot" style="background:#3b7dd8"></div>
-              <div class="grupo-info">
-                <div class="grupo-info__name">C – Vulnerable</div>
-                <div class="grupo-info__pct">96,879 personas · ipm_avg 2.50</div>
-              </div>
-              <div class="grupo-bar-wrap">
-                <div class="grupo-bar"><div class="grupo-bar-fill" style="width:88%;background:#3b7dd8"></div></div>
-              </div>
-              <span style="font-size:.82rem;font-weight:700;color:#3b7dd8;width:36px;text-align:right">30.7%</span>
-            </div>
-            <div class="grupo-row">
-              <div class="grupo-dot" style="background:#1a7a4a"></div>
-              <div class="grupo-info">
-                <div class="grupo-info__name">D – No pobre</div>
-                <div class="grupo-info__pct">36,711 personas · ipm_avg 1.43</div>
-              </div>
-              <div class="grupo-bar-wrap">
-                <div class="grupo-bar"><div class="grupo-bar-fill" style="width:33%;background:#1a7a4a"></div></div>
-              </div>
-              <span style="font-size:.82rem;font-weight:700;color:#1a7a4a;width:36px;text-align:right">11.6%</span>
-            </div>
-          </div>
-        </div>
+      <div class="d2-filter-group">
+        <label class="d2-filter-label">Pobreza IPM</label>
+        <select class="d2-select" id="muni-filter-pob">
+          <option value="">Todos</option>
+          <option value="alta">Alta (&gt;80%)</option>
+          <option value="media">Media (50–80%)</option>
+          <option value="baja">Baja (&lt;50%)</option>
+        </select>
       </div>
+      <div class="d2-filter-group">
+        <label class="d2-filter-label">Ordenar por</label>
+        <select class="d2-select" id="muni-sort">
+          <option value="pob_desc">Mayor pobreza</option>
+          <option value="pob_asc">Menor pobreza</option>
+          <option value="nombre">Nombre A–Z</option>
+          <option value="poblacion_desc">Mayor población</option>
+        </select>
+      </div>
+      <div class="d2-filter-info" id="muni-count">116 municipios</div>
     </div>
-
-    <!-- Zona -->
-    <div class="panel">
-      <div class="panel__head">
-        <div class="panel__head-left">
-          <div class="panel__icon pi--acento">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div>
-            <div class="panel__title">Brecha urbano-rural</div>
-            <div class="panel__sub">% pobreza IPM por zona</div>
-          </div>
-        </div>
-      </div>
-      <div class="panel__body">
-        <div class="zona-cards">
-          <div class="zona-card zona-card--urbana">
-            <div class="zona-card__badge">🏙️</div>
-            <div class="zona-card__info">
-              <div class="zona-card__name">Cabecera urbana</div>
-              <div class="zona-card__stats">124,127 personas · IPM avg 2.51</div>
-            </div>
-            <div class="zona-card__pct">43.0%</div>
-          </div>
-          <div class="zona-card zona-card--rural">
-            <div class="zona-card__badge">🌾</div>
-            <div class="zona-card__info">
-              <div class="zona-card__name">Centro poblado / rural</div>
-              <div class="zona-card__stats">191,485 personas · IPM avg 3.84</div>
-            </div>
-            <div class="zona-card__pct">69.3%</div>
-          </div>
-          <div class="zona-brecha">
-            <div>
-              <div class="zona-brecha__label">Brecha territorial</div>
-              <div class="zona-brecha__desc">puntos porcentuales de diferencia</div>
-            </div>
-            <div class="zona-brecha__val">+26.3 pp</div>
-          </div>
-        </div>
-      </div>
+ <div class="d2-table-wrap">
+      <table class="d2-table" id="tabla-municipios">
+        <thead>
+          <tr>
+            <th class="th-rank">#</th>
+            <th class="th-sortable" data-col="nombre">Municipio <span class="sort-icon">↕</span></th>
+            <th class="th-sortable" data-col="poblacion">Población <span class="sort-icon">↕</span></th>
+            <th class="th-sortable" data-col="pobres">Pobres IPM <span class="sort-icon">↕</span></th>
+            <th class="th-sortable" data-col="pct_pob">% Pobreza <span class="sort-icon">↕</span></th>
+            <th>IPM Score avg</th>
+            <th>Zona ppal.</th>
+            <th>Grupo mayor.</th>
+            <th class="th-bar">Nivel</th>
+          </tr>
+        </thead>
+        <tbody id="muni-tbody"></tbody>
+      </table>
     </div>
-
+    <div class="d2-pagination" id="muni-pagination"></div>
   </div>
-
-   <div class="panel panel--full">
-    <div class="panel__head">
-      <div class="panel__head-left">
-        <div class="panel__icon pi--rojo">
-          <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-        </div>
-        <div>
-          <div class="panel__title">Ranking de privaciones IPM</div>
-          <div class="panel__sub">Tasa de privación por indicador — 315,612 personas · Cundinamarca 2021-2024</div>
-        </div>
-      </div>
-      <div>
-        <span class="badge badge--rojo">I10 · 66.1% crítico</span>
-      </div>
-    </div>
-    <div class="panel__body">
-      <div class="indic-list">
-
-        <div class="indic-row">
-          <div class="indic-name">I8 · Empleo informal</div>
-          <div class="indic-pct">66.1%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--critica" style="width:100%"></div></div>
-        </div>
-        <div class="indic-row">
-          <div class="indic-name">I1 · Bajo logro educativo</div>
-          <div class="indic-pct">62.4%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--critica" style="width:94%"></div></div>
-        </div>
-        <div class="indic-row">
-          <div class="indic-name">I11 · Sin acceso a agua mejorada</div>
-          <div class="indic-pct">33.7%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--alta" style="width:51%"></div></div>
-        </div>
-        <div class="indic-row">
-          <div class="indic-name">I4 · Rezago escolar</div>
-          <div class="indic-pct">24.7%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--alta" style="width:37%"></div></div>
-        </div>
-        <div class="indic-row">
-          <div class="indic-name">I7 · Desempleo de larga duración</div>
-          <div class="indic-pct">23.0%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--alta" style="width:35%"></div></div>
-        </div>
-        <div class="indic-row">
-          <div class="indic-name">I15 · Hacinamiento crítico</div>
-          <div class="indic-pct">19.7%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--media" style="width:30%"></div></div>
-        </div>
-        <div class="indic-row">
-          <div class="indic-name">I5 · Barreras cuidado primera infancia</div>
-          <div class="indic-pct">15.3%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--media" style="width:23%"></div></div>
-        </div>
-        <div class="indic-row">
-          <div class="indic-name">I12 · Inadecuada eliminación excretas</div>
-          <div class="indic-pct">13.0%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--media" style="width:20%"></div></div>
-        </div>
-        <div class="indic-row">
-          <div class="indic-name">I9 · Sin aseguramiento en salud</div>
-          <div class="indic-pct">12.5%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--media" style="width:19%"></div></div>
-        </div>
-        <div class="indic-row">
-          <div class="indic-name">I2 · Analfabetismo</div>
-          <div class="indic-pct">11.7%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--media" style="width:18%"></div></div>
-        </div>
-        <div class="indic-row">
-          <div class="indic-name">I13 · Material inadecuado de pisos</div>
-          <div class="indic-pct">11.6%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--media" style="width:18%"></div></div>
-        </div>
-        <div class="indic-row">
-          <div class="indic-name">I10 · Barreras acceso servicios salud</div>
-          <div class="indic-pct">4.2%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--baja" style="width:6%"></div></div>
-        </div>
-        <div class="indic-row">
-          <div class="indic-name">I14 · Material inadecuado de paredes</div>
-          <div class="indic-pct">3.9%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--baja" style="width:6%"></div></div>
-        </div>
-        <div class="indic-row">
-          <div class="indic-name">I3 · Inasistencia escolar</div>
-          <div class="indic-pct">3.8%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--baja" style="width:6%"></div></div>
-        </div>
-        <div class="indic-row">
-          <div class="indic-name">I6 · Trabajo infantil</div>
-          <div class="indic-pct">0.3%</div>
-          <div class="indic-bar"><div class="indic-bar-fill fill--baja" style="width:1%"></div></div>
-        </div>
-
-      </div>
-      <div style="display:flex;gap:16px;margin-top:18px;flex-wrap:wrap">
-        <span style="display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--texto-suave)">
-          <span style="width:10px;height:10px;border-radius:50%;background:#c0392b;flex-shrink:0"></span> Crítica (&gt;50%)
-        </span>
-        <span style="display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--texto-suave)">
-          <span style="width:10px;height:10px;border-radius:50%;background:var(--acento);flex-shrink:0"></span> Alta (20-50%)
-        </span>
-        <span style="display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--texto-suave)">
-          <span style="width:10px;height:10px;border-radius:50%;background:var(--azul-claro);flex-shrink:0"></span> Media (10-20%)
-        </span>
-        <span style="display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--texto-suave)">
-          <span style="width:10px;height:10px;border-radius:50%;background:var(--verde);flex-shrink:0"></span> Baja (&lt;10%)
-        </span>
-      </div>
-    </div>
-  </div>
-<div class="dash-grid-main">
-
-    <div class="panel">
-      <div class="panel__head">
-        <div class="panel__head-left">
-          <div class="panel__icon pi--rojo">
-            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <div>
-            <div class="panel__title">Top 10 municipios — mayor pobreza IPM</div>
-            <div class="panel__sub">% de personas en pobreza multidimensional</div>
-          </div>
-        </div>
-      </div>
-      <div class="panel__body">
-        <div class="munis-list">
-          <!-- Top municipios con datos reales -->
-          <div class="muni-row">
-            <div class="muni-rank muni-rank--1">1</div>
-            <div class="muni-name">La Palma</div>
-            <div class="muni-pct">86.6%</div>
-            <div class="muni-bar"><div class="muni-bar-fill" style="width:100%"></div></div>
-          </div>
-          <div class="muni-row">
-            <div class="muni-rank muni-rank--2">2</div>
-            <div class="muni-name">Ubalá</div>
-            <div class="muni-pct">86.4%</div>
-            <div class="muni-bar"><div class="muni-bar-fill" style="width:99%"></div></div>
-          </div>
-          <div class="muni-row">
-            <div class="muni-rank muni-rank--3">3</div>
-            <div class="muni-name">Paime</div>
-            <div class="muni-pct">86.2%</div>
-            <div class="muni-bar"><div class="muni-bar-fill" style="width:99%"></div></div>
-          </div>
-          <div class="muni-row">
-            <div class="muni-rank muni-rank--n">4</div>
-            <div class="muni-name">Topaipí</div>
-            <div class="muni-pct">85.3%</div>
-            <div class="muni-bar"><div class="muni-bar-fill" style="width:98%"></div></div>
-          </div>
-          <div class="muni-row">
-            <div class="muni-rank muni-rank--n">5</div>
-            <div class="muni-name">Tibiritá</div>
-            <div class="muni-pct">85.1%</div>
-            <div class="muni-bar"><div class="muni-bar-fill" style="width:98%"></div></div>
-          </div>
-          <div class="muni-row">
-            <div class="muni-rank muni-rank--n">6</div>
-            <div class="muni-name">Yacopí</div>
-            <div class="muni-pct">84.9%</div>
-            <div class="muni-bar"><div class="muni-bar-fill" style="width:98%"></div></div>
-          </div>
-          <div class="muni-row">
-            <div class="muni-rank muni-rank--n">7</div>
-            <div class="muni-name">San Cayetano</div>
-            <div class="muni-pct">84.2%</div>
-            <div class="muni-bar"><div class="muni-bar-fill" style="width:97%"></div></div>
-          </div>
-          <div class="muni-row">
-            <div class="muni-rank muni-rank--n">8</div>
-            <div class="muni-name">Caparrapí</div>
-            <div class="muni-pct">83.8%</div>
-            <div class="muni-bar"><div class="muni-bar-fill" style="width:97%"></div></div>
-          </div>
-          <div class="muni-row">
-            <div class="muni-rank muni-rank--n">9</div>
-            <div class="muni-name">Vergara</div>
-            <div class="muni-pct">83.5%</div>
-            <div class="muni-bar"><div class="muni-bar-fill" style="width:96%"></div></div>
-          </div>
-          <div class="muni-row">
-            <div class="muni-rank muni-rank--n">10</div>
-            <div class="muni-name">Medina</div>
-            <div class="muni-pct">83.1%</div>
-            <div class="muni-bar"><div class="muni-bar-fill" style="width:96%"></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel">
-      <div class="panel__head">
-        <div class="panel__head-left">
-          <div class="panel__icon pi--verde">
-            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <div>
-            <div class="panel__title">Evolución anual 2021-2024</div>
-            <div class="panel__sub">% pobreza IPM por año de barrido</div>
-          </div>
-        </div>
-      </div>
-      <div class="panel__body">
-        <div class="trend-grid">
-          <div class="trend-card">
-            <div class="trend-card__year">2021</div>
-            <div class="trend-card__pct">59.6%</div>
-            <div class="trend-card__n">21,840 registros</div>
-            <div class="trend-card_bar"><div class="trend-card_fill" style="width:86%"></div></div>
-          </div>
-          <div class="trend-card">
-            <div class="trend-card__year">2022</div>
-            <div class="trend-card__pct">58.7%</div>
-            <div class="trend-card__n">107,489 registros</div>
-            <div class="trend-card_bar"><div class="trend-card_fill" style="width:85%"></div></div>
-          </div>
-          <div class="trend-card">
-            <div class="trend-card__year">2023</div>
-            <div class="trend-card__pct">59.1%</div>
-            <div class="trend-card__n">151,522 registros</div>
-            <div class="trend-card_bar"><div class="trend-card_fill" style="width:85%"></div></div>
-          </div>
-          <div class="trend-card">
-            <div class="trend-card__year">2024</div>
-            <div class="trend-card__pct">59.1%</div>
-            <div class="trend-card__n">34,761 registros</div>
-            <div class="trend-card_bar"><div class="trend-card_fill" style="width:85%"></div></div>
-          </div>
-        </div>
-
-        <div class="info-box" style="margin-top:20px">
-          <strong>Lectura:</strong> La tasa de pobreza IPM se mantiene estable entre 58.7% y 59.6% durante todo el período 2021-2024, sin una tendencia clara de mejora o deterioro. El año 2022 registra la tasa más baja (58.7%).
-        </div>
-      </div>
-    </div>
-
-  </div>
-<div>
-    <div class="section-label" style="margin-bottom:16px">
-      <span class="section-label_tag section-label_tag--acento">Hallazgos</span>
-      <h2 style="font-size:1.4rem;margin:0">Conclusiones principales del análisis</h2>
-    </div>
-    <div class="hallazgos-grid">
-      <div class="hallazgo-card hallazgo-card--rojo">
-        <div class="hallazgo-num">Hallazgo 1 · Pobreza general</div>
-        <div class="hallazgo-val">59%</div>
-        <p class="hallazgo-text">de la población registrada en Cundinamarca está en situación de pobreza multidimensional según el índice IPM proxy.</p>
-      </div>
-      <div class="hallazgo-card hallazgo-card--acento">
-        <div class="hallazgo-num">Hallazgo 2 · Brecha territorial</div>
-        <div class="hallazgo-val">+26 pp</div>
-        <p class="hallazgo-text">de diferencia entre zona rural (69.3%) y urbana (43.0%). La pobreza es fundamentalmente un fenómeno rural en Cundinamarca.</p>
-      </div>
-      <div class="hallazgo-card hallazgo-card--azul">
-        <div class="hallazgo-num">Hallazgo 3 · Privación crítica</div>
-        <div class="hallazgo-val">66.1%</div>
-        <p class="hallazgo-text">de personas en empleo informal — la privación más extendida, seguida de bajo logro educativo (62.4%).</p>
-      </div>
-      <div class="hallazgo-card hallazgo-card--purp">
-        <div class="hallazgo-num">Hallazgo 4 · Grupo mayoritario</div>
-        <div class="hallazgo-val">34.8%</div>
-        <p class="hallazgo-text">corresponde al grupo B–Pobreza moderada, el más numeroso con 109,712 personas registradas.</p>
-      </div>
-      <div class="hallazgo-card hallazgo-card--verde">
-        <div class="hallazgo-num">Hallazgo 5 · Predictor clave</div>
-        <div class="hallazgo-val">95.5%</div>
-        <p class="hallazgo-text">de certeza cuando se combinan bajo logro educativo + sin acueducto para predecir pobreza IPM (árbol de decisión Orange).</p>
-      </div>
-      <div class="hallazgo-card hallazgo-card--gris">
-        <div class="hallazgo-num">Hallazgo 6 · Estabilidad temporal</div>
-        <div class="hallazgo-val">~59%</div>
-        <p class="hallazgo-text">La tasa de pobreza IPM permanece estable entre 2021 y 2024, sin mejora significativa en el período de barrido.</p>
-      </div>
-    </div>
-  </div>
-
-{% endblock %}
+  
+  {% endblock %}
