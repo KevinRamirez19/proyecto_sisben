@@ -103,4 +103,332 @@
     <div class="d2-pagination" id="muni-pagination"></div>
   </div>
   
+  <div class="d2-panel d2-panel--hidden" id="tab-indicadores">
+ 
+    <div class="d2-filters">
+      <div class="d2-filter-group">
+        <label class="d2-filter-label">Filtrar por nivel</label>
+        <select class="d2-select" id="indic-filter">
+          <option value="">Todos</option>
+          <option value="critica">Crítica (&gt;50%)</option>
+          <option value="alta">Alta (20–50%)</option>
+          <option value="media">Media (10–20%)</option>
+          <option value="baja">Baja (&lt;10%)</option>
+        </select>
+      </div>
+      <div class="d2-filter-group">
+        <label class="d2-filter-label">Dimensión</label>
+        <select class="d2-select" id="indic-dim">
+          <option value="">Todas</option>
+          <option value="Educación">Educación</option>
+          <option value="Trabajo">Trabajo</option>
+          <option value="Salud">Salud</option>
+          <option value="Vivienda">Vivienda</option>
+          <option value="Niñez">Niñez y juventud</option>
+        </select>
+      </div>
+      <div class="d2-filter-info" id="indic-count">15 indicadores</div>
+    </div>
+ 
+    <div class="d2-table-wrap">
+      <table class="d2-table" id="tabla-indicadores">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Indicador</th>
+            <th>Dimensión</th>
+            <th>Personas afectadas</th>
+            <th>% Privación</th>
+            <th>Urbano</th>
+            <th>Rural</th>
+            <th>Nivel</th>
+            <th class="th-bar">Distribución</th>
+          </tr>
+        </thead>
+        <tbody id="indic-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+ <div class="d2-panel d2-panel--hidden" id="tab-grupos">
+    <div class="d2-grupos-cards" id="grupos-cards"></div>
+    <div class="d2-section-title">Distribución por grupo y zona</div>
+    <div class="d2-table-wrap">
+      <table class="d2-table" id="tabla-grupos">
+        <thead>
+          <tr>
+            <th>Grupo SISBEN</th>
+            <th>Total personas</th>
+            <th>% del total</th>
+            <th>Cabecera urbana</th>
+            <th>Rural/CP</th>
+            <th>IPM score avg</th>
+            <th>% Pobreza IPM</th>
+            <th>Privación más común</th>
+            <th class="th-bar">Proporción</th>
+          </tr>
+        </thead>
+        <tbody id="grupos-tbody"></tbody>
+      </table>
+    </div>
+
+ <div class="d2-section-title" style="margin-top:32px">Tasa de privación por indicador según grupo SISBEN</div>
+    <div class="d2-table-wrap">
+      <table class="d2-table d2-table--compact" id="tabla-grupos-indic">
+        <thead>
+          <tr>
+            <th>Indicador</th>
+            <th class="th-grupo th-a">A – Extrema</th>
+            <th class="th-grupo th-b">B – Moderada</th>
+            <th class="th-grupo th-c">C – Vulnerable</th>
+            <th class="th-grupo th-d">D – No pobre</th>
+          </tr>
+        </thead>
+        <tbody id="grupos-indic-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+   <div class="d2-panel d2-panel--hidden" id="tab-zona">
+     <div class="d2-zona-cards" id="zona-cards"></div>
+ 
+    <div class="d2-section-title">Comparativo por zona e indicador</div>
+    <div class="d2-table-wrap">
+      <table class="d2-table" id="tabla-zona">
+        <thead>
+          <tr>
+            <th>Indicador</th>
+            <th>Dimensión</th>
+            <th>Cabecera urbana</th>
+            <th>Rural / CP</th>
+            <th>Brecha (pp)</th>
+            <th class="th-bar">Brecha visual</th>
+          </tr>
+        </thead>
+        <tbody id="zona-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="d2-panel d2-panel--hidden" id="tab-modelos">
+ <div class="d2-alert d2-alert--info">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Modelos entrenados en <strong>Orange Data Mining</strong> con Cross Validation 10 folds · 5,000 instancias · 15 features binarias IPM
+    </div>
+ 
+    <div class="d2-table-wrap">
+      <table class="d2-table" id="tabla-modelos">
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>AUC</th>
+            <th>CA (%)</th>
+            <th>F1</th>
+            <th>Precisión</th>
+            <th>Recall</th>
+            <th>Estado</th>
+            <th>Nodo raíz / Nota</th>
+          </tr>
+        </thead>
+        <tbody id="modelos-tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="d2-section-title" style="margin-top:32px">Reglas del árbol de decisión (profundidad 5)</div>
+    <div class="d2-table-wrap">
+      <table class="d2-table" id="tabla-arbol">
+        <thead>
+          <tr>
+            <th>Nodo</th>
+            <th>Condición</th>
+            <th>Resultado</th>
+            <th>Certeza</th>
+            <th>Instancias correctas</th>
+            <th>Total nodo</th>
+            <th>Tipo</th>
+          </tr>
+        </thead>
+        <tbody id="arbol-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  </div><!-- /d2-body -->
+ 
   {% endblock %}
+
+  {% block extra_js %}
+<script>
+
+    const MUNICIPIOS = [
+  { nombre:'La Palma',     poblacion:2841,  pobres:2460,  pct_pob:86.6, ipm_avg:4.21, zona:'Rural',   grupo:'B' },
+  { nombre:'Ubalá',        poblacion:3102,  pobres:2680,  pct_pob:86.4, ipm_avg:4.18, zona:'Rural',   grupo:'B' },
+  { nombre:'Paime',        poblacion:1854,  pobres:1598,  pct_pob:86.2, ipm_avg:4.15, zona:'Rural',   grupo:'B' },
+  { nombre:'Topaipí',      poblacion:2103,  pobres:1794,  pct_pob:85.3, ipm_avg:4.10, zona:'Rural',   grupo:'B' },
+  { nombre:'Tibiritá',     poblacion:1632,  pobres:1389,  pct_pob:85.1, ipm_avg:4.08, zona:'Rural',   grupo:'A' },
+  { nombre:'Yacopí',       poblacion:6241,  pobres:5298,  pct_pob:84.9, ipm_avg:4.05, zona:'Rural',   grupo:'B' },
+  { nombre:'San Cayetano', poblacion:2017,  pobres:1698,  pct_pob:84.2, ipm_avg:4.01, zona:'Rural',   grupo:'B' },
+  { nombre:'Caparrapí',    poblacion:6843,  pobres:5734,  pct_pob:83.8, ipm_avg:3.98, zona:'Rural',   grupo:'B' },
+  { nombre:'Vergara',      poblacion:3102,  pobres:2590,  pct_pob:83.5, ipm_avg:3.95, zona:'Rural',   grupo:'B' },
+  { nombre:'Medina',       poblacion:5218,  pobres:4336,  pct_pob:83.1, ipm_avg:3.91, zona:'Rural',   grupo:'B' },
+  { nombre:'Nilo',         poblacion:4102,  pobres:3362,  pct_pob:82.0, ipm_avg:3.87, zona:'Rural',   grupo:'B' },
+  { nombre:'Villapinzón',  poblacion:7841,  pobres:6302,  pct_pob:80.4, ipm_avg:3.78, zona:'Rural',   grupo:'B' },
+  { nombre:'Gachetá',      poblacion:5632,  pobres:4428,  pct_pob:78.6, ipm_avg:3.65, zona:'Rural',   grupo:'B' },
+  { nombre:'Junín',        poblacion:3954,  pobres:3068,  pct_pob:77.6, ipm_avg:3.58, zona:'Rural',   grupo:'C' },
+  { nombre:'Quetame',      poblacion:3217,  pobres:2478,  pct_pob:77.0, ipm_avg:3.54, zona:'Rural',   grupo:'C' },
+  { nombre:'Arbeláez',     poblacion:7103,  pobres:5369,  pct_pob:75.6, ipm_avg:3.45, zona:'Rural',   grupo:'C' },
+  { nombre:'Venecia',      poblacion:4218,  pobres:3132,  pct_pob:74.2, ipm_avg:3.38, zona:'Rural',   grupo:'C' },
+  { nombre:'Pulí',         poblacion:2103,  pobres:1547,  pct_pob:73.6, ipm_avg:3.32, zona:'Rural',   grupo:'C' },
+  { nombre:'San Juan de Río Seco', poblacion:4512, pobres:3292, pct_pob:73.0, ipm_avg:3.28, zona:'Rural', grupo:'C' },
+  { nombre:'Guayabetal',   poblacion:2841,  pobres:2061,  pct_pob:72.5, ipm_avg:3.24, zona:'Rural',   grupo:'C' },
+  { nombre:'Manta',        poblacion:3102,  pobres:2228,  pct_pob:71.8, ipm_avg:3.20, zona:'Rural',   grupo:'C' },
+  { nombre:'Paratebueno',  poblacion:5218,  pobres:3712,  pct_pob:71.1, ipm_avg:3.15, zona:'Rural',   grupo:'C' },
+  { nombre:'Beltrán',      poblacion:1854,  pobres:1298,  pct_pob:70.0, ipm_avg:3.08, zona:'Rural',   grupo:'C' },
+  { nombre:'Útica',        poblacion:3542,  pobres:2468,  pct_pob:69.7, ipm_avg:3.05, zona:'Rural',   grupo:'C' },
+  { nombre:'Guachetá',     poblacion:6103,  pobres:4232,  pct_pob:69.3, ipm_avg:3.02, zona:'Rural',   grupo:'C' },
+  { nombre:'Supatá',       poblacion:2841,  pobres:1952,  pct_pob:68.7, ipm_avg:2.98, zona:'Rural',   grupo:'C' },
+  { nombre:'Nocaima',      poblacion:4218,  pobres:2876,  pct_pob:68.2, ipm_avg:2.94, zona:'Rural',   grupo:'C' },
+  { nombre:'Nimaima',      poblacion:2103,  pobres:1425,  pct_pob:67.8, ipm_avg:2.91, zona:'Rural',   grupo:'C' },
+  { nombre:'Albán',        poblacion:5632,  pobres:3782,  pct_pob:67.2, ipm_avg:2.87, zona:'Rural',   grupo:'C' },
+  { nombre:'Quebradanegra',poblacion:2841,  pobres:1895,  pct_pob:66.7, ipm_avg:2.83, zona:'Rural',   grupo:'C' },
+  { nombre:'Gutiérrez',    poblacion:3217,  pobres:2132,  pct_pob:66.3, ipm_avg:2.80, zona:'Rural',   grupo:'C' },
+  { nombre:'Agua de Dios', poblacion:6843,  pobres:4501,  pct_pob:65.8, ipm_avg:2.76, zona:'Urbana',  grupo:'C' },
+  { nombre:'Sasaima',      poblacion:4512,  pobres:2942,  pct_pob:65.2, ipm_avg:2.72, zona:'Rural',   grupo:'C' },
+  { nombre:'Viani',        poblacion:2103,  pobres:1360,  pct_pob:64.7, ipm_avg:2.68, zona:'Rural',   grupo:'C' },
+  { nombre:'Chaguaní',     poblacion:2841,  pobres:1824,  pct_pob:64.2, ipm_avg:2.65, zona:'Rural',   grupo:'C' },
+  { nombre:'Chipaque',     poblacion:5218,  pobres:3328,  pct_pob:63.8, ipm_avg:2.61, zona:'Rural',   grupo:'C' },
+  { nombre:'Une',          poblacion:4102,  pobres:2604,  pct_pob:63.5, ipm_avg:2.58, zona:'Rural',   grupo:'C' },
+  { nombre:'Fosca',        poblacion:3542,  pobres:2234,  pct_pob:63.1, ipm_avg:2.55, zona:'Rural',   grupo:'C' },
+  { nombre:'Pandi',        poblacion:3217,  pobres:2013,  pct_pob:62.6, ipm_avg:2.51, zona:'Rural',   grupo:'C' },
+  { nombre:'San Bernardo', poblacion:6103,  pobres:3796,  pct_pob:62.2, ipm_avg:2.48, zona:'Rural',   grupo:'C' },
+  { nombre:'Nariño',       poblacion:2841,  pobres:1754,  pct_pob:61.7, ipm_avg:2.44, zona:'Rural',   grupo:'C' },
+  { nombre:'El Colegio',   poblacion:14218, pobres:8728,  pct_pob:61.4, ipm_avg:2.41, zona:'Urbana',  grupo:'C' },
+  { nombre:'Cachipay',     poblacion:5632,  pobres:3438,  pct_pob:61.0, ipm_avg:2.38, zona:'Rural',   grupo:'C' },
+  { nombre:'Apulo',        poblacion:4512,  pobres:2736,  pct_pob:60.6, ipm_avg:2.34, zona:'Rural',   grupo:'C' },
+  { nombre:'Tocaima',      poblacion:9218,  pobres:5568,  pct_pob:60.4, ipm_avg:2.31, zona:'Urbana',  grupo:'C' },
+  { nombre:'Tibacuy',      poblacion:2103,  pobres:1264,  pct_pob:60.1, ipm_avg:2.28, zona:'Rural',   grupo:'C' },
+  { nombre:'Granada',      poblacion:7841,  pobres:4694,  pct_pob:59.9, ipm_avg:2.25, zona:'Rural',   grupo:'C' },
+  { nombre:'Gutiérrez',    poblacion:2841,  pobres:1698,  pct_pob:59.8, ipm_avg:2.22, zona:'Rural',   grupo:'C' },
+  { nombre:'Bituima',      poblacion:1854,  pobres:1106,  pct_pob:59.7, ipm_avg:2.20, zona:'Rural',   grupo:'C' },
+  { nombre:'Ricaurte',     poblacion:6843,  pobres:4076,  pct_pob:59.6, ipm_avg:2.17, zona:'Urbana',  grupo:'C' },
+  { nombre:'Guaduas',      poblacion:16218, pobres:9524,  pct_pob:58.7, ipm_avg:2.10, zona:'Urbana',  grupo:'C' },
+  { nombre:'Mesitas del Colegio', poblacion:8103, pobres:4714, pct_pob:58.2, ipm_avg:2.06, zona:'Urbana', grupo:'C'},
+  { nombre:'La Mesa',      poblacion:17841, pobres:10312, pct_pob:57.8, ipm_avg:2.02, zona:'Urbana',  grupo:'C' },
+  { nombre:'Villeta',      poblacion:19218, pobres:11032, pct_pob:57.4, ipm_avg:1.99, zona:'Urbana',  grupo:'C' },
+  { nombre:'Fusagasugá',   poblacion:45312, pobres:25828, pct_pob:57.0, ipm_avg:1.95, zona:'Urbana',  grupo:'C' },
+  { nombre:'Girardot',     poblacion:21218, pobres:11874, pct_pob:55.9, ipm_avg:1.88, zona:'Urbana',  grupo:'C' },
+  { nombre:'Facatativá',   poblacion:34512, pobres:18942, pct_pob:54.9, ipm_avg:1.81, zona:'Urbana',  grupo:'C' },
+  { nombre:'Zipaquirá',    poblacion:41218, pobres:22052, pct_pob:53.5, ipm_avg:1.72, zona:'Urbana',  grupo:'C' },
+  { nombre:'Mosquera',     poblacion:38103, pobres:19812, pct_pob:52.0, ipm_avg:1.63, zona:'Urbana',  grupo:'C' },
+  { nombre:'Madrid',       poblacion:36841, pobres:18788, pct_pob:51.0, ipm_avg:1.56, zona:'Urbana',  grupo:'C' },
+  { nombre:'Funza',        poblacion:32218, pobres:16108, pct_pob:50.0, ipm_avg:1.48, zona:'Urbana',  grupo:'C' },
+  { nombre:'Chía',         poblacion:28103, pobres:13488, pct_pob:48.0, ipm_avg:1.38, zona:'Urbana',  grupo:'D' },
+  { nombre:'Cajicá',       poblacion:21841, pobres:10266, pct_pob:47.0, ipm_avg:1.31, zona:'Urbana',  grupo:'D' },
+  { nombre:'Sopó',         poblacion:14512, pobres:6664,  pct_pob:45.9, ipm_avg:1.24, zona:'Urbana',  grupo:'D' },
+  { nombre:'La Calera',    poblacion:12218, pobres:5532,  pct_pob:45.3, ipm_avg:1.20, zona:'Urbana',  grupo:'D' },
+  { nombre:'Cota',         poblacion:11103, pobres:4886,  pct_pob:44.0, ipm_avg:1.13, zona:'Urbana',  grupo:'D' },
+  { nombre:'Tabio',        poblacion:9841,  pobres:4232,  pct_pob:43.0, ipm_avg:1.06, zona:'Urbana',  grupo:'D' },
+  { nombre:'Tenjo',        poblacion:10218, pobres:4272,  pct_pob:41.8, ipm_avg:0.99, zona:'Urbana',  grupo:'D' },
+  { nombre:'Tocancipá',    poblacion:18103, pobres:7424,  pct_pob:41.0, ipm_avg:0.95, zona:'Urbana',  grupo:'D' },
+  { nombre:'Gachancipá',   poblacion:8841,  pobres:3488,  pct_pob:39.5, ipm_avg:0.88, zona:'Urbana',  grupo:'D' },
+  { nombre:'Soacha',       poblacion:98312, pobres:37558, pct_pob:38.2, ipm_avg:0.82, zona:'Urbana',  grupo:'D' },
+];
+ 
+const INDICADORES = [
+  { cod:'I8',  nombre:'Empleo informal',                dim:'Trabajo',   pct:66.1, urbano:54.2, rural:74.8, afectados:208629 },
+  { cod:'I1',  nombre:'Bajo logro educativo',           dim:'Educación', pct:62.4, urbano:48.1, rural:72.6, afectados:197002 },
+  { cod:'I11', nombre:'Sin acceso a agua mejorada',     dim:'Vivienda',  pct:33.7, urbano:12.4, rural:49.8, afectados:106401 },
+  { cod:'I4',  nombre:'Rezago escolar',                 dim:'Educación', pct:24.7, urbano:18.2, rural:29.6, afectados:77956  },
+  { cod:'I7',  nombre:'Desempleo de larga duración',    dim:'Trabajo',   pct:23.0, urbano:21.4, rural:24.2, afectados:72591  },
+  { cod:'I15', nombre:'Hacinamiento crítico',           dim:'Vivienda',  pct:19.7, urbano:22.1, rural:17.8, afectados:62181  },
+  { cod:'I5',  nombre:'Barreras cuidado primera inf.',  dim:'Niñez',     pct:15.3, urbano:13.8, rural:16.5, afectados:48289  },
+  { cod:'I12', nombre:'Inadecuada eliminación excretas',dim:'Vivienda',  pct:13.0, urbano:4.2,  rural:19.6, afectados:41030  },
+  { cod:'I9',  nombre:'Sin aseguramiento en salud',     dim:'Salud',     pct:12.5, urbano:10.8, rural:13.8, afectados:39451  },
+  { cod:'I2',  nombre:'Analfabetismo',                  dim:'Educación', pct:11.7, urbano:7.4,  rural:14.9, afectados:36927  },
+  { cod:'I13', nombre:'Material inadecuado de pisos',   dim:'Vivienda',  pct:11.6, urbano:5.1,  rural:16.4, afectados:36611  },
+  { cod:'I10', nombre:'Barreras acceso servicios salud',dim:'Salud',     pct:4.2,  urbano:3.8,  rural:4.5,  afectados:13256  },
+  { cod:'I14', nombre:'Material inadecuado de paredes', dim:'Vivienda',  pct:3.9,  urbano:2.1,  rural:5.3,  afectados:12309  },
+  { cod:'I3',  nombre:'Inasistencia escolar',           dim:'Educación', pct:3.8,  urbano:3.2,  rural:4.2,  afectados:11993  },
+  { cod:'I6',  nombre:'Trabajo infantil',               dim:'Niñez',     pct:0.3,  urbano:0.2,  rural:0.4,  afectados:947    },
+];
+ 
+const GRUPOS = [
+  { grupo:'A – Pobreza extrema', total:72310,  pct:22.9, urbano:18420, rural:53890, ipm_avg:4.71, pct_pob:100.0, privacion:'Empleo informal (88%)' },
+  { grupo:'B – Pobreza moderada',total:109712, pct:34.8, urbano:42180, rural:67532, ipm_avg:3.74, pct_pob:100.0, privacion:'Bajo logro educ. (79%)' },
+  { grupo:'C – Vulnerable',      total:96879,  pct:30.7, urbano:48312, rural:48567, ipm_avg:2.50, pct_pob:45.2,  privacion:'Empleo informal (71%)' },
+  { grupo:'D – No pobre',        total:36711,  pct:11.6, urbano:15215, rural:21496, ipm_avg:1.43, pct_pob:0.0,   privacion:'Empleo informal (42%)' },
+];
+ 
+const GRUPOS_INDIC = [
+  { indic:'I8 · Empleo informal',         a:88.2, b:79.4, c:71.3, d:42.1 },
+  { indic:'I1 · Bajo logro educativo',    a:95.4, b:79.2, c:52.1, d:18.3 },
+  { indic:'I11 · Sin agua mejorada',      a:58.2, b:42.1, c:28.4, d:8.2  },
+  { indic:'I4 · Rezago escolar',          a:42.1, b:31.2, c:18.4, d:4.2  },
+  { indic:'I7 · Desempleo larga dur.',    a:38.4, b:28.1, c:16.2, d:5.8  },
+  { indic:'I15 · Hacinamiento crítico',   a:34.2, b:24.8, c:12.1, d:2.4  },
+  { indic:'I5 · Barreras primera inf.',   a:28.4, b:19.2, c:10.4, d:2.1  },
+  { indic:'I12 · Inadec. excretas',       a:24.8, b:16.4, c:8.2,  d:1.8  },
+  { indic:'I9 · Sin aseguramiento salud', a:21.4, b:14.8, c:7.4,  d:1.2  },
+  { indic:'I2 · Analfabetismo',           a:22.1, b:13.4, c:6.8,  d:1.4  },
+  { indic:'I13 · Pisos inadecuados',      a:21.8, b:13.2, c:6.4,  d:1.1  },
+  { indic:'I10 · Barreras salud',         a:8.4,  b:5.2,  c:2.8,  d:0.8  },
+  { indic:'I14 · Paredes inadecuadas',    a:7.8,  b:4.8,  c:2.1,  d:0.4  },
+  { indic:'I3 · Inasistencia escolar',    a:7.2,  b:4.4,  c:2.0,  d:0.3  },
+  { indic:'I6 · Trabajo infantil',        a:0.8,  b:0.4,  c:0.1,  d:0.0  },
+];
+ 
+const ZONA_DATA = [
+  { indic:'I8 · Empleo informal',         dim:'Trabajo',   urbano:54.2, rural:74.8 },
+  { indic:'I1 · Bajo logro educativo',    dim:'Educación', urbano:48.1, rural:72.6 },
+  { indic:'I11 · Sin agua mejorada',      dim:'Vivienda',  urbano:12.4, rural:49.8 },
+  { indic:'I4 · Rezago escolar',          dim:'Educación', urbano:18.2, rural:29.6 },
+  { indic:'I7 · Desempleo larga dur.',    dim:'Trabajo',   urbano:21.4, rural:24.2 },
+  { indic:'I15 · Hacinamiento crítico',   dim:'Vivienda',  urbano:22.1, rural:17.8 },
+  { indic:'I5 · Barreras primera inf.',   dim:'Niñez',     urbano:13.8, rural:16.5 },
+  { indic:'I12 · Inadec. excretas',       dim:'Vivienda',  urbano:4.2,  rural:19.6 },
+  { indic:'I9 · Sin aseguramiento salud', dim:'Salud',     urbano:10.8, rural:13.8 },
+  { indic:'I2 · Analfabetismo',           dim:'Educación', urbano:7.4,  rural:14.9 },
+  { indic:'I13 · Pisos inadecuados',      dim:'Vivienda',  urbano:5.1,  rural:16.4 },
+  { indic:'I10 · Barreras salud',         dim:'Salud',     urbano:3.8,  rural:4.5  },
+  { indic:'I14 · Paredes inadecuadas',    dim:'Vivienda',  urbano:2.1,  rural:5.3  },
+  { indic:'I3 · Inasistencia escolar',    dim:'Educación', urbano:3.2,  rural:4.2  },
+  { indic:'I6 · Trabajo infantil',        dim:'Niñez',     urbano:0.2,  rural:0.4  },
+];
+ 
+const MODELOS = [
+  { modelo:'Árbol de decisión (Tree)', auc:0.896, ca:85.9, f1:0.860, prec:0.861, recall:0.859, estado:'válido',  nota:'Nodo raíz: bajo_logro_educativo · depth=5 · min_leaves=500' },
+  { modelo:'Naive Bayes',              auc:0.959, ca:88.6, f1:0.886, prec:0.887, recall:0.886, estado:'válido',  nota:'Variables binarias · sin data leakage' },
+  { modelo:'Random Forest',            auc:1.000, ca:99.9, f1:0.999, prec:0.999, recall:0.999, estado:'leakage', nota:'⚠ ipm_score + grupo_desc incluidas — resultado inflado' },
+  { modelo:'Logistic Regression',      auc:1.000, ca:100,  f1:1.000, prec:1.000, recall:1.000, estado:'leakage', nota:'⚠ Mismas variables que RF — pendiente corrección' },
+];
+ 
+const ARBOL_NODOS = [
+  { nodo:'Raíz',    condicion:'bajo_logro_educativo = ?',   resultado:'—',          certeza:null,  correctas:null, total:5000, tipo:'raíz'   },
+  { nodo:'R-Izq',   condicion:'bajo_logro_educativo = 0',   resultado:'→ grupo_desc',certeza:null, correctas:null, total:2341, tipo:'rama'   },
+  { nodo:'R-Der',   condicion:'bajo_logro_educativo = 1',   resultado:'→ sin_acueducto',certeza:null,correctas:null,total:2659,tipo:'rama'   },
+  { nodo:'Hoja 1',  condicion:'grupo_desc = D',             resultado:'NO pobre IPM',certeza:86.6, correctas:895,  total:1034, tipo:'hoja-ok' },
+  { nodo:'Hoja 2',  condicion:'grupo_desc = A/B',           resultado:'Ambiguo',     certeza:52.5, correctas:453,  total:863,  tipo:'hoja-?'  },
+  { nodo:'Hoja 3',  condicion:'sin_acueducto = 0 → emp_inf',resultado:'→ empleo_informal',certeza:null,correctas:null,total:1336,tipo:'rama' },
+  { nodo:'Hoja 4',  condicion:'sin_acueducto = 1',          resultado:'POBRE IPM',   certeza:95.5, correctas:1263, total:1323, tipo:'hoja-ko' },
+  { nodo:'Hoja 5',  condicion:'empleo_informal = 1',        resultado:'POBRE IPM',   certeza:78.4, correctas:842,  total:1074, tipo:'hoja-ko' },
+  { nodo:'Hoja 6',  condicion:'empleo_informal = 0',        resultado:'No pobre IPM',certeza:71.2, correctas:187,  total:262,  tipo:'hoja-ok' },
+];
+
+function nivelPob(pct) {
+  if (pct > 80) return { label:'Crítica', cls:'badge--rojo' };
+  if (pct > 50) return { label:'Media',   cls:'badge--naranja' };
+  return              { label:'Baja',    cls:'badge--verde' };
+}
+function nivelIndic(pct) {
+  if (pct > 50) return { label:'Crítica', cls:'badge--rojo',    fill:'fill-r' };
+  if (pct > 20) return { label:'Alta',    cls:'badge--naranja', fill:'fill-n' };
+  if (pct > 10) return { label:'Media',   cls:'badge--azul',    fill:'fill-b' };
+  return              { label:'Baja',    cls:'badge--verde',   fill:'fill-g' };
+}
+function miniBar(pct, cls='fill-b', max=100) {
+  const w = Math.min((pct/max)*100, 100).toFixed(1);
+  return `<div class="mini-bar-bg"><div class="mini-bar-fill ${cls}" style="width:${w}%"></div></div>`;
+}
+function fmtN(n) { return Number(n).toLocaleString('es-CO'); }
+ 
+
+{% endblock %}
