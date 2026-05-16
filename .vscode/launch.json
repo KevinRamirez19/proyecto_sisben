@@ -19,8 +19,10 @@
                 "run",
                 "--no-debugger",
                 "--no-reload"
+                
             ],
-            "jinja": true
+            "jinja": true,
+            "autoStartBrowser": true
         }
     ]
 }
