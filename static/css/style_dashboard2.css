@@ -322,3 +322,19 @@
 .arbol-connector__line { width: 2px; height: 20px; background: rgba(255,255,255,.15); margin: 0 auto; }
 .arbol-connector__lbl  { font-size: .72rem; color: rgba(255,255,255,.4); letter-spacing: .04em; }
 
+.section-label {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 4px;
+}
+.section-label__tag {
+  display: inline-block; background: var(--azul-suave); color: var(--azul-medio);
+  font-size: .7rem; font-weight: 700; padding: 3px 12px;
+  border-radius: 20px; letter-spacing: .06em; text-transform: uppercase;
+}
+.section-label__tag--acento { background: var(--acento-suave); color: var(--acento); }
+.section-label__tag--verde  { background: var(--verde-suave);  color: var(--verde); }
+.section-label h2 { font-size: 1.4rem; margin: 0; }
+.section-desc { font-size: .88rem; color: var(--texto-suave); margin-bottom: 18px; }
+
+.panel--full { width: 100%; }
+
+.count-up { display: inline-block; }
