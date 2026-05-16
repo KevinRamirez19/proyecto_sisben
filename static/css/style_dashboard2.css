@@ -211,3 +211,99 @@
 .chip--gb { background: #fef3e2; color: var(--col-b); }
 .chip--gc { background: #eff4ff; color: var(--col-c); }
 .chip--gd { background: #edf7f2; color: var(--col-d); }
+
+.chip--dim-educacion  { background: #f0edfb; color: #6b3db5; }
+.chip--dim-trabajo    { background: #fef3e2; color: var(--col-b); }
+.chip--dim-salud      { background: #fdeaea; color: var(--col-a); }
+.chip--dim-vivienda   { background: #eff4ff; color: var(--col-c); }
+.chip--dim-ninezyjuventud,
+.chip--dim-ninez      { background: #edf7f2; color: var(--col-d); }
+ 
+.cod-badge {
+  background: var(--tx-1); color: #fff;
+  font-size: .68rem; padding: 2px 8px; border-radius: 5px;
+}
+
+.d2-pagination {
+  display: flex; gap: 6px; justify-content: center;
+  padding: 8px 0 4px;
+  flex-wrap: wrap;
+}
+.d2-page-btn {
+  padding: 6px 12px; border: 1px solid var(--bd); border-radius: 7px;
+  background: #fff; color: var(--tx-2); font-size: .8rem; font-weight: 600;
+  cursor: pointer; transition: all .15s;
+}
+.d2-page-btn:hover:not(:disabled) { border-color: #1a4494; color: #1a4494; }
+.d2-page-btn--active { background: #1a4494; color: #fff; border-color: #1a4494; }
+.d2-page-btn:disabled { opacity: .4; cursor: not-allowed; }
+ 
+.d2-grupos-cards {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+}
+@media(max-width:900px) { .d2-grupos-cards { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:520px) { .d2-grupos-cards { grid-template-columns: 1fr; } }
+ 
+.d2-grupo-card {
+  border-radius: var(--d2-r); padding: 20px 18px;
+  border: 1px solid transparent;
+  transition: transform .15s, box-shadow .15s;
+}
+.d2-grupo-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+.card--a { background: #fdeaea; border-color: #f5c6c6; }
+.card--b { background: #fef3e2; border-color: #f8dca0; }
+.card--c { background: #eff4ff; border-color: #c7d9f8; }
+.card--d { background: #edf7f2; border-color: #b8ddc8; }
+ 
+.d2-grupo-card__tag  { font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 4px; opacity: .6; }
+.d2-grupo-card__name { font-size: .82rem; font-weight: 600; color: var(--tx-1); margin-bottom: 10px; }
+.d2-grupo-card__val  { font-size: 1.7rem; font-weight: 800; color: var(--tx-1); line-height: 1; }
+.d2-grupo-card__pct  { font-size: .75rem; color: var(--tx-2); margin: 4px 0 10px; }
+.card--a .d2-grupo-card__tag { color: var(--col-a); }
+.card--b .d2-grupo-card__tag { color: var(--col-b); }
+.card--c .d2-grupo-card__tag { color: var(--col-c); }
+.card--d .d2-grupo-card__tag { color: var(--col-d); }
+
+.d2-zona-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+}
+@media(max-width:760px) { .d2-zona-cards { grid-template-columns: 1fr; } }
+ 
+.zona-sum-card {
+  display: flex; align-items: center; gap: 16px;
+  border-radius: var(--d2-r); padding: 20px 22px;
+  border: 1px solid var(--bd);
+}
+.zona-sum-card--urb { background: #eff4ff; border-color: #c7d9f8; }
+.zona-sum-card--rur { background: #fef3e2; border-color: #f8dca0; }
+.zona-sum-card--gap { background: #0d2b5e; border-color: #0d2b5e; }
+ 
+.zona-sum-card__icon { font-size: 1.8rem; flex-shrink: 0; }
+.zona-sum-card__info { flex: 1; }
+.zona-sum-card__name  { font-size: .88rem; font-weight: 700; color: var(--tx-1); }
+.zona-sum-card--gap .zona-sum-card__name { color: rgba(255,255,255,.8); }
+.zona-sum-card__stats { font-size: .75rem; color: var(--tx-2); margin-top: 2px; }
+.zona-sum-card--gap .zona-sum-card__stats { color: rgba(255,255,255,.5); }
+.zona-sum-card__pct {
+  font-size: 1.6rem; font-weight: 800; color: var(--tx-1);
+  white-space: nowrap; flex-shrink: 0; text-align: right;
+}
+.zona-sum-card__pct span { display: block; font-size: .68rem; font-weight: 600; color: var(--tx-2); margin-top: 2px; }
+.zona-sum-card--gap .zona-sum-card__pct span { color: rgba(255,255,255,.5); }
+ 
+.d2-alert {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 18px; border-radius: var(--d2-r);
+  font-size: .84rem; line-height: 1.5;
+}
+.d2-alert svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
+.d2-alert--info { background: #eff4ff; border: 1px solid #c7d9f8; color: #1e3a7e; }
+.d2-alert--info svg { stroke: var(--col-c); }
+
+@media(max-width:760px) {
+  .d2-body { padding: 16px 12px 60px; }
+  .d2-filters { flex-direction: column; align-items: stretch; }
+  .d2-filter-info { margin-left: 0; }
+  .d2-search { min-width: unset; width: 100%; }
+}
+

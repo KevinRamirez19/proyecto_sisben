@@ -44,10 +44,6 @@
       <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       Zona
     </button>
-    <button class="d2-tab" data-tab="modelos">
-      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      Modelos ML
-    </button>
   </div>
 </div>
 
@@ -208,52 +204,9 @@
       </table>
     </div>
   </div>
+  
+ </div><!-- /d2-body -->
 
-  <div class="d2-panel d2-panel--hidden" id="tab-modelos">
- <div class="d2-alert d2-alert--info">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      Modelos entrenados en <strong>Orange Data Mining</strong> con Cross Validation 10 folds · 5,000 instancias · 15 features binarias IPM
-    </div>
- 
-    <div class="d2-table-wrap">
-      <table class="d2-table" id="tabla-modelos">
-        <thead>
-          <tr>
-            <th>Modelo</th>
-            <th>AUC</th>
-            <th>CA (%)</th>
-            <th>F1</th>
-            <th>Precisión</th>
-            <th>Recall</th>
-            <th>Estado</th>
-            <th>Nodo raíz / Nota</th>
-          </tr>
-        </thead>
-        <tbody id="modelos-tbody"></tbody>
-      </table>
-    </div>
-
-    <div class="d2-section-title" style="margin-top:32px">Reglas del árbol de decisión (profundidad 5)</div>
-    <div class="d2-table-wrap">
-      <table class="d2-table" id="tabla-arbol">
-        <thead>
-          <tr>
-            <th>Nodo</th>
-            <th>Condición</th>
-            <th>Resultado</th>
-            <th>Certeza</th>
-            <th>Instancias correctas</th>
-            <th>Total nodo</th>
-            <th>Tipo</th>
-          </tr>
-        </thead>
-        <tbody id="arbol-tbody"></tbody>
-      </table>
-    </div>
-  </div>
-
-  </div><!-- /d2-body -->
- 
   {% endblock %}
 
   {% block extra_js %}
@@ -394,25 +347,6 @@ const ZONA_DATA = [
   { indic:'I6 · Trabajo infantil',        dim:'Niñez',     urbano:0.2,  rural:0.4  },
 ];
  
-const MODELOS = [
-  { modelo:'Árbol de decisión (Tree)', auc:0.896, ca:85.9, f1:0.860, prec:0.861, recall:0.859, estado:'válido',  nota:'Nodo raíz: bajo_logro_educativo · depth=5 · min_leaves=500' },
-  { modelo:'Naive Bayes',              auc:0.959, ca:88.6, f1:0.886, prec:0.887, recall:0.886, estado:'válido',  nota:'Variables binarias · sin data leakage' },
-  { modelo:'Random Forest',            auc:1.000, ca:99.9, f1:0.999, prec:0.999, recall:0.999, estado:'leakage', nota:'⚠ ipm_score + grupo_desc incluidas — resultado inflado' },
-  { modelo:'Logistic Regression',      auc:1.000, ca:100,  f1:1.000, prec:1.000, recall:1.000, estado:'leakage', nota:'⚠ Mismas variables que RF — pendiente corrección' },
-];
- 
-const ARBOL_NODOS = [
-  { nodo:'Raíz',    condicion:'bajo_logro_educativo = ?',   resultado:'—',          certeza:null,  correctas:null, total:5000, tipo:'raíz'   },
-  { nodo:'R-Izq',   condicion:'bajo_logro_educativo = 0',   resultado:'→ grupo_desc',certeza:null, correctas:null, total:2341, tipo:'rama'   },
-  { nodo:'R-Der',   condicion:'bajo_logro_educativo = 1',   resultado:'→ sin_acueducto',certeza:null,correctas:null,total:2659,tipo:'rama'   },
-  { nodo:'Hoja 1',  condicion:'grupo_desc = D',             resultado:'NO pobre IPM',certeza:86.6, correctas:895,  total:1034, tipo:'hoja-ok' },
-  { nodo:'Hoja 2',  condicion:'grupo_desc = A/B',           resultado:'Ambiguo',     certeza:52.5, correctas:453,  total:863,  tipo:'hoja-?'  },
-  { nodo:'Hoja 3',  condicion:'sin_acueducto = 0 → emp_inf',resultado:'→ empleo_informal',certeza:null,correctas:null,total:1336,tipo:'rama' },
-  { nodo:'Hoja 4',  condicion:'sin_acueducto = 1',          resultado:'POBRE IPM',   certeza:95.5, correctas:1263, total:1323, tipo:'hoja-ko' },
-  { nodo:'Hoja 5',  condicion:'empleo_informal = 1',        resultado:'POBRE IPM',   certeza:78.4, correctas:842,  total:1074, tipo:'hoja-ko' },
-  { nodo:'Hoja 6',  condicion:'empleo_informal = 0',        resultado:'No pobre IPM',certeza:71.2, correctas:187,  total:262,  tipo:'hoja-ok' },
-];
-
 function nivelPob(pct) {
   if (pct > 80) return { label:'Crítica', cls:'badge--rojo' };
   if (pct > 50) return { label:'Media',   cls:'badge--naranja' };
@@ -429,6 +363,215 @@ function miniBar(pct, cls='fill-b', max=100) {
   return `<div class="mini-bar-bg"><div class="mini-bar-fill ${cls}" style="width:${w}%"></div></div>`;
 }
 function fmtN(n) { return Number(n).toLocaleString('es-CO'); }
+
+let muniData = [...MUNICIPIOS];
+let muniPage = 1;
+const MUNI_PER_PAGE = 15;
  
+function renderMunis() {
+  const search  = document.getElementById('muni-search').value.toLowerCase();
+  const filtPob = document.getElementById('muni-filter-pob').value;
+  const sort    = document.getElementById('muni-sort').value;
+ 
+  let data = muniData.filter(m => {
+    const matchSearch = m.nombre.toLowerCase().includes(search);
+    const matchPob =
+      !filtPob ? true :
+      filtPob === 'alta'  ? m.pct_pob > 80 :
+      filtPob === 'media' ? m.pct_pob >= 50 && m.pct_pob <= 80 :
+      m.pct_pob < 50;
+    return matchSearch && matchPob;
+  });
+ 
+  data.sort((a,b) => {
+    if (sort === 'pob_desc')      return b.pct_pob - a.pct_pob;
+    if (sort === 'pob_asc')       return a.pct_pob - b.pct_pob;
+    if (sort === 'nombre')        return a.nombre.localeCompare(b.nombre);
+    if (sort === 'poblacion_desc')return b.poblacion - a.poblacion;
+    return 0;
+  });
+ 
+  document.getElementById('muni-count').textContent = `${data.length} municipios`;
+ 
+  const totalPages = Math.ceil(data.length / MUNI_PER_PAGE);
+  if (muniPage > totalPages) muniPage = 1;
+  const slice = data.slice((muniPage-1)*MUNI_PER_PAGE, muniPage*MUNI_PER_PAGE);
+ 
+  const tbody = document.getElementById('muni-tbody');
+  tbody.innerHTML = slice.map((m, i) => {
+    const rank = (muniPage-1)*MUNI_PER_PAGE + i + 1;
+    const niv = nivelPob(m.pct_pob);
+    const color = m.pct_pob > 80 ? 'fill-r' : m.pct_pob > 50 ? 'fill-n' : 'fill-g';
+    return `<tr>
+      <td class="td-rank">${rank}</td>
+      <td class="td-nombre"><strong>${m.nombre}</strong></td>
+      <td class="td-num">${fmtN(m.poblacion)}</td>
+      <td class="td-num">${fmtN(m.pobres)}</td>
+      <td class="td-pct">${m.pct_pob.toFixed(1)}%</td>
+      <td class="td-num">${m.ipm_avg.toFixed(2)}</td>
+      <td><span class="chip chip--${m.zona === 'Rural' ? 'rural' : 'urban'}">${m.zona}</span></td>
+      <td><span class="chip chip--g${m.grupo.toLowerCase()}">${m.grupo}</span></td>
+      <td>${miniBar(m.pct_pob, color)}</td>
+    </tr>`;
+  }).join('');
+
+  const pag = document.getElementById('muni-pagination');
+  pag.innerHTML = '';
+  if (totalPages <= 1) return;
+  const prev = document.createElement('button');
+  prev.className = 'd2-page-btn'; prev.textContent = '← Ant.';
+  prev.disabled = muniPage === 1;
+  prev.onclick = () => { muniPage--; renderMunis(); };
+  pag.appendChild(prev);
+  for (let p=1; p<=totalPages; p++) {
+    const btn = document.createElement('button');
+    btn.className = `d2-page-btn${p===muniPage?' d2-page-btn--active':''}`;
+    btn.textContent = p;
+    btn.onclick = () => { muniPage = p; renderMunis(); };
+    pag.appendChild(btn);
+  }
+  const next = document.createElement('button');
+  next.className = 'd2-page-btn'; next.textContent = 'Sig. →';
+  next.disabled = muniPage === totalPages;
+  next.onclick = () => { muniPage++; renderMunis(); };
+  pag.appendChild(next);
+}
+ 
+document.getElementById('muni-search').addEventListener('input', () => { muniPage=1; renderMunis(); });
+document.getElementById('muni-filter-pob').addEventListener('change', () => { muniPage=1; renderMunis(); });
+document.getElementById('muni-sort').addEventListener('change', () => { muniPage=1; renderMunis(); });
+
+function renderIndicadores() {
+  const filtNiv = document.getElementById('indic-filter').value;
+  const filtDim = document.getElementById('indic-dim').value;
+ 
+  let data = INDICADORES.filter(d => {
+    const niv = nivelIndic(d.pct).label.toLowerCase();
+    const matchNiv = !filtNiv ? true :
+      filtNiv === 'critica' ? d.pct > 50 :
+      filtNiv === 'alta'    ? d.pct > 20 && d.pct <= 50 :
+      filtNiv === 'media'   ? d.pct > 10 && d.pct <= 20 :
+      d.pct <= 10;
+    const matchDim = !filtDim ? true : d.dim === filtDim;
+    return matchNiv && matchDim;
+  });
+ 
+  document.getElementById('indic-count').textContent = `${data.length} indicadores`;
+ 
+  document.getElementById('indic-tbody').innerHTML = data.map(d => {
+    const niv = nivelIndic(d.pct);
+    const brecha = (d.rural - d.urbano).toFixed(1);
+    return `<tr>
+      <td><strong class="cod-badge">${d.cod}</strong></td>
+      <td class="td-nombre">${d.nombre}</td>
+      <td><span class="chip chip--dim-${d.dim.toLowerCase().replace(/[ó]/g,'o').replace(/[ñ]/g,'n').replace(/\s+/g,'-')}">${d.dim}</span></td>
+      <td class="td-num">${fmtN(d.afectados)}</td>
+      <td class="td-pct">${d.pct.toFixed(1)}%</td>
+      <td class="td-num">${d.urbano.toFixed(1)}%</td>
+      <td class="td-num">${d.rural.toFixed(1)}%</td>
+      <td><span class="badge ${niv.cls}">${niv.label}</span></td>
+      <td>${miniBar(d.pct, niv.fill)}</td>
+    </tr>`;
+  }).join('');
+}
+ 
+document.getElementById('indic-filter').addEventListener('change', renderIndicadores);
+document.getElementById('indic-dim').addEventListener('change', renderIndicadores);
+ 
+function renderGrupos() {
+  const colores = { 'A – Pobreza extrema':'card--a', 'B – Pobreza moderada':'card--b', 'C – Vulnerable':'card--c', 'D – No pobre':'card--d' };
+  document.getElementById('grupos-cards').innerHTML = GRUPOS.map(g => `
+    <div class="d2-grupo-card ${colores[g.grupo]}">
+      <div class="d2-grupo-card__tag">${g.grupo.split('–')[0].trim()}</div>
+      <div class="d2-grupo-card__name">${g.grupo.split('–')[1]?.trim() || g.grupo}</div>
+      <div class="d2-grupo-card__val">${fmtN(g.total)}</div>
+      <div class="d2-grupo-card__pct">${g.pct}% del total</div>
+      <div class="d2-grupo-card__bar">${miniBar(g.pct, '', 35)}</div>
+    </div>
+  `).join('');
+
+  document.getElementById('grupos-tbody').innerHTML = GRUPOS.map(g => {
+    const color = g.grupo.includes('A') ? 'fill-r' : g.grupo.includes('B') ? 'fill-n' : g.grupo.includes('C') ? 'fill-b' : 'fill-g';
+    return `<tr>
+      <td class="td-nombre"><strong>${g.grupo}</strong></td>
+      <td class="td-num">${fmtN(g.total)}</td>
+      <td class="td-pct">${g.pct}%</td>
+      <td class="td-num">${fmtN(g.urbano)}</td>
+      <td class="td-num">${fmtN(g.rural)}</td>
+      <td class="td-num">${g.ipm_avg.toFixed(2)}</td>
+      <td class="td-pct">${g.pct_pob.toFixed(1)}%</td>
+      <td style="font-size:.78rem;color:var(--tx-2)">${g.privacion}</td>
+      <td>${miniBar(g.pct, color, 35)}</td>
+    </tr>`;
+  }).join('');
+ 
+  document.getElementById('grupos-indic-tbody').innerHTML = GRUPOS_INDIC.map(row => `
+    <tr>
+      <td class="td-nombre">${row.indic}</td>
+      <td class="td-num td-a">${row.a.toFixed(1)}%${miniBar(row.a,'fill-r')}</td>
+      <td class="td-num td-b">${row.b.toFixed(1)}%${miniBar(row.b,'fill-n')}</td>
+      <td class="td-num td-c">${row.c.toFixed(1)}%${miniBar(row.c,'fill-b')}</td>
+      <td class="td-num td-d">${row.d.toFixed(1)}%${miniBar(row.d,'fill-g')}</td>
+    </tr>
+  `).join('');
+}
+function renderZona() {
+  document.getElementById('zona-cards').innerHTML = `
+    <div class="zona-sum-card zona-sum-card--urb">
+      <div class="zona-sum-card__icon"></div>
+      <div class="zona-sum-card__info">
+        <div class="zona-sum-card__name">Cabecera urbana</div>
+        <div class="zona-sum-card__stats">124,127 personas · IPM avg 2.51</div>
+      </div>
+      <div class="zona-sum-card__pct">43.0%<span>pobreza IPM</span></div>
+    </div>
+    <div class="zona-sum-card zona-sum-card--rur">
+      <div class="zona-sum-card__icon"></div>
+      <div class="zona-sum-card__info">
+        <div class="zona-sum-card__name">Centro poblado / Rural disperso</div>
+        <div class="zona-sum-card__stats">191,485 personas · IPM avg 3.84</div>
+      </div>
+      <div class="zona-sum-card__pct">69.3%<span>pobreza IPM</span></div>
+    </div>
+    <div class="zona-sum-card zona-sum-card--gap">
+      <div class="zona-sum-card__icon"></div>
+      <div class="zona-sum-card__info">
+        <div class="zona-sum-card__name">Brecha territorial</div>
+        <div class="zona-sum-card__stats">Diferencia urbano–rural</div>
+      </div>
+      <div class="zona-sum-card__pct" style="color:#5dd3a8">+26.3 pp</div>
+    </div>
+  `;
+ 
+  const maxBrecha = Math.max(...ZONA_DATA.map(d => Math.abs(d.rural - d.urbano)));
+  document.getElementById('zona-tbody').innerHTML = ZONA_DATA.map(d => {
+    const brecha = (d.rural - d.urbano).toFixed(1);
+    const brechaAbs = Math.abs(d.rural - d.urbano);
+    const brechaCls = brechaAbs > 20 ? 'fill-r' : brechaAbs > 10 ? 'fill-n' : 'fill-b';
+    return `<tr>
+      <td class="td-nombre">${d.indic}</td>
+      <td><span class="chip chip--dim-${d.dim.toLowerCase().replace(/[ó]/g,'o').replace(/[ñ]/g,'n').replace(/\s+/g,'-')}">${d.dim}</span></td>
+      <td class="td-num">${d.urbano.toFixed(1)}%</td>
+      <td class="td-num">${d.rural.toFixed(1)}%</td>
+      <td class="td-pct ${parseFloat(brecha)>0?'pct-rural-higher':''}">${parseFloat(brecha)>0?'+':''}${brecha} pp</td>
+      <td>${miniBar(brechaAbs, brechaCls, maxBrecha)}</td>
+    </tr>`;
+  }).join('');
+}
+
+document.querySelectorAll('.d2-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.d2-tab').forEach(t => t.classList.remove('d2-tab--active'));
+    document.querySelectorAll('.d2-panel').forEach(p => p.classList.add('d2-panel--hidden'));
+    tab.classList.add('d2-tab--active');
+    document.getElementById(`tab-${tab.dataset.tab}`).classList.remove('d2-panel--hidden');
+  });
+});
+
+renderMunis();
+renderIndicadores();
+renderGrupos();
+renderZona();
+</script>
 
 {% endblock %}
