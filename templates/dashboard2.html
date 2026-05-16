@@ -1,4 +1,210 @@
 {% extends "base.html" %}
 {% block title %}Dashboard · SISBEN IV Cundinamarca{% endblock %}
-
 {% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_dashboard2.css') }}">
+{% endblock %}
+{% block content %}
+
+<div class="dash-hero">
+  <div class="dash-hero__inner">
+    <div>
+      <div class="dash-hero__tag">
+        <span class="dash-hero__dot"></span>
+        Dashboard analítico
+      </div>
+      <h1>SISBEN IV · Cundinamarca</h1>
+      <p>Visualización interactiva de pobreza multidimensional — 116 municipios, 315,612 registros, período 2021-2024.</p>
+    </div>
+    <div class="dash-hero__meta">
+      <div class="dash-meta-pill">
+        <strong>315,612</strong>
+        personas registradas
+      </div>
+      <div class="dash-meta-pill">
+        <strong>116</strong>
+        municipios
+      </div>
+      <div class="dash-meta-pill">
+        <strong>2021-2024</strong>
+        barrido SISBEN IV
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dash-body">
+      <div class="kpi-row">
+
+    <div class="kpi-box kpi-box--azul">
+      <div class="kpi-box__icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="kpi-box__label">Personas registradas</div>
+      <div class="kpi-box__val">315,612</div>
+      <div class="kpi-box__sub">116 municipios de Cundinamarca</div>
+      <div class="kpi-box_bar"><div class="kpi-box_bar-fill" style="width:100%"></div></div>
+    </div>
+
+    <div class="kpi-box kpi-box--rojo">
+      <div class="kpi-box__icon">
+        <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div class="kpi-box__label">Pobres IPM</div>
+      <div class="kpi-box__val">59.0%</div>
+      <div class="kpi-box__sub">186,205 personas en pobreza multidimensional</div>
+      <div class="kpi-box_bar"><div class="kpi-box_bar-fill" style="width:59%"></div></div>
+    </div>
+
+    <div class="kpi-box kpi-box--acento">
+      <div class="kpi-box__icon">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div class="kpi-box__label">IPM Score promedio</div>
+      <div class="kpi-box__val">3.31</div>
+      <div class="kpi-box__sub">de 15 privaciones posibles por persona</div>
+      <div class="kpi-box_bar"><div class="kpi-box_bar-fill" style="width:22%"></div></div>
+    </div>
+
+    <div class="kpi-box kpi-box--verde">
+      <div class="kpi-box__icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="kpi-box__label">No pobres IPM</div>
+      <div class="kpi-box__val">41.0%</div>
+      <div class="kpi-box__sub">129,407 personas fuera de pobreza IPM</div>
+      <div class="kpi-box_bar"><div class="kpi-box_bar-fill" style="width:41%"></div></div>
+    </div>
+
+  </div>
+
+<div class="dash-grid-main">
+
+    <!-- Grupos SISBEN -->
+    <div class="panel">
+      <div class="panel__head">
+        <div class="panel__head-left">
+          <div class="panel__icon pi--azul">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="panel__title">Distribución por grupo SISBEN IV</div>
+            <div class="panel__sub">Clasificación A–Pobreza extrema hasta D–No pobre</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel__body">
+        <div class="grupos-wrap">
+          <!-- Donut SVG manual -->
+          <svg class="donut-svg" width="160" height="160" viewBox="0 0 160 160">
+            <!-- A: 22.9% → 82.4° → stroke-dasharray: 82.4 360 -->
+            <circle cx="80" cy="80" r="54" fill="none" stroke="#eee" stroke-width="22"/>
+            <!-- D: 11.6% -->
+            <circle cx="80" cy="80" r="54" fill="none" stroke="#1a7a4a" stroke-width="22"
+              stroke-dasharray="24.8 315.2" stroke-dashoffset="0" transform="rotate(-90 80 80)"/>
+            <!-- C: 30.7% -->
+            <circle cx="80" cy="80" r="54" fill="none" stroke="#3b7dd8" stroke-width="22"
+              stroke-dasharray="65.8 274.2" stroke-dashoffset="-24.8" transform="rotate(-90 80 80)"/>
+            <!-- B: 34.8% -->
+            <circle cx="80" cy="80" r="54" fill="none" stroke="#d4860a" stroke-width="22"
+              stroke-dasharray="74.5 265.5" stroke-dashoffset="-90.6" transform="rotate(-90 80 80)"/>
+            <!-- A: 22.9% -->
+            <circle cx="80" cy="80" r="54" fill="none" stroke="#c0392b" stroke-width="22"
+              stroke-dasharray="49 291" stroke-dashoffset="-165.1" transform="rotate(-90 80 80)"/>
+            <text x="80" y="76" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#0d2b5e">59%</text>
+            <text x="80" y="94" text-anchor="middle" font-family="system-ui" font-size="10" fill="#6b7fa3">pobre IPM</text>
+          </svg>
+
+          <div class="grupos-legend">
+            <div class="grupo-row">
+              <div class="grupo-dot" style="background:#c0392b"></div>
+              <div class="grupo-info">
+                <div class="grupo-info__name">A – Pobreza extrema</div>
+                <div class="grupo-info__pct">72,310 personas · ipm_avg 4.71</div>
+              </div>
+              <div class="grupo-bar-wrap">
+                <div class="grupo-bar"><div class="grupo-bar-fill" style="width:65%;background:#c0392b"></div></div>
+              </div>
+              <span style="font-size:.82rem;font-weight:700;color:#c0392b;width:36px;text-align:right">22.9%</span>
+            </div>
+            <div class="grupo-row">
+              <div class="grupo-dot" style="background:#d4860a"></div>
+              <div class="grupo-info">
+                <div class="grupo-info__name">B – Pobreza moderada</div>
+                <div class="grupo-info__pct">109,712 personas · ipm_avg 3.74</div>
+              </div>
+              <div class="grupo-bar-wrap">
+                <div class="grupo-bar"><div class="grupo-bar-fill" style="width:100%;background:#d4860a"></div></div>
+              </div>
+              <span style="font-size:.82rem;font-weight:700;color:#d4860a;width:36px;text-align:right">34.8%</span>
+            </div>
+            <div class="grupo-row">
+              <div class="grupo-dot" style="background:#3b7dd8"></div>
+              <div class="grupo-info">
+                <div class="grupo-info__name">C – Vulnerable</div>
+                <div class="grupo-info__pct">96,879 personas · ipm_avg 2.50</div>
+              </div>
+              <div class="grupo-bar-wrap">
+                <div class="grupo-bar"><div class="grupo-bar-fill" style="width:88%;background:#3b7dd8"></div></div>
+              </div>
+              <span style="font-size:.82rem;font-weight:700;color:#3b7dd8;width:36px;text-align:right">30.7%</span>
+            </div>
+            <div class="grupo-row">
+              <div class="grupo-dot" style="background:#1a7a4a"></div>
+              <div class="grupo-info">
+                <div class="grupo-info__name">D – No pobre</div>
+                <div class="grupo-info__pct">36,711 personas · ipm_avg 1.43</div>
+              </div>
+              <div class="grupo-bar-wrap">
+                <div class="grupo-bar"><div class="grupo-bar-fill" style="width:33%;background:#1a7a4a"></div></div>
+              </div>
+              <span style="font-size:.82rem;font-weight:700;color:#1a7a4a;width:36px;text-align:right">11.6%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zona -->
+    <div class="panel">
+      <div class="panel__head">
+        <div class="panel__head-left">
+          <div class="panel__icon pi--acento">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="panel__title">Brecha urbano-rural</div>
+            <div class="panel__sub">% pobreza IPM por zona</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel__body">
+        <div class="zona-cards">
+          <div class="zona-card zona-card--urbana">
+            <div class="zona-card__badge">🏙️</div>
+            <div class="zona-card__info">
+              <div class="zona-card__name">Cabecera urbana</div>
+              <div class="zona-card__stats">124,127 personas · IPM avg 2.51</div>
+            </div>
+            <div class="zona-card__pct">43.0%</div>
+          </div>
+          <div class="zona-card zona-card--rural">
+            <div class="zona-card__badge">🌾</div>
+            <div class="zona-card__info">
+              <div class="zona-card__name">Centro poblado / rural</div>
+              <div class="zona-card__stats">191,485 personas · IPM avg 3.84</div>
+            </div>
+            <div class="zona-card__pct">69.3%</div>
+          </div>
+          <div class="zona-brecha">
+            <div>
+              <div class="zona-brecha__label">Brecha territorial</div>
+              <div class="zona-brecha__desc">puntos porcentuales de diferencia</div>
+            </div>
+            <div class="zona-brecha__val">+26.3 pp</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

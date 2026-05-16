@@ -72,6 +72,9 @@ def pgc():
     """Problemática, Justificación y Objetivos."""
     return render_template('pgc.html', stats=STATS)
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html', stats=STATS)
 
 @app.route('/datos')
 def datos():
@@ -87,10 +90,10 @@ def datos():
     return render_template('datos.html', stats=STATS, meta=meta)
 
 
-@app.route('/dashboard')
-def dashboard():
+@app.route('/dashboard2')
+def dashboard2():
     """Análisis y dashboard de Power BI + gráficas Flask."""
-    return render_template('dashboard.html', stats=STATS)
+    return render_template('dashboard2.html', stats=STATS, active='dashboard2')
 
 
 @app.route('/inicio')
