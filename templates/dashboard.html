@@ -32,7 +32,6 @@
       <li><a href="{{ url_for('dashboard') }}" class="active">Dashboard</a></li>
       <li><a href="{{ url_for('dashboard2') }}" {% if active == 'dashboard2' %}class="active"{% endif %}>Dashboard 2</a></li>
       <li><a href="{{ url_for('kmeans') }}">K-Means</a></li>
-
     </ul>
   </div>
 </nav>
@@ -60,12 +59,13 @@
     <h2 class="section__title">Hallazgos principales</h2>
     <p class="section__subtitle">Cifras clave extraídas del análisis de los 315.612 registros del SISBEN IV.</p>
   </div>
+
   <div class="kpi-mini-grid fade-up">
-    <div class="kpi-mini"><div class="kpi-mini__val">{{ stats.total }}</div><div class="kpi-mini__lbl">Personas analizadas</div></div>
-    <div class="kpi-mini"><div class="kpi-mini__val">{{ stats.pct_pob }}</div><div class="kpi-mini__lbl">Tasa pobreza IPM</div></div>
-    <div class="kpi-mini kpi-mini--wide" lang="es"><div class="kpi-mini__val">{{ stats.carencia_top }}</div><div class="kpi-mini__lbl">Carencia más frecuente</div></div>
+    <div class="kpi-mini"><div class="kpi-mini__val">315.612</div><div class="kpi-mini__lbl">Personas analizadas</div></div>
+    <div class="kpi-mini"><div class="kpi-mini__val">69,34%</div><div class="kpi-mini__lbl">Pobreza IPM rural</div></div>
+    <div class="kpi-mini kpi-mini--wide" lang="es"><div class="kpi-mini__val">Barreras acceso salud</div><div class="kpi-mini__lbl">Carencia más frecuente (66%)</div></div>
     <div class="kpi-mini"><div class="kpi-mini__val">4</div><div class="kpi-mini__lbl">Clusters K-Means</div></div>
-    <div class="kpi-mini"><div class="kpi-mini__val">20</div><div class="kpi-mini__lbl">Visualizaciones PBI</div></div>
+    <div class="kpi-mini"><div class="kpi-mini__val">43,04%</div><div class="kpi-mini__lbl">Pobreza IPM urbana</div></div>
     <div class="kpi-mini"><div class="kpi-mini__val">6</div><div class="kpi-mini__lbl">Páginas del reporte</div></div>
   </div>
 
@@ -95,23 +95,23 @@
       <div class="pagina-num">01</div>
       <div class="pagina-info">
         <h4>KPIs y resumen general</h4>
-        <p>Tarjetas de indicadores clave, torta estado de pobreza IPM, zona urbano vs rural</p>
+        <p>IPM Score Urbano: 250,68% · IPM Score Rural: 383,73% · % Pobreza urbana: 43,04% · % Pobreza rural: 69,34%</p>
       </div>
       <div class="pagina-badges"><span class="done-badge">✓ Completa</span></div>
     </div>
     <div class="pagina-item">
       <div class="pagina-num">02</div>
       <div class="pagina-info">
-        <h4>Perfil social</h4>
-        <p>Cotización a pensión, pobreza por zona, nivel educativo por grupo SISBEN, género</p>
+        <h4>Perfil social y pobreza por zona</h4>
+        <p>Tendencia IPM 2021–2024 (rural ~69–70%, urbana ~43%), pirámide poblacional por sexo y nivel educativo; preescolar como grupo etario más numeroso</p>
       </div>
       <div class="pagina-badges"><span class="done-badge">✓ Completa</span></div>
     </div>
     <div class="pagina-item">
       <div class="pagina-num">03</div>
       <div class="pagina-info">
-        <h4>Distribución SISBEN</h4>
-        <p>Grupos A–D, grupo de edad, alfabetismo, actividad económica vs pobreza</p>
+        <h4>Distribución SISBEN y privaciones por zona</h4>
+        <p>Grupos: A–Pobreza extrema 22,91% · B–Moderada 34,76% · C–Vulnerable 30,7% · D–No pobre 11,63%. Barreras salud rural: 71% vs urbana: 59%</p>
       </div>
       <div class="pagina-badges"><span class="done-badge">✓ Completa</span></div>
     </div>
@@ -119,25 +119,25 @@
       <div class="pagina-num">04</div>
       <div class="pagina-info">
         <h4>Mapa geográfico</h4>
-        <p>Distribución por municipio con mapa de burbujas, filtros de clasificación y departamento</p>
+        <p>Distribución por municipio con gráficos de torta por grupo SISBEN. Cáqueza (5,62 mil), Pasca (5,16 mil) y Girardot (4,90 mil) entre los municipios con más registros</p>
       </div>
       <div class="pagina-badges"><span class="done-badge">✓ Completa</span></div>
     </div>
     <div class="pagina-item">
       <div class="pagina-num">05</div>
       <div class="pagina-info">
-        <h4>Carencias IPM</h4>
-        <p>Barras I1–I15, heatmap carencias × grupo SISBEN, radar de perfiles por cluster</p>
+        <h4>Carencias IPM por indicador</h4>
+        <p>Top carencias: Barreras acceso salud (66%) · Bajo logro educativo (62%) · Sin acueducto (34%) · Rezago escolar (25%) · Sin aseguramiento salud (23%) · Hacinamiento crítico (20%)</p>
       </div>
-      <div class="pagina-badges"><span class="coming">En desarrollo</span></div>
+      <div class="pagina-badges"><span class="done-badge">✓ Completa</span></div>
     </div>
     <div class="pagina-item">
       <div class="pagina-num">06</div>
       <div class="pagina-info">
-        <h4>Clusters K-Means</h4>
-        <p>Scatter IPM vs Nivel, barras 100% clusters, matriz de contingencia, boxplot municipios</p>
+        <h4>Privación educativa vs SISBEN</h4>
+        <p>Bajo logro educativo: D–No pobre 75,99% · C–Vulnerable 65,70% · B–Moderada 60,45% · A–Extrema 54,77%. Distribución detallada por subclasificación C1–A3</p>
       </div>
-      <div class="pagina-badges"><span class="coming">En desarrollo</span></div>
+      <div class="pagina-badges"><span class="done-badge">✓ Completa</span></div>
     </div>
   </div>
 
@@ -161,7 +161,7 @@
         </div>
       </div>
       <div class="analisis-card__body">
-        <p>Distribución de la población por sexo, grupos de edad (0-5 y 6-12 años), nivel educativo y actividad económica, cruzada con los grupos SISBEN y el estado de pobreza IPM.</p>
+        <p>El grupo de 29–59 años es el más numeroso con 177.310 personas, seguido por mayores de 60 con 44.020. Niños de 0–5 suman 14.060 y de 6–12 suman 13.040. Datos disponibles 2021–2024.</p>
       </div>
     </div>
 
@@ -176,7 +176,7 @@
         </div>
       </div>
       <div class="analisis-card__body">
-        <p>Análisis de los 15 indicadores de carencia del IPM: prevalencia individual, co-ocurrencia, correlación y contribución al score total de pobreza multidimensional.</p>
+        <p>Las carencias más prevalentes son: barreras acceso salud (66%), bajo logro educativo (62%), sin acueducto (34%), rezago escolar (25%) y sin aseguramiento salud (23%). El empleo informal afecta solo al 4%.</p>
       </div>
     </div>
 
@@ -191,7 +191,7 @@
         </div>
       </div>
       <div class="analisis-card__body">
-        <p>Perfiles estadísticos de los 4 clusters identificados mediante K-Means sobre los indicadores I1–I15, comparados con la clasificación institucional SISBEN A–D.</p>
+        <p>4 clusters identificados sobre los indicadores I1–I15: A–Pobreza extrema (22,91%), B–Moderada (34,76%), C–Vulnerable (30,7%) y D–No pobre (11,63%), comparados con la clasificación institucional SISBEN A–D.</p>
       </div>
     </div>
 
@@ -206,7 +206,7 @@
         </div>
       </div>
       <div class="analisis-card__body">
-        <p>Distribución territorial de la pobreza multidimensional en Cundinamarca: comparación entre municipios, diferencias urbano-rural y ranking por IPM promedio.</p>
+        <p>Mapa de tortas por municipio con distribución por grupo SISBEN. Brecha rural–urbana persistente de ~27 puntos porcentuales en tasa IPM a lo largo de 2021–2024. Municipios con mayor concentración: Cáqueza, Pasca y Girardot.</p>
       </div>
     </div>
 
@@ -221,7 +221,7 @@
         </div>
       </div>
       <div class="analisis-card__body">
-        <p>Matriz de correlación entre los 15 indicadores de carencia para identificar qué privaciones tienden a presentarse simultáneamente y cuáles son independientes entre sí.</p>
+        <p>Barreras salud afectan más en zona rural (71%) que urbana (59%). Sin acueducto es casi exclusivo de zona rural (54% rural vs 3% urbana). El bajo logro educativo es alto en ambas zonas (72% rural, 48% urbana).</p>
       </div>
     </div>
 
@@ -236,7 +236,7 @@
         </div>
       </div>
       <div class="analisis-card__body">
-        <p>El Data Warehouse en esquema estrella permite análisis multidimensionales (OLAP) filtrando por cualquier combinación de dimensiones: persona, municipio, zona, tiempo y clasificación SISBEN.</p>
+        <p>Esquema estrella con filtros por municipio, zona, año (2021–2024), grupo SISBEN (A–D) y subclasificación (A3–D2). 6 páginas OLAP interactivas permiten análisis multidimensional cruzando cualquier combinación de dimensiones.</p>
       </div>
     </div>
   </div>
@@ -259,7 +259,6 @@
         <li><a href="{{ url_for('datos') }}">Fuente de datos</a></li>
         <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
         <li><a href="{{ url_for('kmeans') }}">K-Means</a></li>
-        
       </ul>
     </div>
     <div class="footer__links">
