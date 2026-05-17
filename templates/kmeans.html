@@ -30,7 +30,7 @@
       <li><a href="{{ url_for('datos') }}">Datos</a></li>
       <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
       <li><a href="{{ url_for('kmeans') }}" class="active">K-Means</a></li>
-      <li><a href="{{ url_for('dashboard2') }}">Dashboard 2</a></li>
+      <li><a href="{{ url_for('dashboard2') }}">Resumen</a></li>
     </ul>
   </div>
 </nav>
@@ -77,16 +77,10 @@
       <div class="kmeans-metric__val">15</div>
       <div class="kmeans-metric__sub">Indicadores binarios I1–I15</div>
     </div>
-    <div class="kmeans-metric kmeans-metric--purpura">
-      <div class="kmeans-metric__label">Re-inicios</div>
-      <div class="kmeans-metric__val">10</div>
-      <div class="kmeans-metric__sub">100 iteraciones máx.</div>
-    </div>
   </div>
 
   <hr class="divider">
 
-  <!-- Flujo de trabajo -->
   <div class="section__header fade-up">
     <span class="section__tag">Metodología</span>
     <h2 class="section__title">Flujo en Orange Data Mining</h2>
@@ -97,7 +91,7 @@
     <div class="kmeans-flow-step">
       <div class="kmeans-flow-step__dot kmeans-flow-step__dot--azul">1</div>
       <div class="kmeans-flow-step__title">CSV File</div>
-      <div class="kmeans-flow-step__desc">Carga de fact_persona.csv con variables I1–I15 normalizadas</div>
+      <div class="kmeans-flow-step__desc">Carga de fact_caracteristicas.csv con variables I1–I15 normalizadas</div>
     </div>
     <div class="kmeans-flow-arrow">→</div>
     <div class="kmeans-flow-step">
@@ -229,7 +223,7 @@
         <li><a href="{{ url_for('datos') }}">Fuente de datos</a></li>
         <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
         <li><a href="{{ url_for('kmeans') }}">K-Means</a></li>
-        <li><a href="{{ url_for('dashboard2') }}">Dashboard 2</a></li>
+        <li><a href="{{ url_for('dashboard2') }}">Resumen</a></li>
       </ul>
     </div>
     <div class="footer__links">
