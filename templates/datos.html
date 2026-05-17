@@ -30,7 +30,7 @@
       <li><a href="{{ url_for('pgc') }}">Problema</a></li>
       <li><a href="{{ url_for('datos') }}" class="active">Datos</a></li>
       <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
-      <li><a href="{{ url_for('dashboard2') }}" {% if active == 'dashboard2' %}class="active"{% endif %}>Dashboard 2</a></li>
+      <li><a href="{{ url_for('dashboard2') }}" {% if active == 'dashboard2' %}class="active"{% endif %}>Resumen</a></li>
       <li><a href="{{ url_for('kmeans') }}">K-Means</a></li>
 
     </ul>
@@ -92,7 +92,7 @@
     </div>
     <div class="meta-item">
       <div class="meta-item__label">Año de corte</div>
-      <div class="meta-item__val">2024 · S1</div>
+      <div class="meta-item__val">2021-2024</div>
       <div class="meta-item__sub">Barrido IV del SISBEN</div>
     </div>
     <div class="meta-item">
@@ -122,7 +122,7 @@
     <div class="var-section">
       <h3> Claves del esquema</h3>
       <div class="var-chips">
-        <span class="var-chip var-chip--key"><span class="var-chip__dot"></span>persona_fact_sk</span>
+        <span class="var-chip var-chip--key"><span class="var-chip__dot"></span>caracteristicas_fact_sk</span>
         <span class="var-chip var-chip--key"><span class="var-chip__dot"></span>municipio_sk</span>
         <span class="var-chip var-chip--key"><span class="var-chip__dot"></span>persona_sk</span>
         <span class="var-chip var-chip--key"><span class="var-chip__dot"></span>sisben_sk</span>
@@ -168,7 +168,6 @@
         <span class="var-chip">clasificacion_desc</span>
         <span class="var-chip">ipm_score</span>
         <span class="var-chip">es_pobre_ipm</span>
-        <span class="var-chip">cluster_kmeans</span>
       </div>
     </div>
   </div>
@@ -192,8 +191,8 @@
       </div>
       <div></div>
       <div class="schema-fact">
-        <div class="schema-fact__name">fact_persona</div>
-        <div class="schema-fact__cols">persona_fact_sk · I1–I15 · ipm_score · es_pobre_ipm · cluster_kmeans · H_5</div>
+        <div class="schema-fact__name">fact_caracteristicas</div>
+        <div class="schema-fact__cols">caracteristicas_fact_sk · I1–I15 · ipm_score · es_pobre_ipm · cluster_kmeans · H_5</div>
       </div>
       <div></div>
       <div class="schema-dim">
@@ -202,7 +201,7 @@
       </div>
       <div class="schema-dim">
         <div class="schema-dim__name">dim_tiempo</div>
-        <div class="schema-dim__cols">tiempo_sk · anio_corte · semestre · version_barrido · descripcion</div>
+        <div class="schema-dim__cols">tiempo_sk · anio_corte · semestre · trimestre · version_barrido · descripcion</div>
       </div>
       <div></div>
     </div>
@@ -224,7 +223,7 @@
       <div class="proceso-step">
         <div class="proceso-step__num">PASO 2</div>
         <h4>Limpieza y transformación</h4>
-        <p>Normalización de campos, reemplazo de códigos por descripciones, creación de columnas derivadas (grupo_edad, Estado Pobreza, cluster_kmeans).</p>
+        <p>Normalización de campos, reemplazo de códigos por descripciones, creación de columnas derivadas (grupo_edad, Estado Pobreza).</p>
       </div>
       <div class="proceso-step">
         <div class="proceso-step__num">PASO 3</div>
@@ -265,6 +264,7 @@
         <li><a href="{{ url_for('datos') }}">Fuente de datos</a></li>
         <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
         <li><a href="{{ url_for('kmeans') }}">K-Means</a></li>
+        <li><a href="{{ url_for('dashboard2') }}">Resumen</a></li>
       </ul>
     </div>
     <div class="footer__links">

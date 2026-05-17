@@ -12,31 +12,33 @@
 <body>
 
     <nav class="navbar">
-  <div class="navbar__inner">
-    <a href="{{ url_for('index') }}" class="navbar__brand">
-      <svg class="navbar__logo" width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="21,2 37,2 45,21 37,40 21,40 13,21" fill="#0D2B5E" stroke="#3B7DD8" stroke-width="1.2"/>
-        <polygon points="23,6 35,6 41,21 35,36 23,36 17,21" fill="#1A4FA0"/>
-        <text x="21" y="27" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="700" fill="#D4860A">S</text>
-        <circle cx="8"  cy="12" r="3.5" fill="#3B7DD8"/>
-        <circle cx="8"  cy="30" r="3"   fill="#D4860A"/>
-        <circle cx="4"  cy="21" r="2.5" fill="#1A7A4A"/>
-        <line x1="13" y1="17" x2="11" y2="13" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
-        <line x1="13" y1="25" x2="11" y2="29" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
-        <line x1="13" y1="21" x2="7"  y2="21" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
-      </svg>
-      <span class="navbar__brand-text">SISBEN IV <span class="navbar__brand-sub">· Cundinamarca</span></span>
-    </a>
-    <ul class="navbar__links">
-      <li><a href="{{ url_for('index') }}">Inicio</a></li>
-      <li><a href="{{ url_for('pgc') }}" class="active">Problema</a></li>
-      <li><a href="{{ url_for('datos') }}">Datos</a></li>
-      <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
-      <li><a href="{{ url_for('kmeans') }}">K-Means</a></li>
-      <li><a href="{{ url_for('dashboard2') }}">Dashboard 2</a></li>
-    </ul>
-  </div>
-</nav>
+        <div class="navbar__inner">
+            <a href="{{ url_for('index') }}" class="navbar__brand">
+                <svg class="navbar__logo" width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="21,2 37,2 45,21 37,40 21,40 13,21" fill="#0D2B5E" stroke="#3B7DD8"
+                        stroke-width="1.2" />
+                    <polygon points="23,6 35,6 41,21 35,36 23,36 17,21" fill="#1A4FA0" />
+                    <text x="21" y="27" text-anchor="middle" font-family="Georgia,serif" font-size="16"
+                        font-weight="700" fill="#D4860A">S</text>
+                    <circle cx="8" cy="12" r="3.5" fill="#3B7DD8" />
+                    <circle cx="8" cy="30" r="3" fill="#D4860A" />
+                    <circle cx="4" cy="21" r="2.5" fill="#1A7A4A" />
+                    <line x1="13" y1="17" x2="11" y2="13" stroke="rgba(255,255,255,.4)" stroke-width="0.8" />
+                    <line x1="13" y1="25" x2="11" y2="29" stroke="rgba(255,255,255,.4)" stroke-width="0.8" />
+                    <line x1="13" y1="21" x2="7" y2="21" stroke="rgba(255,255,255,.4)" stroke-width="0.8" />
+                </svg>
+                <span class="navbar__brand-text">SISBEN IV <span class="navbar__brand-sub">· Cundinamarca</span></span>
+            </a>
+            <ul class="navbar__links">
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('pgc') }}" class="active">Problema</a></li>
+                <li><a href="{{ url_for('datos') }}">Datos</a></li>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('kmeans') }}">K-Means</a></li>
+                <li><a href="{{ url_for('dashboard2') }}">Resumen</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="page-hero">
         <div class="page-hero__inner">
@@ -99,12 +101,23 @@
                     vivienda y condiciones del hogar.
                 </div>
 
-                <p>La información disponible en el repositorio de datos abiertos del DNP para Cundinamarca —315.612
-                    registros
-                    del Barrido IV (2024)— ha sido escasamente analizada con técnicas de minería de datos que permitan
-                    descubrir
-                    patrones latentes, identificar perfiles de vulnerabilidad y apoyar la toma de decisiones con base en
-                    evidencia.</p>
+                <p>
+                    La información disponible en el repositorio de datos abiertos del
+                    DNP para Cundinamarca —<strong>315.612 registros del Barrido IV
+                        (2021–2024), distribuidos en 116 municipios</strong>— ha sido
+                    escasamente analizada con técnicas de minería de datos que permitan
+                    descubrir patrones latentes. El 57,4 % de los registros corresponden
+                    a 2023, el 34,1 % a 2022, el 11,0 % a 2024 y solo el 6,9 % a 2021,
+                    lo que refleja una cobertura creciente del barrido. La población
+                    registrada está compuesta por 160.633 mujeres (50,9 %) y 154.979
+                    hombres (49,1 %), con predominio del grupo de 29 a 59 años
+                    (177.308 personas, 56,2 %). Aplicar modelos de segmentación
+                    (K-Means, 4 clusters) e índices de privación multidimensional
+                    sobre este volumen de datos permite identificar perfiles de
+                    vulnerabilidad y apoyar la toma de decisiones con base en evidencia
+                    para los grupos A–Pobreza extrema (22,91 %), B–Pobreza moderada
+                    (34,76 %), C–Vulnerable (30,70 %) y D–No pobre (11,63 %).
+                </p>
 
                 <h3>Problemas concretos identificados</h3>
                 <ul class="obj-list">
@@ -154,16 +167,28 @@
                         </div>
                         <h3>Relevancia social</h3>
                     </div>
-                    <p>Cundinamarca registra, según el análisis del SISBEN IV 2024, que el <strong>59 % de sus personas
-                            encuestadas</strong> se encuentran en condición de pobreza multidimensional (IPM). Los
-                        indicadores más
-                        críticos son la falta de aseguramiento en salud (I8, con más de 203.000 personas afectadas) y la
-                        ausencia de
-                        logro educativo (I1, con 197.000 casos). Disponer de análisis granulares y dashboards
-                        interactivos permite a
-                        los gobernadores, secretarías de bienestar y organizaciones de la sociedad civil comprender la
-                        magnitud y
-                        distribución del fenómeno para diseñar intervenciones focalizadas.</p>
+                    <p>
+                        Cundinamarca registra, según el análisis del SISBEN IV (2021–2024),
+                        que el <strong>59,0 % de sus 315.612 personas encuestadas</strong>
+                        se encuentran en condición de pobreza multidimensional (IPM):
+                        186.205 personas clasificadas como pobres según el índice.
+                        La brecha territorial es marcada: la tasa IPM en zonas rurales
+                        alcanza el <strong>69,3 %</strong>, frente al <strong>43,0 %</strong>
+                        en cabeceras urbanas, una diferencia de 26,3 puntos porcentuales
+                        que se ha mantenido estable entre 2021 y 2024.
+                        Los indicadores más críticos son las barreras de acceso a salud
+                        (I8, <strong>208.473 personas afectadas, 66,1 %</strong>) y el bajo
+                        logro educativo (I1, <strong>197.086 personas, 62,4 %</strong>),
+                        seguidos por la falta de acueducto (I11, 33,7 %) y el rezago
+                        escolar (I4, 24,7 %). Disponer de análisis granulares y dashboards
+                        interactivos —construidos sobre un Data Warehouse con 315.612
+                        registros en esquema estrella y segmentados en 4 clusters K-Means—
+                        permite a gobernadores, secretarías de bienestar y organizaciones
+                        de la sociedad civil comprender la magnitud y distribución del
+                        fenómeno para diseñar intervenciones focalizadas en los municipios
+                        con mayor concentración de carencias, como Cáqueza (5.622),
+                        Pasca (5.163) y Girardot (4.896).
+                    </p>
                 </div>
 
                 <div class="just-card">
@@ -200,7 +225,8 @@
                     <p>La construcción de una aplicación web interactiva con Flask, Chart.js y un modelo de datos
                         estrella (Data
                         Warehouse dimensional con tablas dim_persona, dim_sisben, dim_municipio, dim_zona, dim_tiempo y
-                        fact_persona) demuestra la integración de competencias de ingeniería de software, bases de datos
+                        fact_caracteristicas) demuestra la integración de competencias de ingeniería de software, bases
+                        de datos
                         analíticas
                         y visualización de datos. El uso de datos gubernamentales abiertos promueve el principio de
                         transparencia
@@ -261,11 +287,6 @@
                                 <td>51 % mujeres, 49 % hombres</td>
                                 <td>Perspectiva de género en el análisis</td>
                             </tr>
-                            <tr>
-                                <td>Clusters K-Means</td>
-                                <td>4 grupos con perfiles diferenciados</td>
-                                <td>Segmentación estadística complementaria</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -280,7 +301,7 @@
                 <h3>Objetivo general</h3>
                 <div class="info-box">
                     Aplicar técnicas de minería de datos sobre el conjunto de registros del SISBEN IV de Cundinamarca
-                    (2024) para
+                    (2021-2024) para
                     identificar y caracterizar perfiles de vulnerabilidad socioeconómica mediante algoritmos de
                     clustering
                     (K-Means) y análisis multidimensional de pobreza, visualizados a través de un dashboard web
@@ -293,7 +314,8 @@
                         <div class="obj-num">1</div>
                         <div class="obj-text">Construir un modelo de datos dimensional (esquema estrella) que integre
                             las tablas
-                            fact_persona, dim_persona, dim_sisben, dim_municipio, dim_zona y dim_tiempo para facilitar
+                            fact_caracteristicas, dim_persona, dim_sisben, dim_municipio, dim_zona y dim_tiempo para
+                            facilitar
                             el análisis
                             OLAP de la información.</div>
                     </li>
@@ -344,56 +366,67 @@
                             programas sociales con base en los perfiles de vulnerabilidad identificados.</div>
                     </li>
                 </ul>
-            </section>
-
-            <hr class="divider">
-
-            <section id="alcance">
-                <span class="section__tag">05</span>
-                <h2>Alcance y Limitaciones</h2>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-                    <div class="card card--flat">
-                        <h3 style="color:var(--verde);font-size:1rem;margin-bottom:14px">✓ Alcance</h3>
-                        <ul class="obj-list" style="gap:8px">
-                            <li class="obj-item" style="padding:10px 14px">
-                                <div class="obj-text" style="font-size:.85rem">315.612 personas · Barrido IV · 2024
-                                </div>
-                            </li>
-                            <li class="obj-item" style="padding:10px 14px">
-                                <div class="obj-text" style="font-size:.85rem">EDA, K-Means, análisis de correlación
-                                </div>
-                            </li>
-                            <li class="obj-item" style="padding:10px 14px">
-                                <div class="obj-text" style="font-size:.85rem">Python, Orange, Flask, Power BI</div>
-                            </li>
-                            <li class="obj-item" style="padding:10px 14px">
-                                <div class="obj-text" style="font-size:.85rem">Dashboard web + documento técnico</div>
-                            </li>
-                        </ul>
+                <section id="alcance">
+                    <span class="section__tag">05</span>
+                    <h2>Alcance y Limitaciones</h2>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+                        <div class="card card--flat">
+                            <h3 style="color:var(--verde);font-size:1rem;margin-bottom:14px">✓ Alcance</h3>
+                            <ul class="obj-list" style="gap:8px">
+                                <li class="obj-item" style="padding:10px 14px">
+                                    <div class="obj-text" style="font-size:.85rem">
+                                        315.612 personas · Barrido IV · 2021–2024 (Cundinamarca, 116 municipios)
+                                    </div>
+                                </li>
+                                <li class="obj-item" style="padding:10px 14px">
+                                    <div class="obj-text" style="font-size:.85rem">
+                                        EDA sobre 15 indicadores IPM (I1–I15), K-Means con 4 clusters, análisis de
+                                        correlación por zona y grupo SISBEN
+                                    </div>
+                                </li>
+                                <li class="obj-item" style="padding:10px 14px">
+                                    <div class="obj-text" style="font-size:.85rem">
+                                        Python · Orange Data Mining · Flask · Power BI · Data Warehouse esquema estrella
+                                    </div>
+                                </li>
+                                <li class="obj-item" style="padding:10px 14px">
+                                    <div class="obj-text" style="font-size:.85rem">
+                                        Dashboard web interactivo (6 páginas Power BI) + documento técnico con hallazgos
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card card--flat">
+                            <h3 style="color:var(--rojo);font-size:1rem;margin-bottom:14px">⚠ Limitaciones</h3>
+                            <ul class="obj-list" style="gap:8px">
+                                <li class="obj-item" style="padding:10px 14px">
+                                    <div class="obj-text" style="font-size:.85rem">
+                                        Registros concentrados en 2023 (151.522) y 2022 (107.489); 2024 parcial con solo
+                                        34.761 registros, lo que limita comparaciones anuales simétricas
+                                    </div>
+                                </li>
+                                <li class="obj-item" style="padding:10px 14px">
+                                    <div class="obj-text" style="font-size:.85rem">
+                                        Coordenadas DIVIPOLA disponibles para los 116 municipios, pero sin desagregación
+                                        a nivel de vereda o sector
+                                    </div>
+                                </li>
+                                <li class="obj-item" style="padding:10px 14px">
+                                    <div class="obj-text" style="font-size:.85rem">
+                                        Análisis restringido a Cundinamarca; no permite comparaciones
+                                        interdepartamentales directas
+                                    </div>
+                                </li>
+                                <li class="obj-item" style="padding:10px 14px">
+                                    <div class="obj-text" style="font-size:.85rem">
+                                        Variables I1–I15 son binarias (0/1), lo que limita la distancia euclidiana en
+                                        K-Means; se recomienda distancia de Hamming o Gower para futuras iteraciones
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="card card--flat">
-                        <h3 style="color:var(--rojo);font-size:1rem;margin-bottom:14px">⚠ Limitaciones</h3>
-                        <ul class="obj-list" style="gap:8px">
-                            <li class="obj-item" style="padding:10px 14px">
-                                <div class="obj-text" style="font-size:.85rem">Corte único 2024-S1, sin análisis
-                                    longitudinal</div>
-                            </li>
-                            <li class="obj-item" style="padding:10px 14px">
-                                <div class="obj-text" style="font-size:.85rem">Coordenadas DIVIPOLA pendientes en
-                                    algunos municipios
-                                </div>
-                            </li>
-                            <li class="obj-item" style="padding:10px 14px">
-                                <div class="obj-text" style="font-size:.85rem">Análisis restringido a Cundinamarca</div>
-                            </li>
-                            <li class="obj-item" style="padding:10px 14px">
-                                <div class="obj-text" style="font-size:.85rem">Variables binarias limitan K-Means
-                                    euclidiano</div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+                </section>
 
         </main>
     </div>
@@ -412,6 +445,7 @@
                     <li><a href="{{ url_for('datos') }}">Fuente de datos</a></li>
                     <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
                     <li><a href="{{ url_for('kmeans') }}">K-Means</a></li>
+                    <li><a href="{{ url_for('dashboard2') }}">Resumen</a></li>
                 </ul>
             </div>
             <div class="footer__links">

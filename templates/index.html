@@ -30,7 +30,7 @@
       <li><a href="{{ url_for('pgc') }}">Problema</a></li>
       <li><a href="{{ url_for('datos') }}">Datos</a></li>
       <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
-      <li><a href="{{ url_for('dashboard2') }}" {% if active == 'dashboard2' %}class="active"{% endif %}>Dashboard 2</a></li>
+      <li><a href="{{ url_for('dashboard2') }}" {% if active == 'dashboard2' %}class="active"{% endif %}>Resumen</a></li>
       <li><a href="{{ url_for('kmeans') }}">K-Means</a></li>
 
     </ul>
@@ -157,7 +157,7 @@
         <div class="timeline__item">
           <div class="timeline__dot"></div>
           <div class="timeline__title">S · Sample — Muestra</div>
-          <div class="timeline__desc">Selección de los 315.612 registros del Barrido IV del SISBEN en Cundinamarca (2024) disponibles en datos.gov.co. Definición del universo de análisis y variables de interés.</div>
+          <div class="timeline__desc">Selección de los 315.612 registros del Barrido IV del SISBEN en Cundinamarca (2021-2024) disponibles en datos.gov.co. Definición del universo de análisis y variables de interés.</div>
         </div>
         <div class="timeline__item">
           <div class="timeline__dot"></div>
@@ -198,6 +198,8 @@
         <li><a href="{{ url_for('pgc') }}">Problema</a></li>
         <li><a href="{{ url_for('datos') }}">Fuente de datos</a></li>
         <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li><a href="{{ url_for('dashboard2') }}">Resumen</a></li>
+        <li><a href="{{ url_for('kmeans') }}">K-Means</a></li>
       </ul>
     </div>
     <div class="footer__links">
