@@ -229,6 +229,24 @@ p:last-child { margin-bottom: 0; }
 }
 .info-box strong { color: var(--azul-oscuro); font-weight: 600; }
 
+.pbi-placeholder {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 18px;
+  background: var(--fondo-card);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-card);
+}
+
+.pbi-placeholder .pbi-embed {
+  width: 100%;
+  min-height: 520px;
+  border: none;
+  border-radius: calc(var(--radio) / 1.25);
+  display: block;
+}
+
 .tabla-wrapper { overflow-x: auto; margin: 24px 0; }
 table {
   width: 100%; border-collapse: collapse;
