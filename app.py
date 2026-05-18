@@ -1,17 +1,18 @@
 from flask import Flask, render_template, jsonify, send_from_directory
+import importlib.util
 import pandas as pd
 import numpy as np
+import json
 import os
 
 app = Flask(__name__)
-
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(BASE, 'data')
 
 print(" Cargando datos SISBEN IV...")
 
-fact      = pd.read_csv(os.path.join(DATA, 'fact_persona.csv'),  encoding='utf-8-sig')
+fact      = pd.read_csv(os.path.join(DATA, 'fact_caracteristicas.csv'),  encoding='utf-8-sig')
 sisben    = pd.read_csv(os.path.join(DATA, 'dim_sisben.csv'),    encoding='utf-8-sig')
 persona   = pd.read_csv(os.path.join(DATA, 'dim_persona.csv'),   encoding='utf-8-sig')
 municipio = pd.read_csv(os.path.join(DATA, 'dim_municipio.csv'), encoding='utf-8-sig')
@@ -54,22 +55,20 @@ STATS = {
     'municipios': str(df['nom_municipio'].nunique()),
     'clusters':   str(df['cluster_kmeans'].nunique()),
     'no_pobres':  f"{int((df['es_pobre_ipm'] == 0).sum()):,}",
-    'carencia_top': CARENCIA_LABELS[
-        df[CARENCIAS].sum().idxmax()
-    ],
+    'carencia_top': CARENCIA_LABELS[df[CARENCIAS].sum().idxmax()],
 }
-
 
 
 @app.route('/')
 def index():
-    """Página principal del sitio."""
     return render_template('index.html', stats=STATS)
 
+@app.route('/inicio')
+def inicio():
+    return index()
 
 @app.route('/pgc')
 def pgc():
-    """Problemática, Justificación y Objetivos."""
     return render_template('pgc.html', stats=STATS)
 
 @app.route('/dashboard')
@@ -78,33 +77,136 @@ def dashboard():
 
 @app.route('/datos')
 def datos():
-    """Fuente de datos — descripción del dataset DNP."""
     meta = {
-        'registros':   f"{len(df):,}",
-        'municipios':  str(df['nom_municipio'].nunique()),
-        'variables':   str(len(df.columns)),
-        'carencias':   str(len(CARENCIAS)),
-        'anio':        '2024 · S1',
-        'fuente':      'DNP – datos.gov.co',
+        'registros':  f"{len(df):,}",
+        'municipios': str(df['nom_municipio'].nunique()),
+        'variables':  str(len(df.columns)),
+        'carencias':  str(len(CARENCIAS)),
+        'anio':       '2024 · S1',
+        'fuente':     'DNP – datos.gov.co',
     }
     return render_template('datos.html', stats=STATS, meta=meta)
 
-
 @app.route('/dashboard2')
 def dashboard2():
-    """Análisis y dashboard de Power BI + gráficas Flask."""
     return render_template('dashboard2.html', stats=STATS, active='dashboard2')
 
+@app.route('/kmeans')
+def kmeans():
+    return render_template('kmeans.html', stats=STATS)
 
-@app.route('/inicio')
-def inicio():
-    return index()
+@app.route('/dashboard/spark')
+def dashboard_spark():
+    return render_template('dashboard_pyspark.html', stats=STATS)
+
+@app.route('/api/spark')
+def api_spark():
+
+    dept = df.groupby('nom_departamento').agg(
+        total_personas=('persona_fact_sk', 'count'),
+        pobres_ipm=('es_pobre_ipm', 'sum'),
+        score_ipm_promedio=('ipm_score', 'mean')
+    ).reset_index()
+    dept['tasa_pobreza_pct']    = (dept['pobres_ipm'] / dept['total_personas'] * 100).round(2)
+    dept['score_ipm_promedio']  = dept['score_ipm_promedio'].round(2)
+
+    sisb = df.groupby(['grupo_desc', 'clasificacion_desc']).agg(
+        total_personas=('persona_fact_sk', 'count')
+    ).reset_index()
 
 
+    zona_g = df.groupby('zona_desc').agg(
+        total_personas=('persona_fact_sk', 'count'),
+        pobres_ipm=('es_pobre_ipm', 'sum'),
+        score_ipm_promedio=('ipm_score', 'mean')
+    ).reset_index()
+    zona_g['tasa_pobreza_pct']   = (zona_g['pobres_ipm'] / zona_g['total_personas'] * 100).round(2)
+    zona_g['score_ipm_promedio'] = zona_g['score_ipm_promedio'].round(2)
+
+    edu = df.groupby('nivel_educativo').agg(
+        total_personas=('persona_fact_sk', 'count'),
+        score_ipm_promedio=('ipm_score', 'mean'),
+        tasa_pobreza_pct=('es_pobre_ipm', 'mean')
+    ).reset_index()
+    edu['tasa_pobreza_pct']   = (edu['tasa_pobreza_pct'] * 100).round(2)
+    edu['score_ipm_promedio'] = edu['score_ipm_promedio'].round(2)
+
+
+    act = df.groupby(['actividad_economica', 'cotiza_pension']).agg(
+        total_personas=('persona_fact_sk', 'count')
+    ).reset_index()
+
+
+    muni = df.groupby(['nom_municipio', 'nom_departamento']).agg(
+        total_personas=('persona_fact_sk', 'count'),
+        score_ipm_promedio=('ipm_score', 'mean'),
+        pobres_ipm=('es_pobre_ipm', 'sum')
+    ).reset_index()
+    muni['tasa_pobreza_pct']   = (muni['pobres_ipm'] / muni['total_personas'] * 100).round(2)
+    muni['score_ipm_promedio'] = muni['score_ipm_promedio'].round(2)
+    muni = muni.sort_values('score_ipm_promedio', ascending=False).head(10)
+
+    # 7. Evolución temporal
+    try:
+        tiempo = pd.read_csv(os.path.join(DATA, 'dim_tiempo.csv'), encoding='utf-8-sig')
+        df_t = fact.merge(tiempo, on='tiempo_sk')
+        evo = df_t.groupby('anio').agg(
+            total_personas=('persona_fact_sk', 'count'),
+            pobres_ipm=('es_pobre_ipm', 'sum'),
+            score_ipm_promedio=('ipm_score', 'mean')
+        ).reset_index()
+        evo['tasa_pobreza_pct']   = (evo['pobres_ipm'] / evo['total_personas'] * 100).round(2)
+        evo['score_ipm_promedio'] = evo['score_ipm_promedio'].round(2)
+        evo = evo.to_dict(orient='records')
+    except Exception:
+        evo = []
+
+    return jsonify({
+        'pobreza_departamento':  dept.to_dict(orient='records'),
+        'distribucion_sisben':   sisb.to_dict(orient='records'),
+        'pobreza_zona':          zona_g.to_dict(orient='records'),
+        'educacion_pobreza':     edu.to_dict(orient='records'),
+        'actividad_pension':     act.to_dict(orient='records'),
+        'municipios_mas_pobres': muni.to_dict(orient='records'),
+        'evolucion_temporal':    evo,
+    })
+
+def cargar_modulo_spark():
+    ruta_modulo = os.path.join(BASE, 'spark.py')
+    spec = importlib.util.spec_from_file_location('spark_module', ruta_modulo)
+    spark_module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(spark_module)
+    return spark_module
+
+
+@app.route('/spark', endpoint='spark')
+def spark_page():
+    error = None
+    resultados = None
+    spark_session = None
+    try:
+        spark_module  = cargar_modulo_spark()
+        spark_session = spark_module.get_spark_session()
+        ruta_data     = os.path.join(BASE, 'data') + os.sep
+        df_spark      = spark_module.cargar_datos(spark_session, ruta=ruta_data)
+        resultados    = spark_module.obtener_resultados(df_spark)
+    except Exception as exc:
+        error = str(exc)
+    finally:
+        if spark_session is not None:
+            try:
+                spark_session.stop()
+            except Exception:
+                pass
+    return render_template('spark.html', resultados=resultados, error=error, active='spark')
+
+
+# ─────────────────────────────────────────────────────────────
+#  APIs existentes (sin cambios)
+# ─────────────────────────────────────────────────────────────
 
 @app.route('/api/sisben_dist')
 def api_sisben():
-    """Distribución por grupo SISBEN."""
     counts = df['grupo_desc'].value_counts().reset_index()
     counts.columns = ['grupo', 'total']
     order = ['A – Pobreza extrema', 'B – Pobreza moderada',
@@ -115,7 +217,6 @@ def api_sisben():
 
 @app.route('/api/carencias')
 def api_carencias():
-    """Total de carencias por indicador I1–I15, ordenado descendente."""
     totals = df[CARENCIAS].sum().reset_index()
     totals.columns = ['indicador', 'total']
     totals['label'] = totals['indicador'].map(CARENCIA_LABELS)
@@ -125,25 +226,19 @@ def api_carencias():
 
 @app.route('/api/kmeans')
 def api_kmeans():
-    """Composición de cada cluster por grupo SISBEN."""
     clust = (df.groupby('cluster_kmeans')['grupo_desc']
-               .value_counts()
-               .unstack(fill_value=0))
+            .value_counts()
+            .unstack(fill_value=0))
     result = {'clusters': clust.index.tolist()}
     for col in clust.columns:
         result[col] = clust[col].tolist()
     return jsonify(result)
 
-@app.route('/kmeans')
-def kmeans():
-    """K-Means con Orange Data Mining."""
-    return render_template('kmeans.html', stats=STATS)
 
 @app.route('/api/ipm_boxplot')
 def api_ipm():
-    """Estadísticas de IPM score por grupo SISBEN (para boxplot)."""
     order = ['A – Pobreza extrema', 'B – Pobreza moderada',
-             'C – Vulnerable', 'D – No pobre']
+            'C – Vulnerable', 'D – No pobre']
     result = {}
     for g in order:
         vals = df[df['grupo_desc'] == g]['ipm_score'].dropna().tolist()
@@ -164,7 +259,6 @@ def api_ipm():
 
 @app.route('/api/correlacion')
 def api_correlacion():
-    """Matriz de correlación entre indicadores I1–I15."""
     corr = df[CARENCIAS].corr().round(3)
     return jsonify({
         'labels': [CARENCIA_LABELS[c] for c in CARENCIAS],
@@ -175,7 +269,6 @@ def api_correlacion():
 
 @app.route('/api/actividad_pobreza')
 def api_actividad():
-    """Actividad económica vs estado de pobreza IPM (top 8)."""
     cross = (df.groupby(['actividad_economica', 'es_pobre_ipm'])
                .size()
                .unstack(fill_value=0))
@@ -190,7 +283,6 @@ def api_actividad():
 
 @app.route('/api/radar_clusters')
 def api_radar():
-    """Perfil de carencias promedio por cluster (para gráfica radar)."""
     result = {}
     for c in sorted(df['cluster_kmeans'].unique()):
         sub = df[df['cluster_kmeans'] == c]
@@ -201,7 +293,6 @@ def api_radar():
 
 @app.route('/api/ipm_municipio')
 def api_ipm_muni():
-    """IPM promedio por municipio — top 15."""
     top = (df.groupby('nom_municipio')['ipm_score']
              .mean()
              .sort_values(ascending=False)
@@ -214,7 +305,6 @@ def api_ipm_muni():
 
 @app.route('/api/genero_sisben')
 def api_genero():
-    """Distribución de género por grupo SISBEN."""
     cross = df.groupby(['sexo', 'grupo_desc']).size().unstack(fill_value=0)
     order = ['A – Pobreza extrema', 'B – Pobreza moderada',
              'C – Vulnerable', 'D – No pobre']
@@ -228,7 +318,6 @@ def api_genero():
 
 @app.route('/api/kmeans_stats')
 def api_kmeans_stats():
-    """Estadísticas resumidas de cada cluster K-Means."""
     stats = df.groupby('cluster_kmeans').agg(
         total=('persona_fact_sk', 'count'),
         ipm_mean=('ipm_score', 'mean'),
@@ -241,7 +330,6 @@ def api_kmeans_stats():
 
 @app.route('/api/zona_sisben')
 def api_zona_sisben():
-    """Distribución de zona (urbano/rural) por grupo SISBEN."""
     cross = df.groupby(['zona_desc', 'grupo_desc']).size().unstack(fill_value=0)
     order = ['A – Pobreza extrema', 'B – Pobreza moderada',
              'C – Vulnerable', 'D – No pobre']
@@ -255,7 +343,6 @@ def api_zona_sisben():
 
 @app.route('/api/alfabetismo')
 def api_alfabetismo():
-    """Distribución de alfabetismo."""
     counts = df['alfabetismo'].value_counts().reset_index()
     counts.columns = ['tipo', 'total']
     return jsonify(counts.to_dict(orient='list'))
@@ -263,10 +350,7 @@ def api_alfabetismo():
 
 @app.route('/api/stats')
 def api_stats():
-    """Estadísticas globales en JSON — útil para actualizar KPIs vía JS."""
     return jsonify(STATS)
-
-
 
 @app.errorhandler(404)
 def not_found(e):
@@ -277,13 +361,5 @@ def not_found(e):
 def server_error(e):
     return jsonify({'error': 'Error interno del servidor', 'detalle': str(e)}), 500
 
-
-
 if __name__ == '__main__':
-    print("\n SISBEN IV Dashboard corriendo en http://localhost:5000")
-    print("   Páginas disponibles:")
-    print("   /           → Inicio")
-    print("   /pgc        → Problemática, Justificación y Objetivos")
-    print("   /datos      → Fuente de datos")
-    print("   /dashboard  → Análisis y Dashboard\n")
     app.run(debug=True, port=5000, host='0.0.0.0')
