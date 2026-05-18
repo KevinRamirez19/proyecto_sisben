@@ -1,696 +1,696 @@
-﻿persona_sk,sexo_cod,edad,alfabetismo_cod,asistencia_escolar,nivel_educativo_cod,cotiza_pension_cod,actividad_economica_cod,sexo,alfabetismo,nivel_educativo,cotiza_pension,actividad_economica,grupo_edad
-1,1,5,1,2,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,6-12
-2,1,4,1,2,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-3,1,6,2,2,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,6-12
-4,2,1,1,2,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-5,2,4,1,1,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,0-5
-6,1,4,1,2,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,0-5
-7,1,6,1,2,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,6-12
-8,1,5,2,2,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,6-12
-9,1,5,1,2,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,6-12
-10,1,4,1,1,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,0-5
-11,2,2,1,1,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,0-5
-12,1,4,1,1,3,2,4,Hombre,Alfabeto,Primaria,No cotiza,Estudiante,0-5
-13,2,6,1,2,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,6-12
-14,2,5,1,2,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,6-12
-15,2,6,1,2,3,3,5,Mujer,Alfabeto,Primaria,,Ama de casa,6-12
-16,1,6,2,2,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,6-12
-17,2,4,1,1,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,0-5
-18,1,1,1,2,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-19,2,6,2,2,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,6-12
-20,1,2,1,2,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-21,2,3,1,1,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,0-5
-22,2,5,1,2,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,6-12
-23,1,5,2,2,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,6-12
-24,1,2,1,1,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,0-5
-25,2,4,1,2,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-26,2,6,2,2,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,6-12
-27,1,5,2,2,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,6-12
-28,1,3,1,1,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,0-5
-29,1,6,1,2,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,6-12
-30,1,5,1,2,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,6-12
-31,1,1,1,2,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-32,1,4,1,2,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,0-5
-33,1,2,1,1,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,0-5
-34,1,5,1,2,2,1,3,Hombre,Alfabeto,Preescolar,Cotiza,Desempleado,6-12
-35,2,5,1,2,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,6-12
-36,1,1,1,1,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,0-5
-37,2,4,1,2,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-38,1,5,1,2,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,6-12
-39,2,4,1,2,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,0-5
-40,2,6,2,2,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,6-12
-41,1,5,1,2,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,6-12
-42,2,5,1,2,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,6-12
-43,1,5,1,2,3,1,2,Hombre,Alfabeto,Primaria,Cotiza,Independiente,6-12
-44,1,5,1,2,3,2,2,Hombre,Alfabeto,Primaria,No cotiza,Independiente,6-12
-45,2,4,1,2,3,1,2,Mujer,Alfabeto,Primaria,Cotiza,Independiente,0-5
-46,2,2,1,1,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-47,2,5,1,2,3,2,3,Mujer,Alfabeto,Primaria,No cotiza,Desempleado,6-12
-48,2,3,1,2,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,0-5
-49,1,6,1,2,2,3,5,Hombre,Alfabeto,Preescolar,,Ama de casa,6-12
-50,2,1,2,2,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-51,2,4,1,1,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,0-5
-52,2,2,2,1,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-53,1,4,1,1,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,0-5
-54,1,6,1,2,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,6-12
-55,2,2,1,1,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-56,1,3,1,2,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,0-5
-57,1,4,1,2,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,0-5
-58,1,6,1,2,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,6-12
-59,1,4,1,2,3,2,2,Hombre,Alfabeto,Primaria,No cotiza,Independiente,0-5
-60,1,6,1,2,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,6-12
-61,2,1,1,1,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
-62,1,6,1,2,2,3,1,Hombre,Alfabeto,Preescolar,,Empleado,6-12
-63,1,5,1,2,3,2,1,Hombre,Alfabeto,Primaria,No cotiza,Empleado,6-12
-64,2,5,1,2,2,1,5,Mujer,Alfabeto,Preescolar,Cotiza,Ama de casa,6-12
-65,2,3,1,1,2,1,4,Mujer,Alfabeto,Preescolar,Cotiza,Estudiante,0-5
-66,2,5,1,2,3,1,2,Mujer,Alfabeto,Primaria,Cotiza,Independiente,6-12
-67,2,1,1,2,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-68,1,4,1,2,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,0-5
-69,2,6,1,2,2,3,5,Mujer,Alfabeto,Preescolar,,Ama de casa,6-12
-70,2,4,1,2,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,0-5
-71,2,6,2,2,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,6-12
-72,1,4,1,2,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-73,2,4,1,2,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,0-5
-74,1,5,2,2,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,6-12
-75,2,5,1,2,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,6-12
-76,2,5,2,2,1,2,1,Mujer,Analfabeto,Ninguno,No cotiza,Empleado,6-12
-77,1,3,1,2,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-78,2,5,1,2,1,2,3,Mujer,Alfabeto,Ninguno,No cotiza,Desempleado,6-12
-79,1,2,1,2,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,0-5
-80,2,4,1,2,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,0-5
-81,2,6,1,2,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,6-12
-82,2,3,1,2,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-83,2,2,1,2,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,0-5
-84,1,4,2,2,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-85,2,5,2,2,1,2,3,Mujer,Analfabeto,Ninguno,No cotiza,Desempleado,6-12
-86,1,5,1,2,2,3,2,Hombre,Alfabeto,Preescolar,,Independiente,6-12
-87,1,2,1,1,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-88,1,5,2,2,1,2,3,Hombre,Analfabeto,Ninguno,No cotiza,Desempleado,6-12
-89,2,5,1,2,3,1,5,Mujer,Alfabeto,Primaria,Cotiza,Ama de casa,6-12
-90,2,6,1,2,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,6-12
-91,2,4,1,2,3,2,3,Mujer,Alfabeto,Primaria,No cotiza,Desempleado,0-5
-92,2,5,1,2,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,6-12
-93,1,6,1,1,3,3,5,Hombre,Alfabeto,Primaria,,Ama de casa,6-12
-94,1,6,1,2,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,6-12
-95,1,2,1,1,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-96,1,6,1,2,3,3,5,Hombre,Alfabeto,Primaria,,Ama de casa,6-12
-97,2,5,2,2,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,6-12
-98,1,5,2,2,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,6-12
-99,2,4,1,1,3,1,2,Mujer,Alfabeto,Primaria,Cotiza,Independiente,0-5
-100,1,5,1,2,1,2,3,Hombre,Alfabeto,Ninguno,No cotiza,Desempleado,6-12
-101,1,1,2,1,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-102,2,1,2,1,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-103,2,6,2,2,1,2,1,Mujer,Analfabeto,Ninguno,No cotiza,Empleado,6-12
-104,2,4,1,1,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,0-5
-105,2,4,1,2,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,0-5
-106,2,2,1,2,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-107,1,4,1,2,3,1,2,Hombre,Alfabeto,Primaria,Cotiza,Independiente,0-5
-108,2,2,2,1,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-109,1,6,1,2,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,6-12
-110,1,2,2,1,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,0-5
-111,1,4,1,2,3,2,3,Hombre,Alfabeto,Primaria,No cotiza,Desempleado,0-5
-112,2,2,2,1,2,2,4,Mujer,Analfabeto,Preescolar,No cotiza,Estudiante,0-5
-113,2,5,1,1,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,6-12
-114,1,6,1,2,3,2,4,Hombre,Alfabeto,Primaria,No cotiza,Estudiante,6-12
-115,2,5,1,1,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,6-12
-116,1,3,2,2,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,0-5
-117,1,2,1,2,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,0-5
-118,1,4,1,1,3,1,2,Hombre,Alfabeto,Primaria,Cotiza,Independiente,0-5
-119,1,3,1,2,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,0-5
-120,1,6,2,2,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,6-12
-121,1,6,1,2,3,1,2,Hombre,Alfabeto,Primaria,Cotiza,Independiente,6-12
-122,1,2,2,1,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-123,2,4,1,1,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,0-5
-124,2,3,1,2,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,0-5
-125,1,5,1,1,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,6-12
-126,2,4,1,2,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,0-5
-127,2,6,1,2,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,6-12
-128,1,6,1,1,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,6-12
-129,1,2,2,1,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-130,2,5,1,2,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,6-12
-131,1,6,1,2,3,2,1,Hombre,Alfabeto,Primaria,No cotiza,Empleado,6-12
-132,2,5,1,2,2,3,5,Mujer,Alfabeto,Preescolar,,Ama de casa,6-12
-133,2,5,1,2,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,6-12
-134,2,5,1,1,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,6-12
-135,1,6,1,2,2,1,5,Hombre,Alfabeto,Preescolar,Cotiza,Ama de casa,6-12
-136,2,4,2,2,1,2,1,Mujer,Analfabeto,Ninguno,No cotiza,Empleado,0-5
-137,1,6,1,2,3,2,2,Hombre,Alfabeto,Primaria,No cotiza,Independiente,6-12
-138,2,2,1,1,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,0-5
-139,2,3,1,2,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,0-5
-140,1,5,1,1,3,1,2,Hombre,Alfabeto,Primaria,Cotiza,Independiente,6-12
-141,1,5,1,2,3,2,3,Hombre,Alfabeto,Primaria,No cotiza,Desempleado,6-12
-142,1,5,1,2,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,6-12
-143,2,2,2,1,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,0-5
-144,2,6,1,2,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,6-12
-145,2,4,1,2,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,0-5
-146,1,5,1,2,3,2,5,Hombre,Alfabeto,Primaria,No cotiza,Ama de casa,6-12
-147,1,4,1,2,3,2,1,Hombre,Alfabeto,Primaria,No cotiza,Empleado,0-5
-148,2,4,1,1,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-149,2,4,1,1,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-150,1,4,2,2,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,0-5
-151,2,6,1,2,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,6-12
-152,2,5,1,2,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,6-12
-153,1,4,1,1,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-154,1,6,2,2,1,3,5,Hombre,Analfabeto,Ninguno,,Ama de casa,6-12
-155,1,5,1,2,2,1,5,Hombre,Alfabeto,Preescolar,Cotiza,Ama de casa,6-12
-156,2,2,1,2,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,0-5
-157,2,6,1,2,3,1,2,Mujer,Alfabeto,Primaria,Cotiza,Independiente,6-12
-158,1,6,2,2,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,6-12
-159,2,5,1,2,2,1,3,Mujer,Alfabeto,Preescolar,Cotiza,Desempleado,6-12
-160,2,4,1,2,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,0-5
-161,1,2,1,1,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
-162,1,6,2,2,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,6-12
-163,1,4,2,2,1,2,3,Hombre,Analfabeto,Ninguno,No cotiza,Desempleado,0-5
-164,2,3,1,1,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-165,1,3,1,1,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,0-5
-166,2,5,1,2,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,6-12
-167,1,2,1,2,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-168,1,4,1,1,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,0-5
-169,2,6,1,1,2,1,5,Mujer,Alfabeto,Preescolar,Cotiza,Ama de casa,6-12
-170,1,4,1,2,2,1,3,Hombre,Alfabeto,Preescolar,Cotiza,Desempleado,0-5
-171,1,3,1,2,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,0-5
-172,2,4,1,1,3,2,3,Mujer,Alfabeto,Primaria,No cotiza,Desempleado,0-5
-173,1,3,2,1,2,2,4,Hombre,Analfabeto,Preescolar,No cotiza,Estudiante,0-5
-174,2,5,1,1,3,1,2,Mujer,Alfabeto,Primaria,Cotiza,Independiente,6-12
-175,1,4,1,1,3,2,3,Hombre,Alfabeto,Primaria,No cotiza,Desempleado,0-5
-176,1,1,2,2,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-177,1,5,1,2,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,6-12
-178,1,6,2,2,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,6-12
-179,2,6,1,2,2,1,5,Mujer,Alfabeto,Preescolar,Cotiza,Ama de casa,6-12
-180,2,6,1,2,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,6-12
-181,2,6,1,2,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,6-12
-182,1,4,1,1,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,0-5
-183,1,2,1,2,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
-184,2,6,1,1,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,6-12
-185,2,5,2,2,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,6-12
-186,1,5,2,2,2,2,3,Hombre,Analfabeto,Preescolar,No cotiza,Desempleado,6-12
-187,1,1,2,1,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,0-5
-188,2,6,1,1,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,6-12
-189,2,6,1,2,3,1,5,Mujer,Alfabeto,Primaria,Cotiza,Ama de casa,6-12
-190,1,6,1,2,2,3,2,Hombre,Alfabeto,Preescolar,,Independiente,6-12
-191,1,4,1,2,2,1,1,Hombre,Alfabeto,Preescolar,Cotiza,Empleado,0-5
-192,1,1,1,1,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
-193,1,2,2,2,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-194,2,4,1,1,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,0-5
-195,1,2,2,2,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,0-5
-196,2,2,1,1,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
-197,1,4,1,1,2,1,4,Hombre,Alfabeto,Preescolar,Cotiza,Estudiante,0-5
-198,2,4,1,1,3,1,4,Mujer,Alfabeto,Primaria,Cotiza,Estudiante,0-5
-199,2,3,1,1,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,0-5
-200,1,2,2,1,2,2,4,Hombre,Analfabeto,Preescolar,No cotiza,Estudiante,0-5
-201,2,4,1,1,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,0-5
-202,2,1,1,1,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-203,2,6,1,2,2,3,1,Mujer,Alfabeto,Preescolar,,Empleado,6-12
-204,2,6,1,2,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,6-12
-205,1,6,1,1,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,6-12
-206,2,4,1,2,2,1,5,Mujer,Alfabeto,Preescolar,Cotiza,Ama de casa,0-5
-207,2,6,2,1,1,3,5,Mujer,Analfabeto,Ninguno,,Ama de casa,6-12
-208,2,4,2,2,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-209,1,6,1,2,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,6-12
-210,1,6,2,2,1,2,3,Hombre,Analfabeto,Ninguno,No cotiza,Desempleado,6-12
-211,2,4,1,1,2,1,4,Mujer,Alfabeto,Preescolar,Cotiza,Estudiante,0-5
-212,2,1,2,2,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,0-5
-213,1,5,2,2,1,1,2,Hombre,Analfabeto,Ninguno,Cotiza,Independiente,6-12
-214,1,6,1,2,1,1,5,Hombre,Alfabeto,Ninguno,Cotiza,Ama de casa,6-12
-215,2,5,2,1,2,1,2,Mujer,Analfabeto,Preescolar,Cotiza,Independiente,6-12
-216,1,5,1,2,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,6-12
-217,2,5,2,2,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,6-12
-218,2,6,1,2,2,1,1,Mujer,Alfabeto,Preescolar,Cotiza,Empleado,6-12
-219,2,4,1,2,3,1,4,Mujer,Alfabeto,Primaria,Cotiza,Estudiante,0-5
-220,2,1,2,1,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,0-5
-221,2,4,1,2,2,1,3,Mujer,Alfabeto,Preescolar,Cotiza,Desempleado,0-5
-222,2,4,1,1,3,1,3,Mujer,Alfabeto,Primaria,Cotiza,Desempleado,0-5
-223,1,4,1,2,3,1,3,Hombre,Alfabeto,Primaria,Cotiza,Desempleado,0-5
-224,1,5,2,2,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,6-12
-225,2,5,2,2,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,6-12
-226,2,6,2,2,1,2,3,Mujer,Analfabeto,Ninguno,No cotiza,Desempleado,6-12
-227,1,6,1,1,2,3,5,Hombre,Alfabeto,Preescolar,,Ama de casa,6-12
-228,2,5,1,1,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,6-12
-229,1,3,1,1,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,0-5
-230,1,4,2,2,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,0-5
-231,1,5,1,1,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,6-12
-232,2,3,1,1,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,0-5
-233,1,5,1,2,2,1,1,Hombre,Alfabeto,Preescolar,Cotiza,Empleado,6-12
-234,1,3,1,2,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-235,2,1,1,1,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,0-5
-236,1,6,1,2,2,1,1,Hombre,Alfabeto,Preescolar,Cotiza,Empleado,6-12
-237,2,5,1,1,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,6-12
-238,1,6,1,2,3,1,5,Hombre,Alfabeto,Primaria,Cotiza,Ama de casa,6-12
-239,1,4,1,1,3,2,2,Hombre,Alfabeto,Primaria,No cotiza,Independiente,0-5
-240,1,5,1,2,3,1,3,Hombre,Alfabeto,Primaria,Cotiza,Desempleado,6-12
-241,2,5,2,2,2,2,3,Mujer,Analfabeto,Preescolar,No cotiza,Desempleado,6-12
-242,2,6,1,2,2,3,2,Mujer,Alfabeto,Preescolar,,Independiente,6-12
-243,1,6,2,1,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,6-12
-244,1,6,1,2,3,3,2,Hombre,Alfabeto,Primaria,,Independiente,6-12
-245,1,4,2,1,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,0-5
-246,1,5,1,2,3,3,5,Hombre,Alfabeto,Primaria,,Ama de casa,6-12
-247,1,5,2,2,2,1,2,Hombre,Analfabeto,Preescolar,Cotiza,Independiente,6-12
-248,1,6,1,2,3,2,5,Hombre,Alfabeto,Primaria,No cotiza,Ama de casa,6-12
-249,2,5,1,1,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,6-12
-250,2,6,1,2,1,3,5,Mujer,Alfabeto,Ninguno,,Ama de casa,6-12
-251,1,5,1,2,2,3,1,Hombre,Alfabeto,Preescolar,,Empleado,6-12
-252,2,2,2,2,1,2,1,Mujer,Analfabeto,Ninguno,No cotiza,Empleado,0-5
-253,2,6,2,2,1,3,5,Mujer,Analfabeto,Ninguno,,Ama de casa,6-12
-254,1,2,1,1,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,0-5
-255,1,3,2,2,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,0-5
-256,1,1,2,2,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,0-5
-257,1,4,2,2,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,0-5
-258,1,6,1,2,2,1,3,Hombre,Alfabeto,Preescolar,Cotiza,Desempleado,6-12
-259,1,3,2,2,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-260,2,3,1,1,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,0-5
-261,2,5,1,1,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,6-12
-262,1,3,1,1,2,3,4,Hombre,Alfabeto,Preescolar,,Estudiante,0-5
-263,1,6,2,2,2,2,3,Hombre,Analfabeto,Preescolar,No cotiza,Desempleado,6-12
-264,2,4,1,1,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,0-5
-265,2,6,1,2,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,6-12
-266,1,2,1,1,1,2,4,Hombre,Alfabeto,Ninguno,No cotiza,Estudiante,0-5
-267,2,4,1,2,3,1,5,Mujer,Alfabeto,Primaria,Cotiza,Ama de casa,0-5
-268,2,5,1,2,3,1,3,Mujer,Alfabeto,Primaria,Cotiza,Desempleado,6-12
-269,2,2,2,1,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,0-5
-270,1,5,1,1,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,6-12
-271,2,5,1,1,3,2,3,Mujer,Alfabeto,Primaria,No cotiza,Desempleado,6-12
-272,2,5,1,1,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,6-12
-273,1,4,2,2,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,0-5
-274,2,6,2,2,2,1,5,Mujer,Analfabeto,Preescolar,Cotiza,Ama de casa,6-12
-275,1,2,2,1,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,0-5
-276,1,4,1,2,2,1,5,Hombre,Alfabeto,Preescolar,Cotiza,Ama de casa,0-5
-277,2,5,1,1,3,1,5,Mujer,Alfabeto,Primaria,Cotiza,Ama de casa,6-12
-278,2,6,2,2,1,3,1,Mujer,Analfabeto,Ninguno,,Empleado,6-12
-279,1,5,1,1,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,6-12
-280,2,6,1,1,2,3,5,Mujer,Alfabeto,Preescolar,,Ama de casa,6-12
-281,2,2,2,2,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-282,2,1,1,1,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-283,2,4,2,2,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-284,2,5,1,2,3,1,1,Mujer,Alfabeto,Primaria,Cotiza,Empleado,6-12
-285,1,4,1,1,3,1,4,Hombre,Alfabeto,Primaria,Cotiza,Estudiante,0-5
-286,1,6,1,2,1,3,5,Hombre,Alfabeto,Ninguno,,Ama de casa,6-12
-287,1,4,1,2,3,2,4,Hombre,Alfabeto,Primaria,No cotiza,Estudiante,0-5
-288,2,5,1,2,2,1,1,Mujer,Alfabeto,Preescolar,Cotiza,Empleado,6-12
-289,2,6,2,2,1,1,5,Mujer,Analfabeto,Ninguno,Cotiza,Ama de casa,6-12
-290,1,5,1,2,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,6-12
-291,1,6,1,2,3,3,1,Hombre,Alfabeto,Primaria,,Empleado,6-12
-292,2,5,1,1,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,6-12
-293,2,4,2,1,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,0-5
-294,1,5,1,1,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,6-12
-295,1,6,1,1,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,6-12
-296,2,5,1,2,1,1,2,Mujer,Alfabeto,Ninguno,Cotiza,Independiente,6-12
+persona_sk,sexo_cod,edad,alfabetismo_cod,asistencia_escolar,nivel_educativo_cod,cotiza_pension_cod,actividad_economica_cod,sexo,alfabetismo,nivel_educativo,cotiza_pension,actividad_economica,grupo_edad
+1,1,29,1,2,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,29-59
+2,1,36,1,2,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,29-59
+3,1,13,2,2,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,13-17
+4,2,57,1,2,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,29-59
+5,2,47,1,1,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,29-59
+6,1,18,1,2,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,18-28
+7,1,1,1,2,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,0-5
+8,1,29,2,2,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,29-59
+9,1,51,1,2,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,29-59
+10,1,46,1,1,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,29-59
+11,2,25,1,1,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,18-28
+12,1,54,1,1,3,2,4,Hombre,Alfabeto,Primaria,No cotiza,Estudiante,29-59
+13,2,84,1,2,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,60+
+14,2,51,1,2,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,29-59
+15,2,22,1,2,3,3,5,Mujer,Alfabeto,Primaria,,Ama de casa,18-28
+16,1,12,2,2,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,6-12
+17,2,19,1,1,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,18-28
+18,1,23,1,2,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,18-28
+19,2,79,2,2,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,60+
+20,1,13,1,2,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,13-17
+21,2,46,1,1,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,29-59
+22,2,9,1,2,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,6-12
+23,1,2,2,2,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,0-5
+24,1,48,1,1,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,29-59
+25,2,71,1,2,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,60+
+26,2,51,2,2,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,29-59
+27,1,5,2,2,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,0-5
+28,1,15,1,1,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,13-17
+29,1,87,1,2,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,60+
+30,1,13,1,2,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,13-17
+31,1,25,1,2,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,18-28
+32,1,40,1,2,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,29-59
+33,1,8,1,1,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,6-12
+34,1,15,1,2,2,1,3,Hombre,Alfabeto,Preescolar,Cotiza,Desempleado,13-17
+35,2,50,1,2,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,29-59
+36,1,48,1,1,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,29-59
+37,2,46,1,2,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,29-59
+38,1,34,1,2,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,29-59
+39,2,37,1,2,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,29-59
+40,2,80,2,2,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,60+
+41,1,36,1,2,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,29-59
+42,2,55,1,2,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,29-59
+43,1,30,1,2,3,1,2,Hombre,Alfabeto,Primaria,Cotiza,Independiente,29-59
+44,1,13,1,2,3,2,2,Hombre,Alfabeto,Primaria,No cotiza,Independiente,13-17
+45,2,41,1,2,3,1,2,Mujer,Alfabeto,Primaria,Cotiza,Independiente,29-59
+46,2,14,1,1,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,13-17
+47,2,78,1,2,3,2,3,Mujer,Alfabeto,Primaria,No cotiza,Desempleado,60+
+48,2,70,1,2,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,60+
+49,1,16,1,2,2,3,5,Hombre,Alfabeto,Preescolar,,Ama de casa,13-17
+50,2,28,2,2,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,18-28
+51,2,22,1,1,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,18-28
+52,2,11,2,1,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,6-12
+53,1,37,1,1,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,29-59
+54,1,42,1,2,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,29-59
+55,2,72,1,1,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,60+
+56,1,20,1,2,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,18-28
+57,1,31,1,2,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,29-59
+58,1,56,1,2,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,29-59
+59,1,11,1,2,3,2,2,Hombre,Alfabeto,Primaria,No cotiza,Independiente,6-12
+60,1,11,1,2,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,6-12
+61,2,19,1,1,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,18-28
+62,1,27,1,2,2,3,1,Hombre,Alfabeto,Preescolar,,Empleado,18-28
+63,1,76,1,2,3,2,1,Hombre,Alfabeto,Primaria,No cotiza,Empleado,60+
+64,2,17,1,2,2,1,5,Mujer,Alfabeto,Preescolar,Cotiza,Ama de casa,13-17
+65,2,60,1,1,2,1,4,Mujer,Alfabeto,Preescolar,Cotiza,Estudiante,60+
+66,2,32,1,2,3,1,2,Mujer,Alfabeto,Primaria,Cotiza,Independiente,29-59
+67,2,46,1,2,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,29-59
+68,1,53,1,2,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,29-59
+69,2,32,1,2,2,3,5,Mujer,Alfabeto,Preescolar,,Ama de casa,29-59
+70,2,20,1,2,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,18-28
+71,2,22,2,2,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,18-28
+72,1,84,1,2,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,60+
+73,2,6,1,2,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,6-12
+74,1,69,2,2,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,60+
+75,2,76,1,2,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,60+
+76,2,33,2,2,1,2,1,Mujer,Analfabeto,Ninguno,No cotiza,Empleado,29-59
+77,1,20,1,2,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,18-28
+78,2,53,1,2,1,2,3,Mujer,Alfabeto,Ninguno,No cotiza,Desempleado,29-59
+79,1,89,1,2,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,60+
+80,2,2,1,2,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,0-5
+81,2,32,1,2,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,29-59
+82,2,88,1,2,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,60+
+83,2,85,1,2,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,60+
+84,1,18,2,2,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,18-28
+85,2,17,2,2,1,2,3,Mujer,Analfabeto,Ninguno,No cotiza,Desempleado,13-17
+86,1,62,1,2,2,3,2,Hombre,Alfabeto,Preescolar,,Independiente,60+
+87,1,55,1,1,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,29-59
+88,1,4,2,2,1,2,3,Hombre,Analfabeto,Ninguno,No cotiza,Desempleado,0-5
+89,2,33,1,2,3,1,5,Mujer,Alfabeto,Primaria,Cotiza,Ama de casa,29-59
+90,2,59,1,2,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,29-59
+91,2,37,1,2,3,2,3,Mujer,Alfabeto,Primaria,No cotiza,Desempleado,29-59
+92,2,48,1,2,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,29-59
+93,1,21,1,1,3,3,5,Hombre,Alfabeto,Primaria,,Ama de casa,18-28
+94,1,84,1,2,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,60+
+95,1,35,1,1,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,29-59
+96,1,41,1,2,3,3,5,Hombre,Alfabeto,Primaria,,Ama de casa,29-59
+97,2,80,2,2,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,60+
+98,1,26,2,2,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,18-28
+99,2,21,1,1,3,1,2,Mujer,Alfabeto,Primaria,Cotiza,Independiente,18-28
+100,1,15,1,2,1,2,3,Hombre,Alfabeto,Ninguno,No cotiza,Desempleado,13-17
+101,1,4,2,1,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
+102,2,14,2,1,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,13-17
+103,2,5,2,2,1,2,1,Mujer,Analfabeto,Ninguno,No cotiza,Empleado,0-5
+104,2,36,1,1,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,29-59
+105,2,0,1,2,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,0-5
+106,2,62,1,2,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,60+
+107,1,37,1,2,3,1,2,Hombre,Alfabeto,Primaria,Cotiza,Independiente,29-59
+108,2,35,2,1,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,29-59
+109,1,52,1,2,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,29-59
+110,1,78,2,1,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,60+
+111,1,36,1,2,3,2,3,Hombre,Alfabeto,Primaria,No cotiza,Desempleado,29-59
+112,2,54,2,1,2,2,4,Mujer,Analfabeto,Preescolar,No cotiza,Estudiante,29-59
+113,2,19,1,1,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,18-28
+114,1,3,1,2,3,2,4,Hombre,Alfabeto,Primaria,No cotiza,Estudiante,0-5
+115,2,24,1,1,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,18-28
+116,1,52,2,2,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,29-59
+117,1,5,1,2,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,0-5
+118,1,63,1,1,3,1,2,Hombre,Alfabeto,Primaria,Cotiza,Independiente,60+
+119,1,5,1,2,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,0-5
+120,1,19,2,2,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,18-28
+121,1,14,1,2,3,1,2,Hombre,Alfabeto,Primaria,Cotiza,Independiente,13-17
+122,1,33,2,1,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,29-59
+123,2,22,1,1,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,18-28
+124,2,56,1,2,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,29-59
+125,1,74,1,1,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,60+
+126,2,56,1,2,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,29-59
+127,2,30,1,2,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,29-59
+128,1,46,1,1,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,29-59
+129,1,31,2,1,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,29-59
+130,2,87,1,2,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,60+
+131,1,16,1,2,3,2,1,Hombre,Alfabeto,Primaria,No cotiza,Empleado,13-17
+132,2,35,1,2,2,3,5,Mujer,Alfabeto,Preescolar,,Ama de casa,29-59
+133,2,88,1,2,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,60+
+134,2,3,1,1,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,0-5
+135,1,3,1,2,2,1,5,Hombre,Alfabeto,Preescolar,Cotiza,Ama de casa,0-5
+136,2,16,2,2,1,2,1,Mujer,Analfabeto,Ninguno,No cotiza,Empleado,13-17
+137,1,26,1,2,3,2,2,Hombre,Alfabeto,Primaria,No cotiza,Independiente,18-28
+138,2,44,1,1,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,29-59
+139,2,8,1,2,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,6-12
+140,1,13,1,1,3,1,2,Hombre,Alfabeto,Primaria,Cotiza,Independiente,13-17
+141,1,46,1,2,3,2,3,Hombre,Alfabeto,Primaria,No cotiza,Desempleado,29-59
+142,1,2,1,2,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
+143,2,4,2,1,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,0-5
+144,2,58,1,2,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,29-59
+145,2,65,1,2,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,60+
+146,1,4,1,2,3,2,5,Hombre,Alfabeto,Primaria,No cotiza,Ama de casa,0-5
+147,1,1,1,2,3,2,1,Hombre,Alfabeto,Primaria,No cotiza,Empleado,0-5
+148,2,0,1,1,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,0-5
+149,2,36,1,1,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,29-59
+150,1,27,2,2,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,18-28
+151,2,17,1,2,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,13-17
+152,2,0,1,2,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,0-5
+153,1,27,1,1,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,18-28
+154,1,39,2,2,1,3,5,Hombre,Analfabeto,Ninguno,,Ama de casa,29-59
+155,1,66,1,2,2,1,5,Hombre,Alfabeto,Preescolar,Cotiza,Ama de casa,60+
+156,2,39,1,2,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,29-59
+157,2,16,1,2,3,1,2,Mujer,Alfabeto,Primaria,Cotiza,Independiente,13-17
+158,1,11,2,2,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,6-12
+159,2,23,1,2,2,1,3,Mujer,Alfabeto,Preescolar,Cotiza,Desempleado,18-28
+160,2,89,1,2,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,60+
+161,1,3,1,1,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
+162,1,47,2,2,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,29-59
+163,1,62,2,2,1,2,3,Hombre,Analfabeto,Ninguno,No cotiza,Desempleado,60+
+164,2,45,1,1,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,29-59
+165,1,15,1,1,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,13-17
+166,2,88,1,2,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,60+
+167,1,15,1,2,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,13-17
+168,1,12,1,1,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,6-12
+169,2,38,1,1,2,1,5,Mujer,Alfabeto,Preescolar,Cotiza,Ama de casa,29-59
+170,1,54,1,2,2,1,3,Hombre,Alfabeto,Preescolar,Cotiza,Desempleado,29-59
+171,1,29,1,2,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,29-59
+172,2,46,1,1,3,2,3,Mujer,Alfabeto,Primaria,No cotiza,Desempleado,29-59
+173,1,28,2,1,2,2,4,Hombre,Analfabeto,Preescolar,No cotiza,Estudiante,18-28
+174,2,7,1,1,3,1,2,Mujer,Alfabeto,Primaria,Cotiza,Independiente,6-12
+175,1,13,1,1,3,2,3,Hombre,Alfabeto,Primaria,No cotiza,Desempleado,13-17
+176,1,33,2,2,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,29-59
+177,1,17,1,2,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,13-17
+178,1,15,2,2,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,13-17
+179,2,15,1,2,2,1,5,Mujer,Alfabeto,Preescolar,Cotiza,Ama de casa,13-17
+180,2,37,1,2,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,29-59
+181,2,87,1,2,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,60+
+182,1,5,1,1,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,0-5
+183,1,22,1,2,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,18-28
+184,2,2,1,1,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,0-5
+185,2,49,2,2,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,29-59
+186,1,65,2,2,2,2,3,Hombre,Analfabeto,Preescolar,No cotiza,Desempleado,60+
+187,1,46,2,1,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,29-59
+188,2,46,1,1,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,29-59
+189,2,0,1,2,3,1,5,Mujer,Alfabeto,Primaria,Cotiza,Ama de casa,0-5
+190,1,82,1,2,2,3,2,Hombre,Alfabeto,Preescolar,,Independiente,60+
+191,1,77,1,2,2,1,1,Hombre,Alfabeto,Preescolar,Cotiza,Empleado,60+
+192,1,2,1,1,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
+193,1,33,2,2,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,29-59
+194,2,18,1,1,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,18-28
+195,1,18,2,2,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,18-28
+196,2,66,1,1,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,60+
+197,1,50,1,1,2,1,4,Hombre,Alfabeto,Preescolar,Cotiza,Estudiante,29-59
+198,2,12,1,1,3,1,4,Mujer,Alfabeto,Primaria,Cotiza,Estudiante,6-12
+199,2,56,1,1,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,29-59
+200,1,27,2,1,2,2,4,Hombre,Analfabeto,Preescolar,No cotiza,Estudiante,18-28
+201,2,58,1,1,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,29-59
+202,2,87,1,1,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,60+
+203,2,12,1,2,2,3,1,Mujer,Alfabeto,Preescolar,,Empleado,6-12
+204,2,57,1,2,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,29-59
+205,1,20,1,1,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,18-28
+206,2,39,1,2,2,1,5,Mujer,Alfabeto,Preescolar,Cotiza,Ama de casa,29-59
+207,2,42,2,1,1,3,5,Mujer,Analfabeto,Ninguno,,Ama de casa,29-59
+208,2,56,2,2,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,29-59
+209,1,36,1,2,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,29-59
+210,1,13,2,2,1,2,3,Hombre,Analfabeto,Ninguno,No cotiza,Desempleado,13-17
+211,2,18,1,1,2,1,4,Mujer,Alfabeto,Preescolar,Cotiza,Estudiante,18-28
+212,2,67,2,2,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,60+
+213,1,9,2,2,1,1,2,Hombre,Analfabeto,Ninguno,Cotiza,Independiente,6-12
+214,1,21,1,2,1,1,5,Hombre,Alfabeto,Ninguno,Cotiza,Ama de casa,18-28
+215,2,14,2,1,2,1,2,Mujer,Analfabeto,Preescolar,Cotiza,Independiente,13-17
+216,1,22,1,2,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,18-28
+217,2,90,2,2,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,60+
+218,2,40,1,2,2,1,1,Mujer,Alfabeto,Preescolar,Cotiza,Empleado,29-59
+219,2,41,1,2,3,1,4,Mujer,Alfabeto,Primaria,Cotiza,Estudiante,29-59
+220,2,55,2,1,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,29-59
+221,2,59,1,2,2,1,3,Mujer,Alfabeto,Preescolar,Cotiza,Desempleado,29-59
+222,2,2,1,1,3,1,3,Mujer,Alfabeto,Primaria,Cotiza,Desempleado,0-5
+223,1,8,1,2,3,1,3,Hombre,Alfabeto,Primaria,Cotiza,Desempleado,6-12
+224,1,4,2,2,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
+225,2,23,2,2,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,18-28
+226,2,26,2,2,1,2,3,Mujer,Analfabeto,Ninguno,No cotiza,Desempleado,18-28
+227,1,10,1,1,2,3,5,Hombre,Alfabeto,Preescolar,,Ama de casa,6-12
+228,2,6,1,1,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,6-12
+229,1,29,1,1,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,29-59
+230,1,54,2,2,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,29-59
+231,1,52,1,1,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,29-59
+232,2,83,1,1,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,60+
+233,1,40,1,2,2,1,1,Hombre,Alfabeto,Preescolar,Cotiza,Empleado,29-59
+234,1,28,1,2,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,18-28
+235,2,79,1,1,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,60+
+236,1,19,1,2,2,1,1,Hombre,Alfabeto,Preescolar,Cotiza,Empleado,18-28
+237,2,38,1,1,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,29-59
+238,1,50,1,2,3,1,5,Hombre,Alfabeto,Primaria,Cotiza,Ama de casa,29-59
+239,1,24,1,1,3,2,2,Hombre,Alfabeto,Primaria,No cotiza,Independiente,18-28
+240,1,46,1,2,3,1,3,Hombre,Alfabeto,Primaria,Cotiza,Desempleado,29-59
+241,2,9,2,2,2,2,3,Mujer,Analfabeto,Preescolar,No cotiza,Desempleado,6-12
+242,2,41,1,2,2,3,2,Mujer,Alfabeto,Preescolar,,Independiente,29-59
+243,1,57,2,1,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,29-59
+244,1,10,1,2,3,3,2,Hombre,Alfabeto,Primaria,,Independiente,6-12
+245,1,26,2,1,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,18-28
+246,1,38,1,2,3,3,5,Hombre,Alfabeto,Primaria,,Ama de casa,29-59
+247,1,24,2,2,2,1,2,Hombre,Analfabeto,Preescolar,Cotiza,Independiente,18-28
+248,1,48,1,2,3,2,5,Hombre,Alfabeto,Primaria,No cotiza,Ama de casa,29-59
+249,2,43,1,1,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,29-59
+250,2,28,1,2,1,3,5,Mujer,Alfabeto,Ninguno,,Ama de casa,18-28
+251,1,16,1,2,2,3,1,Hombre,Alfabeto,Preescolar,,Empleado,13-17
+252,2,59,2,2,1,2,1,Mujer,Analfabeto,Ninguno,No cotiza,Empleado,29-59
+253,2,34,2,2,1,3,5,Mujer,Analfabeto,Ninguno,,Ama de casa,29-59
+254,1,38,1,1,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,29-59
+255,1,49,2,2,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,29-59
+256,1,31,2,2,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,29-59
+257,1,53,2,2,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,29-59
+258,1,15,1,2,2,1,3,Hombre,Alfabeto,Preescolar,Cotiza,Desempleado,13-17
+259,1,14,2,2,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,13-17
+260,2,6,1,1,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,6-12
+261,2,16,1,1,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,13-17
+262,1,53,1,1,2,3,4,Hombre,Alfabeto,Preescolar,,Estudiante,29-59
+263,1,3,2,2,2,2,3,Hombre,Analfabeto,Preescolar,No cotiza,Desempleado,0-5
+264,2,78,1,1,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,60+
+265,2,11,1,2,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,6-12
+266,1,24,1,1,1,2,4,Hombre,Alfabeto,Ninguno,No cotiza,Estudiante,18-28
+267,2,13,1,2,3,1,5,Mujer,Alfabeto,Primaria,Cotiza,Ama de casa,13-17
+268,2,87,1,2,3,1,3,Mujer,Alfabeto,Primaria,Cotiza,Desempleado,60+
+269,2,32,2,1,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,29-59
+270,1,36,1,1,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,29-59
+271,2,11,1,1,3,2,3,Mujer,Alfabeto,Primaria,No cotiza,Desempleado,6-12
+272,2,30,1,1,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,29-59
+273,1,58,2,2,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,29-59
+274,2,74,2,2,2,1,5,Mujer,Analfabeto,Preescolar,Cotiza,Ama de casa,60+
+275,1,9,2,1,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,6-12
+276,1,46,1,2,2,1,5,Hombre,Alfabeto,Preescolar,Cotiza,Ama de casa,29-59
+277,2,59,1,1,3,1,5,Mujer,Alfabeto,Primaria,Cotiza,Ama de casa,29-59
+278,2,43,2,2,1,3,1,Mujer,Analfabeto,Ninguno,,Empleado,29-59
+279,1,52,1,1,2,2,1,Hombre,Alfabeto,Preescolar,No cotiza,Empleado,29-59
+280,2,73,1,1,2,3,5,Mujer,Alfabeto,Preescolar,,Ama de casa,60+
+281,2,46,2,2,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,29-59
+282,2,20,1,1,2,2,5,Mujer,Alfabeto,Preescolar,No cotiza,Ama de casa,18-28
+283,2,44,2,2,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,29-59
+284,2,21,1,2,3,1,1,Mujer,Alfabeto,Primaria,Cotiza,Empleado,18-28
+285,1,37,1,1,3,1,4,Hombre,Alfabeto,Primaria,Cotiza,Estudiante,29-59
+286,1,45,1,2,1,3,5,Hombre,Alfabeto,Ninguno,,Ama de casa,29-59
+287,1,36,1,2,3,2,4,Hombre,Alfabeto,Primaria,No cotiza,Estudiante,29-59
+288,2,13,1,2,2,1,1,Mujer,Alfabeto,Preescolar,Cotiza,Empleado,13-17
+289,2,36,2,2,1,1,5,Mujer,Analfabeto,Ninguno,Cotiza,Ama de casa,29-59
+290,1,15,1,2,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,13-17
+291,1,62,1,2,3,3,1,Hombre,Alfabeto,Primaria,,Empleado,60+
+292,2,7,1,1,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,6-12
+293,2,20,2,1,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,18-28
+294,1,31,1,1,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,29-59
+295,1,23,1,1,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,18-28
+296,2,42,1,2,1,1,2,Mujer,Alfabeto,Ninguno,Cotiza,Independiente,29-59
 297,2,3,1,2,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-298,1,6,2,2,1,3,1,Hombre,Analfabeto,Ninguno,,Empleado,6-12
-299,1,5,1,2,2,3,5,Hombre,Alfabeto,Preescolar,,Ama de casa,6-12
-300,2,6,2,1,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,6-12
-301,2,5,1,2,2,3,1,Mujer,Alfabeto,Preescolar,,Empleado,6-12
-302,1,5,1,2,3,2,4,Hombre,Alfabeto,Primaria,No cotiza,Estudiante,6-12
-303,1,5,1,1,3,2,4,Hombre,Alfabeto,Primaria,No cotiza,Estudiante,6-12
-304,2,6,1,1,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,6-12
-305,1,4,1,1,3,2,1,Hombre,Alfabeto,Primaria,No cotiza,Empleado,0-5
-306,1,6,2,2,2,1,2,Hombre,Analfabeto,Preescolar,Cotiza,Independiente,6-12
-307,2,5,1,2,3,1,4,Mujer,Alfabeto,Primaria,Cotiza,Estudiante,6-12
-308,2,5,1,1,3,1,4,Mujer,Alfabeto,Primaria,Cotiza,Estudiante,6-12
-309,2,2,1,2,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-310,1,5,1,2,2,3,3,Hombre,Alfabeto,Preescolar,,Desempleado,6-12
-311,1,3,1,1,1,2,4,Hombre,Alfabeto,Ninguno,No cotiza,Estudiante,0-5
-312,2,2,1,1,1,2,4,Mujer,Alfabeto,Ninguno,No cotiza,Estudiante,0-5
-313,2,4,1,2,2,1,4,Mujer,Alfabeto,Preescolar,Cotiza,Estudiante,0-5
-314,2,6,1,2,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,6-12
-315,2,2,2,2,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,0-5
-316,1,6,1,2,3,1,3,Hombre,Alfabeto,Primaria,Cotiza,Desempleado,6-12
-317,2,5,1,1,2,1,3,Mujer,Alfabeto,Preescolar,Cotiza,Desempleado,6-12
-318,1,5,1,2,3,1,1,Hombre,Alfabeto,Primaria,Cotiza,Empleado,6-12
-319,2,5,1,2,3,3,5,Mujer,Alfabeto,Primaria,,Ama de casa,6-12
-320,1,4,1,1,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-321,1,4,2,2,2,1,2,Hombre,Analfabeto,Preescolar,Cotiza,Independiente,0-5
-322,1,5,2,2,1,1,3,Hombre,Analfabeto,Ninguno,Cotiza,Desempleado,6-12
-323,1,3,1,1,2,1,4,Hombre,Alfabeto,Preescolar,Cotiza,Estudiante,0-5
-324,2,2,2,1,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,0-5
-325,1,6,1,2,3,2,3,Hombre,Alfabeto,Primaria,No cotiza,Desempleado,6-12
-326,2,3,1,1,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-327,1,6,2,2,2,1,1,Hombre,Analfabeto,Preescolar,Cotiza,Empleado,6-12
-328,2,5,1,2,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,6-12
-329,2,4,2,1,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-330,2,2,2,1,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,0-5
-331,1,6,2,2,2,3,5,Hombre,Analfabeto,Preescolar,,Ama de casa,6-12
-332,1,6,1,2,2,3,3,Hombre,Alfabeto,Preescolar,,Desempleado,6-12
-333,2,6,2,1,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,6-12
-334,2,5,1,1,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,6-12
-335,1,5,1,1,3,2,2,Hombre,Alfabeto,Primaria,No cotiza,Independiente,6-12
-336,2,6,1,2,3,2,3,Mujer,Alfabeto,Primaria,No cotiza,Desempleado,6-12
-337,2,5,1,2,3,3,2,Mujer,Alfabeto,Primaria,,Independiente,6-12
-338,2,1,2,1,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-339,1,4,2,2,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-340,2,6,1,2,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,6-12
-341,2,4,2,1,2,2,4,Mujer,Analfabeto,Preescolar,No cotiza,Estudiante,0-5
-342,1,4,1,1,3,1,1,Hombre,Alfabeto,Primaria,Cotiza,Empleado,0-5
-343,2,3,2,2,2,2,4,Mujer,Analfabeto,Preescolar,No cotiza,Estudiante,0-5
-344,2,5,1,1,3,1,3,Mujer,Alfabeto,Primaria,Cotiza,Desempleado,6-12
-345,1,1,2,1,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-346,1,6,1,1,2,1,5,Hombre,Alfabeto,Preescolar,Cotiza,Ama de casa,6-12
-347,2,6,2,2,2,3,5,Mujer,Analfabeto,Preescolar,,Ama de casa,6-12
-348,1,6,2,1,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,6-12
-349,2,5,2,1,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,6-12
-350,1,4,1,2,3,2,5,Hombre,Alfabeto,Primaria,No cotiza,Ama de casa,0-5
-351,2,4,2,1,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,0-5
-352,1,6,1,2,1,2,3,Hombre,Alfabeto,Ninguno,No cotiza,Desempleado,6-12
-353,1,1,1,2,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
-354,1,6,1,1,3,2,1,Hombre,Alfabeto,Primaria,No cotiza,Empleado,6-12
-355,2,5,1,1,2,1,5,Mujer,Alfabeto,Preescolar,Cotiza,Ama de casa,6-12
-356,2,3,2,2,1,2,1,Mujer,Analfabeto,Ninguno,No cotiza,Empleado,0-5
-357,1,4,1,2,3,1,1,Hombre,Alfabeto,Primaria,Cotiza,Empleado,0-5
-358,2,2,1,1,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,0-5
-359,2,6,2,2,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,6-12
-360,2,4,1,2,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,0-5
-361,2,5,1,2,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,6-12
-362,1,6,1,1,3,2,5,Hombre,Alfabeto,Primaria,No cotiza,Ama de casa,6-12
-363,1,6,1,1,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,6-12
-364,1,2,2,1,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,0-5
-365,1,6,1,2,3,1,1,Hombre,Alfabeto,Primaria,Cotiza,Empleado,6-12
-366,2,4,1,2,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
-367,1,1,1,1,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-368,1,1,1,1,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-369,2,5,2,1,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,6-12
-370,2,5,2,2,2,1,2,Mujer,Analfabeto,Preescolar,Cotiza,Independiente,6-12
-371,1,5,1,1,3,2,3,Hombre,Alfabeto,Primaria,No cotiza,Desempleado,6-12
-372,1,5,1,2,3,1,5,Hombre,Alfabeto,Primaria,Cotiza,Ama de casa,6-12
-373,2,3,2,1,2,2,4,Mujer,Analfabeto,Preescolar,No cotiza,Estudiante,0-5
-374,1,5,1,1,3,2,1,Hombre,Alfabeto,Primaria,No cotiza,Empleado,6-12
-375,1,2,2,2,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,0-5
-376,1,2,2,2,2,2,4,Hombre,Analfabeto,Preescolar,No cotiza,Estudiante,0-5
-377,1,3,1,1,3,2,4,Hombre,Alfabeto,Primaria,No cotiza,Estudiante,0-5
-378,1,5,2,1,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,6-12
-379,2,6,1,2,2,3,3,Mujer,Alfabeto,Preescolar,,Desempleado,6-12
-380,2,5,1,2,2,3,3,Mujer,Alfabeto,Preescolar,,Desempleado,6-12
-381,1,4,1,2,2,3,2,Hombre,Alfabeto,Preescolar,,Independiente,0-5
-382,2,3,1,1,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,0-5
-383,1,6,2,2,1,1,2,Hombre,Analfabeto,Ninguno,Cotiza,Independiente,6-12
+298,1,27,2,2,1,3,1,Hombre,Analfabeto,Ninguno,,Empleado,18-28
+299,1,60,1,2,2,3,5,Hombre,Alfabeto,Preescolar,,Ama de casa,60+
+300,2,84,2,1,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,60+
+301,2,44,1,2,2,3,1,Mujer,Alfabeto,Preescolar,,Empleado,29-59
+302,1,2,1,2,3,2,4,Hombre,Alfabeto,Primaria,No cotiza,Estudiante,0-5
+303,1,24,1,1,3,2,4,Hombre,Alfabeto,Primaria,No cotiza,Estudiante,18-28
+304,2,90,1,1,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,60+
+305,1,46,1,1,3,2,1,Hombre,Alfabeto,Primaria,No cotiza,Empleado,29-59
+306,1,46,2,2,2,1,2,Hombre,Analfabeto,Preescolar,Cotiza,Independiente,29-59
+307,2,57,1,2,3,1,4,Mujer,Alfabeto,Primaria,Cotiza,Estudiante,29-59
+308,2,14,1,1,3,1,4,Mujer,Alfabeto,Primaria,Cotiza,Estudiante,13-17
+309,2,16,1,2,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,13-17
+310,1,2,1,2,2,3,3,Hombre,Alfabeto,Preescolar,,Desempleado,0-5
+311,1,54,1,1,1,2,4,Hombre,Alfabeto,Ninguno,No cotiza,Estudiante,29-59
+312,2,20,1,1,1,2,4,Mujer,Alfabeto,Ninguno,No cotiza,Estudiante,18-28
+313,2,89,1,2,2,1,4,Mujer,Alfabeto,Preescolar,Cotiza,Estudiante,60+
+314,2,10,1,2,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,6-12
+315,2,58,2,2,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,29-59
+316,1,27,1,2,3,1,3,Hombre,Alfabeto,Primaria,Cotiza,Desempleado,18-28
+317,2,31,1,1,2,1,3,Mujer,Alfabeto,Preescolar,Cotiza,Desempleado,29-59
+318,1,33,1,2,3,1,1,Hombre,Alfabeto,Primaria,Cotiza,Empleado,29-59
+319,2,65,1,2,3,3,5,Mujer,Alfabeto,Primaria,,Ama de casa,60+
+320,1,3,1,1,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
+321,1,25,2,2,2,1,2,Hombre,Analfabeto,Preescolar,Cotiza,Independiente,18-28
+322,1,24,2,2,1,1,3,Hombre,Analfabeto,Ninguno,Cotiza,Desempleado,18-28
+323,1,16,1,1,2,1,4,Hombre,Alfabeto,Preescolar,Cotiza,Estudiante,13-17
+324,2,13,2,1,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,13-17
+325,1,52,1,2,3,2,3,Hombre,Alfabeto,Primaria,No cotiza,Desempleado,29-59
+326,2,59,1,1,2,2,2,Mujer,Alfabeto,Preescolar,No cotiza,Independiente,29-59
+327,1,28,2,2,2,1,1,Hombre,Analfabeto,Preescolar,Cotiza,Empleado,18-28
+328,2,5,1,2,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,0-5
+329,2,0,2,1,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
+330,2,66,2,1,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,60+
+331,1,48,2,2,2,3,5,Hombre,Analfabeto,Preescolar,,Ama de casa,29-59
+332,1,7,1,2,2,3,3,Hombre,Alfabeto,Preescolar,,Desempleado,6-12
+333,2,32,2,1,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,29-59
+334,2,35,1,1,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,29-59
+335,1,37,1,1,3,2,2,Hombre,Alfabeto,Primaria,No cotiza,Independiente,29-59
+336,2,34,1,2,3,2,3,Mujer,Alfabeto,Primaria,No cotiza,Desempleado,29-59
+337,2,59,1,2,3,3,2,Mujer,Alfabeto,Primaria,,Independiente,29-59
+338,2,32,2,1,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,29-59
+339,1,34,2,2,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,29-59
+340,2,63,1,2,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,60+
+341,2,58,2,1,2,2,4,Mujer,Analfabeto,Preescolar,No cotiza,Estudiante,29-59
+342,1,28,1,1,3,1,1,Hombre,Alfabeto,Primaria,Cotiza,Empleado,18-28
+343,2,72,2,2,2,2,4,Mujer,Analfabeto,Preescolar,No cotiza,Estudiante,60+
+344,2,21,1,1,3,1,3,Mujer,Alfabeto,Primaria,Cotiza,Desempleado,18-28
+345,1,5,2,1,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
+346,1,36,1,1,2,1,5,Hombre,Alfabeto,Preescolar,Cotiza,Ama de casa,29-59
+347,2,12,2,2,2,3,5,Mujer,Analfabeto,Preescolar,,Ama de casa,6-12
+348,1,28,2,1,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,18-28
+349,2,32,2,1,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,29-59
+350,1,47,1,2,3,2,5,Hombre,Alfabeto,Primaria,No cotiza,Ama de casa,29-59
+351,2,40,2,1,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,29-59
+352,1,50,1,2,1,2,3,Hombre,Alfabeto,Ninguno,No cotiza,Desempleado,29-59
+353,1,26,1,2,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,18-28
+354,1,29,1,1,3,2,1,Hombre,Alfabeto,Primaria,No cotiza,Empleado,29-59
+355,2,86,1,1,2,1,5,Mujer,Alfabeto,Preescolar,Cotiza,Ama de casa,60+
+356,2,42,2,2,1,2,1,Mujer,Analfabeto,Ninguno,No cotiza,Empleado,29-59
+357,1,80,1,2,3,1,1,Hombre,Alfabeto,Primaria,Cotiza,Empleado,60+
+358,2,74,1,1,2,2,1,Mujer,Alfabeto,Preescolar,No cotiza,Empleado,60+
+359,2,42,2,2,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,29-59
+360,2,10,1,2,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,6-12
+361,2,68,1,2,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,60+
+362,1,58,1,1,3,2,5,Hombre,Alfabeto,Primaria,No cotiza,Ama de casa,29-59
+363,1,44,1,1,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,29-59
+364,1,55,2,1,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,29-59
+365,1,37,1,2,3,1,1,Hombre,Alfabeto,Primaria,Cotiza,Empleado,29-59
+366,2,21,1,2,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,18-28
+367,1,31,1,1,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,29-59
+368,1,16,1,1,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,13-17
+369,2,16,2,1,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,13-17
+370,2,50,2,2,2,1,2,Mujer,Analfabeto,Preescolar,Cotiza,Independiente,29-59
+371,1,18,1,1,3,2,3,Hombre,Alfabeto,Primaria,No cotiza,Desempleado,18-28
+372,1,39,1,2,3,1,5,Hombre,Alfabeto,Primaria,Cotiza,Ama de casa,29-59
+373,2,7,2,1,2,2,4,Mujer,Analfabeto,Preescolar,No cotiza,Estudiante,6-12
+374,1,22,1,1,3,2,1,Hombre,Alfabeto,Primaria,No cotiza,Empleado,18-28
+375,1,27,2,2,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,18-28
+376,1,37,2,2,2,2,4,Hombre,Analfabeto,Preescolar,No cotiza,Estudiante,29-59
+377,1,45,1,1,3,2,4,Hombre,Alfabeto,Primaria,No cotiza,Estudiante,29-59
+378,1,62,2,1,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,60+
+379,2,16,1,2,2,3,3,Mujer,Alfabeto,Preescolar,,Desempleado,13-17
+380,2,53,1,2,2,3,3,Mujer,Alfabeto,Preescolar,,Desempleado,29-59
+381,1,16,1,2,2,3,2,Hombre,Alfabeto,Preescolar,,Independiente,13-17
+382,2,44,1,1,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,29-59
+383,1,18,2,2,1,1,2,Hombre,Analfabeto,Ninguno,Cotiza,Independiente,18-28
 384,2,1,1,2,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
-385,1,3,2,1,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,0-5
-386,1,5,1,1,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,6-12
-387,1,2,1,1,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,0-5
-388,1,1,2,2,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-389,2,5,1,2,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,6-12
-390,1,5,1,2,3,3,2,Hombre,Alfabeto,Primaria,,Independiente,6-12
-391,2,6,2,2,1,3,3,Mujer,Analfabeto,Ninguno,,Desempleado,6-12
-392,2,6,2,1,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,6-12
-393,1,4,2,2,1,1,2,Hombre,Analfabeto,Ninguno,Cotiza,Independiente,0-5
-394,2,4,1,2,2,1,1,Mujer,Alfabeto,Preescolar,Cotiza,Empleado,0-5
-395,1,5,1,1,2,1,3,Hombre,Alfabeto,Preescolar,Cotiza,Desempleado,6-12
-396,1,4,1,2,2,3,5,Hombre,Alfabeto,Preescolar,,Ama de casa,0-5
-397,2,2,2,2,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,0-5
-398,1,6,2,1,2,2,3,Hombre,Analfabeto,Preescolar,No cotiza,Desempleado,6-12
-399,1,6,2,2,1,1,1,Hombre,Analfabeto,Ninguno,Cotiza,Empleado,6-12
-400,2,4,1,2,1,2,3,Mujer,Alfabeto,Ninguno,No cotiza,Desempleado,0-5
-401,1,5,2,1,1,2,3,Hombre,Analfabeto,Ninguno,No cotiza,Desempleado,6-12
-402,2,3,1,2,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,0-5
-403,1,5,1,2,1,1,2,Hombre,Alfabeto,Ninguno,Cotiza,Independiente,6-12
-404,2,6,1,2,1,2,3,Mujer,Alfabeto,Ninguno,No cotiza,Desempleado,6-12
-405,1,4,1,1,3,3,4,Hombre,Alfabeto,Primaria,,Estudiante,0-5
-406,1,4,1,2,3,3,2,Hombre,Alfabeto,Primaria,,Independiente,0-5
-407,1,4,2,2,2,2,3,Hombre,Analfabeto,Preescolar,No cotiza,Desempleado,0-5
-408,2,5,2,2,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,6-12
-409,2,5,2,2,1,3,2,Mujer,Analfabeto,Ninguno,,Independiente,6-12
-410,1,2,2,1,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,0-5
-411,2,3,2,2,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
+385,1,21,2,1,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,18-28
+386,1,27,1,1,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,18-28
+387,1,26,1,1,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,18-28
+388,1,42,2,2,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,29-59
+389,2,77,1,2,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,60+
+390,1,25,1,2,3,3,2,Hombre,Alfabeto,Primaria,,Independiente,18-28
+391,2,15,2,2,1,3,3,Mujer,Analfabeto,Ninguno,,Desempleado,13-17
+392,2,14,2,1,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,13-17
+393,1,26,2,2,1,1,2,Hombre,Analfabeto,Ninguno,Cotiza,Independiente,18-28
+394,2,82,1,2,2,1,1,Mujer,Alfabeto,Preescolar,Cotiza,Empleado,60+
+395,1,7,1,1,2,1,3,Hombre,Alfabeto,Preescolar,Cotiza,Desempleado,6-12
+396,1,37,1,2,2,3,5,Hombre,Alfabeto,Preescolar,,Ama de casa,29-59
+397,2,53,2,2,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,29-59
+398,1,38,2,1,2,2,3,Hombre,Analfabeto,Preescolar,No cotiza,Desempleado,29-59
+399,1,86,2,2,1,1,1,Hombre,Analfabeto,Ninguno,Cotiza,Empleado,60+
+400,2,7,1,2,1,2,3,Mujer,Alfabeto,Ninguno,No cotiza,Desempleado,6-12
+401,1,22,2,1,1,2,3,Hombre,Analfabeto,Ninguno,No cotiza,Desempleado,18-28
+402,2,4,1,2,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,0-5
+403,1,6,1,2,1,1,2,Hombre,Alfabeto,Ninguno,Cotiza,Independiente,6-12
+404,2,77,1,2,1,2,3,Mujer,Alfabeto,Ninguno,No cotiza,Desempleado,60+
+405,1,20,1,1,3,3,4,Hombre,Alfabeto,Primaria,,Estudiante,18-28
+406,1,53,1,2,3,3,2,Hombre,Alfabeto,Primaria,,Independiente,29-59
+407,1,56,2,2,2,2,3,Hombre,Analfabeto,Preescolar,No cotiza,Desempleado,29-59
+408,2,2,2,2,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,0-5
+409,2,43,2,2,1,3,2,Mujer,Analfabeto,Ninguno,,Independiente,29-59
+410,1,18,2,1,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,18-28
+411,2,16,2,2,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,13-17
 412,1,6,2,2,2,1,5,Hombre,Analfabeto,Preescolar,Cotiza,Ama de casa,6-12
-413,2,4,2,2,1,2,3,Mujer,Analfabeto,Ninguno,No cotiza,Desempleado,0-5
-414,2,4,2,2,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,0-5
-415,1,4,1,2,2,3,1,Hombre,Alfabeto,Preescolar,,Empleado,0-5
-416,2,3,1,1,2,3,4,Mujer,Alfabeto,Preescolar,,Estudiante,0-5
-417,2,4,1,2,3,1,3,Mujer,Alfabeto,Primaria,Cotiza,Desempleado,0-5
-418,1,6,2,2,2,3,1,Hombre,Analfabeto,Preescolar,,Empleado,6-12
-419,1,4,2,1,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-420,1,3,1,2,2,3,1,Hombre,Alfabeto,Preescolar,,Empleado,0-5
-421,1,3,2,2,2,2,4,Hombre,Analfabeto,Preescolar,No cotiza,Estudiante,0-5
-422,2,5,2,2,1,1,2,Mujer,Analfabeto,Ninguno,Cotiza,Independiente,6-12
-423,2,6,1,1,3,3,1,Mujer,Alfabeto,Primaria,,Empleado,6-12
-424,2,2,1,2,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,0-5
-425,1,3,1,1,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,0-5
-426,1,3,2,1,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,0-5
-427,2,5,2,1,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,6-12
-428,1,5,2,1,2,2,3,Hombre,Analfabeto,Preescolar,No cotiza,Desempleado,6-12
-429,1,6,1,1,3,1,1,Hombre,Alfabeto,Primaria,Cotiza,Empleado,6-12
-430,1,5,2,2,1,1,5,Hombre,Analfabeto,Ninguno,Cotiza,Ama de casa,6-12
-431,2,6,1,2,3,3,1,Mujer,Alfabeto,Primaria,,Empleado,6-12
-432,1,5,2,1,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,6-12
-433,1,6,2,2,1,1,3,Hombre,Analfabeto,Ninguno,Cotiza,Desempleado,6-12
-434,1,4,2,1,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,0-5
-435,1,6,1,1,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,6-12
-436,2,3,2,1,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,0-5
-437,1,2,1,2,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,0-5
-438,1,4,1,2,1,2,3,Hombre,Alfabeto,Ninguno,No cotiza,Desempleado,0-5
-439,2,2,2,2,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-440,1,4,1,1,3,1,5,Hombre,Alfabeto,Primaria,Cotiza,Ama de casa,0-5
-441,2,5,1,2,2,3,2,Mujer,Alfabeto,Preescolar,,Independiente,6-12
-442,2,5,1,2,1,3,5,Mujer,Alfabeto,Ninguno,,Ama de casa,6-12
-443,2,2,1,2,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
-444,1,6,2,2,1,1,5,Hombre,Analfabeto,Ninguno,Cotiza,Ama de casa,6-12
-445,2,4,1,2,2,3,5,Mujer,Alfabeto,Preescolar,,Ama de casa,0-5
-446,2,6,2,2,1,1,1,Mujer,Analfabeto,Ninguno,Cotiza,Empleado,6-12
-447,1,4,1,2,2,3,3,Hombre,Alfabeto,Preescolar,,Desempleado,0-5
-448,1,5,1,1,3,2,5,Hombre,Alfabeto,Primaria,No cotiza,Ama de casa,6-12
-449,2,3,1,1,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,0-5
-450,1,4,1,1,3,1,3,Hombre,Alfabeto,Primaria,Cotiza,Desempleado,0-5
-451,2,6,1,2,3,3,2,Mujer,Alfabeto,Primaria,,Independiente,6-12
+413,2,19,2,2,1,2,3,Mujer,Analfabeto,Ninguno,No cotiza,Desempleado,18-28
+414,2,50,2,2,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,29-59
+415,1,1,1,2,2,3,1,Hombre,Alfabeto,Preescolar,,Empleado,0-5
+416,2,59,1,1,2,3,4,Mujer,Alfabeto,Preescolar,,Estudiante,29-59
+417,2,21,1,2,3,1,3,Mujer,Alfabeto,Primaria,Cotiza,Desempleado,18-28
+418,1,12,2,2,2,3,1,Hombre,Analfabeto,Preescolar,,Empleado,6-12
+419,1,27,2,1,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,18-28
+420,1,36,1,2,2,3,1,Hombre,Alfabeto,Preescolar,,Empleado,29-59
+421,1,41,2,2,2,2,4,Hombre,Analfabeto,Preescolar,No cotiza,Estudiante,29-59
+422,2,25,2,2,1,1,2,Mujer,Analfabeto,Ninguno,Cotiza,Independiente,18-28
+423,2,27,1,1,3,3,1,Mujer,Alfabeto,Primaria,,Empleado,18-28
+424,2,69,1,2,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,60+
+425,1,30,1,1,2,2,2,Hombre,Alfabeto,Preescolar,No cotiza,Independiente,29-59
+426,1,52,2,1,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,29-59
+427,2,1,2,1,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
+428,1,37,2,1,2,2,3,Hombre,Analfabeto,Preescolar,No cotiza,Desempleado,29-59
+429,1,34,1,1,3,1,1,Hombre,Alfabeto,Primaria,Cotiza,Empleado,29-59
+430,1,17,2,2,1,1,5,Hombre,Analfabeto,Ninguno,Cotiza,Ama de casa,13-17
+431,2,0,1,2,3,3,1,Mujer,Alfabeto,Primaria,,Empleado,0-5
+432,1,27,2,1,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,18-28
+433,1,30,2,2,1,1,3,Hombre,Analfabeto,Ninguno,Cotiza,Desempleado,29-59
+434,1,15,2,1,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,13-17
+435,1,43,1,1,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,29-59
+436,2,1,2,1,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,0-5
+437,1,85,1,2,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,60+
+438,1,47,1,2,1,2,3,Hombre,Alfabeto,Ninguno,No cotiza,Desempleado,29-59
+439,2,58,2,2,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,29-59
+440,1,6,1,1,3,1,5,Hombre,Alfabeto,Primaria,Cotiza,Ama de casa,6-12
+441,2,49,1,2,2,3,2,Mujer,Alfabeto,Preescolar,,Independiente,29-59
+442,2,8,1,2,1,3,5,Mujer,Alfabeto,Ninguno,,Ama de casa,6-12
+443,2,31,1,2,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,29-59
+444,1,2,2,2,1,1,5,Hombre,Analfabeto,Ninguno,Cotiza,Ama de casa,0-5
+445,2,55,1,2,2,3,5,Mujer,Alfabeto,Preescolar,,Ama de casa,29-59
+446,2,38,2,2,1,1,1,Mujer,Analfabeto,Ninguno,Cotiza,Empleado,29-59
+447,1,25,1,2,2,3,3,Hombre,Alfabeto,Preescolar,,Desempleado,18-28
+448,1,51,1,1,3,2,5,Hombre,Alfabeto,Primaria,No cotiza,Ama de casa,29-59
+449,2,22,1,1,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,18-28
+450,1,44,1,1,3,1,3,Hombre,Alfabeto,Primaria,Cotiza,Desempleado,29-59
+451,2,27,1,2,3,3,2,Mujer,Alfabeto,Primaria,,Independiente,18-28
 452,1,3,2,2,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-453,1,4,1,1,3,2,5,Hombre,Alfabeto,Primaria,No cotiza,Ama de casa,0-5
-454,1,4,1,2,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,0-5
-455,2,5,1,1,2,1,4,Mujer,Alfabeto,Preescolar,Cotiza,Estudiante,6-12
-456,1,3,2,1,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-457,2,5,2,2,1,1,5,Mujer,Analfabeto,Ninguno,Cotiza,Ama de casa,6-12
-458,1,6,1,1,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,6-12
-459,2,3,2,2,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,0-5
-460,2,4,2,1,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,0-5
-461,2,6,1,1,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,6-12
-462,1,5,1,2,3,3,1,Hombre,Alfabeto,Primaria,,Empleado,6-12
-463,1,4,1,1,2,1,3,Hombre,Alfabeto,Preescolar,Cotiza,Desempleado,0-5
-464,2,5,1,1,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,6-12
-465,1,5,2,2,1,3,1,Hombre,Analfabeto,Ninguno,,Empleado,6-12
-466,1,3,1,1,3,2,5,Hombre,Alfabeto,Primaria,No cotiza,Ama de casa,0-5
-467,1,3,1,1,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,0-5
-468,1,6,1,2,1,3,1,Hombre,Alfabeto,Ninguno,,Empleado,6-12
-469,1,3,1,2,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,0-5
-470,2,6,2,2,2,2,3,Mujer,Analfabeto,Preescolar,No cotiza,Desempleado,6-12
-471,2,5,1,1,3,3,5,Mujer,Alfabeto,Primaria,,Ama de casa,6-12
-472,2,4,2,2,2,2,3,Mujer,Analfabeto,Preescolar,No cotiza,Desempleado,0-5
-473,1,2,2,2,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,0-5
-474,1,6,1,1,1,3,1,Hombre,Alfabeto,Ninguno,,Empleado,6-12
-475,2,6,1,1,3,1,2,Mujer,Alfabeto,Primaria,Cotiza,Independiente,6-12
-476,1,5,2,2,2,1,1,Hombre,Analfabeto,Preescolar,Cotiza,Empleado,6-12
-477,1,4,1,2,1,1,2,Hombre,Alfabeto,Ninguno,Cotiza,Independiente,0-5
-478,2,1,1,2,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,0-5
-479,1,5,2,1,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,6-12
-480,2,6,1,2,1,1,5,Mujer,Alfabeto,Ninguno,Cotiza,Ama de casa,6-12
-481,1,3,1,2,3,2,2,Hombre,Alfabeto,Primaria,No cotiza,Independiente,0-5
-482,1,3,2,2,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,0-5
-483,1,2,2,2,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-484,2,3,1,2,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,0-5
-485,2,4,2,2,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,0-5
-486,2,5,2,2,1,1,1,Mujer,Analfabeto,Ninguno,Cotiza,Empleado,6-12
-487,2,4,1,2,3,1,1,Mujer,Alfabeto,Primaria,Cotiza,Empleado,0-5
-488,1,6,2,2,2,3,3,Hombre,Analfabeto,Preescolar,,Desempleado,6-12
-489,2,3,1,2,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,0-5
+453,1,48,1,1,3,2,5,Hombre,Alfabeto,Primaria,No cotiza,Ama de casa,29-59
+454,1,13,1,2,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,13-17
+455,2,17,1,1,2,1,4,Mujer,Alfabeto,Preescolar,Cotiza,Estudiante,13-17
+456,1,29,2,1,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,29-59
+457,2,81,2,2,1,1,5,Mujer,Analfabeto,Ninguno,Cotiza,Ama de casa,60+
+458,1,47,1,1,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,29-59
+459,2,1,2,2,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,0-5
+460,2,49,2,1,1,2,2,Mujer,Analfabeto,Ninguno,No cotiza,Independiente,29-59
+461,2,22,1,1,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,18-28
+462,1,10,1,2,3,3,1,Hombre,Alfabeto,Primaria,,Empleado,6-12
+463,1,25,1,1,2,1,3,Hombre,Alfabeto,Preescolar,Cotiza,Desempleado,18-28
+464,2,75,1,1,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,60+
+465,1,23,2,2,1,3,1,Hombre,Analfabeto,Ninguno,,Empleado,18-28
+466,1,19,1,1,3,2,5,Hombre,Alfabeto,Primaria,No cotiza,Ama de casa,18-28
+467,1,70,1,1,2,2,5,Hombre,Alfabeto,Preescolar,No cotiza,Ama de casa,60+
+468,1,25,1,2,1,3,1,Hombre,Alfabeto,Ninguno,,Empleado,18-28
+469,1,24,1,2,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,18-28
+470,2,46,2,2,2,2,3,Mujer,Analfabeto,Preescolar,No cotiza,Desempleado,29-59
+471,2,0,1,1,3,3,5,Mujer,Alfabeto,Primaria,,Ama de casa,0-5
+472,2,23,2,2,2,2,3,Mujer,Analfabeto,Preescolar,No cotiza,Desempleado,18-28
+473,1,12,2,2,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,6-12
+474,1,26,1,1,1,3,1,Hombre,Alfabeto,Ninguno,,Empleado,18-28
+475,2,29,1,1,3,1,2,Mujer,Alfabeto,Primaria,Cotiza,Independiente,29-59
+476,1,46,2,2,2,1,1,Hombre,Analfabeto,Preescolar,Cotiza,Empleado,29-59
+477,1,30,1,2,1,1,2,Hombre,Alfabeto,Ninguno,Cotiza,Independiente,29-59
+478,2,8,1,2,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,6-12
+479,1,44,2,1,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,29-59
+480,2,53,1,2,1,1,5,Mujer,Alfabeto,Ninguno,Cotiza,Ama de casa,29-59
+481,1,2,1,2,3,2,2,Hombre,Alfabeto,Primaria,No cotiza,Independiente,0-5
+482,1,58,2,2,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,29-59
+483,1,25,2,2,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,18-28
+484,2,11,1,2,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,6-12
+485,2,36,2,2,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,29-59
+486,2,38,2,2,1,1,1,Mujer,Analfabeto,Ninguno,Cotiza,Empleado,29-59
+487,2,46,1,2,3,1,1,Mujer,Alfabeto,Primaria,Cotiza,Empleado,29-59
+488,1,21,2,2,2,3,3,Hombre,Analfabeto,Preescolar,,Desempleado,18-28
+489,2,89,1,2,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,60+
 490,1,6,1,2,1,1,2,Hombre,Alfabeto,Ninguno,Cotiza,Independiente,6-12
-491,1,1,2,1,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,0-5
-492,1,4,2,2,1,3,5,Hombre,Analfabeto,Ninguno,,Ama de casa,0-5
-493,2,4,2,2,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,0-5
-494,2,4,1,2,2,3,2,Mujer,Alfabeto,Preescolar,,Independiente,0-5
-495,1,6,2,1,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,6-12
-496,1,6,1,2,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,6-12
-497,2,3,1,1,3,1,2,Mujer,Alfabeto,Primaria,Cotiza,Independiente,0-5
-498,2,5,1,1,3,3,2,Mujer,Alfabeto,Primaria,,Independiente,6-12
+491,1,33,2,1,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,29-59
+492,1,51,2,2,1,3,5,Hombre,Analfabeto,Ninguno,,Ama de casa,29-59
+493,2,22,2,2,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,18-28
+494,2,25,1,2,2,3,2,Mujer,Alfabeto,Preescolar,,Independiente,18-28
+495,1,67,2,1,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,60+
+496,1,20,1,2,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,18-28
+497,2,27,1,1,3,1,2,Mujer,Alfabeto,Primaria,Cotiza,Independiente,18-28
+498,2,57,1,1,3,3,2,Mujer,Alfabeto,Primaria,,Independiente,29-59
 499,1,6,1,1,3,3,2,Hombre,Alfabeto,Primaria,,Independiente,6-12
-500,1,3,1,2,3,2,1,Hombre,Alfabeto,Primaria,No cotiza,Empleado,0-5
-501,1,5,1,1,3,1,1,Hombre,Alfabeto,Primaria,Cotiza,Empleado,6-12
-502,2,3,2,2,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,0-5
-503,1,2,2,2,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,0-5
-504,2,6,1,2,1,1,1,Mujer,Alfabeto,Ninguno,Cotiza,Empleado,6-12
-505,1,2,1,2,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,0-5
-506,2,5,2,1,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,6-12
-507,2,4,1,2,2,3,1,Mujer,Alfabeto,Preescolar,,Empleado,0-5
-508,1,4,1,1,2,3,4,Hombre,Alfabeto,Preescolar,,Estudiante,0-5
-509,1,3,2,1,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,0-5
-510,2,6,1,1,3,2,3,Mujer,Alfabeto,Primaria,No cotiza,Desempleado,6-12
-511,2,4,1,1,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
-512,1,2,1,2,1,2,4,Hombre,Alfabeto,Ninguno,No cotiza,Estudiante,0-5
-513,1,5,2,1,2,1,2,Hombre,Analfabeto,Preescolar,Cotiza,Independiente,6-12
-514,1,3,1,2,2,3,4,Hombre,Alfabeto,Preescolar,,Estudiante,0-5
-515,1,5,2,1,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,6-12
-516,2,5,1,1,2,3,4,Mujer,Alfabeto,Preescolar,,Estudiante,6-12
-517,2,4,1,1,2,1,3,Mujer,Alfabeto,Preescolar,Cotiza,Desempleado,0-5
-518,1,6,2,2,1,3,2,Hombre,Analfabeto,Ninguno,,Independiente,6-12
-519,2,6,1,1,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,6-12
-520,2,5,2,2,2,1,5,Mujer,Analfabeto,Preescolar,Cotiza,Ama de casa,6-12
-521,1,5,2,1,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,6-12
+500,1,16,1,2,3,2,1,Hombre,Alfabeto,Primaria,No cotiza,Empleado,13-17
+501,1,26,1,1,3,1,1,Hombre,Alfabeto,Primaria,Cotiza,Empleado,18-28
+502,2,13,2,2,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,13-17
+503,1,22,2,2,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,18-28
+504,2,47,1,2,1,1,1,Mujer,Alfabeto,Ninguno,Cotiza,Empleado,29-59
+505,1,75,1,2,2,2,3,Hombre,Alfabeto,Preescolar,No cotiza,Desempleado,60+
+506,2,74,2,1,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,60+
+507,2,40,1,2,2,3,1,Mujer,Alfabeto,Preescolar,,Empleado,29-59
+508,1,26,1,1,2,3,4,Hombre,Alfabeto,Preescolar,,Estudiante,18-28
+509,1,23,2,1,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,18-28
+510,2,82,1,1,3,2,3,Mujer,Alfabeto,Primaria,No cotiza,Desempleado,60+
+511,2,16,1,1,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,13-17
+512,1,16,1,2,1,2,4,Hombre,Alfabeto,Ninguno,No cotiza,Estudiante,13-17
+513,1,5,2,1,2,1,2,Hombre,Analfabeto,Preescolar,Cotiza,Independiente,0-5
+514,1,58,1,2,2,3,4,Hombre,Alfabeto,Preescolar,,Estudiante,29-59
+515,1,41,2,1,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,29-59
+516,2,85,1,1,2,3,4,Mujer,Alfabeto,Preescolar,,Estudiante,60+
+517,2,33,1,1,2,1,3,Mujer,Alfabeto,Preescolar,Cotiza,Desempleado,29-59
+518,1,30,2,2,1,3,2,Hombre,Analfabeto,Ninguno,,Independiente,29-59
+519,2,10,1,1,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,6-12
+520,2,19,2,2,2,1,5,Mujer,Analfabeto,Preescolar,Cotiza,Ama de casa,18-28
+521,1,74,2,1,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,60+
 522,1,3,1,1,3,2,3,Hombre,Alfabeto,Primaria,No cotiza,Desempleado,0-5
-523,2,5,1,1,2,3,5,Mujer,Alfabeto,Preescolar,,Ama de casa,6-12
-524,2,6,1,1,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,6-12
-525,2,6,2,1,1,2,1,Mujer,Analfabeto,Ninguno,No cotiza,Empleado,6-12
-526,2,5,2,1,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,6-12
-527,1,3,2,2,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,0-5
-528,1,5,2,2,2,1,5,Hombre,Analfabeto,Preescolar,Cotiza,Ama de casa,6-12
-529,2,6,2,2,1,1,2,Mujer,Analfabeto,Ninguno,Cotiza,Independiente,6-12
-530,1,5,2,2,1,3,5,Hombre,Analfabeto,Ninguno,,Ama de casa,6-12
-531,1,4,2,1,2,1,2,Hombre,Analfabeto,Preescolar,Cotiza,Independiente,0-5
-532,2,5,2,2,1,3,5,Mujer,Analfabeto,Ninguno,,Ama de casa,6-12
-533,2,4,2,1,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,0-5
-534,1,3,2,2,1,2,3,Hombre,Analfabeto,Ninguno,No cotiza,Desempleado,0-5
-535,2,6,1,1,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,6-12
-536,2,5,1,2,1,1,3,Mujer,Alfabeto,Ninguno,Cotiza,Desempleado,6-12
-537,2,3,1,2,2,1,4,Mujer,Alfabeto,Preescolar,Cotiza,Estudiante,0-5
-538,2,2,1,1,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,0-5
-539,1,5,1,1,2,1,5,Hombre,Alfabeto,Preescolar,Cotiza,Ama de casa,6-12
-540,1,2,1,2,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,0-5
-541,2,6,1,2,3,1,1,Mujer,Alfabeto,Primaria,Cotiza,Empleado,6-12
-542,1,6,2,2,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,6-12
-543,1,1,1,2,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,0-5
-544,2,3,1,1,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,0-5
-545,1,4,1,2,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,0-5
-546,1,5,2,2,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,6-12
-547,1,3,1,1,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,0-5
-548,1,5,1,2,3,1,4,Hombre,Alfabeto,Primaria,Cotiza,Estudiante,6-12
-549,2,6,1,2,3,1,4,Mujer,Alfabeto,Primaria,Cotiza,Estudiante,6-12
-550,1,5,1,1,3,1,3,Hombre,Alfabeto,Primaria,Cotiza,Desempleado,6-12
-551,2,6,1,1,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,6-12
-552,2,3,2,1,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-553,1,3,2,1,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-554,1,6,1,2,1,3,2,Hombre,Alfabeto,Ninguno,,Independiente,6-12
-555,1,5,1,1,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,6-12
-556,1,6,1,1,3,1,2,Hombre,Alfabeto,Primaria,Cotiza,Independiente,6-12
-557,1,5,1,1,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,6-12
-558,2,4,2,2,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,0-5
-559,1,5,2,2,2,3,3,Hombre,Analfabeto,Preescolar,,Desempleado,6-12
-560,1,4,1,1,2,1,1,Hombre,Alfabeto,Preescolar,Cotiza,Empleado,0-5
-561,1,5,1,1,2,3,2,Hombre,Alfabeto,Preescolar,,Independiente,6-12
-562,2,6,1,2,2,1,3,Mujer,Alfabeto,Preescolar,Cotiza,Desempleado,6-12
-563,2,2,1,2,1,2,4,Mujer,Alfabeto,Ninguno,No cotiza,Estudiante,0-5
-564,1,5,1,1,3,1,5,Hombre,Alfabeto,Primaria,Cotiza,Ama de casa,6-12
-565,2,4,1,2,2,3,3,Mujer,Alfabeto,Preescolar,,Desempleado,0-5
-566,1,6,1,1,3,2,2,Hombre,Alfabeto,Primaria,No cotiza,Independiente,6-12
-567,2,6,1,1,2,1,1,Mujer,Alfabeto,Preescolar,Cotiza,Empleado,6-12
-568,2,6,1,1,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,6-12
-569,1,3,1,2,1,2,4,Hombre,Alfabeto,Ninguno,No cotiza,Estudiante,0-5
-570,2,4,1,2,1,1,5,Mujer,Alfabeto,Ninguno,Cotiza,Ama de casa,0-5
-571,1,4,1,2,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
-572,2,4,1,1,2,3,4,Mujer,Alfabeto,Preescolar,,Estudiante,0-5
-573,1,4,2,1,2,2,4,Hombre,Analfabeto,Preescolar,No cotiza,Estudiante,0-5
-574,2,5,1,2,3,3,3,Mujer,Alfabeto,Primaria,,Desempleado,6-12
-575,1,5,1,1,3,1,4,Hombre,Alfabeto,Primaria,Cotiza,Estudiante,6-12
-576,2,2,2,2,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,0-5
-577,2,6,1,2,3,1,3,Mujer,Alfabeto,Primaria,Cotiza,Desempleado,6-12
-578,2,2,1,2,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,0-5
-579,2,5,1,1,1,2,4,Mujer,Alfabeto,Ninguno,No cotiza,Estudiante,6-12
-580,1,3,2,1,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,0-5
-581,2,3,1,2,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,0-5
-582,2,4,1,2,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,0-5
-583,2,1,2,2,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,0-5
-584,2,6,1,1,3,3,5,Mujer,Alfabeto,Primaria,,Ama de casa,6-12
-585,1,6,1,1,2,1,1,Hombre,Alfabeto,Preescolar,Cotiza,Empleado,6-12
-586,2,5,1,1,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,6-12
-587,2,4,2,1,1,2,1,Mujer,Analfabeto,Ninguno,No cotiza,Empleado,0-5
-588,1,4,1,1,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,0-5
-589,2,4,1,1,3,1,1,Mujer,Alfabeto,Primaria,Cotiza,Empleado,0-5
-590,2,2,2,2,2,2,4,Mujer,Analfabeto,Preescolar,No cotiza,Estudiante,0-5
-591,2,5,2,2,1,3,1,Mujer,Analfabeto,Ninguno,,Empleado,6-12
-592,1,3,2,2,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,0-5
-593,2,1,2,1,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,0-5
-594,1,6,2,1,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,6-12
-595,1,3,1,1,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,0-5
-596,1,6,2,2,2,3,2,Hombre,Analfabeto,Preescolar,,Independiente,6-12
-597,2,4,1,2,3,3,5,Mujer,Alfabeto,Primaria,,Ama de casa,0-5
-598,2,3,1,2,2,1,5,Mujer,Alfabeto,Preescolar,Cotiza,Ama de casa,0-5
-599,2,1,2,2,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-600,1,2,2,2,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,0-5
-601,1,5,2,2,1,3,2,Hombre,Analfabeto,Ninguno,,Independiente,6-12
-602,1,6,1,2,1,1,1,Hombre,Alfabeto,Ninguno,Cotiza,Empleado,6-12
-603,2,4,1,1,2,1,5,Mujer,Alfabeto,Preescolar,Cotiza,Ama de casa,0-5
-604,2,3,1,2,1,2,3,Mujer,Alfabeto,Ninguno,No cotiza,Desempleado,0-5
-605,1,6,1,1,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,6-12
-606,2,5,2,2,1,1,3,Mujer,Analfabeto,Ninguno,Cotiza,Desempleado,6-12
-607,2,5,1,2,1,1,5,Mujer,Alfabeto,Ninguno,Cotiza,Ama de casa,6-12
-608,2,6,1,2,1,2,4,Mujer,Alfabeto,Ninguno,No cotiza,Estudiante,6-12
-609,1,5,1,1,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,6-12
-610,2,3,2,1,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,0-5
-611,2,6,1,2,1,1,2,Mujer,Alfabeto,Ninguno,Cotiza,Independiente,6-12
-612,2,4,1,2,1,1,2,Mujer,Alfabeto,Ninguno,Cotiza,Independiente,0-5
-613,2,3,1,1,3,1,4,Mujer,Alfabeto,Primaria,Cotiza,Estudiante,0-5
-614,1,6,1,1,3,2,3,Hombre,Alfabeto,Primaria,No cotiza,Desempleado,6-12
-615,1,4,2,2,1,1,1,Hombre,Analfabeto,Ninguno,Cotiza,Empleado,0-5
-616,1,4,1,2,2,1,4,Hombre,Alfabeto,Preescolar,Cotiza,Estudiante,0-5
-617,1,3,1,2,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,0-5
-618,1,5,1,2,2,1,4,Hombre,Alfabeto,Preescolar,Cotiza,Estudiante,6-12
-619,1,5,1,1,3,3,5,Hombre,Alfabeto,Primaria,,Ama de casa,6-12
-620,1,6,1,1,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,6-12
-621,1,4,1,2,3,1,5,Hombre,Alfabeto,Primaria,Cotiza,Ama de casa,0-5
-622,2,4,2,2,2,1,2,Mujer,Analfabeto,Preescolar,Cotiza,Independiente,0-5
-623,2,4,1,2,2,3,4,Mujer,Alfabeto,Preescolar,,Estudiante,0-5
-624,1,4,2,1,2,1,3,Hombre,Analfabeto,Preescolar,Cotiza,Desempleado,0-5
-625,1,4,2,2,2,2,4,Hombre,Analfabeto,Preescolar,No cotiza,Estudiante,0-5
-626,2,6,1,1,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,6-12
-627,2,3,1,2,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
-628,2,3,1,1,3,2,3,Mujer,Alfabeto,Primaria,No cotiza,Desempleado,0-5
-629,1,4,2,1,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,0-5
-630,2,6,1,1,3,1,5,Mujer,Alfabeto,Primaria,Cotiza,Ama de casa,6-12
-631,1,3,1,2,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,0-5
-632,1,6,1,1,2,3,2,Hombre,Alfabeto,Preescolar,,Independiente,6-12
-633,2,5,1,1,2,1,1,Mujer,Alfabeto,Preescolar,Cotiza,Empleado,6-12
-634,2,5,2,2,2,3,5,Mujer,Analfabeto,Preescolar,,Ama de casa,6-12
-635,2,5,1,1,3,1,1,Mujer,Alfabeto,Primaria,Cotiza,Empleado,6-12
-636,2,6,2,2,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,6-12
-637,2,6,1,1,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,6-12
-638,1,3,1,2,3,2,4,Hombre,Alfabeto,Primaria,No cotiza,Estudiante,0-5
-639,1,4,2,1,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-640,1,5,2,1,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,6-12
-641,1,4,1,2,3,1,4,Hombre,Alfabeto,Primaria,Cotiza,Estudiante,0-5
-642,2,6,1,2,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,6-12
-643,2,4,1,1,1,2,4,Mujer,Alfabeto,Ninguno,No cotiza,Estudiante,0-5
-644,1,3,1,2,2,3,5,Hombre,Alfabeto,Preescolar,,Ama de casa,0-5
-645,1,3,1,2,2,1,4,Hombre,Alfabeto,Preescolar,Cotiza,Estudiante,0-5
-646,1,6,2,1,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,6-12
-647,1,3,2,2,2,2,3,Hombre,Analfabeto,Preescolar,No cotiza,Desempleado,0-5
-648,1,6,1,1,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,6-12
-649,2,3,1,2,2,3,5,Mujer,Alfabeto,Preescolar,,Ama de casa,0-5
+523,2,1,1,1,2,3,5,Mujer,Alfabeto,Preescolar,,Ama de casa,0-5
+524,2,28,1,1,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,18-28
+525,2,62,2,1,1,2,1,Mujer,Analfabeto,Ninguno,No cotiza,Empleado,60+
+526,2,37,2,1,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,29-59
+527,1,24,2,2,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,18-28
+528,1,56,2,2,2,1,5,Hombre,Analfabeto,Preescolar,Cotiza,Ama de casa,29-59
+529,2,28,2,2,1,1,2,Mujer,Analfabeto,Ninguno,Cotiza,Independiente,18-28
+530,1,72,2,2,1,3,5,Hombre,Analfabeto,Ninguno,,Ama de casa,60+
+531,1,80,2,1,2,1,2,Hombre,Analfabeto,Preescolar,Cotiza,Independiente,60+
+532,2,53,2,2,1,3,5,Mujer,Analfabeto,Ninguno,,Ama de casa,29-59
+533,2,46,2,1,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,29-59
+534,1,0,2,2,1,2,3,Hombre,Analfabeto,Ninguno,No cotiza,Desempleado,0-5
+535,2,15,1,1,2,2,4,Mujer,Alfabeto,Preescolar,No cotiza,Estudiante,13-17
+536,2,83,1,2,1,1,3,Mujer,Alfabeto,Ninguno,Cotiza,Desempleado,60+
+537,2,0,1,2,2,1,4,Mujer,Alfabeto,Preescolar,Cotiza,Estudiante,0-5
+538,2,51,1,1,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,29-59
+539,1,74,1,1,2,1,5,Hombre,Alfabeto,Preescolar,Cotiza,Ama de casa,60+
+540,1,8,1,2,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,6-12
+541,2,61,1,2,3,1,1,Mujer,Alfabeto,Primaria,Cotiza,Empleado,60+
+542,1,18,2,2,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,18-28
+543,1,23,1,2,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,18-28
+544,2,21,1,1,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,18-28
+545,1,47,1,2,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,29-59
+546,1,34,2,2,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,29-59
+547,1,6,1,1,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,6-12
+548,1,41,1,2,3,1,4,Hombre,Alfabeto,Primaria,Cotiza,Estudiante,29-59
+549,2,36,1,2,3,1,4,Mujer,Alfabeto,Primaria,Cotiza,Estudiante,29-59
+550,1,47,1,1,3,1,3,Hombre,Alfabeto,Primaria,Cotiza,Desempleado,29-59
+551,2,9,1,1,2,1,2,Mujer,Alfabeto,Preescolar,Cotiza,Independiente,6-12
+552,2,43,2,1,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,29-59
+553,1,13,2,1,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,13-17
+554,1,74,1,2,1,3,2,Hombre,Alfabeto,Ninguno,,Independiente,60+
+555,1,81,1,1,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,60+
+556,1,31,1,1,3,1,2,Hombre,Alfabeto,Primaria,Cotiza,Independiente,29-59
+557,1,23,1,1,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,18-28
+558,2,69,2,2,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,60+
+559,1,42,2,2,2,3,3,Hombre,Analfabeto,Preescolar,,Desempleado,29-59
+560,1,43,1,1,2,1,1,Hombre,Alfabeto,Preescolar,Cotiza,Empleado,29-59
+561,1,66,1,1,2,3,2,Hombre,Alfabeto,Preescolar,,Independiente,60+
+562,2,87,1,2,2,1,3,Mujer,Alfabeto,Preescolar,Cotiza,Desempleado,60+
+563,2,36,1,2,1,2,4,Mujer,Alfabeto,Ninguno,No cotiza,Estudiante,29-59
+564,1,23,1,1,3,1,5,Hombre,Alfabeto,Primaria,Cotiza,Ama de casa,18-28
+565,2,51,1,2,2,3,3,Mujer,Alfabeto,Preescolar,,Desempleado,29-59
+566,1,28,1,1,3,2,2,Hombre,Alfabeto,Primaria,No cotiza,Independiente,18-28
+567,2,18,1,1,2,1,1,Mujer,Alfabeto,Preescolar,Cotiza,Empleado,18-28
+568,2,50,1,1,2,2,3,Mujer,Alfabeto,Preescolar,No cotiza,Desempleado,29-59
+569,1,30,1,2,1,2,4,Hombre,Alfabeto,Ninguno,No cotiza,Estudiante,29-59
+570,2,83,1,2,1,1,5,Mujer,Alfabeto,Ninguno,Cotiza,Ama de casa,60+
+571,1,57,1,2,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,29-59
+572,2,84,1,1,2,3,4,Mujer,Alfabeto,Preescolar,,Estudiante,60+
+573,1,48,2,1,2,2,4,Hombre,Analfabeto,Preescolar,No cotiza,Estudiante,29-59
+574,2,36,1,2,3,3,3,Mujer,Alfabeto,Primaria,,Desempleado,29-59
+575,1,48,1,1,3,1,4,Hombre,Alfabeto,Primaria,Cotiza,Estudiante,29-59
+576,2,14,2,2,2,2,1,Mujer,Analfabeto,Preescolar,No cotiza,Empleado,13-17
+577,2,57,1,2,3,1,3,Mujer,Alfabeto,Primaria,Cotiza,Desempleado,29-59
+578,2,30,1,2,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,29-59
+579,2,25,1,1,1,2,4,Mujer,Alfabeto,Ninguno,No cotiza,Estudiante,18-28
+580,1,2,2,1,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,0-5
+581,2,31,1,2,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,29-59
+582,2,70,1,2,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,60+
+583,2,34,2,2,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,29-59
+584,2,17,1,1,3,3,5,Mujer,Alfabeto,Primaria,,Ama de casa,13-17
+585,1,71,1,1,2,1,1,Hombre,Alfabeto,Preescolar,Cotiza,Empleado,60+
+586,2,58,1,1,1,2,2,Mujer,Alfabeto,Ninguno,No cotiza,Independiente,29-59
+587,2,14,2,1,1,2,1,Mujer,Analfabeto,Ninguno,No cotiza,Empleado,13-17
+588,1,16,1,1,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,13-17
+589,2,69,1,1,3,1,1,Mujer,Alfabeto,Primaria,Cotiza,Empleado,60+
+590,2,39,2,2,2,2,4,Mujer,Analfabeto,Preescolar,No cotiza,Estudiante,29-59
+591,2,43,2,2,1,3,1,Mujer,Analfabeto,Ninguno,,Empleado,29-59
+592,1,64,2,2,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,60+
+593,2,36,2,1,2,2,2,Mujer,Analfabeto,Preescolar,No cotiza,Independiente,29-59
+594,1,83,2,1,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,60+
+595,1,41,1,1,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,29-59
+596,1,85,2,2,2,3,2,Hombre,Analfabeto,Preescolar,,Independiente,60+
+597,2,31,1,2,3,3,5,Mujer,Alfabeto,Primaria,,Ama de casa,29-59
+598,2,29,1,2,2,1,5,Mujer,Alfabeto,Preescolar,Cotiza,Ama de casa,29-59
+599,2,13,2,2,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,13-17
+600,1,28,2,2,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,18-28
+601,1,37,2,2,1,3,2,Hombre,Analfabeto,Ninguno,,Independiente,29-59
+602,1,55,1,2,1,1,1,Hombre,Alfabeto,Ninguno,Cotiza,Empleado,29-59
+603,2,40,1,1,2,1,5,Mujer,Alfabeto,Preescolar,Cotiza,Ama de casa,29-59
+604,2,7,1,2,1,2,3,Mujer,Alfabeto,Ninguno,No cotiza,Desempleado,6-12
+605,1,48,1,1,1,2,1,Hombre,Alfabeto,Ninguno,No cotiza,Empleado,29-59
+606,2,77,2,2,1,1,3,Mujer,Analfabeto,Ninguno,Cotiza,Desempleado,60+
+607,2,27,1,2,1,1,5,Mujer,Alfabeto,Ninguno,Cotiza,Ama de casa,18-28
+608,2,13,1,2,1,2,4,Mujer,Alfabeto,Ninguno,No cotiza,Estudiante,13-17
+609,1,43,1,1,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,29-59
+610,2,69,2,1,2,2,5,Mujer,Analfabeto,Preescolar,No cotiza,Ama de casa,60+
+611,2,32,1,2,1,1,2,Mujer,Alfabeto,Ninguno,Cotiza,Independiente,29-59
+612,2,6,1,2,1,1,2,Mujer,Alfabeto,Ninguno,Cotiza,Independiente,6-12
+613,2,25,1,1,3,1,4,Mujer,Alfabeto,Primaria,Cotiza,Estudiante,18-28
+614,1,7,1,1,3,2,3,Hombre,Alfabeto,Primaria,No cotiza,Desempleado,6-12
+615,1,64,2,2,1,1,1,Hombre,Analfabeto,Ninguno,Cotiza,Empleado,60+
+616,1,23,1,2,2,1,4,Hombre,Alfabeto,Preescolar,Cotiza,Estudiante,18-28
+617,1,52,1,2,2,1,2,Hombre,Alfabeto,Preescolar,Cotiza,Independiente,29-59
+618,1,46,1,2,2,1,4,Hombre,Alfabeto,Preescolar,Cotiza,Estudiante,29-59
+619,1,20,1,1,3,3,5,Hombre,Alfabeto,Primaria,,Ama de casa,18-28
+620,1,80,1,1,1,2,2,Hombre,Alfabeto,Ninguno,No cotiza,Independiente,60+
+621,1,3,1,2,3,1,5,Hombre,Alfabeto,Primaria,Cotiza,Ama de casa,0-5
+622,2,59,2,2,2,1,2,Mujer,Analfabeto,Preescolar,Cotiza,Independiente,29-59
+623,2,61,1,2,2,3,4,Mujer,Alfabeto,Preescolar,,Estudiante,60+
+624,1,35,2,1,2,1,3,Hombre,Analfabeto,Preescolar,Cotiza,Desempleado,29-59
+625,1,21,2,2,2,2,4,Hombre,Analfabeto,Preescolar,No cotiza,Estudiante,18-28
+626,2,63,1,1,3,2,1,Mujer,Alfabeto,Primaria,No cotiza,Empleado,60+
+627,2,71,1,2,1,2,5,Mujer,Alfabeto,Ninguno,No cotiza,Ama de casa,60+
+628,2,49,1,1,3,2,3,Mujer,Alfabeto,Primaria,No cotiza,Desempleado,29-59
+629,1,24,2,1,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,18-28
+630,2,13,1,1,3,1,5,Mujer,Alfabeto,Primaria,Cotiza,Ama de casa,13-17
+631,1,86,1,2,1,2,5,Hombre,Alfabeto,Ninguno,No cotiza,Ama de casa,60+
+632,1,28,1,1,2,3,2,Hombre,Alfabeto,Preescolar,,Independiente,18-28
+633,2,17,1,1,2,1,1,Mujer,Alfabeto,Preescolar,Cotiza,Empleado,13-17
+634,2,61,2,2,2,3,5,Mujer,Analfabeto,Preescolar,,Ama de casa,60+
+635,2,36,1,1,3,1,1,Mujer,Alfabeto,Primaria,Cotiza,Empleado,29-59
+636,2,85,2,2,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,60+
+637,2,31,1,1,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,29-59
+638,1,46,1,2,3,2,4,Hombre,Alfabeto,Primaria,No cotiza,Estudiante,29-59
+639,1,14,2,1,1,2,5,Hombre,Analfabeto,Ninguno,No cotiza,Ama de casa,13-17
+640,1,36,2,1,2,2,1,Hombre,Analfabeto,Preescolar,No cotiza,Empleado,29-59
+641,1,20,1,2,3,1,4,Hombre,Alfabeto,Primaria,Cotiza,Estudiante,18-28
+642,2,48,1,2,3,2,4,Mujer,Alfabeto,Primaria,No cotiza,Estudiante,29-59
+643,2,1,1,1,1,2,4,Mujer,Alfabeto,Ninguno,No cotiza,Estudiante,0-5
+644,1,77,1,2,2,3,5,Hombre,Alfabeto,Preescolar,,Ama de casa,60+
+645,1,14,1,2,2,1,4,Hombre,Alfabeto,Preescolar,Cotiza,Estudiante,13-17
+646,1,12,2,1,1,2,1,Hombre,Analfabeto,Ninguno,No cotiza,Empleado,6-12
+647,1,0,2,2,2,2,3,Hombre,Analfabeto,Preescolar,No cotiza,Desempleado,0-5
+648,1,21,1,1,2,2,4,Hombre,Alfabeto,Preescolar,No cotiza,Estudiante,18-28
+649,2,29,1,2,2,3,5,Mujer,Alfabeto,Preescolar,,Ama de casa,29-59
 650,2,6,1,1,2,3,2,Mujer,Alfabeto,Preescolar,,Independiente,6-12
-651,2,6,1,2,1,3,1,Mujer,Alfabeto,Ninguno,,Empleado,6-12
-652,2,3,1,2,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,0-5
-653,2,4,1,1,3,1,5,Mujer,Alfabeto,Primaria,Cotiza,Ama de casa,0-5
-654,2,5,2,2,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,6-12
-655,1,6,1,1,3,3,1,Hombre,Alfabeto,Primaria,,Empleado,6-12
-656,1,6,1,2,1,2,4,Hombre,Alfabeto,Ninguno,No cotiza,Estudiante,6-12
-657,2,5,1,2,3,3,1,Mujer,Alfabeto,Primaria,,Empleado,6-12
-658,2,6,2,2,2,3,1,Mujer,Analfabeto,Preescolar,,Empleado,6-12
-659,2,4,1,1,3,3,4,Mujer,Alfabeto,Primaria,,Estudiante,0-5
-660,2,3,1,1,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,0-5
-661,1,4,1,1,2,1,5,Hombre,Alfabeto,Preescolar,Cotiza,Ama de casa,0-5
-662,2,3,1,1,1,2,4,Mujer,Alfabeto,Ninguno,No cotiza,Estudiante,0-5
-663,1,5,2,2,2,3,1,Hombre,Analfabeto,Preescolar,,Empleado,6-12
-664,2,3,1,2,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,0-5
-665,1,5,1,1,2,1,1,Hombre,Alfabeto,Preescolar,Cotiza,Empleado,6-12
-666,1,6,1,1,2,3,1,Hombre,Alfabeto,Preescolar,,Empleado,6-12
-667,1,4,1,1,1,2,4,Hombre,Alfabeto,Ninguno,No cotiza,Estudiante,0-5
-668,1,5,2,1,2,3,5,Hombre,Analfabeto,Preescolar,,Ama de casa,6-12
-669,1,5,1,2,1,1,5,Hombre,Alfabeto,Ninguno,Cotiza,Ama de casa,6-12
-670,2,4,2,1,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,0-5
-671,2,4,2,1,2,1,4,Mujer,Analfabeto,Preescolar,Cotiza,Estudiante,0-5
-672,2,6,1,1,1,3,5,Mujer,Alfabeto,Ninguno,,Ama de casa,6-12
-673,2,4,2,1,2,2,3,Mujer,Analfabeto,Preescolar,No cotiza,Desempleado,0-5
-674,1,6,1,1,3,1,5,Hombre,Alfabeto,Primaria,Cotiza,Ama de casa,6-12
-675,1,5,2,1,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,6-12
-676,1,6,2,1,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,6-12
-677,1,4,2,1,2,1,4,Hombre,Analfabeto,Preescolar,Cotiza,Estudiante,0-5
-678,1,3,1,2,2,1,5,Hombre,Alfabeto,Preescolar,Cotiza,Ama de casa,0-5
-679,2,3,1,2,2,3,1,Mujer,Alfabeto,Preescolar,,Empleado,0-5
-680,2,6,2,2,2,1,1,Mujer,Analfabeto,Preescolar,Cotiza,Empleado,6-12
-681,2,4,1,1,2,1,1,Mujer,Alfabeto,Preescolar,Cotiza,Empleado,0-5
-682,2,6,1,2,3,3,4,Mujer,Alfabeto,Primaria,,Estudiante,6-12
-683,1,6,1,2,1,1,3,Hombre,Alfabeto,Ninguno,Cotiza,Desempleado,6-12
-684,2,4,1,2,1,2,4,Mujer,Alfabeto,Ninguno,No cotiza,Estudiante,0-5
-685,1,4,2,2,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,0-5
-686,2,6,1,1,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,6-12
-687,2,4,2,1,2,1,2,Mujer,Analfabeto,Preescolar,Cotiza,Independiente,0-5
-688,2,5,2,1,1,1,2,Mujer,Analfabeto,Ninguno,Cotiza,Independiente,6-12
-689,2,5,1,1,3,3,1,Mujer,Alfabeto,Primaria,,Empleado,6-12
-690,1,1,2,2,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,0-5
-691,1,6,1,2,2,1,4,Hombre,Alfabeto,Preescolar,Cotiza,Estudiante,6-12
-692,1,5,1,2,1,2,4,Hombre,Alfabeto,Ninguno,No cotiza,Estudiante,6-12
-693,1,5,1,1,2,3,4,Hombre,Alfabeto,Preescolar,,Estudiante,6-12
-694,2,3,1,1,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,0-5
-695,2,3,1,2,2,1,1,Mujer,Alfabeto,Preescolar,Cotiza,Empleado,0-5
+651,2,9,1,2,1,3,1,Mujer,Alfabeto,Ninguno,,Empleado,6-12
+652,2,52,1,2,3,2,2,Mujer,Alfabeto,Primaria,No cotiza,Independiente,29-59
+653,2,3,1,1,3,1,5,Mujer,Alfabeto,Primaria,Cotiza,Ama de casa,0-5
+654,2,45,2,2,1,2,4,Mujer,Analfabeto,Ninguno,No cotiza,Estudiante,29-59
+655,1,43,1,1,3,3,1,Hombre,Alfabeto,Primaria,,Empleado,29-59
+656,1,59,1,2,1,2,4,Hombre,Alfabeto,Ninguno,No cotiza,Estudiante,29-59
+657,2,52,1,2,3,3,1,Mujer,Alfabeto,Primaria,,Empleado,29-59
+658,2,56,2,2,2,3,1,Mujer,Analfabeto,Preescolar,,Empleado,29-59
+659,2,38,1,1,3,3,4,Mujer,Alfabeto,Primaria,,Estudiante,29-59
+660,2,18,1,1,3,2,5,Mujer,Alfabeto,Primaria,No cotiza,Ama de casa,18-28
+661,1,3,1,1,2,1,5,Hombre,Alfabeto,Preescolar,Cotiza,Ama de casa,0-5
+662,2,73,1,1,1,2,4,Mujer,Alfabeto,Ninguno,No cotiza,Estudiante,60+
+663,1,44,2,2,2,3,1,Hombre,Analfabeto,Preescolar,,Empleado,29-59
+664,2,43,1,2,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,29-59
+665,1,0,1,1,2,1,1,Hombre,Alfabeto,Preescolar,Cotiza,Empleado,0-5
+666,1,20,1,1,2,3,1,Hombre,Alfabeto,Preescolar,,Empleado,18-28
+667,1,2,1,1,1,2,4,Hombre,Alfabeto,Ninguno,No cotiza,Estudiante,0-5
+668,1,47,2,1,2,3,5,Hombre,Analfabeto,Preescolar,,Ama de casa,29-59
+669,1,39,1,2,1,1,5,Hombre,Alfabeto,Ninguno,Cotiza,Ama de casa,29-59
+670,2,27,2,1,1,2,5,Mujer,Analfabeto,Ninguno,No cotiza,Ama de casa,18-28
+671,2,43,2,1,2,1,4,Mujer,Analfabeto,Preescolar,Cotiza,Estudiante,29-59
+672,2,42,1,1,1,3,5,Mujer,Alfabeto,Ninguno,,Ama de casa,29-59
+673,2,5,2,1,2,2,3,Mujer,Analfabeto,Preescolar,No cotiza,Desempleado,0-5
+674,1,11,1,1,3,1,5,Hombre,Alfabeto,Primaria,Cotiza,Ama de casa,6-12
+675,1,53,2,1,2,2,5,Hombre,Analfabeto,Preescolar,No cotiza,Ama de casa,29-59
+676,1,56,2,1,1,2,2,Hombre,Analfabeto,Ninguno,No cotiza,Independiente,29-59
+677,1,16,2,1,2,1,4,Hombre,Analfabeto,Preescolar,Cotiza,Estudiante,13-17
+678,1,73,1,2,2,1,5,Hombre,Alfabeto,Preescolar,Cotiza,Ama de casa,60+
+679,2,25,1,2,2,3,1,Mujer,Alfabeto,Preescolar,,Empleado,18-28
+680,2,19,2,2,2,1,1,Mujer,Analfabeto,Preescolar,Cotiza,Empleado,18-28
+681,2,23,1,1,2,1,1,Mujer,Alfabeto,Preescolar,Cotiza,Empleado,18-28
+682,2,40,1,2,3,3,4,Mujer,Alfabeto,Primaria,,Estudiante,29-59
+683,1,81,1,2,1,1,3,Hombre,Alfabeto,Ninguno,Cotiza,Desempleado,60+
+684,2,62,1,2,1,2,4,Mujer,Alfabeto,Ninguno,No cotiza,Estudiante,60+
+685,1,0,2,2,1,2,4,Hombre,Analfabeto,Ninguno,No cotiza,Estudiante,0-5
+686,2,0,1,1,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,0-5
+687,2,40,2,1,2,1,2,Mujer,Analfabeto,Preescolar,Cotiza,Independiente,29-59
+688,2,46,2,1,1,1,2,Mujer,Analfabeto,Ninguno,Cotiza,Independiente,29-59
+689,2,4,1,1,3,3,1,Mujer,Alfabeto,Primaria,,Empleado,0-5
+690,1,50,2,2,2,2,2,Hombre,Analfabeto,Preescolar,No cotiza,Independiente,29-59
+691,1,8,1,2,2,1,4,Hombre,Alfabeto,Preescolar,Cotiza,Estudiante,6-12
+692,1,90,1,2,1,2,4,Hombre,Alfabeto,Ninguno,No cotiza,Estudiante,60+
+693,1,56,1,1,2,3,4,Hombre,Alfabeto,Preescolar,,Estudiante,29-59
+694,2,61,1,1,1,2,1,Mujer,Alfabeto,Ninguno,No cotiza,Empleado,60+
+695,2,79,1,2,2,1,1,Mujer,Alfabeto,Preescolar,Cotiza,Empleado,60+
