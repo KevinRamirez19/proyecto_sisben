@@ -32,6 +32,7 @@
       <li><a href="{{ url_for('dashboard') }}" class="active">Dashboard</a></li>
       <li><a href="{{ url_for('dashboard2') }}" {% if active == 'dashboard2' %}class="active"{% endif %}>Resumen</a></li>
       <li><a href="{{ url_for('kmeans') }}">K-Means</a></li>
+      <li><a href="{{ url_for('spark') }}">Spark</a></li>
     </ul>
   </div>
 </nav>
@@ -209,6 +210,7 @@
         <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
         <li><a href="{{ url_for('dashboard2') }}">Resumen</a></li>
         <li><a href="{{ url_for('kmeans') }}">K-Means</a></li>
+        <li><a href="{{ url_for('spark') }}">Spark</a></li>
         
       </ul>
     </div>
