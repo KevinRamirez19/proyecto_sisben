@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>K-Means · SISBEN IV Cundinamarca</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
 </head>
 <body>
 
@@ -31,14 +32,20 @@
       <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
       <li><a href="{{ url_for('kmeans') }}" class="active">K-Means</a></li>
       <li><a href="{{ url_for('dashboard2') }}">Resumen</a></li>
+      <li><a href="{{ url_for('spark') }}">Spark</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- HERO -->
+
 <div class="page-hero">
   <div class="page-hero__inner">
-    <div class="page-hero__tag">Orange Data Mining</div>
+    <img
+      src="{{ url_for('static', filename='Img/Orange.jpg') }}"
+      alt="Logo Orange"
+      style="width:96px; height:96px; border-radius:50%; object-fit:cover; display:block; margin-bottom:1rem;"
+    >
+  
     <h1>K-Means <em>(Orange)</em></h1>
     <p>Segmentación no supervisada de los 315.612 registros SISBEN IV usando K-Means con k=4, aplicada sobre los 15 indicadores binarios de carencia (I1–I15).</p>
   </div>
@@ -93,7 +100,7 @@
     <div class="carga-block">
       <div class="orange-evidence__tag" style="margin-bottom:.75rem">Fuente 1 · sisben_orange.csv</div>
       <div class="orange-evidence__img-wrap">
-        <div class="orange-evidence fade-up orange-evidence--big-img">
+          <div class="orange-evidence__img-wrap">
         <img
           src="{{ url_for('static', filename='/Img/CARGA SISBEN ORANGE.png') }}"
           alt="Carga sisben_orange.csv en Orange"
@@ -238,7 +245,7 @@
       <p class="orange-evidence__text">
         Se ejecutaron <strong>10 re-inicializaciones</strong> con un máximo de
         <strong>300 iteraciones</strong> por ejecución, conservando el resultado con
-        menor inercia intra-cluster. La normalización de columnas fue activada para
+        menor inercia. La normalización de columnas fue activada para
         evitar que variables con mayor varianza dominen la métrica euclidiana.
       </p>
       <ul class="orange-evidence__list">
@@ -432,10 +439,32 @@
   <div class="orange-evidence fade-up">
     <div class="orange-evidence__img-wrap">
       <img
-        src="{{ url_for('static', filename='/Img/DENDOGRAMA.png') }}"
+        src="{{ url_for('static', filename='/Img/DENDO1.png') }}"
         alt="Clustering Jerárquico - Dendrograma en Orange"
         class="orange-evidence__img"
       >
+      <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1rem; margin-top:1rem;">
+        <img
+          src="{{ url_for('static', filename='/Img/DENDOGRAMA.png') }}"
+          alt="Dendrograma adicional"
+          class="orange-evidence__img"
+        >
+        <img
+          src="{{ url_for('static', filename='/Img/DENDO2.png') }}"
+          alt="Dendrograma 2"
+          class="orange-evidence__img"
+        >
+        <img
+          src="{{ url_for('static', filename='/Img/DENDO3.png') }}"
+          alt="Dendrograma 3"
+          class="orange-evidence__img"
+        >
+        <img
+          src="{{ url_for('static', filename='/Img/DENDO4.png') }}"
+          alt="Dendrograma 4"
+          class="orange-evidence__img"
+        >
+      </div>
     </div>
     <div class="orange-evidence__analysis">
       <div class="orange-evidence__tag">Evidencia Orange · Clustering Jerárquico</div>
@@ -511,12 +540,6 @@
 
   <hr class="divider">
 
-
-  <div class="section__header fade-up">
-    <span class="section__tag">Clasificación supervisada</span>
-    <h2 class="section__title">Modelos de clasificación — Orange</h2>
-    <p class="section__subtitle">Complementando el clustering, se entrenaron tres modelos supervisados para predecir la condición de pobreza IPM (es_pobre_ipm), evaluados con validación cruzada de 10 folds estratificada sobre los 315.612 registros.</p>
-  </div>
 
 
   <div class="section__header fade-up" style="margin-top:1rem">
@@ -882,13 +905,28 @@
     </div>
   </div>
 
+  <div class="section__header fade-up">
+    <span class="section__tag">Análisis</span>
+    <h2 class="section__title">Conclusiones del análisis K-Means</h2>
+    <p class="section__subtitle">Resumen de los hallazgos clave y las implicaciones de la segmentación realizada.</p>
+  </div>
+  <div class="orange-evidence__analysis" style="margin-bottom:2rem;">
+    <p class="orange-evidence__text">El clustering K-Means muestra que el SISBEN IV se puede agrupar en cuatro segmentos de vulnerabilidad diferenciados. El cluster con mayor riesgo concentra las carencias más críticas en educación, salud y servicios básicos, mientras que el cluster de menor riesgo evidencia mayor acceso y menor privación.</p>
+    <ul class="orange-evidence__list">
+      <li>Cluster de mayor vulnerabilidad: enfoque integral y prioritario en educación, vivienda y salud.</li>
+      <li>Cluster intermedio: atención focalizada en servicios básicos y empleo.</li>
+      <li>Cluster de menor carencia: acciones de prevención y fortalecimiento de capacidades.</li>
+      <li>Los resultados validan el uso de K-Means para identificar subgrupos relevantes más allá de los grupos A–D.</li>
+    </ul>
+  </div>
+
 </div>
 
 <footer class="footer">
   <div class="footer__inner">
     <div>
       <div class="footer__brand">SISBEN IV · Cundinamarca</div>
-      <p class="footer__desc">Proyecto de minería de datos · 2024</p>
+      <p class="footer__desc">Proyecto de minería de datos · 2026</p>
     </div>
     <div class="footer__links">
       <h4>Páginas</h4>
@@ -899,6 +937,7 @@
         <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
         <li><a href="{{ url_for('kmeans') }}">K-Means</a></li>
         <li><a href="{{ url_for('dashboard2') }}">Resumen</a></li>
+        <li><a href="{{ url_for('spark') }}">Spark</a></li>
       </ul>
     </div>
     <div class="footer__links">
@@ -911,7 +950,7 @@
     </div>
   </div>
   <div class="footer__bottom">
-    <span>© 2024 · Proyecto Minería de Datos</span>
+    <span>© 2026 · Proyecto Minería de Datos</span>
     <span>Datos: DNP – SISBEN IV</span>
   </div>
 </footer>
