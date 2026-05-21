@@ -54,7 +54,6 @@
 
 <div class="dash-main">
 
-  <!-- KPIs del modelo -->
   <div class="section__header fade-up">
     <span class="section__tag">Configuración del modelo</span>
     <h2 class="section__title">Parámetros K-Means</h2>
@@ -81,41 +80,719 @@
 
   <hr class="divider">
 
+
   <div class="section__header fade-up">
-    <span class="section__tag">Metodología</span>
+    <span class="section__tag">Paso 1 · Metodología</span>
     <h2 class="section__title">Flujo en Orange Data Mining</h2>
     <p class="section__subtitle">Pipeline completo desde la carga del dataset hasta la evaluación del modelo de clustering.</p>
   </div>
 
-  <div class="kmeans-flow-horiz fade-up">
-    <div class="kmeans-flow-step">
-      <div class="kmeans-flow-step__dot kmeans-flow-step__dot--azul">1</div>
-      <div class="kmeans-flow-step__title">CSV File</div>
-      <div class="kmeans-flow-step__desc">Carga de fact_caracteristicas.csv con variables I1–I15 normalizadas</div>
+
+  <div class="carga-grid fade-up">
+
+    <div class="carga-block">
+      <div class="orange-evidence__tag" style="margin-bottom:.75rem">Fuente 1 · sisben_orange.csv</div>
+      <div class="orange-evidence__img-wrap">
+        <div class="orange-evidence fade-up orange-evidence--big-img">
+        <img
+          src="{{ url_for('static', filename='/Img/CARGA SISBEN ORANGE.png') }}"
+          alt="Carga sisben_orange.csv en Orange"
+          class="orange-evidence__img"
+        >
+        </div>
+      </div>
+      <div class="confusion-block__analysis">
+        <p>Dataset principal con <strong>315.612 filas</strong> y <strong>38 variables</strong>
+        (1 meta). Contiene todos los registros individuales del SISBEN IV en Cundinamarca
+        con indicadores de carencia, clasificación de pobreza e IPM score.</p>
+      </div>
     </div>
-    <div class="kmeans-flow-arrow">→</div>
-    <div class="kmeans-flow-step">
-      <div class="kmeans-flow-step__dot kmeans-flow-step__dot--acento">2</div>
-      <div class="kmeans-flow-step__title">Select Columns</div>
-      <div class="kmeans-flow-step__desc">Selección de los 15 indicadores binarios de carencia</div>
+
+    <div class="carga-block">
+      <div class="orange-evidence__tag" style="margin-bottom:.75rem">Fuente 2 · sisben_municipios.csv</div>
+      <div class="orange-evidence__img-wrap">
+        <img
+          src="{{ url_for('static', filename='/Img/CARGA SISBEN MUNICIPIOS.png') }}"
+          alt="Carga sisben_municipios.csv en Orange"
+          class="orange-evidence__img"
+        >
+      </div>
+      <div class="confusion-block__analysis">
+        <p>Dataset agregado municipal con <strong>928 filas</strong> y <strong>22 variables</strong>
+        (1 meta). Contiene los promedios de nivel SISBEN e IPM por municipio, utilizado
+        para el análisis territorial y el scatter plot municipal.</p>
+      </div>
     </div>
-    <div class="kmeans-flow-arrow">→</div>
-    <div class="kmeans-flow-step">
-      <div class="kmeans-flow-step__dot kmeans-flow-step__dot--verde">3</div>
-      <div class="kmeans-flow-step__title">k-Means</div>
-      <div class="kmeans-flow-step__desc">k=4, distancia euclidiana, 10 re-inicios, 100 iteraciones</div>
+
+  </div>
+
+  <hr class="divider">
+
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Paso 1b · Preprocesamiento</span>
+    <h2 class="section__title">Limpieza y normalización de datos</h2>
+    <p class="section__subtitle">Configuración del widget Preprocess en Orange para estandarizar variables e imputar valores faltantes antes del clustering.</p>
+  </div>
+
+  <div class="orange-evidence fade-up">
+    <div class="orange-evidence__img-wrap">
+      <img
+        src="{{ url_for('static', filename='/Img/PREPROCES.png') }}"
+        alt="Widget Preprocess en Orange"
+        class="orange-evidence__img"
+      >
     </div>
-    <div class="kmeans-flow-arrow">→</div>
-    <div class="kmeans-flow-step">
-      <div class="kmeans-flow-step__dot kmeans-flow-step__dot--purpura">4</div>
-      <div class="kmeans-flow-step__title">Evaluación</div>
-      <div class="kmeans-flow-step__desc">Box Plot · Silhouette · Método del codo</div>
+    <div class="orange-evidence__analysis">
+      <div class="orange-evidence__tag">Evidencia Orange · Preprocess</div>
+      <h3 class="orange-evidence__title">Normalización e imputación aplicadas</h3>
+      <p class="orange-evidence__text">
+        El widget <strong>Preprocess</strong> de Orange se configuró con dos etapas
+        encadenadas sobre los 315.612 registros. La primera etapa aplica
+        <strong>Normalize Features</strong> con estandarización a μ=0, σ²=1
+        (Z-score), garantizando que ninguna variable con mayor rango domine la
+        distancia euclidiana del K-Means.
+      </p>
+      <p class="orange-evidence__text">
+        La segunda etapa aplica <strong>Impute Missing Values</strong> con la
+        estrategia <em>Average / Most frequent</em>, reemplazando valores nulos
+        por la media (variables continuas) o la moda (variables categóricas).
+        Esta combinación garantiza que el dataset esté libre de valores faltantes
+        y que las variables binarias (I1–I15) sean comparables entre sí.
+      </p>
+      <ul class="orange-evidence__list">
+        <li>Normalización: Standardize μ=0, σ²=1 (Z-score)</li>
+        <li>Imputación: Average / Most frequent</li>
+        <li>Entrada: 316k registros · Salida: 316k registros limpios</li>
+        <li>Select Relevant Features activado para filtrar variables irrelevantes</li>
+      </ul>
     </div>
   </div>
 
   <hr class="divider">
 
-  <!-- Perfiles de clusters -->
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Paso 1c · Pipeline completo</span>
+    <h2 class="section__title">Flujo en Orange Data Mining</h2>
+    <p class="section__subtitle">Pipeline completo desde la carga del dataset hasta la evaluación del modelo de clustering y clasificación.</p>
+  </div>
+
+  <div class="orange-evidence fade-up">
+    <div class="orange-evidence__img-wrap">
+      <img
+        src="{{ url_for('static', filename='/Img/DIAGRAMAFLUJO.png') }}"
+        alt="Flujo de trabajo en Orange Data Mining"
+        class="orange-evidence__img"
+      >
+    </div>
+    <div class="orange-evidence__analysis">
+      <div class="orange-evidence__tag">Evidencia Orange · Flujo de trabajo</div>
+      <h3 class="orange-evidence__title">Pipeline completo del análisis</h3>
+      <p class="orange-evidence__text">
+        El flujo construido en Orange Data Mining integra la importación del CSV mediante
+        <strong>CSV File Import</strong>, seguido de un nodo <strong>Select Columns</strong>
+        que filtra los 15 indicadores binarios de carencia (I1–I15). El nodo central
+        <strong>k-Means</strong> aplica el algoritmo con k=4 y normalización activada.
+      </p>
+      <p class="orange-evidence__text">
+        Los resultados se evalúan simultáneamente con <strong>Box Plot</strong> para analizar
+        la distribución del IPM por cluster, <strong>Scatter Plot</strong> para visualizar la
+        separación en el espacio PCA, y <strong>Data Table</strong> para explorar los
+        registros asignados a cada grupo.
+      </p>
+      <ul class="orange-evidence__list">
+        <li>Entrada: 315.612 registros · 15 variables binarias</li>
+        <li>Preprocesamiento: normalización Z-score + imputación</li>
+        <li>Salida: etiqueta de cluster (C1–C4) por cada registro</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Paso 2 · Configuración</span>
+    <h2 class="section__title">Parámetros del nodo K-Means en Orange</h2>
+    <p class="section__subtitle">Configuración utilizada en el widget de K-Means para garantizar la reproducibilidad y calidad de la segmentación.</p>
+  </div>
+
+  <div class="orange-evidence orange-evidence--reverse fade-up">
+    <div class="orange-evidence__img-wrap">
+      <img
+        src="{{ url_for('static', filename='/Img/CONF_KMEANS.png') }}"
+        alt="Configuración del widget K-Means en Orange"
+        class="orange-evidence__img orange-evidence__img--small"
+      >
+    </div>
+    <div class="orange-evidence__analysis">
+      <div class="orange-evidence__tag">Evidencia Orange · Widget K-Means</div>
+      <h3 class="orange-evidence__title">Configuración del modelo</h3>
+      <p class="orange-evidence__text">
+        El widget K-Means de Orange fue configurado con <strong>k=4 clusters fijos</strong>,
+        seleccionado tras evaluar el método del codo entre k=2 y k=8. La inicialización
+        utilizada fue <strong>KMeans++</strong>, que garantiza centroides iniciales bien
+        distribuidos y reduce la probabilidad de convergencia a mínimos locales.
+      </p>
+      <p class="orange-evidence__text">
+        Se ejecutaron <strong>10 re-inicializaciones</strong> con un máximo de
+        <strong>300 iteraciones</strong> por ejecución, conservando el resultado con
+        menor inercia intra-cluster. La normalización de columnas fue activada para
+        evitar que variables con mayor varianza dominen la métrica euclidiana.
+      </p>
+      <ul class="orange-evidence__list">
+        <li>Inicialización: KMeans++ · 10 re-runs</li>
+        <li>Iteraciones máximas: 300 por ejecución</li>
+        <li>Normalización: activada sobre las 15 variables</li>
+        <li>Métrica: distancia euclidiana</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Paso 3 · Selección de k</span>
+    <h2 class="section__title">Método del codo — PCA</h2>
+    <p class="section__subtitle">Análisis de varianza explicada para determinar el número óptimo de componentes y validar la elección de k=4.</p>
+  </div>
+
+  <div class="orange-evidence fade-up">
+    <div class="orange-evidence__img-wrap">
+      <img
+        src="{{ url_for('static', filename='/Img/PCA.png') }}"
+        alt="Curva de varianza explicada PCA en Orange"
+        class="orange-evidence__img"
+      >
+    </div>
+    <div class="orange-evidence__analysis">
+      <div class="orange-evidence__tag">Evidencia Orange · PCA</div>
+      <h3 class="orange-evidence__title">Varianza explicada acumulada</h3>
+      <p class="orange-evidence__text">
+        El análisis PCA aplicado sobre los 15 indicadores binarios muestra que los primeros
+        <strong>8 componentes principales</strong> explican el <strong>54,1% de la varianza
+        total</strong>. La curva acumulada (verde) exhibe un crecimiento progresivo sin un
+        codo pronunciado, lo que indica que la información está distribuida entre múltiples
+        dimensiones moderadamente correlacionadas.
+      </p>
+      <p class="orange-evidence__text">
+        La varianza del componente 8 es de <strong>0,040</strong>, mostrando que cada
+        componente adicional aporta información marginal decreciente. Este comportamiento
+        es propio de datasets con privaciones binarias donde cada indicador captura
+        una dimensión relativamente independiente de la pobreza.
+      </p>
+      <ul class="orange-evidence__list">
+        <li>8 componentes seleccionados → 54,1% de varianza acumulada</li>
+        <li>Componente 8: varianza individual = 0,040</li>
+        <li>Normalización de variables activada</li>
+        <li>N = 315.612 registros procesados</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Paso 4 · Visualización</span>
+    <h2 class="section__title">Scatter Plot — PC1 vs PC2</h2>
+    <p class="section__subtitle">Proyección de los registros en el espacio de los dos primeros componentes principales, coloreados por grupo de pobreza.</p>
+  </div>
+
+  <div class="orange-evidence orange-evidence--reverse fade-up">
+    <div class="orange-evidence__img-wrap">
+      <img
+        src="{{ url_for('static', filename='/Img/SCATTER_PCA.png') }}"
+        alt="Scatter Plot PC1 vs PC2 en Orange"
+        class="orange-evidence__img"
+      >
+    </div>
+    <div class="orange-evidence__analysis">
+      <div class="orange-evidence__tag">Evidencia Orange · Scatter Plot PCA</div>
+      <h3 class="orange-evidence__title">Separación de grupos en el espacio PCA</h3>
+      <p class="orange-evidence__text">
+        La proyección en PC1 vs PC2 sobre una muestra de 5.000 registros revela una
+        <strong>separación parcial pero consistente</strong> entre los grupos de pobreza.
+        Los grupos <strong>A (Pobreza extrema, azul)</strong> y <strong>B (Pobreza moderada, rojo)</strong>
+        se concentran en valores negativos de PC1, que captura las dimensiones de mayor
+        privación estructural (educación y vivienda).
+      </p>
+      <p class="orange-evidence__text">
+        Los grupos <strong>C (Vulnerable, verde)</strong> y <strong>D (No pobre, naranja)</strong>
+        se desplazan progresivamente hacia valores positivos de PC1. La forma de los puntos
+        diferencia zona <strong>Rural (círculo)</strong> vs <strong>Urbano (×)</strong>,
+        evidenciando que la ruralidad amplifica la concentración en el cuadrante de
+        mayor pobreza. El tamaño del punto representa la edad del individuo.
+      </p>
+      <ul class="orange-evidence__list">
+        <li>PC1 negativo → Alta privación estructural (educación, vivienda)</li>
+        <li>PC1 positivo → Menor privación · perfil urbano predominante</li>
+        <li>Rurales concentrados en zona de pobreza extrema y moderada</li>
+        <li>Muestra: 5.000 registros · coloreado por grupo_desc</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Paso 5 · Evaluación</span>
+    <h2 class="section__title">Box Plot — IPM Score por cluster</h2>
+    <p class="section__subtitle">Distribución del índice de pobreza multidimensional por cada categoría, validando la separación estadística entre grupos.</p>
+  </div>
+
+  <div class="orange-evidence fade-up">
+    <div class="orange-evidence__img-wrap">
+      <img
+        src="{{ url_for('static', filename='/Img/IMAGEN_BOXPLOT.png') }}"
+        alt="Box Plot IPM Score por clasificación en Orange"
+        class="orange-evidence__img"
+      >
+    </div>
+    <div class="orange-evidence__analysis">
+      <div class="orange-evidence__tag">Evidencia Orange · Box Plot</div>
+      <h3 class="orange-evidence__title">Distribución del IPM Score por grupo</h3>
+      <p class="orange-evidence__text">
+        El Box Plot del <strong>ipm_score</strong> segmentado por <strong>grupo_desc</strong>
+        muestra diferencias estadísticamente significativas entre las cuatro categorías
+        (ANOVA: F = 31.096,697, <strong>p = 0,000</strong>, N = 315.612).
+      </p>
+      <p class="orange-evidence__text">
+        El grupo <strong>D – No pobre</strong> presenta la menor dispersión (1,43 ± 1,4),
+        mientras que <strong>A – Pobreza extrema</strong> alcanza el valor más alto
+        (4,71 ± 2,4) con mayor variabilidad interna. Los grupos B y C actúan como
+        categorías intermedias con distribuciones parcialmente superpuestas, lo que
+        justifica la necesidad del clustering para capturar heterogeneidad dentro de
+        cada categoría oficial.
+      </p>
+      <ul class="orange-evidence__list">
+        <li>D – No pobre: 1,43 ± 1,4 · menor dispersión</li>
+        <li>C – Vulnerable: 2,50 ± 1,7</li>
+        <li>B – Pobreza moderada: 3,74 ± 2,0</li>
+        <li>A – Pobreza extrema: 4,71 ± 2,4 · mayor variabilidad</li>
+        <li>ANOVA p = 0,000 → diferencias altamente significativas</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Paso 6 · Análisis territorial</span>
+    <h2 class="section__title">Mapa de calor — Patrones por municipio</h2>
+    <p class="section__subtitle">Agrupación jerárquica de municipios según sus patrones de edad y nivel SISBEN, revelando heterogeneidad territorial.</p>
+  </div>
+
+  <div class="orange-evidence orange-evidence--reverse fade-up">
+    <div class="orange-evidence__img-wrap">
+      <img
+        src="{{ url_for('static', filename='/Img/HEATMAP.png') }}"
+        alt="Mapa de calor por municipio en Orange"
+        class="orange-evidence__img"
+      >
+    </div>
+    <div class="orange-evidence__analysis">
+      <div class="orange-evidence__tag">Evidencia Orange · Heat Map</div>
+      <h3 class="orange-evidence__title">Heterogeneidad territorial en Cundinamarca</h3>
+      <p class="orange-evidence__text">
+        El Heat Map agrupa los municipios en <strong>50 clusters k-means</strong> según
+        las variables <strong>edad</strong> y <strong>Nivel SISBEN</strong>. La escala
+        de colores Blue-Green-Yellow representa valores de -2,06 (azul, privación alta)
+        a 3,03 (amarillo, menor privación).
+      </p>
+      <p class="orange-evidence__text">
+        Municipios como <strong>Subachoque, Chocontá y Tenio</strong> presentan patrones
+        de alta privación (tonos azules dominantes), mientras que agrupaciones que incluyen
+        <strong>Soacha, Facatativá y Zipaquirá</strong> muestran perfiles más heterogéneos
+        con presencia de niveles intermedios. Los municipios en la parte inferior del
+        dendrograma, como <strong>Facatativá y Lenguazaque</strong>, presentan los
+        perfiles de menor privación relativa.
+      </p>
+      <ul class="orange-evidence__list">
+        <li>50 clusters municipales · enlace jerárquico</li>
+        <li>Variables: edad promedio · nivel SISBEN promedio</li>
+        <li>N = 316k registros agrupados por nom_municipio</li>
+        <li>Rango normalizado: −2,06 a 3,03</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Paso 7 · Validación</span>
+    <h2 class="section__title">Clustering Jerárquico — Dendrograma</h2>
+    <p class="section__subtitle">Dendrograma de validación con enlace Ward sobre una muestra de 5.000 registros, verificando la coherencia de los 4 clusters.</p>
+  </div>
+
+  <div class="orange-evidence fade-up">
+    <div class="orange-evidence__img-wrap">
+      <img
+        src="{{ url_for('static', filename='/Img/DENDOGRAMA.png') }}"
+        alt="Clustering Jerárquico - Dendrograma en Orange"
+        class="orange-evidence__img"
+      >
+    </div>
+    <div class="orange-evidence__analysis">
+      <div class="orange-evidence__tag">Evidencia Orange · Clustering Jerárquico</div>
+      <h3 class="orange-evidence__title">Validación por dendrograma Ward — 10 clusters</h3>
+      <p class="orange-evidence__text">
+        El dendrograma construido con <strong>enlace Ward</strong> sobre 5.000 registros
+        fue configurado con <strong>Top N: 10</strong>, mostrando los 10 clusters
+        jerárquicos más representativos. La estructura revela una clara concentración
+        de registros de <strong>Pobreza extrema (A)</strong> en los clusters superiores,
+        mientras los clusters inferiores mezclan progresivamente categorías de
+        <strong>Pobreza moderada (B)</strong> y <strong>Vulnerable (C)</strong>.
+      </p>
+      <p class="orange-evidence__text">
+        Los 10 clusters jerárquicos validan y enriquecen la segmentación K-Means con k=4:
+        varios de los sub-clusters corresponden a variantes internas dentro de los grupos
+        A y B, confirmando que la pobreza extrema y moderada presentan
+        <strong>heterogeneidad interna</strong> que justifica la granularidad del
+        clustering no supervisado. Los clusters de menor distancia de fusión (~5)
+        agrupan casos de pobreza extrema más homogéneos, mientras los de mayor
+        distancia (~15) capturan perfiles mixtos entre categorías.
+      </p>
+      <ul class="orange-evidence__list">
+        <li>Enlace Ward · distancia euclidiana</li>
+        <li>Muestra: 5.000 registros · Top N: 10 clusters</li>
+        <li>Clusters superiores: predominio Pobreza extrema (A)</li>
+        <li>Clusters inferiores: mezcla Pobreza moderada (B) y Vulnerable (C)</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  
+  <div class="section__header fade-up">
+    <span class="section__tag">Paso 8 · Análisis municipal</span>
+    <h2 class="section__title">Scatter Plot — Nivel SISBEN vs IPM por municipio</h2>
+    <p class="section__subtitle">Relación entre el nivel SISBEN promedio y el IPM promedio por municipio, mostrando el gradiente territorial de pobreza en Cundinamarca.</p>
+  </div>
+
+  <div class="orange-evidence orange-evidence--reverse fade-up">
+    <div class="orange-evidence__img-wrap">
+      <img
+        src="{{ url_for('static', filename='/Img/SCATTER_MAPL.png') }}"
+        alt="Scatter Plot Nivel SISBEN vs IPM por municipio"
+        class="orange-evidence__img"
+      >
+    </div>
+    <div class="orange-evidence__analysis">
+      <div class="orange-evidence__tag">Evidencia Orange · Scatter Municipal</div>
+      <h3 class="orange-evidence__title">Gradiente territorial de pobreza</h3>
+      <p class="orange-evidence__text">
+        El scatter plot de <strong>928 municipios</strong> relaciona el promedio del
+        <strong>nivel SISBEN</strong> (eje X) con el promedio del <strong>IPM</strong>
+        (eje Y), coloreado por grupo de pobreza predominante y con tamaño proporcional
+        a la población total del municipio.
+      </p>
+      <p class="orange-evidence__text">
+        Se confirma una <strong>correlación negativa clara</strong>: municipios con nivel
+        SISBEN bajo (2–5) presentan IPM promedio entre 4 y 7 puntos (grupos A y B,
+        azul y rojo). Municipios con nivel SISBEN alto (8–18) tienen IPM entre 1 y 3
+        (grupos C y D, verde y naranja). Esta relación valida que el nivel SISBEN es
+        un predictor territorial robusto del IPM, y que las políticas deben
+        diferenciarse geográficamente según este gradiente.
+      </p>
+      <ul class="orange-evidence__list">
+        <li>928 municipios · tamaño = población total</li>
+        <li>Correlación negativa: nivel SISBEN ↑ → IPM ↓</li>
+        <li>Grupos A–B concentrados en nivel SISBEN 2–5</li>
+        <li>Grupos C–D en nivel SISBEN 8–18</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Clasificación supervisada</span>
+    <h2 class="section__title">Modelos de clasificación — Orange</h2>
+    <p class="section__subtitle">Complementando el clustering, se entrenaron tres modelos supervisados para predecir la condición de pobreza IPM (es_pobre_ipm), evaluados con validación cruzada de 10 folds estratificada sobre los 315.612 registros.</p>
+  </div>
+
+
+  <div class="section__header fade-up" style="margin-top:1rem">
+    <span class="section__tag">Paso 9 · Análisis exploratorio</span>
+    <h2 class="section__title">Distribuciones — IPM Score por grupo</h2>
+    <p class="section__subtitle">Probabilidad condicional de pertenecer a cada grupo de pobreza dado un valor de ipm_score.</p>
+  </div>
+
+  <div class="orange-evidence fade-up">
+    <div class="orange-evidence__img-wrap">
+      <img
+          src="{{ url_for('static', filename='img/DISTRIBUTIONS.png') }}"
+          alt="Distribuciones IPM Score por grupo en Orange"
+        class="orange-evidence__img"
+      >
+    </div>
+    <div class="orange-evidence__analysis">
+      <div class="orange-evidence__tag">Evidencia Orange · Distributions</div>
+      <h3 class="orange-evidence__title">Probabilidad condicional por grupo</h3>
+      <p class="orange-evidence__text">
+        El gráfico de distribuciones muestra la probabilidad condicional de pertenecer a
+        cada grupo de pobreza dado un valor de <strong>ipm_score</strong>. Para valores
+        bajos (0–2), el grupo <strong>D – No pobre (naranja)</strong> domina con
+        probabilidades del 30–45%, mientras que para valores altos (7–14), los grupos
+        <strong>A y B</strong> concentran la mayor presencia.
+      </p>
+      <p class="orange-evidence__text">
+        Se observa que los grupos <strong>C – Vulnerable (verde)</strong> y
+        <strong>B – Pobreza moderada (rojo)</strong> presentan distribuciones amplias y
+        parcialmente superpuestas en el rango 2–6, lo que explica por qué el clustering
+        aporta mayor granularidad que la clasificación oficial para este segmento intermedio.
+      </p>
+      <ul class="orange-evidence__list">
+        <li>IPM 0–2: dominio del grupo D (No pobre)</li>
+        <li>IPM 2–6: superposición C, B y D → zona de ambigüedad</li>
+        <li>IPM 7–14: predominio grupos A y B (pobreza)</li>
+        <li>N = 315.612 · split por grupo_desc</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Paso 10 · Evaluación de modelos</span>
+    <h2 class="section__title">Test and Score — Comparación de clasificadores</h2>
+    <p class="section__subtitle">Resultados de validación cruzada 10 folds estratificada para Árbol de Decisión, Random Forest y Naive Bayes.</p>
+  </div>
+
+
+  <div class="orange-evidence fade-up">
+    <div class="orange-evidence__img-wrap">
+      <img
+        src="{{ url_for('static', filename='img/MODELOS.png') }}"
+        alt="Nodos de modelos en Orange: Random Forest, Tree, Naive Bayes"
+        class="orange-evidence__img"
+      >
+    </div>
+    <div class="orange-evidence__analysis">
+      <div class="orange-evidence__tag">Evidencia Orange · Modelos supervisados</div>
+      <h3 class="orange-evidence__title">Tres clasificadores entrenados en paralelo</h3>
+      <p class="orange-evidence__text">
+        El flujo de Orange conecta tres nodos de clasificación en paralelo al mismo
+        nodo <strong>Test and Score</strong>: <strong>Random Forest</strong>,
+        <strong>Tree</strong> (Árbol de Decisión) y <strong>Naive Bayes</strong>.
+        Los tres modelos reciben el mismo conjunto de datos preprocesado y son
+        evaluados simultáneamente bajo las mismas condiciones de validación cruzada.
+      </p>
+      <p class="orange-evidence__text">
+        Esta arquitectura permite comparar directamente el rendimiento de los tres
+        enfoques sobre la variable objetivo <strong>es_pobre_ipm</strong>, garantizando
+        que las diferencias en métricas sean atribuibles al algoritmo y no a
+        variaciones en los datos de entrenamiento.
+      </p>
+      <ul class="orange-evidence__list">
+        <li>Random Forest → ensemble de árboles, mayor precisión</li>
+        <li>Tree → árbol simple, mayor interpretabilidad</li>
+        <li>Naive Bayes → clasificador probabilístico, menor costo computacional</li>
+        <li>Evaluación: validación cruzada 10 folds estratificada</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="orange-evidence orange-evidence--reverse fade-up">
+    <div class="orange-evidence__img-wrap">
+      <img
+        src="{{ url_for('static', filename='/Img/TESTSCORE.png') }}"
+        alt="Test and Score comparación de modelos en Orange"
+        class="orange-evidence__img"
+      >
+    </div>
+    <div class="orange-evidence__analysis">
+      <div class="orange-evidence__tag">Evidencia Orange · Test and Score</div>
+      <h3 class="orange-evidence__title">Resultados de los tres clasificadores</h3>
+      <p class="orange-evidence__text">
+        Los tres modelos fueron evaluados con <strong>validación cruzada de 10 folds
+        estratificada</strong> sobre los 315.612 registros. El
+        <strong>Random Forest</strong> alcanza un rendimiento excepcional con
+        AUC = 1,000 y precisión del 99,9%, superando significativamente a los otros modelos.
+      </p>
+      <p class="orange-evidence__text">
+        El <strong>Árbol de Decisión</strong> logra AUC = 0,896 y CA = 0,859, siendo
+        interpretable pero con mayor tasa de error. El <strong>Naive Bayes</strong>
+        presenta AUC = 0,967 y CA = 0,892, con buen desempeño probabilístico pero
+        limitado por la hipótesis de independencia entre variables que en este dataset
+        no se cumple estrictamente.
+      </p>
+      <ul class="orange-evidence__list">
+        <li>Random Forest: AUC 1,000 · CA 0,999 · F1 0,999</li>
+        <li>Árbol de Decisión: AUC 0,896 · CA 0,859 · F1 0,860</li>
+        <li>Naive Bayes: AUC 0,967 · CA 0,892 · F1 0,892</li>
+        <li>p = 0,000 → Random Forest supera estadísticamente a los demás</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Paso 11 · Interpretabilidad</span>
+    <h2 class="section__title">Árbol de Decisión — Reglas de clasificación</h2>
+    <p class="section__subtitle">Visualización del árbol con 11 nodos y 6 hojas que revela las variables más determinantes para predecir la pobreza IPM.</p>
+  </div>
+
+  <div class="orange-evidence fade-up">
+    <div class="orange-evidence__img-wrap">
+      <img
+        src="{{ url_for('static', filename='/Img/TREEVIEWER.png') }}"
+        alt="Tree Viewer - Árbol de Decisión en Orange"
+        class="orange-evidence__img"
+      >
+    </div>
+    <div class="orange-evidence__analysis">
+      <div class="orange-evidence__tag">Evidencia Orange · Tree Viewer</div>
+      <h3 class="orange-evidence__title">Reglas interpretables del árbol</h3>
+      <p class="orange-evidence__text">
+        El árbol de decisión con <strong>11 nodos y 6 hojas</strong> identifica
+        <strong>bajo_logro_educativo</strong> como la variable raíz, siendo el
+        discriminador más poderoso para clasificar la condición de pobreza IPM.
+        Este resultado confirma lo observado en el clustering: la dimensión educativa
+        es el principal eje de diferenciación entre grupos.
+      </p>
+      <p class="orange-evidence__text">
+        Las reglas principales revelan que personas con
+        <strong>bajo logro educativo + sin acueducto</strong> tienen probabilidad
+        del <strong>95,5%</strong> de ser pobres por IPM (1.263/1.323 casos). En contraste,
+        quienes no presentan bajo logro educativo ni empleo informal tienen probabilidad
+        del <strong>88,3%</strong> de no ser pobres (795/900 casos).
+      </p>
+      <ul class="orange-evidence__list">
+        <li>Raíz: bajo_logro_educativo (variable más discriminante)</li>
+        <li>bajo_logro=1 + sin_acueducto=1 → Pobre (95,5%)</li>
+        <li>bajo_logro=0 + empleo_informal=0 → No pobre (88,3%)</li>
+        <li>bajo_logro=1 + sin_acueducto=0 + Ama casa/Desempleado → Pobre (86,7%)</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Paso 12 · Matrices de confusión</span>
+    <h2 class="section__title">Matrices de confusión por modelo</h2>
+    <p class="section__subtitle">Análisis detallado de los errores de clasificación para cada uno de los tres modelos sobre los 315.612 registros.</p>
+  </div>
+
+
+  <div class="confusion-grid fade-up">
+
+    <div class="confusion-block">
+      <div class="orange-evidence__tag" style="margin-bottom:.75rem">Árbol de Decisión</div>
+      <div class="orange-evidence__img-wrap">
+        <img
+          src="{{ url_for('static', filename='/Img/TESTARBOL.png') }}"
+          alt="Confusion Matrix Árbol de Decisión"
+          class="orange-evidence__img"
+        >
+      </div>
+      <div class="confusion-block__analysis">
+        <p><strong>44.348 errores</strong> (14,1% de error total). El árbol presenta
+        <strong>28.781 falsos negativos</strong> — personas pobres clasificadas como
+        no pobres — lo que implica riesgo de exclusión de beneficiarios reales.
+        Los 15.567 falsos positivos representan clasificaciones incorrectas en sentido contrario.
+        Este patrón asimétrico sugiere que el árbol tiene mayor dificultad identificando
+        correctamente a la población pobre.</p>
+      </div>
+    </div>
+
+    <div class="confusion-block">
+      <div class="orange-evidence__tag" style="margin-bottom:.75rem">Random Forest</div>
+      <div class="orange-evidence__img-wrap">
+        <img
+          src="{{ url_for('static', filename='/Img/TESTRANDOMTREE.png') }}"
+          alt="Confusion Matrix Random Forest"
+          class="orange-evidence__img"
+        >
+      </div>
+      <div class="confusion-block__analysis">
+        <p><strong>309 errores totales</strong> (0,1% de error). Random Forest comete
+        apenas <strong>25 falsos positivos</strong> y <strong>284 falsos negativos</strong>
+        sobre 315.612 registros. Esta precisión excepcional confirma que las privaciones
+        del dataset definen de manera casi determinista la condición de pobreza IPM,
+        y que el Random Forest captura estas relaciones con máxima eficiencia.</p>
+      </div>
+    </div>
+
+    <div class="confusion-block">
+      <div class="orange-evidence__tag" style="margin-bottom:.75rem">Naive Bayes</div>
+      <div class="orange-evidence__img-wrap">
+        <img
+          src="{{ url_for('static', filename='/Img/TESTNAIVEBAYES.png') }}"
+          alt="Confusion Matrix Naive Bayes"
+          class="orange-evidence__img"
+        >
+      </div>
+      <div class="confusion-block__analysis">
+        <p><strong>34.155 errores</strong> (10,8% de error). Naive Bayes presenta
+        <strong>17.352 falsos positivos</strong> y <strong>16.803 falsos negativos</strong>,
+        con una distribución más equilibrada entre tipos de error que el árbol.
+        La hipótesis de independencia condicional introduce sesgo en variables
+        altamente correlacionadas como bajo_logro_educativo y empleo_informal.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+
+  <div class="section__header fade-up">
+    <span class="section__tag">Paso 13 · Curvas ROC</span>
+    <h2 class="section__title">ROC Analysis — Comparación final de modelos</h2>
+    <p class="section__subtitle">Curvas ROC de los tres clasificadores, confirmando la superioridad del Random Forest y la capacidad discriminante de cada modelo.</p>
+  </div>
+
+  <div class="orange-evidence orange-evidence--reverse fade-up">
+    <div class="orange-evidence__img-wrap">
+      <img
+        src="{{ url_for('static', filename='/Img/ROC.png') }}"
+        alt="ROC Analysis comparación de clasificadores en Orange"
+        class="orange-evidence__img"
+      >
+    </div>
+    <div class="orange-evidence__analysis">
+      <div class="orange-evidence__tag">Evidencia Orange · ROC Analysis</div>
+      <h3 class="orange-evidence__title">Capacidad discriminante de los modelos</h3>
+      <p class="orange-evidence__text">
+        La curva ROC del <strong>Random Forest (naranja)</strong> se posiciona
+        prácticamente en la esquina superior izquierda del gráfico, con AUC ≈ 1,000,
+        indicando capacidad discriminante casi perfecta entre personas pobres y
+        no pobres por IPM. Alcanza tasas de verdaderos positivos cercanas al 100%
+        con tasas de falsos positivos prácticamente nulas.
+      </p>
+      <p class="orange-evidence__text">
+        El <strong>Naive Bayes (azul)</strong> presenta una curva amplia con buen
+        desempeño general (AUC = 0,967), mientras el <strong>Árbol de Decisión (verde)</strong>
+        muestra la curva más alejada de la esquina óptima (AUC = 0,896), con un
+        comportamiento escalonado propio de los clasificadores basados en umbrales discretos.
+        La línea diagonal punteada representa la clasificación aleatoria (AUC = 0,5).
+      </p>
+      <ul class="orange-evidence__list">
+        <li>Random Forest: AUC ≈ 1,000 · curva naranja, hugging esquina superior</li>
+        <li>Naive Bayes: AUC = 0,967 · curva azul, buen desempeño global</li>
+        <li>Árbol de Decisión: AUC = 0,896 · curva verde, mayor error</li>
+        <li>Línea base (random): diagonal punteada AUC = 0,5</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+
   <div class="section__header fade-up">
     <span class="section__tag">Resultados</span>
     <h2 class="section__title">Perfiles de los 4 clusters</h2>
@@ -205,8 +882,6 @@
     </div>
   </div>
 
-
-
 </div>
 
 <footer class="footer">
@@ -240,6 +915,173 @@
     <span>Datos: DNP – SISBEN IV</span>
   </div>
 </footer>
+
+
+<style>
+
+.orange-evidence {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin: 2rem 0 2.5rem;
+}
+.orange-evidence--reverse {
+  direction: rtl;
+}
+.orange-evidence--reverse > * {
+  direction: ltr;
+}
+.orange-evidence__img-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid rgba(59,125,216,.18);
+  background: #f4f7fb;
+  box-shadow: 0 4px 24px rgba(13,43,94,.08);
+}
+.orange-evidence__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform .35s ease;
+}
+.orange-evidence__img:hover {
+  transform: scale(1.02);
+}
+.orange-evidence__img--small {
+  max-width: 340px;
+  margin: 0 auto;
+}
+.orange-evidence__analysis {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.orange-evidence__tag {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #3B7DD8;
+  background: rgba(59,125,216,.1);
+  padding: .25rem .75rem;
+  border-radius: 20px;
+  width: fit-content;
+}
+.orange-evidence__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0D2B5E;
+  margin: 0;
+  line-height: 1.3;
+}
+.orange-evidence__text {
+  font-size: .95rem;
+  color: #374151;
+  line-height: 1.7;
+  margin: 0;
+}
+.orange-evidence__list {
+  list-style: none;
+  padding: 0;
+  margin: .25rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+.orange-evidence__list li {
+  font-size: .88rem;
+  color: #1A4FA0;
+  padding-left: 1.1rem;
+  position: relative;
+}
+.orange-evidence__list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #D4860A;
+  font-size: .75rem;
+  top: .1em;
+}
+
+
+.confusion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin: 1.5rem 0 2.5rem;
+}
+.confusion-block {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.confusion-block__analysis {
+  background: #f4f7fb;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  border-left: 3px solid #3B7DD8;
+}
+.confusion-block__analysis p {
+  font-size: .88rem;
+  color: #374151;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.carga-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  margin: 1.5rem 0 2.5rem;
+}
+.carga-block {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+
+.orange-evidence {
+  grid-template-columns: 1fr 1fr;
+}
+.orange-evidence--reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 1100px) {
+  .carga-grid { grid-template-columns: 1fr; }
+  .confusion-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .orange-evidence,
+  .orange-evidence--reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+  
+.carga-grid { grid-template-columns: 1fr; }
+}
+
+.carga-block .orange-evidence__img-wrap {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.orange-evidence--big-img {
+  grid-template-columns: 1.6fr 1fr;
+}
+.orange-evidence--reverse.orange-evidence--big-img {
+  grid-template-columns: 1fr 1.6fr;
+}
+
+
+.orange-evidence--small-img .orange-evidence__img-wrap {
+  max-width: 260px;
+  margin: 0 auto;
+}
+</style>
 
 </body>
 </html>

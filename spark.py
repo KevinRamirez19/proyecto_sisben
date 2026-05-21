@@ -31,7 +31,7 @@ def cargar_datos(spark, ruta="./data/"):
     dim_tiempo     = spark.read.csv(ruta + "dim_tiempo.csv",     header=True, inferSchema=True)
 
 
-    fact           = spark.read.csv(ruta + "fact_persona.csv",   header=True, inferSchema=True)
+    fact           = spark.read.csv(ruta + "fact_caracteristicas.csv",   header=True, inferSchema=True)
 
     df = fact \
         .join(dim_municipio, on="municipio_sk", how="left") \

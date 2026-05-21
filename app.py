@@ -4,13 +4,12 @@ import pandas as pd
 import numpy as np
 import json
 import os
-
+import folium
 app = Flask(__name__)
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(BASE, 'data')
 
-print(" Cargando datos SISBEN IV...")
 
 fact      = pd.read_csv(os.path.join(DATA, 'fact_caracteristicas.csv'),  encoding='utf-8-sig')
 sisben    = pd.read_csv(os.path.join(DATA, 'dim_sisben.csv'),    encoding='utf-8-sig')
@@ -97,24 +96,26 @@ def kmeans():
 
 @app.route('/dashboard/spark')
 def dashboard_spark():
-    return render_template('dashboard_pyspark.html', stats=STATS)
+    return render_template('dashboard_pyspark.html', stats=STATS, active='spark')
 
 @app.route('/api/spark')
 def api_spark():
 
+    # 1. Pobreza por departamento
     dept = df.groupby('nom_departamento').agg(
         total_personas=('persona_fact_sk', 'count'),
         pobres_ipm=('es_pobre_ipm', 'sum'),
         score_ipm_promedio=('ipm_score', 'mean')
     ).reset_index()
-    dept['tasa_pobreza_pct']    = (dept['pobres_ipm'] / dept['total_personas'] * 100).round(2)
-    dept['score_ipm_promedio']  = dept['score_ipm_promedio'].round(2)
+    dept['tasa_pobreza_pct']   = (dept['pobres_ipm'] / dept['total_personas'] * 100).round(2)
+    dept['score_ipm_promedio'] = dept['score_ipm_promedio'].round(2)
 
+    # 2. Distribución SISBÉN
     sisb = df.groupby(['grupo_desc', 'clasificacion_desc']).agg(
         total_personas=('persona_fact_sk', 'count')
     ).reset_index()
 
-
+    # 3. Pobreza por zona
     zona_g = df.groupby('zona_desc').agg(
         total_personas=('persona_fact_sk', 'count'),
         pobres_ipm=('es_pobre_ipm', 'sum'),
@@ -123,6 +124,7 @@ def api_spark():
     zona_g['tasa_pobreza_pct']   = (zona_g['pobres_ipm'] / zona_g['total_personas'] * 100).round(2)
     zona_g['score_ipm_promedio'] = zona_g['score_ipm_promedio'].round(2)
 
+    # 4. Educación vs pobreza
     edu = df.groupby('nivel_educativo').agg(
         total_personas=('persona_fact_sk', 'count'),
         score_ipm_promedio=('ipm_score', 'mean'),
@@ -131,12 +133,15 @@ def api_spark():
     edu['tasa_pobreza_pct']   = (edu['tasa_pobreza_pct'] * 100).round(2)
     edu['score_ipm_promedio'] = edu['score_ipm_promedio'].round(2)
 
-
-    act = df.groupby(['actividad_economica', 'cotiza_pension']).agg(
-        total_personas=('persona_fact_sk', 'count')
+    # 5. Actividad económica con tasa de pobreza
+    act = df.groupby('actividad_economica').agg(
+        total_personas=('persona_fact_sk', 'count'),
+        pobres_ipm=('es_pobre_ipm', 'sum'),
+        tasa_pobreza_pct=('es_pobre_ipm', 'mean')
     ).reset_index()
+    act['tasa_pobreza_pct'] = (act['tasa_pobreza_pct'] * 100).round(2)
 
-
+    # 6. Top 10 municipios más pobres
     muni = df.groupby(['nom_municipio', 'nom_departamento']).agg(
         total_personas=('persona_fact_sk', 'count'),
         score_ipm_promedio=('ipm_score', 'mean'),
@@ -144,12 +149,14 @@ def api_spark():
     ).reset_index()
     muni['tasa_pobreza_pct']   = (muni['pobres_ipm'] / muni['total_personas'] * 100).round(2)
     muni['score_ipm_promedio'] = muni['score_ipm_promedio'].round(2)
+    muni = muni[muni['nom_municipio'] != 'Pendiente DIVIPOLA']  # ← filtra filas sin municipio
     muni = muni.sort_values('score_ipm_promedio', ascending=False).head(10)
 
-    # 7. Evolución temporal
+    # 7. Evolución temporal — merge limpio con solo anio
     try:
         tiempo = pd.read_csv(os.path.join(DATA, 'dim_tiempo.csv'), encoding='utf-8-sig')
-        df_t = fact.merge(tiempo, on='tiempo_sk')
+        tiempo_clean = tiempo[['tiempo_sk', 'anio']].drop_duplicates('tiempo_sk')
+        df_t = df.merge(tiempo_clean, on='tiempo_sk', how='left')
         evo = df_t.groupby('anio').agg(
             total_personas=('persona_fact_sk', 'count'),
             pobres_ipm=('es_pobre_ipm', 'sum'),
@@ -158,7 +165,8 @@ def api_spark():
         evo['tasa_pobreza_pct']   = (evo['pobres_ipm'] / evo['total_personas'] * 100).round(2)
         evo['score_ipm_promedio'] = evo['score_ipm_promedio'].round(2)
         evo = evo.to_dict(orient='records')
-    except Exception:
+    except Exception as e:
+        print("ERROR temporal:", e)
         evo = []
 
     return jsonify({
@@ -170,6 +178,8 @@ def api_spark():
         'municipios_mas_pobres': muni.to_dict(orient='records'),
         'evolucion_temporal':    evo,
     })
+
+
 
 def cargar_modulo_spark():
     ruta_modulo = os.path.join(BASE, 'spark.py')
@@ -201,9 +211,6 @@ def spark_page():
     return render_template('spark.html', resultados=resultados, error=error, active='spark')
 
 
-# ─────────────────────────────────────────────────────────────
-#  APIs existentes (sin cambios)
-# ─────────────────────────────────────────────────────────────
 
 @app.route('/api/sisben_dist')
 def api_sisben():
