@@ -176,34 +176,12 @@
   <div class="esquema-box fade-up">
     <span class="section__tag">Arquitectura</span>
     <h3>Esquema estrella — Data Warehouse</h3>
-    <div class="schema-grid">
-      <div class="schema-dim">
-        <div class="schema-dim__name">dim_municipio</div>
-        <div class="schema-dim__cols">municipio_sk · cod_mpio · nom_municipio · nom_departamento · latitud · longitud</div>
-      </div>
-      <div class="schema-dim">
-        <div class="schema-dim__name">dim_persona</div>
-        <div class="schema-dim__cols">persona_sk · sexo · edad · alfabetismo · nivel_educativo · cotiza_pension · actividad_economica · grupo_edad</div>
-      </div>
-      <div class="schema-dim">
-        <div class="schema-dim__name">dim_sisben</div>
-        <div class="schema-dim__cols">sisben_sk · Grupo_cod · Nivel · grupo_desc · clasificacion_desc</div>
-      </div>
-      <div></div>
-      <div class="schema-fact">
-        <div class="schema-fact__name">fact_caracteristicas</div>
-        <div class="schema-fact__cols">caracteristicas_fact_sk · I1–I15 · ipm_score · es_pobre_ipm · cluster_kmeans · H_5</div>
-      </div>
-      <div></div>
-      <div class="schema-dim">
-        <div class="schema-dim__name">dim_zona</div>
-        <div class="schema-dim__cols">zona_sk · zona_cod · zona_desc · tipo</div>
-      </div>
-      <div class="schema-dim">
-        <div class="schema-dim__name">dim_tiempo</div>
-        <div class="schema-dim__cols">tiempo_sk · anio_corte · semestre · trimestre · version_barrido · descripcion</div>
-      </div>
-      <div></div>
+    <div style="display:flex; justify-content:center; margin-top:1.5rem;">
+      <img
+        src="{{ url_for('static', filename='Img/Modelo_Estrella.png') }}"
+        alt="Modelo estrella"
+        style="max-width:100%; height:auto; border-radius:16px; box-shadow:0 20px 40px rgba(0,0,0,.12);"
+      >
     </div>
   </div>
 
@@ -254,7 +232,6 @@
   <div class="footer__inner">
     <div>
       <div class="footer__brand">SISBEN IV · Cundinamarca</div>
-      <p class="footer__desc">Proyecto de minería de datos · 2026</p>
     </div>
     <div class="footer__links">
       <h4>Páginas</h4>
