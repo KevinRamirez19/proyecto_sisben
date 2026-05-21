@@ -1,549 +1,300 @@
-﻿{% extends "base.html" %}
+﻿{%- extends 'base.html' -%}
+{%- block title %}PySpark · Análisis Socioeconómico{%- endblock %}
 
-{% block title %}Spark · Análisis Socioeconómico{% endblock %}
-
-{% block extra_css %}
+{%- block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style_spark.css') }}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-  href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
-  rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-{% endblock %}
+{%- endblock %}
 
-{% block content %}
+{%- block content %}
 
-  <nav class="navbar">
-    <div class="navbar__inner">
-      <a href="{{ url_for('index') }}" class="navbar__brand">
-        <div class="navbar__dot">
-        </div>
-        Análisis Socioeconómico
-      </a>
-      <ul class="navbar__links">
-        <li><a href="#kpis" class="active">Resumen</a></li>
-        <li><a href="#pobreza">Pobreza IPM</a></li>
-        <li><a href="#poblacion">Población</a></li>
-        <li><a href="#temporal">Temporal</a></li>
-      </ul>
+
+<section class="page-hero">
+  <div class="page-hero__inner">
+    <div>
+      <div class="page-hero__tag"><span class="hero-dot"></span> PySpark · Resultados</div>
+      <h1>Características Socioeconómicas</h1>
     </div>
-  </nav>
+    <div class="hero-kpis" id="heroKpis"></div>
+  </div>
+</section>
 
-  <section class="page-hero">
-    <div class="page-hero__inner">
-      <div>
-        <div class="page-hero__tag"><span class="hero-dot"></span> PySpark · Resultados</div>
-        <h1>Características Socioeconómicas</h1>
-        <p>Resultados generados automáticamente desde <code
-            style="background:rgba(255,255,255,.15);padding:2px 8px;border-radius:6px;font-size:.9em;">analisis_socioeconomico.py</code>
-        </p>
+<div id="loading">
+  <div class="spinner"></div>
+</div>
+
+<div id="error-box">
+  <h3>No se pudo cargar el archivo</h3>
+  <p>Asegúrate de haber ejecutado <strong>python analisis_socioeconomico.py</strong> para generar <strong>resultados.json</strong> en la raíz del proyecto.</p>
+  <code id="error-msg"></code>
+  <p style="margin-top:14px;font-size:.82rem;">Tip: ejecuta <code style="background:white;padding:2px 6px;border-radius:4px;">python analisis_socioeconomico.py</code> y luego <code style="background:white;padding:2px 6px;border-radius:4px;">python app.py</code>.</p>
+</div>
+
+<div id="dashboard" style="display:none;">
+  <main class="dash-main">
+
+    <div id="kpis" class="kpi-row fade-up" style="margin-top:8px;">
+      <div class="kpi-card">
+        
+        <div class="kpi-card__val" id="kpi-total">-</div>
+        <div class="kpi-card__lbl">Personas registradas</div>
+        <div class="kpi-card__sub" id="kpi-total-sub">-</div>
       </div>
-      <div class="hero-kpis" id="heroKpis">
+      <div class="kpi-card kpi-card--rojo">
+     
+        <div class="kpi-card__val" id="kpi-tasa">-</div>
+        <div class="kpi-card__lbl">Tasa pobreza IPM</div>
+        <div class="kpi-card__sub" id="kpi-pobres-sub">-</div>
+      </div>
+      <div class="kpi-card kpi-card--acento">
+       
+        <div class="kpi-card__val" id="kpi-score">-</div>
+        <div class="kpi-card__lbl">Score IPM promedio</div>
+        <div class="kpi-card__sub">Escala 0 - 15 privaciones</div>
+      </div>
+      <div class="kpi-card kpi-card--verde">
+      
+        <div class="kpi-card__val" id="kpi-urbano">-</div>
+        <div class="kpi-card__lbl">Pobreza urbana</div>
+        <div class="kpi-card__sub" id="kpi-urbano-sub">-</div>
+      </div>
+      <div class="kpi-card kpi-card--purple">
+        
+        <div class="kpi-card__val" id="kpi-rural">-</div>
+        <div class="kpi-card__lbl">Pobreza rural</div>
+        <div class="kpi-card__sub" id="kpi-rural-sub">-</div>
       </div>
     </div>
-  </section>
 
-  <div id="loading">
-    <div class="spinner"></div>
-    <p class="loading-txt">Cargando datos desde <strong>/api/spark</strong>…</p>
-  </div>
+    <hr class="divider" id="pobreza">
 
-  <div id="error-box">
-    <h3>No se pudo cargar el archivo</h3>
-    <p>Asegúrate de haber ejecutado <strong>python analisis_socioeconomico.py</strong> para generar
-      <strong>resultados.json</strong> en la raíz del proyecto.
-    </p>
-    <code id="error-msg"></code>
-    <p style="margin-top:14px;font-size:.82rem;">Tip: ejecuta <code
-        style="background:white;padding:2px 6px;border-radius:4px;">python analisis_socioeconomico.py</code> y luego
-      <code style="background:white;padding:2px 6px;border-radius:4px;">python app.py</code>.
-    </p>
-  </div>
+    <div class="sec-header fade-up">
+      <div class="sec-tag">01 &middot; Pobreza Multidimensional</div>
+      <h2>Distribucion de la Pobreza IPM</h2>
+      <p>Analisis por zona geografica, nivel SISBEN y nivel educativo.</p>
+    </div>
 
-  <div id="dashboard" style="display:none;">
-
-    <main class="dash-main">
-
-      <div id="kpis" class="kpi-row fade-up" style="margin-top:8px;">
-        <div class="kpi-card">
-          <div class="kpi-card__icon">👥</div>
-          <div class="kpi-card__val" id="kpi-total">—</div>
-          <div class="kpi-card__lbl">Personas registradas</div>
-          <div class="kpi-card__sub" id="kpi-total-sub">—</div>
-        </div>
-        <div class="kpi-card kpi-card--rojo">
-          <div class="kpi-card__icon">📊</div>
-          <div class="kpi-card__val" id="kpi-tasa">—</div>
-          <div class="kpi-card__lbl">Tasa pobreza IPM</div>
-          <div class="kpi-card__sub" id="kpi-pobres-sub">—</div>
-        </div>
-        <div class="kpi-card kpi-card--acento">
-          <div class="kpi-card__icon">📈</div>
-          <div class="kpi-card__val" id="kpi-score">—</div>
-          <div class="kpi-card__lbl">Score IPM promedio</div>
-          <div class="kpi-card__sub">Escala 0 – 15 privaciones</div>
-        </div>
-        <div class="kpi-card kpi-card--verde">
-          <div class="kpi-card__icon">🌱</div>
-          <div class="kpi-card__val" id="kpi-urbano">—</div>
-          <div class="kpi-card__lbl">Pobreza urbana</div>
-          <div class="kpi-card__sub" id="kpi-urbano-sub">—</div>
-        </div>
-        <div class="kpi-card kpi-card--purple">
-          <div class="kpi-card__icon">🌾</div>
-          <div class="kpi-card__val" id="kpi-rural">—</div>
-          <div class="kpi-card__lbl">Pobreza rural</div>
-          <div class="kpi-card__sub" id="kpi-rural-sub">—</div>
+    <div class="grid-1-2 fade-up">
+      <div class="chart-card">
+        <div class="chart-card__title">Pobreza IPM por Zona</div>
+        <div class="chart-card__sub">Tasa de pobreza y score promedio</div>
+        <div class="zona-bars" id="zonaBars"></div>
+        <div style="margin-top:22px;" class="chart-wrap chart-wrap--sm">
+          <canvas id="chartZona"></canvas>
         </div>
       </div>
-
-      <hr class="divider" id="pobreza">
-
-      <div class="sec-header fade-up">
-        <div class="sec-tag">01 · Pobreza Multidimensional</div>
-        <h2>Distribución de la Pobreza IPM</h2>
-        <p>Análisis por zona geográfica, nivel SISBÉN y nivel educativo.</p>
-      </div>
-
-      <div class="grid-1-2 fade-up">
-
-        <!-- Zona -->
-        <div class="chart-card">
-          <div class="chart-card__title">Pobreza IPM por Zona</div>
-          <div class="chart-card__sub">Tasa de pobreza y score promedio</div>
-          <div class="zona-bars" id="zonaBars"><!-- JS --></div>
-          <div style="margin-top:22px;" class="chart-wrap chart-wrap--sm">
-            <canvas id="chartZona"></canvas>
-          </div>
-        </div>
-
-        <div class="chart-card">
-          <div class="chart-card__title">Distribución por Nivel SISBÉN</div>
-          <div class="chart-card__sub">Total de personas y tasa de pobreza por grupo</div>
-          <div class="sisben-list" id="sisbenList" style="margin-bottom:20px;"><!-- JS --></div>
-          <div class="chart-wrap chart-wrap--sm">
-            <canvas id="chartSisben"></canvas>
-          </div>
+      <div class="chart-card">
+        <div class="chart-card__title">Distribucion por Nivel SISBEN</div>
+        <div class="chart-card__sub">Total de personas y tasa de pobreza por grupo</div>
+        <div class="sisben-list" id="sisbenList" style="margin-bottom:20px;"></div>
+        <div class="chart-wrap chart-wrap--sm">
+          <canvas id="chartSisben"></canvas>
         </div>
       </div>
+    </div>
 
-      <div class="grid-2 fade-up">
-
-        <div class="chart-card">
-          <div class="chart-card__title">Nivel Educativo vs. Pobreza IPM</div>
-          <div class="chart-card__sub">Tasa de pobreza y score IPM por nivel de escolaridad</div>
-          <div class="chart-wrap chart-wrap--lg">
-            <canvas id="chartEducacion"></canvas>
-          </div>
-          <div class="info-box" id="eduInfoBox"></div>
+    <div class="grid-2 fade-up">
+      <div class="chart-card">
+        <div class="chart-card__title">Nivel Educativo vs. Pobreza IPM</div>
+        <div class="chart-card__sub">Tasa de pobreza y score IPM por nivel de escolaridad</div>
+        <div class="chart-wrap chart-wrap--lg">
+          <canvas id="chartEducacion"></canvas>
         </div>
-
-        <!-- Actividad económica -->
-        <div class="chart-card" id="poblacion">
-          <div class="chart-card__title">Actividad Económica vs. Pobreza IPM</div>
-          <div class="chart-card__sub">Total de personas por tipo de actividad y su tasa de pobreza</div>
-          <div class="chart-wrap chart-wrap--lg">
-            <canvas id="chartActividad"></canvas>
-          </div>
-          <div class="tabla-wrapper" style="margin-top:20px;">
-            <table>
-              <thead>
-                <tr>
-                  <th>Actividad</th>
-                  <th>Total</th>
-                  <th>Pobres</th>
-                  <th>Tasa IPM</th>
-                </tr>
-              </thead>
-              <tbody id="tablaActividad"><!-- JS --></tbody>
-            </table>
-          </div>
-        </div>
+        <div class="info-box" id="eduInfoBox"></div>
       </div>
-
-      <hr class="divider" id="temporal">
-
-      <div class="sec-header fade-up">
-        <div class="sec-tag sec-tag--acento">02 · Evolución Temporal</div>
-        <h2>Tendencia de la Pobreza por Año</h2>
-        <p>Cambios en la tasa de pobreza IPM y volumen de registros a lo largo del período analizado.</p>
-      </div>
-
-      <div class="grid-2 fade-up">
-        <div class="chart-card">
-          <div class="chart-card__title">Tasa de Pobreza IPM por Año</div>
-          <div class="chart-card__sub">Evolución porcentual del índice</div>
-          <div class="chart-wrap chart-wrap--lg">
-            <canvas id="chartTemporalTasa"></canvas>
-          </div>
+      <div class="chart-card" id="poblacion">
+        <div class="chart-card__title">Actividad Economica vs. Pobreza IPM</div>
+        <div class="chart-card__sub">Total de personas por tipo de actividad</div>
+        <div class="chart-wrap chart-wrap--lg">
+          <canvas id="chartActividad"></canvas>
         </div>
-        <div class="chart-card">
-          <div class="chart-card__title">Registros y Personas Pobres por Año</div>
-          <div class="chart-card__sub">Volumen absoluto de personas analizadas</div>
-          <div class="chart-wrap chart-wrap--lg">
-            <canvas id="chartTemporalVol"></canvas>
-          </div>
-        </div>
-      </div>
-
-      <div class="chart-card fade-up" style="margin-bottom:40px;">
-        <div class="chart-card__title">Detalle por Año</div>
-        <div class="chart-card__sub">Tabla completa generada por el análisis PySpark</div>
-        <div class="tabla-wrapper" style="margin-top:16px;">
+        <div class="tabla-wrapper" style="margin-top:20px;">
           <table>
-            <thead>
-              <tr>
-                <th>Año</th>
-                <th>Total personas</th>
-                <th>Personas pobres IPM</th>
-                <th>Tasa pobreza (%)</th>
-                <th>Score IPM prom.</th>
-              </tr>
-            </thead>
-            <tbody id="tablaTemporal"><!-- JS --></tbody>
+            <thead><tr><th>Actividad</th><th>Total</th><th>Pobres</th><th>Tasa IPM</th></tr></thead>
+            <tbody id="tablaActividad"></tbody>
           </table>
         </div>
       </div>
-
-      <hr class="divider">
-
-      <div class="sec-header fade-up">
-        <div class="sec-tag sec-tag--verde">03 · Análisis Territorial</div>
-        <h2>Municipios con Mayor Pobreza IPM</h2>
-        <p>Top 10 municipios con el score IPM más alto, según el análisis PySpark.</p>
-      </div>
-
-      <div class="grid-2 fade-up">
-        <div class="chart-card">
-          <div class="chart-card__title">Top 10 Municipios · Score IPM</div>
-          <div class="chart-card__sub">Municipios con mayor privación promedio</div>
-          <div class="chart-wrap chart-wrap--lg">
-            <canvas id="chartMunicipios"></canvas>
-          </div>
-        </div>
-        <div class="chart-card">
-          <div class="chart-card__title">Tabla de Municipios Prioritarios</div>
-          <div class="chart-card__sub">Detalle completo del top 10</div>
-          <div class="tabla-wrapper">
-            <table>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Municipio</th>
-                  <th>Score IPM</th>
-                  <th>Tasa pobreza</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody id="tablaMunicipios"><!-- JS --></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-    </main>
-
-    <footer class="footer">
-      <div class="footer__inner">
-        <div class="footer__brand">Análisis Socioeconómico · PySpark</div>
-        <div class="footer__meta" id="footerMeta">Fuente: resultados.json</div>
-      </div>
-    </footer>
-
-  </div>
-
-  <script>
-    const C = {
-      azul: '#1a4fa0', claro: '#3b7dd8', suave: '#e8f0fc',
-      acento: '#d4860a', verde: '#1a7a4a', rojo: '#b83232',
-      purple: '#7a3db5', gris: '#6b7fa3',
-    };
-    const SISBEN_COLORS = [C.rojo, C.acento, C.claro, C.verde];
-
-    Chart.defaults.font.family = "'DM Sans', system-ui, sans-serif";
-    Chart.defaults.color = '#6b7fa3';
-    Chart.defaults.plugins.legend.labels.usePointStyle = true;
-
-    const fmt = n => Number(n).toLocaleString('es-CO');
-    const fmtK = n => n >= 1000 ? (n / 1000).toFixed(0) + 'K' : n;
-    const pill = v => {
-      const cls = v >= 70 ? 'rojo' : v >= 45 ? 'acento' : 'verde';
-      return `<span class="pill pill--${cls}">${v}%</span>`;
-    };
-
-    async function loadData() {
-      try {
-        const res = await fetch('/api/spark');
-        if (!res.ok) throw new Error(`HTTP ${res.status} – ${res.statusText}`);
-        return await res.json();
-      } catch (e) {
-        document.getElementById('loading').style.display = 'none';
-        document.getElementById('error-box').style.display = 'block';
-        document.getElementById('error-msg').textContent = String(e);
-        return null;
-      }
-    }
-
-    function render(data) {
-      const {
-        pobreza_zona, distribucion_sisben, educacion_pobreza,
-        actividad_pension, evolucion_temporal, municipios_mas_pobres,
-        pobreza_departamento
-      } = data;
-
-      const totalPersonas = pobreza_zona.reduce((s, r) => s + r.total_personas, 0);
-      const totalPobres = pobreza_zona.reduce((s, r) => s + r.pobres_ipm, 0);
-      const tasaGlobal = (totalPobres / totalPersonas * 100).toFixed(1);
-      const scoreGlobal = (pobreza_zona.reduce((s, r) => s + r.score_ipm_promedio * r.total_personas, 0) / totalPersonas).toFixed(2);
-
-      document.getElementById('kpi-total').textContent = fmtK(totalPersonas);
-      document.getElementById('kpi-total-sub').textContent = fmt(totalPersonas) + ' registros totales';
-      document.getElementById('kpi-tasa').textContent = tasaGlobal + '%';
-      document.getElementById('kpi-pobres-sub').textContent = fmt(totalPobres) + ' personas en pobreza';
-      document.getElementById('kpi-score').textContent = scoreGlobal;
-
-      const urbano = pobreza_zona.find(r => r.zona_desc?.toLowerCase().includes('cabecera') || r.zona_desc?.toLowerCase().includes('urbana'));
-      const rural = pobreza_zona.find(r => !r.zona_desc?.toLowerCase().includes('cabecera') && !r.zona_desc?.toLowerCase().includes('urbana'));
-
-      if (urbano) {
-        document.getElementById('kpi-urbano').textContent = urbano.tasa_pobreza_pct + '%';
-        document.getElementById('kpi-urbano-sub').textContent = fmt(urbano.total_personas) + ' personas';
-      }
-      if (rural) {
-        document.getElementById('kpi-rural').textContent = rural.tasa_pobreza_pct + '%';
-        document.getElementById('kpi-rural-sub').textContent = fmt(rural.total_personas) + ' personas';
-      }
-
-      document.getElementById('heroKpis').innerHTML = `
-    <div class="hero-kpi"><div class="hero-kpi__val">${fmtK(totalPersonas)}</div><div class="hero-kpi__lbl">Personas</div></div>
-    <div class="hero-kpi"><div class="hero-kpi__val">${tasaGlobal}%</div><div class="hero-kpi__lbl">Tasa IPM</div></div>
-    <div class="hero-kpi"><div class="hero-kpi__val">${scoreGlobal}</div><div class="hero-kpi__lbl">Score prom.</div></div>
-    <div class="hero-kpi"><div class="hero-kpi__val">${pobreza_zona.length}</div><div class="hero-kpi__lbl">Zonas</div></div>
-  `;
-
-      document.getElementById('footerMeta').textContent =
-        `${fmt(totalPersonas)} registros analizados · PySpark → resultados.json`;
-
-      const zoneColors = [C.azul, C.acento, C.verde, C.purple];
-      const zoneFills = ['zona-bar__fill--u', 'zona-bar__fill--r'];
-      document.getElementById('zonaBars').innerHTML = pobreza_zona.map((z, i) => `
-    <div>
-      <div class="zona-bar__top">
-        <span class="zona-bar__name">${z.zona_desc}</span>
-        <span class="zona-bar__pct">${z.tasa_pobreza_pct}%</span>
-      </div>
-      <div class="zona-bar__track">
-        <div class="zona-bar__fill ${zoneFills[i] || 'zona-bar__fill--u'}"
-             style="width:${z.tasa_pobreza_pct}%"></div>
-      </div>
-      <div class="zona-bar__meta">Score IPM prom: <strong>${z.score_ipm_promedio}</strong> · Pobres: ${fmt(z.pobres_ipm)} · Total: ${fmt(z.total_personas)}</div>
     </div>
-  `).join('');
 
-      new Chart(document.getElementById('chartZona'), {
-        type: 'doughnut',
-        data: {
-          labels: pobreza_zona.map(r => r.zona_desc),
-          datasets: [{ data: pobreza_zona.map(r => r.total_personas), backgroundColor: zoneColors, borderWidth: 0, hoverOffset: 8 }]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false, cutout: '65%',
-          plugins: { legend: { position: 'bottom', labels: { padding: 14, font: { size: 11 } } } }
-        }
-      });
+    <hr class="divider" id="temporal">
 
-      const sisbenMap = {};
-      distribucion_sisben.forEach(r => {
-        if (!sisbenMap[r.grupo_desc]) sisbenMap[r.grupo_desc] = { total: 0 };
-        sisbenMap[r.grupo_desc].total += r.total_personas;
-        sisbenMap[r.grupo_desc].label = r.grupo_desc;
-      });
-      const sisbenArr = Object.values(sisbenMap).sort((a, b) => b.total - a.total);
+    <div class="sec-header fade-up">
+      <div class="sec-tag sec-tag--acento">02 &middot; Evolucion Temporal</div>
+      <h2>Tendencia de la Pobreza por Año</h2>
+      <p>Cambios en la tasa de pobreza IPM y volumen de registros a lo largo del periodo analizado.</p>
+    </div>
 
-      document.getElementById('sisbenList').innerHTML = sisbenArr.map((s, i) => `
-    <div class="sisben-item">
-      <div class="sisben-dot" style="background:${SISBEN_COLORS[i % SISBEN_COLORS.length]}"></div>
-      <div class="sisben-name">${s.label}</div>
-      <div>
-        <div class="sisben-pct">${fmt(s.total)}</div>
-        <div class="sisben-tot">personas</div>
+    <div class="grid-2 fade-up">
+      <div class="chart-card">
+        <div class="chart-card__title">Tasa de Pobreza IPM por Año</div>
+        <div class="chart-card__sub">Evolucion porcentual del indice</div>
+        <div class="chart-wrap chart-wrap--lg"><canvas id="chartTemporalTasa"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card__title">Registros y Personas Pobres por Año</div>
+        <div class="chart-card__sub">Volumen absoluto de personas analizadas</div>
+        <div class="chart-wrap chart-wrap--lg"><canvas id="chartTemporalVol"></canvas></div>
       </div>
     </div>
-  `).join('');
 
-      new Chart(document.getElementById('chartSisben'), {
-        type: 'bar',
-        data: {
-          labels: sisbenArr.map(s => s.label),
-          datasets: [{
-            label: 'Personas',
-            data: sisbenArr.map(s => s.total),
-            backgroundColor: SISBEN_COLORS,
-            borderRadius: 6, borderSkipped: false,
-          }]
-        },
-        options: {
-          indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-          scales: {
-            x: { grid: { color: '#eaf0fb' } },
-            y: { grid: { display: false } }
-          },
-          plugins: { legend: { display: false } }
-        }
-      });
+    <div class="chart-card fade-up" style="margin-bottom:40px;">
+      <div class="chart-card__title">Detalle por Año</div>
+      <div class="chart-card__sub">Tabla completa generada por el analisis PySpark</div>
+      <div class="tabla-wrapper" style="margin-top:16px;">
+        <table>
+          <thead><tr><th>Año</th><th>Total personas</th><th>Personas pobres IPM</th><th>Tasa pobreza (%)</th><th>Score IPM prom.</th></tr></thead>
+          <tbody id="tablaTemporal"></tbody>
+        </table>
+      </div>
+    </div>
 
-      const eduLabels = educacion_pobreza.map(r => r.nivel_educativo);
-      const eduTasas = educacion_pobreza.map(r => r.tasa_pobreza_pct);
-      const eduScores = educacion_pobreza.map(r => r.score_ipm_promedio);
-      const eduTotal = educacion_pobreza.map(r => r.total_personas);
+    <hr class="divider">
 
-      new Chart(document.getElementById('chartEducacion'), {
-        type: 'bar',
-        data: {
-          labels: eduLabels,
-          datasets: [
-            { label: 'Tasa pobreza IPM (%)', data: eduTasas, backgroundColor: [C.rojo, C.acento, C.verde, C.claro, C.purple], borderRadius: 8, borderSkipped: false, yAxisID: 'y' },
-            { label: 'Score IPM prom.', data: eduScores, type: 'line', borderColor: C.azul, backgroundColor: 'transparent', tension: 0.35, pointRadius: 6, pointBackgroundColor: C.azul, yAxisID: 'y1' }
-          ]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          scales: {
-            y: { max: 100, grid: { color: '#eaf0fb' }, ticks: { callback: v => v + '%' } },
-            y1: { position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: 'Score' } }
-          },
-          plugins: { legend: { position: 'bottom' } }
-        }
-      });
+    <div class="sec-header fade-up">
+      <div class="sec-tag sec-tag--verde">03 &middot; Analisis Territorial</div>
+      <h2>Municipios con Mayor Pobreza IPM</h2>
+      <p>Top 10 municipios con el score IPM mas alto, segun el analisis PySpark.</p>
+    </div>
 
-      const maxTasa = Math.max(...eduTasas);
-      const minTasa = Math.min(...eduTasas);
-      const maxEdu = educacion_pobreza.find(r => r.tasa_pobreza_pct == maxTasa);
-      const minEdu = educacion_pobreza.find(r => r.tasa_pobreza_pct == minTasa);
-      document.getElementById('eduInfoBox').innerHTML =
-        `<strong>Hallazgo:</strong> "${maxEdu?.nivel_educativo}" tiene la tasa más alta (<strong>${maxTasa}%</strong>), mientras "${minEdu?.nivel_educativo}" la más baja (<strong>${minTasa}%</strong>).`;
+    <div class="grid-2 fade-up">
+      <div class="chart-card">
+        <div class="chart-card__title">Top 10 Municipios &middot; Score IPM</div>
+        <div class="chart-card__sub">Municipios con mayor privacion promedio</div>
+        <div class="chart-wrap chart-wrap--lg"><canvas id="chartMunicipios"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card__title">Tabla de Municipios Prioritarios</div>
+        <div class="chart-card__sub">Detalle completo del top 10</div>
+        <div class="tabla-wrapper">
+          <table>
+            <thead><tr><th>#</th><th>Municipio</th><th>Score IPM</th><th>Tasa pobreza</th><th>Total</th></tr></thead>
+            <tbody id="tablaMunicipios"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
-      const actMap = {};
-      actividad_pension.forEach(r => {
-        const key = r.actividad_economica;
-        if (!actMap[key]) actMap[key] = { total: 0 };
-        actMap[key].total += r.total_personas;
-        actMap[key].label = key;
-      });
-      const actArr = Object.values(actMap).sort((a, b) => b.total - a.total);
+  </main>
+</div>
+{%- endblock %}
 
-      new Chart(document.getElementById('chartActividad'), {
-        type: 'pie',
-        data: {
-          labels: actArr.map(a => a.label),
-          datasets: [{
-            data: actArr.map(a => a.total),
-            backgroundColor: [C.acento, C.azul, C.claro, C.gris, C.purple, C.verde],
-            borderWidth: 0, hoverOffset: 8,
-          }]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 10 } } }
-        }
-      });
+{%- block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const C = {
+  azul:'#1a4fa0', claro:'#3b7dd8', suave:'#e8f0fc',
+  acento:'#d4860a', verde:'#1a7a4a', rojo:'#b83232',
+  purple:'#7a3db5', gris:'#6b7fa3'
+};
+const SISBEN_COLORS = [C.rojo, C.acento, C.claro, C.verde];
 
-      document.getElementById('tablaActividad').innerHTML = actArr.map(a => `
-    <tr>
-      <td><strong>${a.label}</strong></td>
-      <td>${fmt(a.total)}</td>
-      <td colspan="2" style="color:var(--texto-suave);font-size:.82rem;">—</td>
-    </tr>
-  `).join('');
+Chart.defaults.font.family = "'DM Sans', system-ui, sans-serif";
+Chart.defaults.color = '#6b7fa3';
+Chart.defaults.plugins.legend.labels.usePointStyle = true;
 
-      const tYears = evolucion_temporal.map(r => r.anio);
-      const tTasas = evolucion_temporal.map(r => r.tasa_pobreza_pct);
-      const tTotals = evolucion_temporal.map(r => r.total_personas);
-      const tPobres = evolucion_temporal.map(r => r.pobres_ipm ?? r.pobres ?? null);
-      const tScores = evolucion_temporal.map(r => r.score_ipm_promedio);
+const fmt  = n => Number(n).toLocaleString('es-CO');
+const fmtK = n => n >= 1000 ? (n/1000).toFixed(0)+'K' : String(n);
+const pill = v => {
+  const cls = v >= 70 ? 'rojo' : v >= 45 ? 'acento' : 'verde';
+  return '<span class="pill pill--'+cls+'">'+v+'%</span>';
+};
 
-      new Chart(document.getElementById('chartTemporalTasa'), {
-        type: 'line',
-        data: {
-          labels: tYears,
-          datasets: [
-            { label: 'Tasa pobreza IPM (%)', data: tTasas, borderColor: C.rojo, backgroundColor: 'rgba(184,50,50,.08)', fill: true, tension: 0.35, pointRadius: 6, pointBackgroundColor: C.rojo },
-            { label: 'Score IPM prom.', data: tScores, borderColor: C.acento, backgroundColor: 'transparent', tension: 0.35, pointRadius: 5, pointBackgroundColor: C.acento, borderDash: [5, 4] }
-          ]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          scales: { y: { grid: { color: '#eaf0fb' }, ticks: { callback: v => v } }, x: { grid: { display: false } } },
-          plugins: { legend: { position: 'bottom' } }
-        }
-      });
+async function loadData() {
+  try {
+    const res = await fetch('/api/spark');
+    if (!res.ok) throw new Error('HTTP '+res.status+' - '+res.statusText);
+    return await res.json();
+  } catch(e) {
+    document.getElementById('loading').style.display   = 'none';
+    document.getElementById('error-box').style.display = 'block';
+    document.getElementById('error-msg').textContent   = String(e);
+    return null;
+  }
+}
 
-      new Chart(document.getElementById('chartTemporalVol'), {
-        type: 'bar',
-        data: {
-          labels: tYears,
-          datasets: [
-            { label: 'Total personas', data: tTotals, backgroundColor: C.suave, borderColor: C.azul, borderWidth: 2, borderRadius: 6, borderSkipped: false },
-            ...(tPobres[0] !== null ? [{ label: 'Pobres IPM', data: tPobres, backgroundColor: 'rgba(184,50,50,.6)', borderRadius: 6, borderSkipped: false }] : [])
-          ]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          scales: { y: { grid: { color: '#eaf0fb' } }, x: { grid: { display: false } } },
-          plugins: { legend: { position: 'bottom' } }
-        }
-      });
+function render(data) {
+  const { pobreza_zona, distribucion_sisben, educacion_pobreza,
+          actividad_pension, evolucion_temporal, municipios_mas_pobres } = data;
 
-      document.getElementById('tablaTemporal').innerHTML = evolucion_temporal.map(r => `
-    <tr>
-      <td><strong>${r.anio}</strong></td>
-      <td>${fmt(r.total_personas)}</td>
-      <td>${r.pobres_ipm !== undefined ? fmt(r.pobres_ipm) : '—'}</td>
-      <td>${pill(r.tasa_pobreza_pct)}</td>
-      <td>${r.score_ipm_promedio}</td>
-    </tr>
-  `).join('');
+  const totalPersonas = pobreza_zona.reduce((s,r)=>s+r.total_personas,0);
+  const totalPobres   = pobreza_zona.reduce((s,r)=>s+r.pobres_ipm,0);
+  const tasaGlobal    = (totalPobres/totalPersonas*100).toFixed(1);
+  const scoreGlobal   = (pobreza_zona.reduce((s,r)=>s+r.score_ipm_promedio*r.total_personas,0)/totalPersonas).toFixed(2);
 
-      const muns = municipios_mas_pobres.slice(0, 10);
-      new Chart(document.getElementById('chartMunicipios'), {
-        type: 'bar',
-        data: {
-          labels: muns.map(m => m.nom_municipio),
-          datasets: [
-            { label: 'Score IPM prom.', data: muns.map(m => m.score_ipm_promedio), backgroundColor: C.azul, borderRadius: 6, borderSkipped: false, yAxisID: 'y' },
-            { label: 'Tasa pobreza (%)', data: muns.map(m => m.tasa_pobreza_pct), type: 'line', borderColor: C.rojo, backgroundColor: 'transparent', tension: 0.3, pointRadius: 5, pointBackgroundColor: C.rojo, yAxisID: 'y1' }
-          ]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          scales: {
-            y: { grid: { color: '#eaf0fb' }, title: { display: true, text: 'Score IPM' } },
-            y1: { position: 'right', grid: { drawOnChartArea: false }, ticks: { callback: v => v + '%' } },
-            x: { grid: { display: false }, ticks: { maxRotation: 35 } }
-          },
-          plugins: { legend: { position: 'bottom' } }
-        }
-      });
+  document.getElementById('kpi-total').textContent      = fmtK(totalPersonas);
+  document.getElementById('kpi-total-sub').textContent  = fmt(totalPersonas)+' registros totales';
+  document.getElementById('kpi-tasa').textContent       = tasaGlobal+'%';
+  document.getElementById('kpi-pobres-sub').textContent = fmt(totalPobres)+' personas en pobreza';
+  document.getElementById('kpi-score').textContent      = scoreGlobal;
 
-      document.getElementById('tablaMunicipios').innerHTML = muns.map((m, i) => `
-    <tr>
-      <td>${i + 1}</td>
-      <td><strong>${m.nom_municipio}</strong></td>
-      <td>${m.score_ipm_promedio}</td>
-      <td>${pill(m.tasa_pobreza_pct)}</td>
-      <td>${fmt(m.total_personas)}</td>
-    </tr>
-  `).join('');
-    }
+  const urbano = pobreza_zona.find(r=>r.zona_desc&&r.zona_desc.toLowerCase().includes('cabecera'));
+  const rural  = pobreza_zona.find(r=>!r.zona_desc||!r.zona_desc.toLowerCase().includes('cabecera'));
+  if(urbano){ document.getElementById('kpi-urbano').textContent=urbano.tasa_pobreza_pct+'%'; document.getElementById('kpi-urbano-sub').textContent=fmt(urbano.total_personas)+' personas'; }
+  if(rural){  document.getElementById('kpi-rural').textContent=rural.tasa_pobreza_pct+'%';   document.getElementById('kpi-rural-sub').textContent=fmt(rural.total_personas)+' personas'; }
 
-    (async () => {
-      const data = await loadData();
-      if (!data) return;
+  document.getElementById('heroKpis').innerHTML =
+    '<div class="hero-kpi"><div class="hero-kpi__val">'+fmtK(totalPersonas)+'</div><div class="hero-kpi__lbl">Personas</div></div>'+
+    '<div class="hero-kpi"><div class="hero-kpi__val">'+tasaGlobal+'%</div><div class="hero-kpi__lbl">Tasa IPM</div></div>'+
+    '<div class="hero-kpi"><div class="hero-kpi__val">'+scoreGlobal+'</div><div class="hero-kpi__lbl">Score prom.</div></div>'+
+    '<div class="hero-kpi"><div class="hero-kpi__val">'+pobreza_zona.length+'</div><div class="hero-kpi__lbl">Zonas</div></div>';
 
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('dashboard').style.display = 'block';
-      render(data);
-    })();
-  </script>
-{% endblock %}
+  const zoneFills=['zona-bar__fill--u','zona-bar__fill--r'];
+  document.getElementById('zonaBars').innerHTML = pobreza_zona.map(function(z,i){
+    return '<div><div class="zona-bar__top"><span class="zona-bar__name">'+z.zona_desc+'</span><span class="zona-bar__pct">'+z.tasa_pobreza_pct+'%</span></div>'+
+      '<div class="zona-bar__track"><div class="zona-bar__fill '+(zoneFills[i]||'zona-bar__fill--u')+'" style="width:'+z.tasa_pobreza_pct+'%"></div></div>'+
+      '<div class="zona-bar__meta">Score IPM prom: <strong>'+z.score_ipm_promedio+'</strong> &middot; Pobres: '+fmt(z.pobres_ipm)+' &middot; Total: '+fmt(z.total_personas)+'</div></div>';
+  }).join('');
+
+  new Chart(document.getElementById('chartZona'),{type:'doughnut',data:{labels:pobreza_zona.map(r=>r.zona_desc),datasets:[{data:pobreza_zona.map(r=>r.total_personas),backgroundColor:[C.azul,C.acento],borderWidth:0,hoverOffset:8}]},options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{position:'bottom',labels:{padding:14,font:{size:11}}}}}});
+
+  const sisbenMap={};
+  distribucion_sisben.forEach(function(r){ if(!sisbenMap[r.grupo_desc])sisbenMap[r.grupo_desc]={total:0,label:r.grupo_desc}; sisbenMap[r.grupo_desc].total+=r.total_personas; });
+  const sisbenArr=Object.values(sisbenMap).sort(function(a,b){return b.total-a.total;});
+
+  document.getElementById('sisbenList').innerHTML=sisbenArr.map(function(s,i){
+    return '<div class="sisben-item"><div class="sisben-dot" style="background:'+SISBEN_COLORS[i%SISBEN_COLORS.length]+'"></div><div class="sisben-name">'+s.label+'</div><div><div class="sisben-pct">'+fmt(s.total)+'</div><div class="sisben-tot">personas</div></div></div>';
+  }).join('');
+
+  new Chart(document.getElementById('chartSisben'),{type:'bar',data:{labels:sisbenArr.map(s=>s.label),datasets:[{label:'Personas',data:sisbenArr.map(s=>s.total),backgroundColor:SISBEN_COLORS,borderRadius:6,borderSkipped:false}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,scales:{x:{grid:{color:'#eaf0fb'}},y:{grid:{display:false}}},plugins:{legend:{display:false}}}});
+
+  const eduLabels=educacion_pobreza.map(r=>r.nivel_educativo);
+  const eduTasas=educacion_pobreza.map(r=>r.tasa_pobreza_pct);
+  const eduScores=educacion_pobreza.map(r=>r.score_ipm_promedio);
+  new Chart(document.getElementById('chartEducacion'),{type:'bar',data:{labels:eduLabels,datasets:[
+  {label:'Tasa pobreza IPM (%)',data:eduTasas,backgroundColor:[C.rojo,C.acento,C.verde,C.claro,C.purple],borderRadius:8,borderSkipped:false}
+]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{max:100,grid:{color:'#eaf0fb'},ticks:{callback:function(v){return v+'%';}}}},plugins:{legend:{display:false}}}});
+
+  const maxTasa=Math.max.apply(null,eduTasas); const minTasa=Math.min.apply(null,eduTasas);
+  document.getElementById('eduInfoBox').innerHTML='<strong>Hallazgo:</strong> "'+educacion_pobreza.find(r=>r.tasa_pobreza_pct==maxTasa).nivel_educativo+'" tiene la tasa mas alta (<strong>'+maxTasa+'%</strong>), mientras "'+educacion_pobreza.find(r=>r.tasa_pobreza_pct==minTasa).nivel_educativo+'" la mas baja (<strong>'+minTasa+'%</strong>).';
+
+  const actArr = actividad_pension.sort(function(a,b){ return b.total_personas - a.total_personas; });
+    new Chart(document.getElementById('chartActividad'),{type:'pie',data:{labels:actArr.map(a=>a.actividad_economica),datasets:[{data:actArr.map(a=>a.total_personas),backgroundColor:[C.acento,C.azul,C.claro,C.gris,C.purple,C.verde],borderWidth:0,hoverOffset:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11},padding:10}}}}});
+    document.getElementById('tablaActividad').innerHTML = actArr.map(function(a) {
+    return '<tr><td><strong>'+a.actividad_economica+'</strong></td><td>'+fmt(a.total_personas)+'</td>' +
+           '<td>'+fmt(a.pobres_ipm || 0)+'</td>' +
+           '<td>'+pill(a.tasa_pobreza_pct || 0)+'</td></tr>';
+}).join('');
+
+  const tYears=evolucion_temporal.map(r=>r.anio);
+  const tTasas=evolucion_temporal.map(r=>r.tasa_pobreza_pct);
+  const tTotals=evolucion_temporal.map(r=>r.total_personas);
+  const tPobres=evolucion_temporal.map(r=>r.pobres_ipm!=null?r.pobres_ipm:null);
+  const tScores=evolucion_temporal.map(r=>r.score_ipm_promedio);
+  new Chart(document.getElementById('chartTemporalTasa'),{type:'line',data:{labels:tYears,datasets:[{label:'Tasa pobreza IPM (%)',data:tTasas,borderColor:C.rojo,backgroundColor:'rgba(184,50,50,.08)',fill:true,tension:0.35,pointRadius:6,pointBackgroundColor:C.rojo},{label:'Score IPM prom.',data:tScores,borderColor:C.acento,backgroundColor:'transparent',tension:0.35,pointRadius:5,pointBackgroundColor:C.acento,borderDash:[5,4]}]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{grid:{color:'#eaf0fb'}},x:{grid:{display:false}}},plugins:{legend:{position:'bottom'}}}});
+  new Chart(document.getElementById('chartTemporalVol'),{type:'bar',data:{labels:tYears,datasets:[{label:'Total personas',data:tTotals,backgroundColor:C.suave,borderColor:C.azul,borderWidth:2,borderRadius:6,borderSkipped:false}].concat(tPobres[0]!==null?[{label:'Pobres IPM',data:tPobres,backgroundColor:'rgba(184,50,50,.6)',borderRadius:6,borderSkipped:false}]:[])},options:{responsive:true,maintainAspectRatio:false,scales:{y:{grid:{color:'#eaf0fb'}},x:{grid:{display:false}}},plugins:{legend:{position:'bottom'}}}});
+  document.getElementById('tablaTemporal').innerHTML=evolucion_temporal.map(function(r){return '<tr><td><strong>'+r.anio+'</strong></td><td>'+fmt(r.total_personas)+'</td><td>'+(r.pobres_ipm!==undefined?fmt(r.pobres_ipm):'-')+'</td><td>'+pill(r.tasa_pobreza_pct)+'</td><td>'+r.score_ipm_promedio+'</td></tr>';}).join('');
+
+  const muns=municipios_mas_pobres.slice(0,10);
+  new Chart(document.getElementById('chartMunicipios'),{type:'bar',data:{labels:muns.map(m=>m.nom_municipio),datasets:[{label:'Score IPM prom.',data:muns.map(m=>m.score_ipm_promedio),backgroundColor:C.azul,borderRadius:6,borderSkipped:false,yAxisID:'y'},{label:'Tasa pobreza (%)',data:muns.map(m=>m.tasa_pobreza_pct),type:'line',borderColor:C.rojo,backgroundColor:'transparent',tension:0.3,pointRadius:5,pointBackgroundColor:C.rojo,yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{grid:{color:'#eaf0fb'},title:{display:true,text:'Score IPM'}},y1:{position:'right',grid:{drawOnChartArea:false},ticks:{callback:function(v){return v+'%';}}},x:{grid:{display:false},ticks:{maxRotation:35}}},plugins:{legend:{position:'bottom'}}}});
+  document.getElementById('tablaMunicipios').innerHTML=muns.map(function(m,i){return '<tr><td>'+(i+1)+'</td><td><strong>'+m.nom_municipio+'</strong></td><td>'+m.score_ipm_promedio+'</td><td>'+pill(m.tasa_pobreza_pct)+'</td><td>'+fmt(m.total_personas)+'</td></tr>';}).join('');
+}
+
+(async function(){
+  const data = await loadData();
+  if(!data) return;
+  document.getElementById('loading').style.display   = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+  render(data);
+})();
+</script>
+{%- endblock %}
