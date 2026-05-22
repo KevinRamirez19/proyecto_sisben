@@ -1,0 +1,479 @@
+{% extends "base.html" %}
+{% block title %}Spark Distribuido · SISBEN IV{% endblock %}
+{% block content %}
+
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <span class="page-hero__tag"> Procesamiento Distribuido</span>
+    <h1>Clúster Apache Spark 4.1.1</h1>
+    <p>Evidencia de configuración y resultados de ejecución en un clúster real de 3 nodos físicos, 28 cores totales y 28.9 GiB de RAM distribuida.</p>
+  </div>
+</div>
+
+<div class="container" style="padding-top: 48px; padding-bottom: 80px;">
+
+
+  <div class="kpi-grid" style="margin-bottom: 56px;">
+    <div class="kpi-card">
+      <div class="kpi-card__val">3</div>
+      <div class="kpi-card__label">Nodos físicos</div>
+    </div>
+    <div class="kpi-card" style="border-top-color: var(--verde);">
+      <div class="kpi-card__val">28</div>
+      <div class="kpi-card__label">Cores totales</div>
+    </div>
+    <div class="kpi-card" style="border-top-color: var(--acento);">
+      <div class="kpi-card__val">28.9 GiB</div>
+      <div class="kpi-card__label">RAM total</div>
+    </div>
+    <div class="kpi-card" style="border-top-color: #7a3db5;">
+      <div class="kpi-card__val">4.1.1</div>
+      <div class="kpi-card__label">Versión Spark</div>
+    </div>
+  </div>
+
+
+  <div style="margin-bottom: 64px;">
+    <div class="section__header">
+      <span class="section__tag">Infraestructura</span>
+      <h2 class="section__title">Topología del clúster Spark</h2>
+      <p class="section__subtitle">Configuración real de nodos registrada durante las pruebas de procesamiento distribuido sobre el dataset SISBEN IV Cundinamarca.</p>
+    </div>
+
+    <div class="grid-3" style="margin-bottom: 32px;">
+
+      <!-- Master -->
+      <div class="card" style="border-top: 4px solid var(--azul-medio);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+          <div style="width:36px;height:36px;border-radius:8px;background:var(--azul-suave);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--azul-medio)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div>
+            <h4 style="margin:0;color:var(--azul-oscuro);">Nodo Master</h4>
+          </div>
+        </div>
+        <div class="tabla-wrapper" style="margin:0;">
+          <table style="font-size:.82rem;">
+            <tbody>
+              <tr><td style="color:var(--texto-suave);font-weight:600;padding:7px 12px;">Host</td><td style="padding:7px 12px;">DESKTOP-C740P64</td></tr>
+              <tr><td style="color:var(--texto-suave);font-weight:600;padding:7px 12px;">IP</td><td style="padding:7px 12px;font-family:monospace;">10.134.72.59</td></tr>
+              <tr><td style="color:var(--texto-suave);font-weight:600;padding:7px 12px;">Puerto Spark</td><td style="padding:7px 12px;font-family:monospace;">7077</td></tr>
+              <tr><td style="color:var(--texto-suave);font-weight:600;padding:7px 12px;">Puerto UI</td><td style="padding:7px 12px;font-family:monospace;">8080</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+     
+      <div class="card" style="border-top: 4px solid var(--verde);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+          <div style="width:36px;height:36px;border-radius:8px;background:var(--verde-suave);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--verde)" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg>
+          </div>
+          <div>
+            <h4 style="margin:0;color:var(--azul-oscuro);">Worker 1</h4>
+          </div>
+        </div>
+        <div class="tabla-wrapper" style="margin:0;">
+          <table style="font-size:.82rem;">
+            <tbody>
+              <tr><td style="color:var(--texto-suave);font-weight:600;padding:7px 12px;">Host</td><td style="padding:7px 12px;">DESKTOP-K6Q9NHS</td></tr>
+              <tr><td style="color:var(--texto-suave);font-weight:600;padding:7px 12px;">IP</td><td style="padding:7px 12px;font-family:monospace;">192.168.101.72</td></tr>
+              <tr><td style="color:var(--texto-suave);font-weight:600;padding:7px 12px;">Puerto</td><td style="padding:7px 12px;font-family:monospace;">60717</td></tr>
+              <tr><td style="color:var(--texto-suave);font-weight:600;padding:7px 12px;">Cores / RAM</td><td style="padding:7px 12px;">16 cores · 6.6 GiB</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      
+      <div class="card" style="border-top: 4px solid var(--acento);">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+          <div style="width:36px;height:36px;border-radius:8px;background:var(--acento-suave);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--acento)" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg>
+          </div>
+          <div>
+            <h4 style="margin:0;color:var(--azul-oscuro);">Worker 2</h4>
+          </div>
+        </div>
+        <div class="tabla-wrapper" style="margin:0;">
+          <table style="font-size:.82rem;">
+            <tbody>
+              <tr><td style="color:var(--texto-suave);font-weight:600;padding:7px 12px;">Host</td><td style="padding:7px 12px;">Segunda PC</td></tr>
+              <tr><td style="color:var(--texto-suave);font-weight:600;padding:7px 12px;">IP</td><td style="padding:7px 12px;font-family:monospace;">192.168.56.1</td></tr>
+              <tr><td style="color:var(--texto-suave);font-weight:600;padding:7px 12px;">Puerto</td><td style="padding:7px 12px;font-family:monospace;">50122</td></tr>
+              <tr><td style="color:var(--texto-suave);font-weight:600;padding:7px 12px;">Cores / RAM</td><td style="padding:7px 12px;">12 cores · 22.3 GiB</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong>Comando de registro de workers:</strong> Los workers se registraron ejecutando
+      <code style="background:rgba(59,125,216,.1);border-radius:4px;padding:2px 7px;font-family:monospace;font-size:.85em;">spark-class org.apache.spark.deploy.worker.Worker spark://10.134.72.59:7077</code>
+      en cada nodo. La conexión al master se completó en menos de 65 ms.
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 64px;">
+    <div class="section__header">
+      <span class="section__tag">Evidencia</span>
+      <h2 class="section__title">Capturas del clúster en ejecución</h2>
+      <p class="section__subtitle">Evidencia visual de cada etapa: arranque del master, conexión de workers y finalización de los tres escenarios de prueba.</p>
+    </div>
+
+  
+    <div class="grid-2" style="margin-bottom: 20px;">
+
+      <div class="spark-evidence-card">
+        <div class="spark-evidence-card__header">
+          <span class="badge badge--azul">Master</span>
+          <span class="spark-evidence-card__title">Nodo Master en ejecución — Terminal</span>
+        </div>
+        <div class="spark-evidence-card__img-wrap">
+          <img src="{{ url_for('static', filename='/sparkImg/NodoEjecucion.jpeg') }}"
+               alt="Nodo Master en ejecución en terminal"
+               class="spark-evidence-card__img"
+               loading="lazy">
+        </div>
+        <p class="spark-evidence-card__caption">
+          Arranque del daemon master en <strong>DESKTOP-C740P64</strong> (10.134.72.59:7077).
+          Estado: <strong>ALIVE</strong>. Master UI iniciado en puerto 8080.
+        </p>
+      </div>
+
+      <div class="spark-evidence-card">
+        <div class="spark-evidence-card__header">
+          <span class="badge badge--verde">Worker 1</span>
+          <span class="spark-evidence-card__title">Conexión del Worker 1 — Terminal</span>
+        </div>
+        <div class="spark-evidence-card__img-wrap">
+          <img src="{{ url_for('static', filename='/sparkImg/Conexion1Worker.jpeg') }}"
+               alt="Conexión terminal Worker 1"
+               class="spark-evidence-card__img"
+               loading="lazy">
+        </div>
+        <p class="spark-evidence-card__caption">
+          Worker 1 registrado con <strong>16 cores y 6.6 GiB RAM</strong>.
+          Conexión establecida en 65 ms. WorkerUI activo en puerto 8081.
+        </p>
+      </div>
+    </div>
+
+    
+    <div class="grid-2" style="margin-bottom: 20px;">
+
+      <div class="spark-evidence-card">
+        <div class="spark-evidence-card__header">
+          <span class="badge badge--azul">Escenario 2</span>
+          <span class="spark-evidence-card__title">Spark UI — 1 Worker conectado</span>
+        </div>
+        <div class="spark-evidence-card__img-wrap">
+          <img src="{{ url_for('static', filename='/sparkImg/1_Workers.jpeg') }}"
+               alt="Spark UI con 1 worker"
+               class="spark-evidence-card__img"
+               loading="lazy">
+        </div>
+        <p class="spark-evidence-card__caption">
+          Dashboard del Master mostrando <strong>1 worker ALIVE</strong> (16 cores, 6.6 GiB).
+          Preparado para Escenario 2.
+        </p>
+      </div>
+
+      <div class="spark-evidence-card">
+        <div class="spark-evidence-card__header">
+          <span class="badge badge--verde">Escenario 3</span>
+          <span class="spark-evidence-card__title">Spark UI — 2 Workers conectados</span>
+        </div>
+        <div class="spark-evidence-card__img-wrap">
+          <img src="{{ url_for('static', filename='/sparkImg/Conexion_de_2_workers.jpeg') }}"
+               alt="Spark UI con 2 workers"
+               class="spark-evidence-card__img"
+               loading="lazy">
+        </div>
+        <p class="spark-evidence-card__caption">
+          Dashboard del Master con <strong>2 workers ALIVE</strong>: 28 cores totales y 28.9 GiB RAM.
+          Listo para Escenario 3.
+        </p>
+      </div>
+    </div>
+
+  
+    <div class="grid-2" style="margin-bottom: 20px;">
+
+      <div class="spark-evidence-card">
+        <div class="spark-evidence-card__header">
+          <span class="badge badge--acento">En curso</span>
+          <span class="spark-evidence-card__title">Aplicación en ejecución (Escenario 2)</span>
+        </div>
+        <div class="spark-evidence-card__img-wrap">
+          <img src="{{ url_for('static', filename='/sparkImg/aplicacion_en_ejecucion_para_tiempos.jpeg') }}"
+               alt="Aplicación corriendo en Spark UI"
+               class="spark-evidence-card__img"
+               loading="lazy">
+        </div>
+        <p class="spark-evidence-card__caption">
+          <code style="font-family:monospace;font-size:.82em;">app-20260521204443-0000</code> en estado
+          <strong>RUNNING</strong>. 16 cores asignados, 1024 MiB por executor.
+        </p>
+      </div>
+
+      <div class="spark-evidence-card">
+        <div class="spark-evidence-card__header">
+          <span class="badge badge--verde">Finalizado</span>
+          <span class="spark-evidence-card__title">Tiempo final — 1 Worker (Escenario 2)</span>
+        </div>
+        <div class="spark-evidence-card__img-wrap">
+          <img src="{{ url_for('static', filename='/sparkImg/Tiempo_de_finalizacion_del_1_worker.jpeg') }}"
+               alt="Tiempo de finalización con 1 worker"
+               class="spark-evidence-card__img"
+               loading="lazy">
+        </div>
+        <p class="spark-evidence-card__caption">
+          Escenario 2 completado: estado <strong>FINISHED</strong> con duración de
+          <strong>11 s</strong> usando 16 cores (antes de conectar el 2.º worker).
+        </p>
+      </div>
+    </div>
+
+    
+    <div class="grid-2" style="margin-bottom: 20px;">
+
+      <div class="spark-evidence-card">
+        <div class="spark-evidence-card__header">
+          <span class="badge badge--verde">Finalizado</span>
+          <span class="spark-evidence-card__title">Finalización con 2 Workers — 1.ª ejecución</span>
+        </div>
+        <div class="spark-evidence-card__img-wrap">
+          <img src="{{ url_for('static', filename='/sparkImg/Finalizacion_de_2_workers_primera_vez.jpeg') }}"
+               alt="Finalización 2 workers primera vez"
+               class="spark-evidence-card__img"
+               loading="lazy">
+        </div>
+        <p class="spark-evidence-card__caption">
+          Primera ejecución con los 2 workers: <strong>1.8 min</strong> de duración.
+          Se evidencia el overhead de red al distribuir particiones.
+        </p>
+      </div>
+
+      <div class="spark-evidence-card">
+        <div class="spark-evidence-card__header">
+          <span class="badge badge--verde">Finalizado</span>
+          <span class="spark-evidence-card__title">Finalización con 2 Workers — 2.ª ejecución</span>
+        </div>
+        <div class="spark-evidence-card__img-wrap">
+          <img src="{{ url_for('static', filename='/sparkImg/FInalizacion_de_2_workers_2_vez .jpeg') }}"
+               alt="Finalización 2 workers segunda vez"
+               class="spark-evidence-card__img"
+               loading="lazy">
+        </div>
+        <p class="spark-evidence-card__caption">
+          Segunda ejecución (Escenario 3) con historial completo: las 3 aplicaciones
+          completadas — <strong>11 s · 1.8 min · 7 s</strong>.
+        </p>
+      </div>
+    </div>
+
+   
+    <div class="spark-evidence-card spark-evidence-card--wide">
+      <div class="spark-evidence-card__header">
+        <span class="badge badge--azul">Código</span>
+        <span class="spark-evidence-card__title">Configuración del nodo Master — PySpark</span>
+      </div>
+      <div class="spark-evidence-card__img-wrap" style="max-height: 320px;">
+        <img src="{{ url_for('static', filename='/sparkImg/Codigo_nodo_master.jpeg') }}"
+             alt="Código de configuración del nodo master"
+             class="spark-evidence-card__img"
+             loading="lazy"
+             style="object-position: center top;">
+      </div>
+      <p class="spark-evidence-card__caption">
+        Función <code style="font-family:monospace;font-size:.85em;">get_spark_session()</code> con parámetros de conexión al master
+        remoto, driver bind y deshabilitación de la UI interna para evitar conflictos de puerto.
+      </p>
+    </div>
+  </div>
+
+
+  <div style="margin-bottom: 64px;">
+    <div class="section__header">
+      <span class="section__tag section__tag--acento">Resultados</span>
+      <h2 class="section__title">Comparación de tiempos por escenario</h2>
+      <p class="section__subtitle">Los tres escenarios ejecutaron el mismo job sobre 315,612 registros del SISBEN IV Cundinamarca.</p>
+    </div>
+
+    <div class="tabla-wrapper">
+      <table class="spark-tabla">
+        <thead>
+          <tr>
+            <th style="width:22%; text-align:left;">Parámetro</th>
+            <th>
+              <div class="spark-th-inner spark-th-inner--azul">
+                <span class="spark-th-num">01</span>
+                Escenario 1
+                <small>Master solo · local[1]</small>
+              </div>
+            </th>
+            <th>
+              <div class="spark-th-inner spark-th-inner--amarillo">
+                <span class="spark-th-num">02</span>
+                Escenario 2
+                <small>Master + Worker 1</small>
+              </div>
+            </th>
+            <th>
+              <div class="spark-th-inner spark-th-inner--verde">
+                <span class="spark-th-num">03</span>
+                Escenario 3
+                <small>Master + 2 Workers</small>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="spark-td-label">Cores usados</td>
+            <td class="spark-td-val">1</td>
+            <td class="spark-td-val">16</td>
+            <td class="spark-td-val">28</td>
+          </tr>
+          <tr>
+            <td class="spark-td-label">RAM disponible</td>
+            <td class="spark-td-val spark-td-muted">—</td>
+            <td class="spark-td-val">6.6 GiB</td>
+            <td class="spark-td-val">28.9 GiB</td>
+          </tr>
+          <tr>
+            <td class="spark-td-label">Memory / Executor</td>
+            <td class="spark-td-val spark-td-muted">—</td>
+            <td class="spark-td-val">1024 MiB</td>
+            <td class="spark-td-val">1024 MiB</td>
+          </tr>
+          <tr>
+            <td class="spark-td-label">Workers activos</td>
+            <td class="spark-td-val">0</td>
+            <td class="spark-td-val">1</td>
+            <td class="spark-td-val">2</td>
+          </tr>
+          <tr class="spark-tr-highlight">
+            <td class="spark-td-label">⏱ Tiempo total</td>
+            <td class="spark-td-val">
+              <span class="spark-badge spark-badge--rojo">~11 s</span>
+            </td>
+            <td class="spark-td-val">
+              <span class="spark-badge spark-badge--amarillo">~1.8 min</span>
+            </td>
+            <td class="spark-td-val">
+              <span class="spark-badge spark-badge--verde">~7 s</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="spark-td-label">App ID</td>
+            <td class="spark-td-val"><code class="spark-code">app-…4443-0000</code></td>
+            <td class="spark-td-val"><code class="spark-code">app-…4729-0001</code></td>
+            <td class="spark-td-val"><code class="spark-code">app-…5052-0002</code></td>
+          </tr>
+          <tr>
+            <td class="spark-td-label">Estado</td>
+            <td class="spark-td-val"><span class="badge badge--verde">FINISHED</span></td>
+            <td class="spark-td-val"><span class="badge badge--verde">FINISHED</span></td>
+            <td class="spark-td-val"><span class="badge badge--verde">FINISHED</span></td>
+          </tr>
+          <tr class="spark-tr-speedup">
+            <td class="spark-td-label">Speedup vs Escenario 1</td>
+            <td class="spark-td-val" style="color:var(--texto-suave);">1× base</td>
+            <td class="spark-td-val" style="color:var(--rojo);">~0.1× (overhead)</td>
+            <td class="spark-td-val" style="color:var(--verde);font-weight:700;">~1.6× más rápido</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 64px;">
+    <div class="section__header">
+      <span class="section__tag">Análisis</span>
+      <h2 class="section__title">Interpretación de resultados</h2>
+    </div>
+
+    <div class="grid-3" style="margin-bottom: 28px;">
+
+      <div class="card card--flat" style="border-top: 3px solid var(--azul-claro);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <div style="width:38px;height:38px;border-radius:9px;background:var(--azul-suave);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--azul-medio)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <h4 style="margin:0;">Escenario 1 — 11 segundos</h4>
+            <span class="spark-badge spark-badge--azul" style="font-size:.72rem;">local[1]</span>
+          </div>
+        </div>
+        <p style="font-size:.875rem;">Ejecución en modo local con un solo hilo. Sin distribución de tareas ni overhead de red. Rápido porque todo permanece en memoria local.</p>
+        <p style="font-size:.82rem;color:var(--texto-suave);margin:0;">⚠ No escala: si el dataset crece 10×, el tiempo también crece 10×.</p>
+      </div>
+
+      <div class="card card--flat" style="border-top: 3px solid var(--acento);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <div style="width:38px;height:38px;border-radius:9px;background:var(--acento-suave);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--acento)" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div>
+            <h4 style="margin:0;">Escenario 2 — 1.8 minutos</h4>
+            <span class="spark-badge spark-badge--amarillo" style="font-size:.72rem;">1 Worker</span>
+          </div>
+        </div>
+        <p style="font-size:.875rem;">El tiempo aumentó por el <em>overhead de serialización y red</em>. Para 315K registros, el costo de distribuir tareas supera el beneficio del paralelismo.</p>
+        <p style="font-size:.82rem;color:var(--texto-suave);margin:0;">ℹ Comportamiento normal y esperado en Spark con datasets medianos.</p>
+      </div>
+
+      <div class="card card--flat" style="border-top: 3px solid var(--verde);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <div style="width:38px;height:38px;border-radius:9px;background:var(--verde-suave);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--verde)" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div>
+            <h4 style="margin:0;">Escenario 3 — 7 segundos</h4>
+            <span class="spark-badge spark-badge--verde" style="font-size:.72rem;">2 Workers</span>
+          </div>
+        </div>
+        <p style="font-size:.875rem;">El segundo worker aportó 22.3 GiB adicionales de RAM, permitiendo que Spark mantuviera más datos en memoria y redujera operaciones de I/O.</p>
+        <p style="font-size:.82rem;color:var(--texto-suave);margin:0;"> Con datasets en GB o TB la ventaja sería mucho mayor.</p>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong> Nota técnica — Overhead de coordinación:</strong> El fenómeno observado (Escenario 2 más lento que Escenario 1) es un comportamiento conocido en sistemas distribuidos. Spark serializa el trabajo en particiones y las transfiere por red al worker; para datasets que caben en la memoria de una sola máquina, este costo de comunicación supera el beneficio del paralelismo. El verdadero potencial de Spark se evidencia con datos en el orden de los GB o TB, donde el Escenario 3 escalaría linealmente mientras el Escenario 1 colapsaría.
+    </div>
+  </div>
+
+
+  <div>
+    <div class="section__header">
+      <span class="section__tag">Configuración</span>
+      <h2 class="section__title">Código de conexión al clúster</h2>
+    </div>
+    <div class="card" style="background:var(--azul-oscuro);border:none;">
+      <pre style="margin:0;overflow-x:auto;"><code style="font-family:'Courier New',monospace;font-size:.875rem;color:#c9d8ef;line-height:1.7;">spark = SparkSession.builder \
+    .appName(<span style="color:#f5a93a;">"AnalisisSocioeconomico"</span>) \
+    .master(<span style="color:#f5a93a;">"spark://10.134.72.59:7077"</span>) \
+    .config(<span style="color:#f5a93a;">"spark.driver.host"</span>,        <span style="color:#f5a93a;">"10.134.72.59"</span>) \
+    .config(<span style="color:#f5a93a;">"spark.driver.bindAddress"</span>, <span style="color:#f5a93a;">"0.0.0.0"</span>) \
+    .config(<span style="color:#f5a93a;">"spark.ui.enabled"</span>,         <span style="color:#f5a93a;">"false"</span>) \
+    .config(<span style="color:#f5a93a;">"spark.sql.execution.arrow.pyspark.enabled"</span>, <span style="color:#f5a93a;">"false"</span>) \
+    .getOrCreate()
+
+spark.sparkContext.setLogLevel(<span style="color:#f5a93a;">"ERROR"</span>)
+<span style="color:#6dd4a0;">return</span> spark</code></pre>
+    </div>
+    <p style="font-size:.85rem;color:var(--texto-suave);margin-top:12px;margin-bottom:0;">
+      La IP <code style="background:var(--azul-suave);border-radius:4px;padding:1px 6px;font-family:monospace;">10.134.72.59</code> corresponde al nodo Master (DESKTOP-C740P64).
+      Arrow se deshabilitó para evitar incompatibilidades de versión con PySpark 4.1.1 en Windows.
+    </p>
+  </div>
+
+</div>
+
+{% endblock %}
