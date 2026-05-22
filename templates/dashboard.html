@@ -12,18 +12,8 @@
 <nav class="navbar">
   <div class="navbar__inner">
     <a href="{{ url_for('index') }}" class="navbar__brand">
-      <svg class="navbar__logo" width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="21,2 37,2 45,21 37,40 21,40 13,21" fill="#0D2B5E" stroke="#3B7DD8" stroke-width="1.2"/>
-        <polygon points="23,6 35,6 41,21 35,36 23,36 17,21" fill="#1A4FA0"/>
-        <text x="21" y="27" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="700" fill="#D4860A">S</text>
-        <circle cx="8"  cy="12" r="3.5" fill="#3B7DD8"/>
-        <circle cx="8"  cy="30" r="3"   fill="#D4860A"/>
-        <circle cx="4"  cy="21" r="2.5" fill="#1A7A4A"/>
-        <line x1="13" y1="17" x2="11" y2="13" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
-        <line x1="13" y1="25" x2="11" y2="29" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
-        <line x1="13" y1="21" x2="7"  y2="21" stroke="rgba(255,255,255,.4)" stroke-width="0.8"/>
-      </svg>
-      SISBEN IV · Cundinamarca
+      <img src="{{ url_for('static', filename='Img/icono_Colombia.png') }}" alt="Icono Colombia" class="navbar__logo" width="42" height="42">
+      <span class="navbar__brand-text">SISBEN IV <span class="navbar__brand-sub">· Cundinamarca</span></span>
     </a>
     <ul class="navbar__links">
       <li><a href="{{ url_for('index') }}">Inicio</a></li>
@@ -40,6 +30,11 @@
 
 <div class="page-hero">
   <div class="page-hero__inner">
+    <img
+      src="{{ url_for('static', filename='/Img/PowerBI.png') }}"
+      alt="Logo Orange"
+      style="width:96px; height:96px; border-radius:50%; object-fit:cover; display:block; margin-bottom:1rem;"
+    >
     <div class="page-hero__tag"> Power BI</div>
     <h1>Análisis y Dashboard</h1>
     <p>Resultados del análisis exploratorio y del modelo K-Means sobre el SISBEN IV de Cundinamarca, visualizados en dashboards interactivos de Power BI.</p>
