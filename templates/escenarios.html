@@ -450,29 +450,7 @@
   </div>
 
 
-  <div>
-    <div class="section__header">
-      <span class="section__tag">Configuración</span>
-      <h2 class="section__title">Código de conexión al clúster</h2>
-    </div>
-    <div class="card" style="background:var(--azul-oscuro);border:none;">
-      <pre style="margin:0;overflow-x:auto;"><code style="font-family:'Courier New',monospace;font-size:.875rem;color:#c9d8ef;line-height:1.7;">spark = SparkSession.builder \
-    .appName(<span style="color:#f5a93a;">"AnalisisSocioeconomico"</span>) \
-    .master(<span style="color:#f5a93a;">"spark://10.134.72.59:7077"</span>) \
-    .config(<span style="color:#f5a93a;">"spark.driver.host"</span>,        <span style="color:#f5a93a;">"10.134.72.59"</span>) \
-    .config(<span style="color:#f5a93a;">"spark.driver.bindAddress"</span>, <span style="color:#f5a93a;">"0.0.0.0"</span>) \
-    .config(<span style="color:#f5a93a;">"spark.ui.enabled"</span>,         <span style="color:#f5a93a;">"false"</span>) \
-    .config(<span style="color:#f5a93a;">"spark.sql.execution.arrow.pyspark.enabled"</span>, <span style="color:#f5a93a;">"false"</span>) \
-    .getOrCreate()
 
-spark.sparkContext.setLogLevel(<span style="color:#f5a93a;">"ERROR"</span>)
-<span style="color:#6dd4a0;">return</span> spark</code></pre>
-    </div>
-    <p style="font-size:.85rem;color:var(--texto-suave);margin-top:12px;margin-bottom:0;">
-      La IP <code style="background:var(--azul-suave);border-radius:4px;padding:1px 6px;font-family:monospace;">10.134.72.59</code> corresponde al nodo Master (DESKTOP-C740P64).
-      Arrow se deshabilitó para evitar incompatibilidades de versión con PySpark 4.1.1 en Windows.
-    </p>
-  </div>
 
 </div>
 
