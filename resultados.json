@@ -1,0 +1,378 @@
+{
+    "pobreza_departamento": [
+        {
+            "nom_departamento": "CUNDINAMARCA",
+            "total_personas": 315612,
+            "pobres_ipm": 186205,
+            "score_ipm_promedio": 3.31,
+            "tasa_pobreza_pct": 59.0
+        }
+    ],
+    "distribucion_sisben": [
+        {
+            "grupo_desc": "A – Pobreza extrema",
+            "clasificacion_desc": "A1",
+            "total_personas": 8040
+        },
+        {
+            "grupo_desc": "A – Pobreza extrema",
+            "clasificacion_desc": "A2",
+            "total_personas": 14841
+        },
+        {
+            "grupo_desc": "A – Pobreza extrema",
+            "clasificacion_desc": "A3",
+            "total_personas": 15448
+        },
+        {
+            "grupo_desc": "A – Pobreza extrema",
+            "clasificacion_desc": "A4",
+            "total_personas": 17893
+        },
+        {
+            "grupo_desc": "A – Pobreza extrema",
+            "clasificacion_desc": "A5",
+            "total_personas": 16088
+        },
+        {
+            "grupo_desc": "B – Pobreza moderada",
+            "clasificacion_desc": "B1",
+            "total_personas": 16934
+        },
+        {
+            "grupo_desc": "B – Pobreza moderada",
+            "clasificacion_desc": "B2",
+            "total_personas": 17413
+        },
+        {
+            "grupo_desc": "B – Pobreza moderada",
+            "clasificacion_desc": "B3",
+            "total_personas": 17391
+        },
+        {
+            "grupo_desc": "B – Pobreza moderada",
+            "clasificacion_desc": "B4",
+            "total_personas": 15834
+        },
+        {
+            "grupo_desc": "B – Pobreza moderada",
+            "clasificacion_desc": "B5",
+            "total_personas": 15387
+        },
+        {
+            "grupo_desc": "B – Pobreza moderada",
+            "clasificacion_desc": "B6",
+            "total_personas": 13705
+        },
+        {
+            "grupo_desc": "B – Pobreza moderada",
+            "clasificacion_desc": "B7",
+            "total_personas": 13048
+        },
+        {
+            "grupo_desc": "C – Vulnerable",
+            "clasificacion_desc": "C1",
+            "total_personas": 40843
+        },
+        {
+            "grupo_desc": "C – Vulnerable",
+            "clasificacion_desc": "C2",
+            "total_personas": 9941
+        },
+        {
+            "grupo_desc": "C – Vulnerable",
+            "clasificacion_desc": "C3",
+            "total_personas": 8550
+        },
+        {
+            "grupo_desc": "C – Vulnerable",
+            "clasificacion_desc": "C4",
+            "total_personas": 7985
+        },
+        {
+            "grupo_desc": "C – Vulnerable",
+            "clasificacion_desc": "C5",
+            "total_personas": 6860
+        },
+        {
+            "grupo_desc": "C – Vulnerable",
+            "clasificacion_desc": "C6",
+            "total_personas": 6600
+        },
+        {
+            "grupo_desc": "C – Vulnerable",
+            "clasificacion_desc": "C7",
+            "total_personas": 6058
+        },
+        {
+            "grupo_desc": "C – Vulnerable",
+            "clasificacion_desc": "C8",
+            "total_personas": 5430
+        },
+        {
+            "grupo_desc": "C – Vulnerable",
+            "clasificacion_desc": "C9",
+            "total_personas": 4612
+        },
+        {
+            "grupo_desc": "D – No pobre",
+            "clasificacion_desc": "D1",
+            "total_personas": 11025
+        },
+        {
+            "grupo_desc": "D – No pobre",
+            "clasificacion_desc": "D2",
+            "total_personas": 15493
+        },
+        {
+            "grupo_desc": "D – No pobre",
+            "clasificacion_desc": "D3",
+            "total_personas": 1840
+        },
+        {
+            "grupo_desc": "D – No pobre",
+            "clasificacion_desc": "D4",
+            "total_personas": 1517
+        },
+        {
+            "grupo_desc": "D – No pobre",
+            "clasificacion_desc": "D5",
+            "total_personas": 1582
+        },
+        {
+            "grupo_desc": "D – No pobre",
+            "clasificacion_desc": "D6",
+            "total_personas": 1553
+        },
+        {
+            "grupo_desc": "D – No pobre",
+            "clasificacion_desc": "D7",
+            "total_personas": 1354
+        },
+        {
+            "grupo_desc": "D – No pobre",
+            "clasificacion_desc": "D8",
+            "total_personas": 1193
+        },
+        {
+            "grupo_desc": "D – No pobre",
+            "clasificacion_desc": "D9",
+            "total_personas": 1154
+        }
+    ],
+    "pobreza_zona": [
+        {
+            "zona_desc": "Centro poblado / rural",
+            "total_personas": 191485,
+            "pobres_ipm": 132777,
+            "score_ipm_promedio": 3.84,
+            "tasa_pobreza_pct": 69.34
+        },
+        {
+            "zona_desc": "Cabecera urbana",
+            "total_personas": 124127,
+            "pobres_ipm": 53428,
+            "score_ipm_promedio": 2.51,
+            "tasa_pobreza_pct": 43.04
+        }
+    ],
+    "educacion_pobreza": [
+        {
+            "nivel_educativo": "Ninguno",
+            "total_personas": 24359,
+            "score_ipm_promedio": 4.88,
+            "tasa_pobreza_pct": 82.74
+        },
+        {
+            "nivel_educativo": "Preescolar",
+            "total_personas": 266324,
+            "score_ipm_promedio": 3.34,
+            "tasa_pobreza_pct": 60.45
+        },
+        {
+            "nivel_educativo": "Primaria",
+            "total_personas": 24929,
+            "score_ipm_promedio": 1.5,
+            "tasa_pobreza_pct": 20.3
+        }
+    ],
+    "actividad_pension": [
+        {
+            "actividad_economica": "Ama de casa",
+            "cotiza_pension": NaN,
+            "total_personas": 4074
+        },
+        {
+            "actividad_economica": "Ama de casa",
+            "cotiza_pension": "Cotiza",
+            "total_personas": 2127
+        },
+        {
+            "actividad_economica": "Ama de casa",
+            "cotiza_pension": "No cotiza",
+            "total_personas": 102548
+        },
+        {
+            "actividad_economica": "Desempleado",
+            "cotiza_pension": NaN,
+            "total_personas": 33
+        },
+        {
+            "actividad_economica": "Desempleado",
+            "cotiza_pension": "Cotiza",
+            "total_personas": 896
+        },
+        {
+            "actividad_economica": "Desempleado",
+            "cotiza_pension": "No cotiza",
+            "total_personas": 28863
+        },
+        {
+            "actividad_economica": "Empleado",
+            "cotiza_pension": NaN,
+            "total_personas": 500
+        },
+        {
+            "actividad_economica": "Empleado",
+            "cotiza_pension": "Cotiza",
+            "total_personas": 494
+        },
+        {
+            "actividad_economica": "Empleado",
+            "cotiza_pension": "No cotiza",
+            "total_personas": 22917
+        },
+        {
+            "actividad_economica": "Estudiante",
+            "cotiza_pension": NaN,
+            "total_personas": 37
+        },
+        {
+            "actividad_economica": "Estudiante",
+            "cotiza_pension": "Cotiza",
+            "total_personas": 311
+        },
+        {
+            "actividad_economica": "Estudiante",
+            "cotiza_pension": "No cotiza",
+            "total_personas": 58022
+        },
+        {
+            "actividad_economica": "Independiente",
+            "cotiza_pension": NaN,
+            "total_personas": 217
+        },
+        {
+            "actividad_economica": "Independiente",
+            "cotiza_pension": "Cotiza",
+            "total_personas": 30063
+        },
+        {
+            "actividad_economica": "Independiente",
+            "cotiza_pension": "No cotiza",
+            "total_personas": 64510
+        }
+    ],
+    "municipios_mas_pobres": [
+        {
+            "nom_municipio": "LA PALMA",
+            "nom_departamento": "CUNDINAMARCA",
+            "total_personas": 3994,
+            "score_ipm_promedio": 5.43,
+            "tasa_pobreza_pct": 86.63
+        },
+        {
+            "nom_municipio": "YACOPÍ",
+            "nom_departamento": "CUNDINAMARCA",
+            "total_personas": 3967,
+            "score_ipm_promedio": 5.33,
+            "tasa_pobreza_pct": 83.77
+        },
+        {
+            "nom_municipio": "UBALÁ",
+            "nom_departamento": "CUNDINAMARCA",
+            "total_personas": 3251,
+            "score_ipm_promedio": 5.32,
+            "tasa_pobreza_pct": 86.43
+        },
+        {
+            "nom_municipio": "TIBIRITA",
+            "nom_departamento": "CUNDINAMARCA",
+            "total_personas": 1635,
+            "score_ipm_promedio": 5.03,
+            "tasa_pobreza_pct": 85.14
+        },
+        {
+            "nom_municipio": "EL PEÑÓN",
+            "nom_departamento": "CUNDINAMARCA",
+            "total_personas": 1775,
+            "score_ipm_promedio": 5.0,
+            "tasa_pobreza_pct": 84.34
+        },
+        {
+            "nom_municipio": "PAIME",
+            "nom_departamento": "CUNDINAMARCA",
+            "total_personas": 2174,
+            "score_ipm_promedio": 4.91,
+            "tasa_pobreza_pct": 86.25
+        },
+        {
+            "nom_municipio": "TOPAIPÍ",
+            "nom_departamento": "CUNDINAMARCA",
+            "total_personas": 1888,
+            "score_ipm_promedio": 4.74,
+            "tasa_pobreza_pct": 85.33
+        },
+        {
+            "nom_municipio": "PULÍ",
+            "nom_departamento": "CUNDINAMARCA",
+            "total_personas": 1616,
+            "score_ipm_promedio": 4.57,
+            "tasa_pobreza_pct": 80.51
+        },
+        {
+            "nom_municipio": "CAPARRAPÍ",
+            "nom_departamento": "CUNDINAMARCA",
+            "total_personas": 3074,
+            "score_ipm_promedio": 4.54,
+            "tasa_pobreza_pct": 80.29
+        },
+        {
+            "nom_municipio": "SAN JUAN DE RIOSECO",
+            "nom_departamento": "CUNDINAMARCA",
+            "total_personas": 3085,
+            "score_ipm_promedio": 4.51,
+            "tasa_pobreza_pct": 78.25
+        }
+    ],
+    "evolucion_temporal": [
+        {
+            "anio": 2021,
+            "total_personas": 21840,
+            "pobres_ipm": 13021,
+            "tasa_pobreza_pct": 59.62,
+            "score_ipm_promedio": 3.33
+        },
+        {
+            "anio": 2022,
+            "total_personas": 107489,
+            "pobres_ipm": 63081,
+            "tasa_pobreza_pct": 58.69,
+            "score_ipm_promedio": 3.31
+        },
+        {
+            "anio": 2023,
+            "total_personas": 151522,
+            "pobres_ipm": 89565,
+            "tasa_pobreza_pct": 59.11,
+            "score_ipm_promedio": 3.32
+        },
+        {
+            "anio": 2024,
+            "total_personas": 34761,
+            "pobres_ipm": 20538,
+            "tasa_pobreza_pct": 59.08,
+            "score_ipm_promedio": 3.32
+        }
+    ]
+}

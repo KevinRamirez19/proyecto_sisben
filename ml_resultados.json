@@ -1,0 +1,290 @@
+{
+    "kmeans": {
+        "k": 4,
+        "wssse": 3479404.27,
+        "tiempo_fit": 12.93,
+        "perfil": [
+            {
+                "cluster": 0,
+                "n": 201878,
+                "ipm_promedio": 2.18,
+                "pct_pobre": 38.73,
+                "avg_I1": 0.529,
+                "avg_I2": 0.002,
+                "avg_I3": 0.0,
+                "avg_I4": 0.229,
+                "avg_I5": 0.031
+            },
+            {
+                "cluster": 1,
+                "n": 64015,
+                "ipm_promedio": 5.32,
+                "pct_pobre": 96.95,
+                "avg_I1": 0.921,
+                "avg_I2": 0.485,
+                "avg_I3": 0.0,
+                "avg_I4": 0.22,
+                "avg_I5": 0.033
+            },
+            {
+                "cluster": 2,
+                "n": 37196,
+                "ipm_promedio": 5.24,
+                "pct_pobre": 92.85,
+                "avg_I1": 0.586,
+                "avg_I2": 0.097,
+                "avg_I3": 0.0,
+                "avg_I4": 0.232,
+                "avg_I5": 1.0
+            },
+            {
+                "cluster": 3,
+                "n": 12523,
+                "ipm_promedio": 5.69,
+                "pct_pobre": 91.25,
+                "avg_I1": 0.766,
+                "avg_I2": 0.156,
+                "avg_I3": 0.956,
+                "avg_I4": 0.716,
+                "avg_I5": 0.215
+            }
+        ],
+        "dist_sisben": [
+            {
+                "cluster": 0,
+                "grupo_desc": "C – Vulnerable",
+                "n": 72879
+            },
+            {
+                "cluster": 0,
+                "grupo_desc": "A – Pobreza extrema",
+                "n": 30870
+            },
+            {
+                "cluster": 0,
+                "grupo_desc": "D – No pobre",
+                "n": 32078
+            },
+            {
+                "cluster": 0,
+                "grupo_desc": "B – Pobreza moderada",
+                "n": 66051
+            },
+            {
+                "cluster": 1,
+                "grupo_desc": "C – Vulnerable",
+                "n": 10738
+            },
+            {
+                "cluster": 1,
+                "grupo_desc": "A – Pobreza extrema",
+                "n": 26626
+            },
+            {
+                "cluster": 1,
+                "grupo_desc": "D – No pobre",
+                "n": 1641
+            },
+            {
+                "cluster": 1,
+                "grupo_desc": "B – Pobreza moderada",
+                "n": 25010
+            },
+            {
+                "cluster": 2,
+                "grupo_desc": "C – Vulnerable",
+                "n": 10477
+            },
+            {
+                "cluster": 2,
+                "grupo_desc": "B – Pobreza moderada",
+                "n": 13845
+            },
+            {
+                "cluster": 2,
+                "grupo_desc": "A – Pobreza extrema",
+                "n": 10123
+            },
+            {
+                "cluster": 2,
+                "grupo_desc": "D – No pobre",
+                "n": 2751
+            },
+            {
+                "cluster": 3,
+                "grupo_desc": "C – Vulnerable",
+                "n": 2785
+            },
+            {
+                "cluster": 3,
+                "grupo_desc": "D – No pobre",
+                "n": 241
+            },
+            {
+                "cluster": 3,
+                "grupo_desc": "B – Pobreza moderada",
+                "n": 4806
+            },
+            {
+                "cluster": 3,
+                "grupo_desc": "A – Pobreza extrema",
+                "n": 4691
+            }
+        ]
+    },
+    "random_forest": {
+        "accuracy": 98.45,
+        "precision": 98.51,
+        "recall": 98.45,
+        "f1": 98.46,
+        "tiempo_fit": 41.97,
+        "importancias": [
+            {
+                "indicador": "I1",
+                "valor": 24.38
+            },
+            {
+                "indicador": "I8",
+                "valor": 15.43
+            },
+            {
+                "indicador": "I11",
+                "valor": 14.92
+            },
+            {
+                "indicador": "I7",
+                "valor": 9.16
+            },
+            {
+                "indicador": "I5",
+                "valor": 8.67
+            },
+            {
+                "indicador": "I9",
+                "valor": 6.35
+            },
+            {
+                "indicador": "I4",
+                "valor": 5.92
+            },
+            {
+                "indicador": "I15",
+                "valor": 4.67
+            },
+            {
+                "indicador": "I12",
+                "valor": 3.87
+            },
+            {
+                "indicador": "I13",
+                "valor": 2.97
+            },
+            {
+                "indicador": "I2",
+                "valor": 2.04
+            },
+            {
+                "indicador": "I14",
+                "valor": 0.62
+            },
+            {
+                "indicador": "I3",
+                "valor": 0.53
+            },
+            {
+                "indicador": "I10",
+                "valor": 0.45
+            },
+            {
+                "indicador": "I6",
+                "valor": 0.01
+            }
+        ],
+        "confusion": [
+            {
+                "es_pobre_ipm": 1,
+                "prediction": 0.0,
+                "count": 978
+            },
+            {
+                "es_pobre_ipm": 0,
+                "prediction": 0.0,
+                "count": 25957
+            },
+            {
+                "es_pobre_ipm": 1,
+                "prediction": 1.0,
+                "count": 36310
+            }
+        ]
+    },
+    "regresion_lineal": {
+        "rmse": 0.2759,
+        "r2": 0.9847,
+        "mae": 0.2201,
+        "intercepto": 3.3141,
+        "tiempo_fit": 10.33,
+        "coeficientes": [
+            {
+                "indicador": "I7",
+                "coef": 0.5545
+            },
+            {
+                "indicador": "I1",
+                "coef": 0.5456
+            },
+            {
+                "indicador": "I11",
+                "coef": 0.5173
+            },
+            {
+                "indicador": "I8",
+                "coef": 0.5156
+            },
+            {
+                "indicador": "I4",
+                "coef": 0.4567
+            },
+            {
+                "indicador": "I2",
+                "coef": 0.4387
+            },
+            {
+                "indicador": "I9",
+                "coef": 0.4129
+            },
+            {
+                "indicador": "I15",
+                "coef": 0.4075
+            },
+            {
+                "indicador": "I5",
+                "coef": 0.396
+            },
+            {
+                "indicador": "I12",
+                "coef": 0.3559
+            },
+            {
+                "indicador": "I13",
+                "coef": 0.35
+            },
+            {
+                "indicador": "I10",
+                "coef": 0.2485
+            },
+            {
+                "indicador": "I3",
+                "coef": 0.2247
+            },
+            {
+                "indicador": "I14",
+                "coef": 0.2131
+            },
+            {
+                "indicador": "I6",
+                "coef": 0.0759
+            }
+        ]
+    }
+}
