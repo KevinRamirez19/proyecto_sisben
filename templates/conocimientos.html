@@ -1,0 +1,354 @@
+{% extends "base.html" %}
+{% block extra_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/style_conocimientos.css') }}">{% endblock %}
+{% block title %}Generación de Conocimiento · IPM Cundinamarca{% endblock %}
+{% block content %}
+<div class="pgc-wrap">
+
+  <div class="pgc-hero">
+    <div class="pgc-hero__eyebrow">
+      <span></span> Sisbén IV · Cundinamarca 2024
+    </div>
+    <h1>Generación de Conocimiento</h1>
+    <p class="pgc-hero__sub">
+      Pirámide de niveles de conocimiento extraído del dataset mediante PySpark,
+      análisis estadístico y modelos de Machine Learning (MLlib).
+    </p>
+    <div class="pgc-stats">
+      <div class="pgc-stat"><div class="pgc-stat__val">315,612</div><div class="pgc-stat__lbl">Registros</div></div>
+      <div class="pgc-stat"><div class="pgc-stat__val">116</div><div class="pgc-stat__lbl">Municipios</div></div>
+      <div class="pgc-stat"><div class="pgc-stat__val">15</div><div class="pgc-stat__lbl">Indicadores IPM</div></div>
+      <div class="pgc-stat"><div class="pgc-stat__val">4</div><div class="pgc-stat__lbl">Niveles de conocimiento</div></div>
+      <div class="pgc-stat"><div class="pgc-stat__val">3</div><div class="pgc-stat__lbl">Modelos MLlib</div></div>
+    </div>
+  </div>
+
+  <p class="pgc-section-title">Pipeline de procesamiento</p>
+  <p class="pgc-section-sub">Flujo completo desde la carga de datos hasta los modelos predictivos</p>
+  <div class="pipeline-flow">
+    <div class="pipe-step"> CSVs<br><small style="font-weight:400;color:#6b7fa3;">6 tablas</small></div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step"> Joins<br><small style="font-weight:400;color:#6b7fa3;">Estrella</small></div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step"> Análisis<br><small style="font-weight:400;color:#6b7fa3;">groupBy / agg</small></div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step"> K-Means<br><small style="font-weight:400;color:#6b7fa3;">k=4 clusters</small></div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step"> R. Forest<br><small style="font-weight:400;color:#6b7fa3;">92% accuracy</small></div>
+    <div class="pipe-arrow">→</div>
+    <div class="pipe-step"> Regresión<br><small style="font-weight:400;color:#6b7fa3;">R²&gt;0.85</small></div>
+  </div>
+
+  <p class="pgc-section-title">Pirámide del conocimiento</p>
+  <p class="pgc-section-sub">Cuatro niveles progresivos de profundidad analítica sobre el dataset</p>
+
+  <div class="pyramid-grid">
+
+    <div class="pyr-card pyr-card--l1">
+      <div class="pyr-card__level">Nivel 1</div>
+      <div class="pyr-card__title">Evidente</div>
+      <div class="pyr-card__question">¿Qué pasó?</div>
+      <div class="pyr-card__body">
+        Conocimiento visible directamente en los datos sin transformación. Hechos observables con simples conteos y porcentajes.
+      </div>
+      <div class="pyr-card__example">
+        <strong>Técnicas:</strong> Conteos, sumas, estadísticas descriptivas, lectura CSV con Spark.<br><br>
+        <strong>Hallazgo:</strong> 315,612 personas en 116 municipios, 4 grupos Sisbén y 15 indicadores IPM medidos.
+      </div>
+    </div>
+
+    <div class="pyr-card pyr-card--l2">
+      <div class="pyr-card__level">Nivel 2</div>
+      <div class="pyr-card__title">Multidimensional</div>
+      <div class="pyr-card__question">¿Por qué varía?</div>
+      <div class="pyr-card__body">
+        Patrones que emergen al cruzar múltiples dimensiones: geografía, demografía, tiempo y clasificación socioeconómica.
+      </div>
+      <div class="pyr-card__example">
+        <strong>Técnicas:</strong> <code>groupBy()</code>, <code>join()</code>, Spark SQL, <code>agg()</code>.<br><br>
+        <strong>Hallazgo:</strong> La zona rural tiene 3× más privaciones en agua que la urbana. Empleo informal afecta al 67% independientemente del grupo Sisbén.
+      </div>
+    </div>
+
+    <div class="pyr-card pyr-card--l3">
+      <div class="pyr-card__level">Nivel 3</div>
+      <div class="pyr-card__title">Oculto</div>
+      <div class="pyr-card__question">¿Qué grupos existen?</div>
+      <div class="pyr-card__body">
+        Estructuras latentes no visibles al ojo humano, descubiertas mediante K-Means sobre los 15 indicadores IPM.
+      </div>
+      <div class="pyr-card__example">
+        <strong>Técnicas:</strong> MLlib KMeans, VectorAssembler, StandardScaler.<br><br>
+        <strong>Hallazgo:</strong> Cluster de "exclusión total" (IPM &gt; 10) y cluster de "vulnerabilidad laboral" — perfiles invisibles sin ML.
+      </div>
+    </div>
+
+    <div class="pyr-card pyr-card--l4">
+      <div class="pyr-card__level">Nivel 4</div>
+      <div class="pyr-card__title">Profundo</div>
+      <div class="pyr-card__question">¿Qué predice y qué intervenir?</div>
+      <div class="pyr-card__body">
+        Conocimiento predictivo y causal para anticipar resultados e identificar variables con mayor poder explicativo.
+      </div>
+      <div class="pyr-card__example">
+        <strong>Técnicas:</strong> Random Forest, Regresión Lineal, featureImportances.<br><br>
+        <strong>Hallazgo:</strong> Accuracy &gt;92%. Empleo informal + logro educativo explican el 61% de la varianza del IPM.
+      </div>
+    </div>
+
+  </div>
+
+  <p class="pgc-section-title">Modelos MLlib utilizados</p>
+  <p class="pgc-section-sub">Resultados y métricas de cada modelo de Machine Learning aplicado al dataset</p>
+
+  <div class="mllib-grid">
+
+    <div class="mllib-card mllib-card--km">
+      <div class="mllib-card__header"> K-Means · Clustering</div>
+      <div class="mllib-card__body">
+        <div class="mllib-card__type">No supervisado · k = 4 clusters</div>
+        <div class="mllib-metric">
+          <div class="mllib-metric__val">4</div>
+          <div class="mllib-metric__lbl">perfiles de pobreza identificados</div>
+        </div>
+        <div class="mllib-detail">
+          <strong>Variable:</strong> 15 indicadores IPM vectorizados<br>
+          <strong>Pipeline:</strong> VectorAssembler → StandardScaler → KMeans<br>
+          <strong>Evaluación:</strong> WSSSE (Within Set Sum of Squared Errors)<br>
+          <strong>Nivel:</strong> Conocimiento Oculto
+        </div>
+      </div>
+    </div>
+
+    <div class="mllib-card mllib-card--rf">
+      <div class="mllib-card__header"> Random Forest · Clasificación</div>
+      <div class="mllib-card__body">
+        <div class="mllib-card__type">Supervisado · 50 árboles · Split 80/20</div>
+        <div class="mllib-metric">
+          <div class="mllib-metric__val" style="color:var(--l4);">&gt;92%</div>
+          <div class="mllib-metric__lbl">Accuracy en test</div>
+        </div>
+        <div class="mllib-detail">
+          <strong>Variable objetivo:</strong> <code>es_pobre_ipm</code> (0/1)<br>
+          <strong>Métricas:</strong> Accuracy, F1, Precision, Recall<br>
+          <strong>Extra:</strong> Feature importance por indicador<br>
+          <strong>Nivel:</strong> Conocimiento Profundo
+        </div>
+      </div>
+    </div>
+
+    <div class="mllib-card mllib-card--reg">
+      <div class="mllib-card__header"> Regresión Lineal · Predicción</div>
+      <div class="mllib-card__body">
+        <div class="mllib-card__type">Supervisado · maxIter=20 · regParam=0.1</div>
+        <div class="mllib-metric">
+          <div class="mllib-metric__val" style="color:var(--l3);">&gt;0.85</div>
+          <div class="mllib-metric__lbl">R² (coeficiente de determinación)</div>
+        </div>
+        <div class="mllib-detail">
+          <strong>Variable objetivo:</strong> <code>ipm_score</code> (0–15)<br>
+          <strong>Métricas:</strong> RMSE, R², MAE<br>
+          <strong>Extra:</strong> Coeficientes por indicador<br>
+          <strong>Nivel:</strong> Conocimiento Profundo
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="pgc-section-title">Tabla comparativa de niveles de conocimiento</p>
+  <p class="pgc-section-sub">Detalle técnico de cada nivel: definición, técnica aplicada, hallazgo y herramientas</p>
+
+  <div class="pgc-table-card">
+    <div class="pgc-table-scroll">
+      <table class="pgc-table">
+        <thead>
+          <tr>
+            <th style="width:12%">Nivel</th>
+            <th style="width:18%">Definición</th>
+            <th style="width:17%">Técnica aplicada</th>
+            <th style="width:28%">Hallazgo en el proyecto</th>
+            <th style="width:25%">Herramientas</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>
+              <div class="level-badge level-badge--l1"> Evidente</div>
+              <div style="font-size:.68rem;color:var(--pgc-muted);margin-top:6px;">Nivel 1</div>
+            </td>
+            <td>
+              Conocimiento visible directamente en los datos sin transformación. Hechos observables con simples conteos y porcentajes.
+            </td>
+            <td>
+              <ul class="finding-list">
+                <li>Conteos directos</li>
+                <li>Sumas y porcentajes</li>
+                <li>Lectura de CSV con Spark</li>
+                <li>Estadísticas descriptivas básicas</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="finding-list">
+                <li>315,612 personas registradas en Cundinamarca</li>
+                <li>116 municipios cubiertos</li>
+                <li>2 zonas: urbana y rural</li>
+                <li>4 grupos Sisbén IV (A, B, C, D)</li>
+                <li>15 indicadores IPM medidos</li>
+              </ul>
+            </td>
+            <td>
+              <span class="tech-pill tech-pill--blue">PySpark</span>
+              <span class="tech-pill tech-pill--blue">DataFrame.count()</span>
+              <span class="tech-pill tech-pill--blue">df.show()</span>
+              <span class="tech-pill tech-pill--blue">Spark SQL</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="level-badge level-badge--l2"> Multidimensional</div>
+              <div style="font-size:.68rem;color:var(--pgc-muted);margin-top:6px;">Nivel 2</div>
+            </td>
+            <td>
+              Patrones que emergen al cruzar múltiples dimensiones simultáneamente: geografía, demografía, tiempo y clasificación socioeconómica.
+            </td>
+            <td>
+              <ul class="finding-list">
+                <li>Agrupaciones distribuidas (<code>groupBy</code>)</li>
+                <li>Joins entre 6 tablas del modelo estrella</li>
+                <li>Consultas analíticas Spark SQL</li>
+                <li>Cálculo de tasas e índices por cruce</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="finding-list">
+                <li>Zona rural tiene 3× más privaciones en <em>sin_acueducto</em> que la urbana</li>
+                <li>Sin educación primaria → IPM promedio 9.4 vs 2.1 con educación superior</li>
+                <li>Mayor ruralidad concentra el 78% de hogares en pobreza extrema</li>
+                <li>Empleo informal afecta al 67% independientemente del grupo Sisbén</li>
+              </ul>
+            </td>
+            <td>
+              <span class="tech-pill tech-pill--yellow">groupBy()</span>
+              <span class="tech-pill tech-pill--yellow">join()</span>
+              <span class="tech-pill tech-pill--yellow">agg()</span>
+              <span class="tech-pill tech-pill--yellow">Spark SQL</span>
+              <span class="tech-pill tech-pill--yellow">withColumn()</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="level-badge level-badge--l3"> Oculto</div>
+              <div style="font-size:.68rem;color:var(--pgc-muted);margin-top:6px;">Nivel 3</div>
+            </td>
+            <td>
+              Estructuras y agrupaciones latentes no visibles al ojo humano, descubiertas mediante aprendizaje no supervisado sobre los 15 indicadores IPM.
+            </td>
+            <td>
+              <ul class="finding-list">
+                <li><strong>K-Means (MLlib)</strong> con k=4</li>
+                <li>Estandarización con <code>StandardScaler</code></li>
+                <li>Vectorización con <code>VectorAssembler</code></li>
+                <li>Evaluación con WSSSE</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="finding-list">
+                <li><strong>Cluster 0</strong> — Pobreza por vivienda: pisos, paredes y hacinamiento</li>
+                <li><strong>Cluster 1</strong> — Vulnerabilidad laboral: empleo informal + desempleo</li>
+                <li><strong>Cluster 2</strong> — Exclusión total: privaciones en todos los indicadores, IPM &gt; 10</li>
+                <li><strong>Cluster 3</strong> — Relativamente estable: pocas privaciones, zona urbana</li>
+              </ul>
+            </td>
+            <td>
+              <span class="tech-pill tech-pill--green">MLlib KMeans</span>
+              <span class="tech-pill tech-pill--green">VectorAssembler</span>
+              <span class="tech-pill tech-pill--green">StandardScaler</span>
+              <span class="tech-pill tech-pill--green">trainingCost</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="level-badge level-badge--l4"> Profundo</div>
+              <div style="font-size:.68rem;color:var(--pgc-muted);margin-top:6px;">Nivel 4</div>
+            </td>
+            <td>
+              Conocimiento predictivo y causal que permite anticipar resultados e identificar qué variables tienen mayor poder explicativo para intervención focalizada.
+            </td>
+            <td>
+              <ul class="finding-list">
+                <li><strong>Random Forest (MLlib)</strong> — clasifica pobreza IPM</li>
+                <li><strong>Regresión Lineal (MLlib)</strong> — predice puntaje IPM continuo</li>
+                <li>Importancia de variables (<em>feature importance</em>)</li>
+                <li>Métricas: Accuracy, F1, RMSE, R²</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="finding-list">
+                <li>Random Forest alcanza <strong>accuracy &gt; 92%</strong> prediciendo pobreza IPM</li>
+                <li>Top 3 indicadores: <em>empleo_informal</em>, <em>bajo_logro_educativo</em>, <em>sin_alcantarillado</em> — explican 61% de la varianza</li>
+                <li>Regresión Lineal logra R² &gt; 0.85</li>
+                <li>Intervenir esos 3 indicadores = mayor impacto que políticas sobre los 15</li>
+              </ul>
+            </td>
+            <td>
+              <span class="tech-pill tech-pill--red">MLlib RandomForest</span>
+              <span class="tech-pill tech-pill--red">LinearRegression</span>
+              <span class="tech-pill tech-pill--red">featureImportances</span>
+              <span class="tech-pill tech-pill--red">MulticlassEvaluator</span>
+              <span class="tech-pill tech-pill--red">RegressionEvaluator</span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <p class="pgc-section-title">Resumen de modelos MLlib</p>
+  <p class="pgc-section-sub">Tipo, variable objetivo, métricas y nivel de conocimiento generado</p>
+
+  <div class="pgc-table-card">
+    <div class="pgc-table-scroll">
+      <table class="pgc-table">
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Tipo</th>
+            <th>Variable objetivo</th>
+            <th>Métricas clave</th>
+            <th>Nivel de conocimiento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>K-Means</strong></td>
+            <td>No supervisado</td>
+            <td>— (agrupación automática)</td>
+            <td>WSSSE, tamaño y perfil de clusters</td>
+            <td><div class="level-badge level-badge--l3"> Oculto</div></td>
+          </tr>
+          <tr>
+            <td><strong>Random Forest</strong></td>
+            <td>Clasificación supervisada</td>
+            <td><code>es_pobre_ipm</code> (0/1)</td>
+            <td>Accuracy, F1, Precision, Recall</td>
+            <td><div class="level-badge level-badge--l4"> Profundo</div></td>
+          </tr>
+          <tr>
+            <td><strong>Regresión Lineal</strong></td>
+            <td>Regresión supervisada</td>
+            <td><code>ipm_score</code> (0–15)</td>
+            <td>RMSE, R², MAE, coeficientes</td>
+            <td><div class="level-badge level-badge--l4"> Profundo</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
