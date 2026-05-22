@@ -102,10 +102,27 @@ def dashboard_spark():
 def escenarios():
     return render_template('escenarios.html', stats=STATS)
 
+@app.route('/conocimientos')
+def conocimientos():
+    return render_template('conocimientos.html', stats=STATS)
+
+
+
+@app.route('/api/ml_resultados')
+def api_ml_resultados():
+   
+    ruta_ml = os.path.join(BASE, 'results', 'ml_resultados.json')
+    if not os.path.exists(ruta_ml):
+        return jsonify({'error': 'Archivo no encontrado. Ejecuta: python spark.py'}), 404
+    with open(ruta_ml, 'r', encoding='utf-8') as f:
+        import json as json_module
+        data = json_module.load(f)
+    return jsonify(data)
+
+
 @app.route('/api/spark')
 def api_spark():
-
-    # 1. Pobreza por departamento
+    
     dept = df.groupby('nom_departamento').agg(
         total_personas=('persona_fact_sk', 'count'),
         pobres_ipm=('es_pobre_ipm', 'sum'),
@@ -114,12 +131,10 @@ def api_spark():
     dept['tasa_pobreza_pct']   = (dept['pobres_ipm'] / dept['total_personas'] * 100).round(2)
     dept['score_ipm_promedio'] = dept['score_ipm_promedio'].round(2)
 
-    # 2. Distribución SISBÉN
     sisb = df.groupby(['grupo_desc', 'clasificacion_desc']).agg(
         total_personas=('persona_fact_sk', 'count')
     ).reset_index()
 
-    # 3. Pobreza por zona
     zona_g = df.groupby('zona_desc').agg(
         total_personas=('persona_fact_sk', 'count'),
         pobres_ipm=('es_pobre_ipm', 'sum'),
@@ -128,7 +143,6 @@ def api_spark():
     zona_g['tasa_pobreza_pct']   = (zona_g['pobres_ipm'] / zona_g['total_personas'] * 100).round(2)
     zona_g['score_ipm_promedio'] = zona_g['score_ipm_promedio'].round(2)
 
-    # 4. Educación vs pobreza
     edu = df.groupby('nivel_educativo').agg(
         total_personas=('persona_fact_sk', 'count'),
         score_ipm_promedio=('ipm_score', 'mean'),
@@ -137,7 +151,6 @@ def api_spark():
     edu['tasa_pobreza_pct']   = (edu['tasa_pobreza_pct'] * 100).round(2)
     edu['score_ipm_promedio'] = edu['score_ipm_promedio'].round(2)
 
-    # 5. Actividad económica con tasa de pobreza
     act = df.groupby('actividad_economica').agg(
         total_personas=('persona_fact_sk', 'count'),
         pobres_ipm=('es_pobre_ipm', 'sum'),
@@ -145,7 +158,6 @@ def api_spark():
     ).reset_index()
     act['tasa_pobreza_pct'] = (act['tasa_pobreza_pct'] * 100).round(2)
 
-    # 6. Top 10 municipios más pobres
     muni = df.groupby(['nom_municipio', 'nom_departamento']).agg(
         total_personas=('persona_fact_sk', 'count'),
         score_ipm_promedio=('ipm_score', 'mean'),
@@ -153,10 +165,9 @@ def api_spark():
     ).reset_index()
     muni['tasa_pobreza_pct']   = (muni['pobres_ipm'] / muni['total_personas'] * 100).round(2)
     muni['score_ipm_promedio'] = muni['score_ipm_promedio'].round(2)
-    muni = muni[muni['nom_municipio'] != 'Pendiente DIVIPOLA']  # ← filtra filas sin municipio
+    muni = muni[muni['nom_municipio'] != 'Pendiente DIVIPOLA'] 
     muni = muni.sort_values('score_ipm_promedio', ascending=False).head(10)
 
-    # 7. Evolución temporal — merge limpio con solo anio
     try:
         tiempo = pd.read_csv(os.path.join(DATA, 'dim_tiempo.csv'), encoding='utf-8-sig')
         tiempo_clean = tiempo[['tiempo_sk', 'anio']].drop_duplicates('tiempo_sk')
