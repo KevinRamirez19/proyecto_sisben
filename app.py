@@ -98,6 +98,10 @@ def kmeans():
 def dashboard_spark():
     return render_template('dashboard_pyspark.html', stats=STATS, active='spark')
 
+@app.route('/escenarios')
+def escenarios():
+    return render_template('escenarios.html', stats=STATS)
+
 @app.route('/api/spark')
 def api_spark():
 
