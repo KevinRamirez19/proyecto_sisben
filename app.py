@@ -108,17 +108,21 @@ def conocimientos():
 
 
 
+# ── AGREGA ESTA RUTA en app.py (junto a los demás @app.route) ──────────────
+# Sirve ml_resultados.json generado por spark.py al dashboard
+
 @app.route('/api/ml_resultados')
 def api_ml_resultados():
-   
-    ruta_ml = os.path.join(BASE, 'results', 'ml_resultados.json')
-    if not os.path.exists(ruta_ml):
-        return jsonify({'error': 'Archivo no encontrado. Ejecuta: python spark.py'}), 404
-    with open(ruta_ml, 'r', encoding='utf-8') as f:
-        import json as json_module
-        data = json_module.load(f)
-    return jsonify(data)
 
+    import json as _json
+    ruta_ml = os.path.join(BASE, 'ml_resultados.json')
+    if not os.path.exists(ruta_ml):
+        return jsonify({
+            'error': 'ml_resultados.json no encontrado.',
+            'solucion': 'Ejecuta: python spark.py'
+        }), 404
+    with open(ruta_ml, 'r', encoding='utf-8') as f:
+        return jsonify(_json.load(f))
 
 @app.route('/api/spark')
 def api_spark():

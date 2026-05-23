@@ -3,9 +3,6 @@
 
 {%- block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style_spark.css') }}">
-<style>
-
-</style>
 {%- endblock %}
 
 {%- block content %}
@@ -20,15 +17,12 @@
   </div>
 </section>
 
-<div id="loading">
-  <div class="spinner"></div>
-</div>
+<div id="loading"><div class="spinner"></div></div>
 
 <div id="error-box">
   <h3>No se pudo cargar el archivo</h3>
-  <p>Asegúrate de haber ejecutado <strong>python analisis_socioeconomico.py</strong> para generar <strong>resultados.json</strong> en la raíz del proyecto.</p>
+  <p>Asegúrate de haber ejecutado <strong>python spark.py</strong> y <strong>python app.py</strong>.</p>
   <code id="error-msg"></code>
-  <p style="margin-top:14px;font-size:.82rem;">Tip: ejecuta <code style="background:white;padding:2px 6px;border-radius:4px;">python analisis_socioeconomico.py</code> y luego <code style="background:white;padding:2px 6px;border-radius:4px;">python app.py</code>.</p>
 </div>
 
 <div id="dashboard" style="display:none;">
@@ -63,6 +57,7 @@
     </div>
 
     <hr class="divider" id="pobreza">
+
 
     <div class="sec-header fade-up">
       <div class="sec-tag">01 &middot; Pobreza Multidimensional</div>
@@ -99,14 +94,14 @@
         <div class="info-box" id="eduInfoBox"></div>
       </div>
       <div class="chart-card" id="poblacion">
-        <div class="chart-card__title">Actividad Economica vs. Pobreza IPM</div>
-        <div class="chart-card__sub">Total de personas por tipo de actividad</div>
+        <div class="chart-card__title">Actividad Economica</div>
+        <div class="chart-card__sub">Total de personas por tipo de actividad (agrupado)</div>
         <div class="chart-wrap chart-wrap--lg">
           <canvas id="chartActividad"></canvas>
         </div>
         <div class="tabla-wrapper" style="margin-top:20px;">
           <table>
-            <thead><tr><th>Actividad</th><th>Total</th><th>Pobres</th><th>Tasa IPM</th></tr></thead>
+            <thead><tr><th>Actividad</th><th>Total personas</th><th>% del total</th></tr></thead>
             <tbody id="tablaActividad"></tbody>
           </table>
         </div>
@@ -147,6 +142,7 @@
 
     <hr class="divider">
 
+
     <div class="sec-header fade-up">
       <div class="sec-tag sec-tag--verde">03 &middot; Analisis Territorial</div>
       <h2>Municipios con Mayor Pobreza IPM</h2>
@@ -173,14 +169,16 @@
 
     <hr class="divider" id="ml">
 
+
     <div class="sec-header fade-up">
-      <div class="sec-tag" style="background:#f0e8ff;color:#7a3db5;border-color:#d5b8f0;">04 &middot; Machine Learning · MLlib</div>
+      <div class="sec-tag" style="background:#f0e8ff;color:#7a3db5;border-color:#d5b8f0;">04 &middot; Machine Learning &middot; MLlib</div>
       <h2>Modelos Predictivos y Segmentación</h2>
       <p>Resultados de K-Means, Random Forest y Regresión Lineal entrenados sobre los 15 indicadores IPM.</p>
     </div>
 
+
     <div class="sec-header fade-up" style="margin-top:0;">
-      <div class="sec-tag sec-tag--ml">K-Means · Clustering No Supervisado</div>
+      <div class="sec-tag sec-tag--ml">K-Means &middot; Clustering No Supervisado</div>
       <h2 style="font-size:1.3rem;">Segmentación de Perfiles de Pobreza</h2>
     </div>
 
@@ -188,16 +186,16 @@
       <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px;">
         <span class="ml-info-badge km">K-Means MLlib</span>
         <span style="font-size:.82rem;color:#6b7fa3;">k = 4 clusters · StandardScaler · VectorAssembler · 15 indicadores IPM</span>
-        <span style="margin-left:auto;font-size:.8rem;" id="kmeansWSSE"></span>
+        <span style="margin-left:auto;" id="kmeansWSSE"></span>
       </div>
       <div class="grid-2">
         <div>
-          <div class="chart-card__title">Distribución de Clusters &mdash; Composición SISBÉN</div>
-          <div class="chart-card__sub">Cómo se distribuyen los grupos Sisbén dentro de cada cluster</div>
+          <div class="chart-card__title">Composición SISBÉN por Cluster</div>
+          <div class="chart-card__sub">Distribución de grupos Sisbén dentro de cada cluster</div>
           <div class="chart-wrap chart-wrap--lg"><canvas id="chartKmeansComp"></canvas></div>
         </div>
         <div>
-          <div class="chart-card__title">IPM Promedio por Cluster</div>
+          <div class="chart-card__title">IPM Promedio y % Pobreza por Cluster</div>
           <div class="chart-card__sub">Score medio y porcentaje de pobreza por segmento</div>
           <div class="chart-wrap chart-wrap--lg"><canvas id="chartKmeansIPM"></canvas></div>
         </div>
@@ -218,8 +216,9 @@
       </div>
     </div>
 
+
     <div class="sec-header fade-up" style="margin-top:8px;">
-      <div class="sec-tag sec-tag--rf">Random Forest · Clasificación Supervisada</div>
+      <div class="sec-tag sec-tag--rf">Random Forest &middot; Clasificación Supervisada</div>
       <h2 style="font-size:1.3rem;">Predicción de Pobreza IPM</h2>
     </div>
 
@@ -228,30 +227,24 @@
         <span class="ml-info-badge rf">Random Forest MLlib</span>
         <span style="font-size:.82rem;color:#6b7fa3;">50 árboles · maxDepth=8 · Variable: es_pobre_ipm (0/1) · Split 80/20</span>
       </div>
-
       <div class="metric-grid" id="rfMetrics"></div>
-
       <div class="grid-2">
         <div>
-          <div class="chart-card__title">Importancia de Variables (Feature Importance)</div>
+          <div class="chart-card__title">Importancia de Variables</div>
           <div class="chart-card__sub">Contribución relativa de cada indicador IPM a la predicción</div>
           <div class="importance-bar-wrap" id="rfImportance"></div>
         </div>
         <div>
-          <div>
-            <div class="chart-card__title">Importancia &mdash; Gráfico de Barras</div>
-            <div class="chart-card__sub">Top indicadores ordenados por poder predictivo</div>
-            <div class="chart-wrap chart-wrap--lg"><canvas id="chartRFImportance"></canvas></div>
-          </div>
+          <div class="chart-card__title">Feature Importance &mdash; Gráfico</div>
+          <div class="chart-card__sub">Top indicadores ordenados por poder predictivo</div>
+          <div class="chart-wrap chart-wrap--lg"><canvas id="chartRFImportance"></canvas></div>
         </div>
       </div>
-
       <div style="margin-top:24px;">
         <div class="chart-card__title">Matriz de Confusión (conjunto de test)</div>
-        <div class="chart-card__sub">Comparación entre predicciones del modelo vs valores reales</div>
+        <div class="chart-card__sub">Comparación predicciones del modelo vs valores reales</div>
         <div id="confusionMatrix" style="margin-top:12px;"></div>
       </div>
-
       <div style="margin-top:24px;">
         <div class="chart-card__title">Tabla completa de importancias</div>
         <div class="tabla-wrapper" style="margin-top:8px;">
@@ -263,8 +256,9 @@
       </div>
     </div>
 
+
     <div class="sec-header fade-up" style="margin-top:8px;">
-      <div class="sec-tag sec-tag--reg">Regresión Lineal · Predicción Continua</div>
+      <div class="sec-tag sec-tag--reg">Regresión Lineal &middot; Predicción Continua</div>
       <h2 style="font-size:1.3rem;">Predicción del Score IPM</h2>
     </div>
 
@@ -273,22 +267,19 @@
         <span class="ml-info-badge reg">LinearRegression MLlib</span>
         <span style="font-size:.82rem;color:#6b7fa3;">Variable objetivo: ipm_score (0–15) · maxIter=20 · regParam=0.1 · Split 80/20</span>
       </div>
-
       <div class="metric-grid" id="regMetrics"></div>
-
       <div class="grid-2">
         <div>
           <div class="chart-card__title">Coeficientes por Indicador IPM</div>
-          <div class="chart-card__sub">Magnitud del efecto de cada privación sobre el score final</div>
+          <div class="chart-card__sub">Magnitud del efecto de cada privación sobre el score</div>
           <div class="importance-bar-wrap" id="regCoefBars"></div>
         </div>
         <div>
           <div class="chart-card__title">Coeficientes &mdash; Gráfico</div>
-          <div class="chart-card__sub">Visualización del peso de cada variable en la regresión</div>
+          <div class="chart-card__sub">Peso de cada variable en la regresión</div>
           <div class="chart-wrap chart-wrap--lg"><canvas id="chartRegCoef"></canvas></div>
         </div>
       </div>
-
       <div style="margin-top:24px;">
         <div class="chart-card__title">Tabla de Coeficientes del Modelo</div>
         <div class="tabla-wrapper" style="margin-top:8px;">
@@ -308,12 +299,13 @@
 {%- block extra_js %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
+
 const C = {
   azul:'#1a4fa0', claro:'#3b7dd8', suave:'#e8f0fc',
   acento:'#d4860a', verde:'#1a7a4a', rojo:'#b83232',
   purple:'#7a3db5', gris:'#6b7fa3'
 };
-const SISBEN_COLORS = [C.rojo, C.acento, C.claro, C.verde];
+const SISBEN_COLORS  = [C.rojo, C.acento, C.claro, C.verde];
 const CLUSTER_COLORS = [C.azul, C.rojo, C.acento, C.verde];
 
 Chart.defaults.font.family = "'DM Sans', system-ui, sans-serif";
@@ -327,13 +319,14 @@ const pill = v => {
   return '<span class="pill pill--'+cls+'">'+v+'%</span>';
 };
 
-const INDICADOR_LABELS = {
+const IND = {
   I1:'Sin logro educ.',I2:'Analfabetismo',I3:'Asistencia escolar',
   I4:'Rezago escolar',I5:'Trabajo infantil',I6:'Desempleo largo',
   I7:'Empleo informal',I8:'Sin aseg. salud',I9:'Sin acceso salud',
   I10:'Sin prot. vejez',I11:'Sin agua mejorada',I12:'Exc. excretas',
   I13:'Pisos inad.',I14:'Paredes inad.',I15:'Hacinamiento'
 };
+
 
 async function loadData() {
   try {
@@ -348,16 +341,21 @@ async function loadData() {
   }
 }
 
+
 async function loadML() {
+
   try {
     const res = await fetch('/api/ml_resultados');
-    if (!res.ok) return null;
-    return await res.json();
-  } catch(e) {
-    console.warn('ML endpoint no disponible:', e);
-    return null;
-  }
+    if (res.ok) return await res.json();
+  } catch(e) {}
+
+  try {
+    const res = await fetch('/static/ml_resultados.json');
+    if (res.ok) return await res.json();
+  } catch(e) {}
+  return null;
 }
+
 
 function render(data) {
   const { pobreza_zona, distribucion_sisben, educacion_pobreza,
@@ -375,7 +373,7 @@ function render(data) {
   document.getElementById('kpi-score').textContent      = scoreGlobal;
 
   const urbano = pobreza_zona.find(r=>r.zona_desc&&r.zona_desc.toLowerCase().includes('cabecera'));
-  const rural  = pobreza_zona.find(r=>!r.zona_desc||!r.zona_desc.toLowerCase().includes('cabecera'));
+  const rural  = pobreza_zona.find(r=>r.zona_desc&&!r.zona_desc.toLowerCase().includes('cabecera'));
   if(urbano){ document.getElementById('kpi-urbano').textContent=urbano.tasa_pobreza_pct+'%'; document.getElementById('kpi-urbano-sub').textContent=fmt(urbano.total_personas)+' personas'; }
   if(rural){  document.getElementById('kpi-rural').textContent=rural.tasa_pobreza_pct+'%';   document.getElementById('kpi-rural-sub').textContent=fmt(rural.total_personas)+' personas'; }
 
@@ -391,56 +389,73 @@ function render(data) {
       '<div class="zona-bar__track"><div class="zona-bar__fill '+(zoneFills[i]||'zona-bar__fill--u')+'" style="width:'+z.tasa_pobreza_pct+'%"></div></div>'+
       '<div class="zona-bar__meta">Score IPM prom: <strong>'+z.score_ipm_promedio+'</strong> &middot; Pobres: '+fmt(z.pobres_ipm)+' &middot; Total: '+fmt(z.total_personas)+'</div></div>';
   }).join('');
-
   new Chart(document.getElementById('chartZona'),{type:'doughnut',data:{labels:pobreza_zona.map(r=>r.zona_desc),datasets:[{data:pobreza_zona.map(r=>r.total_personas),backgroundColor:[C.azul,C.acento],borderWidth:0,hoverOffset:8}]},options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{position:'bottom',labels:{padding:14,font:{size:11}}}}}});
+
 
   const sisbenMap={};
   distribucion_sisben.forEach(function(r){ if(!sisbenMap[r.grupo_desc])sisbenMap[r.grupo_desc]={total:0,label:r.grupo_desc}; sisbenMap[r.grupo_desc].total+=r.total_personas; });
   const sisbenArr=Object.values(sisbenMap).sort(function(a,b){return b.total-a.total;});
-
   document.getElementById('sisbenList').innerHTML=sisbenArr.map(function(s,i){
     return '<div class="sisben-item"><div class="sisben-dot" style="background:'+SISBEN_COLORS[i%SISBEN_COLORS.length]+'"></div><div class="sisben-name">'+s.label+'</div><div><div class="sisben-pct">'+fmt(s.total)+'</div><div class="sisben-tot">personas</div></div></div>';
   }).join('');
-
   new Chart(document.getElementById('chartSisben'),{type:'bar',data:{labels:sisbenArr.map(s=>s.label),datasets:[{label:'Personas',data:sisbenArr.map(s=>s.total),backgroundColor:SISBEN_COLORS,borderRadius:6,borderSkipped:false}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,scales:{x:{grid:{color:'#eaf0fb'}},y:{grid:{display:false}}},plugins:{legend:{display:false}}}});
+
 
   const eduLabels=educacion_pobreza.map(r=>r.nivel_educativo);
   const eduTasas=educacion_pobreza.map(r=>r.tasa_pobreza_pct);
   new Chart(document.getElementById('chartEducacion'),{type:'bar',data:{labels:eduLabels,datasets:[{label:'Tasa pobreza IPM (%)',data:eduTasas,backgroundColor:[C.rojo,C.acento,C.verde,C.claro,C.purple],borderRadius:8,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{max:100,grid:{color:'#eaf0fb'},ticks:{callback:function(v){return v+'%';}}}},plugins:{legend:{display:false}}}});
-
   const maxTasa=Math.max.apply(null,eduTasas); const minTasa=Math.min.apply(null,eduTasas);
   document.getElementById('eduInfoBox').innerHTML='<strong>Hallazgo:</strong> "'+educacion_pobreza.find(r=>r.tasa_pobreza_pct==maxTasa).nivel_educativo+'" tiene la tasa mas alta (<strong>'+maxTasa+'%</strong>), mientras "'+educacion_pobreza.find(r=>r.tasa_pobreza_pct==minTasa).nivel_educativo+'" la mas baja (<strong>'+minTasa+'%</strong>).';
 
-  const actArr = actividad_pension.sort(function(a,b){ return b.total_personas - a.total_personas; });
-  new Chart(document.getElementById('chartActividad'),{type:'pie',data:{labels:actArr.map(a=>a.actividad_economica),datasets:[{data:actArr.map(a=>a.total_personas),backgroundColor:[C.acento,C.azul,C.claro,C.gris,C.purple,C.verde],borderWidth:0,hoverOffset:8}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11},padding:10}}}}});
+
+  const actMap = {};
+  actividad_pension.forEach(function(r) {
+    if (!actMap[r.actividad_economica]) actMap[r.actividad_economica] = 0;
+    actMap[r.actividad_economica] += (r.total_personas || 0);
+  });
+  const actArr = Object.entries(actMap)
+    .map(function([act, total]) { return { actividad_economica: act, total_personas: total }; })
+    .sort(function(a,b) { return b.total_personas - a.total_personas; });
+  const totalAct = actArr.reduce(function(s,r){ return s+r.total_personas; }, 0);
+
+  new Chart(document.getElementById('chartActividad'),{
+    type:'pie',
+    data:{
+      labels: actArr.map(a=>a.actividad_economica),
+      datasets:[{data:actArr.map(a=>a.total_personas),backgroundColor:[C.acento,C.azul,C.claro,C.gris,C.purple,C.verde],borderWidth:0,hoverOffset:8}]
+    },
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11},padding:10}}}}
+  });
+ 
   document.getElementById('tablaActividad').innerHTML = actArr.map(function(a) {
-    return '<tr><td><strong>'+a.actividad_economica+'</strong></td><td>'+fmt(a.total_personas)+'</td>' +
-           '<td>'+fmt(a.pobres_ipm || 0)+'</td>' +
-           '<td>'+pill(a.tasa_pobreza_pct || 0)+'</td></tr>';
+    const pct = totalAct > 0 ? (a.total_personas/totalAct*100).toFixed(1) : 0;
+    return '<tr><td><strong>'+a.actividad_economica+'</strong></td><td>'+fmt(a.total_personas)+'</td><td>'+pill(parseFloat(pct))+'</td></tr>';
   }).join('');
 
-  const tYears=evolucion_temporal.map(r=>r.anio);
-  const tTasas=evolucion_temporal.map(r=>r.tasa_pobreza_pct);
-  const tTotals=evolucion_temporal.map(r=>r.total_personas);
-  const tPobres=evolucion_temporal.map(r=>r.pobres_ipm!=null?r.pobres_ipm:null);
-  const tScores=evolucion_temporal.map(r=>r.score_ipm_promedio);
+
+  const tYears  = evolucion_temporal.map(r=>r.anio);
+  const tTasas  = evolucion_temporal.map(r=>r.tasa_pobreza_pct);
+  const tTotals = evolucion_temporal.map(r=>r.total_personas);
+  const tPobres = evolucion_temporal.map(r=>r.pobres_ipm!=null?r.pobres_ipm:null);
+  const tScores = evolucion_temporal.map(r=>r.score_ipm_promedio);
   new Chart(document.getElementById('chartTemporalTasa'),{type:'line',data:{labels:tYears,datasets:[{label:'Tasa pobreza IPM (%)',data:tTasas,borderColor:C.rojo,backgroundColor:'rgba(184,50,50,.08)',fill:true,tension:0.35,pointRadius:6,pointBackgroundColor:C.rojo},{label:'Score IPM prom.',data:tScores,borderColor:C.acento,backgroundColor:'transparent',tension:0.35,pointRadius:5,pointBackgroundColor:C.acento,borderDash:[5,4]}]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{grid:{color:'#eaf0fb'}},x:{grid:{display:false}}},plugins:{legend:{position:'bottom'}}}});
   new Chart(document.getElementById('chartTemporalVol'),{type:'bar',data:{labels:tYears,datasets:[{label:'Total personas',data:tTotals,backgroundColor:C.suave,borderColor:C.azul,borderWidth:2,borderRadius:6,borderSkipped:false}].concat(tPobres[0]!==null?[{label:'Pobres IPM',data:tPobres,backgroundColor:'rgba(184,50,50,.6)',borderRadius:6,borderSkipped:false}]:[])},options:{responsive:true,maintainAspectRatio:false,scales:{y:{grid:{color:'#eaf0fb'}},x:{grid:{display:false}}},plugins:{legend:{position:'bottom'}}}});
-  document.getElementById('tablaTemporal').innerHTML=evolucion_temporal.map(function(r){return '<tr><td><strong>'+r.anio+'</strong></td><td>'+fmt(r.total_personas)+'</td><td>'+(r.pobres_ipm!==undefined?fmt(r.pobres_ipm):'-')+'</td><td>'+pill(r.tasa_pobreza_pct)+'</td><td>'+r.score_ipm_promedio+'</td></tr>';}).join('');
+  document.getElementById('tablaTemporal').innerHTML=evolucion_temporal.map(function(r){return '<tr><td><strong>'+r.anio+'</strong></td><td>'+fmt(r.total_personas)+'</td><td>'+(r.pobres_ipm!=null?fmt(r.pobres_ipm):'-')+'</td><td>'+pill(r.tasa_pobreza_pct)+'</td><td>'+r.score_ipm_promedio+'</td></tr>';}).join('');
 
   const muns=municipios_mas_pobres.slice(0,10);
   new Chart(document.getElementById('chartMunicipios'),{type:'bar',data:{labels:muns.map(m=>m.nom_municipio),datasets:[{label:'Score IPM prom.',data:muns.map(m=>m.score_ipm_promedio),backgroundColor:C.azul,borderRadius:6,borderSkipped:false,yAxisID:'y'},{label:'Tasa pobreza (%)',data:muns.map(m=>m.tasa_pobreza_pct),type:'line',borderColor:C.rojo,backgroundColor:'transparent',tension:0.3,pointRadius:5,pointBackgroundColor:C.rojo,yAxisID:'y1'}]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{grid:{color:'#eaf0fb'},title:{display:true,text:'Score IPM'}},y1:{position:'right',grid:{drawOnChartArea:false},ticks:{callback:function(v){return v+'%';}}},x:{grid:{display:false},ticks:{maxRotation:35}}},plugins:{legend:{position:'bottom'}}}});
   document.getElementById('tablaMunicipios').innerHTML=muns.map(function(m,i){return '<tr><td>'+(i+1)+'</td><td><strong>'+m.nom_municipio+'</strong></td><td>'+m.score_ipm_promedio+'</td><td>'+pill(m.tasa_pobreza_pct)+'</td><td>'+fmt(m.total_personas)+'</td></tr>';}).join('');
 }
 
+
 function renderKMeans(km) {
   if (!km) return;
-
   const wssse = document.getElementById('kmeansWSSE');
-  if (wssse) wssse.innerHTML = '<span style="background:#f0e8ff;color:#7a3db5;border-radius:20px;padding:4px 12px;font-weight:600;">WSSSE: '+km.wssse+'</span>';
+  if (wssse) wssse.innerHTML = '<span style="background:#f0e8ff;color:#7a3db5;border-radius:20px;padding:4px 12px;font-weight:600;">WSSSE: '+km.wssse+' &middot; Tiempo: '+km.tiempo_fit+'s</span>';
 
-  const perfil = km.perfil || [];
+  const perfil     = km.perfil     || [];
   const distSisben = km.dist_sisben || [];
+
 
   const clusterMap = {};
   distSisben.forEach(function(r){
@@ -455,13 +470,7 @@ function renderKMeans(km) {
     data:{
       labels: clusterLabels,
       datasets: grupos.map(function(g,i){
-        return {
-          label: g,
-          data: perfil.map(function(p){ return (clusterMap[p.cluster]||{})[g]||0; }),
-          backgroundColor: SISBEN_COLORS[i],
-          borderRadius: 4,
-          borderSkipped: false,
-        };
+        return { label:g, data:perfil.map(function(p){ return (clusterMap[p.cluster]||{})[g]||0; }), backgroundColor:SISBEN_COLORS[i], borderRadius:4, borderSkipped:false };
       })
     },
     options:{responsive:true,maintainAspectRatio:false,scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,grid:{color:'#eaf0fb'}}},plugins:{legend:{position:'bottom',labels:{font:{size:10}}}}}
@@ -479,12 +488,13 @@ function renderKMeans(km) {
     options:{responsive:true,maintainAspectRatio:false,scales:{y:{grid:{color:'#eaf0fb'},title:{display:true,text:'Score IPM'}},y1:{position:'right',grid:{drawOnChartArea:false},ticks:{callback:function(v){return v+'%';}}},x:{grid:{display:false}}},plugins:{legend:{position:'bottom'}}}
   });
 
-  const ipmKeys = ['avg_I1','avg_I2','avg_I3','avg_I4','avg_I5'];
+  // Cards de perfil
+  const ipmKeys   = ['avg_I1','avg_I2','avg_I3','avg_I4','avg_I5'];
   const ipmLabels = ['I1','I2','I3','I4','I5'];
   document.getElementById('clusterProfiles').innerHTML = perfil.map(function(p,i){
     const bars = ipmKeys.map(function(k,j){
-      const val = p[k] || 0;
-      const pct = Math.round(val * 100);
+      const val = p[k]||0;
+      const pct = Math.min(Math.round(val*100),100);
       return '<div class="cl-bar-row"><div class="cl-bar-lbl">'+ipmLabels[j]+'</div>'+
         '<div class="cl-bar-track"><div class="cl-bar-fill" style="width:'+pct+'%;background:'+CLUSTER_COLORS[i]+'"></div></div>'+
         '<div class="cl-bar-val">'+val.toFixed(2)+'</div></div>';
@@ -495,40 +505,35 @@ function renderKMeans(km) {
       '<div style="font-size:.7rem;color:#888;margin-bottom:4px;">IPM promedio</div>'+
       '<div class="cluster-card__pob">'+p.pct_pobre+'% pobres</div>'+
       '<div class="cluster-card__n">'+fmt(p.n)+' personas</div>'+
-      '<div class="cluster-card__bars">'+bars+'</div>'+
-      '</div>';
+      '<div class="cluster-card__bars">'+bars+'</div></div>';
   }).join('');
 
   document.getElementById('tablaKmeans').innerHTML = perfil.map(function(p,i){
     return '<tr>'+
       '<td><span style="display:inline-flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:50%;background:'+CLUSTER_COLORS[i]+'"></span><strong>'+p.cluster+'</strong></span></td>'+
-      '<td>'+fmt(p.n)+'</td>'+
-      '<td>'+p.ipm_promedio+'</td>'+
-      '<td>'+pill(p.pct_pobre)+'</td>'+
-      '<td>'+(p.avg_I1||0).toFixed(3)+'</td>'+
-      '<td>'+(p.avg_I2||0).toFixed(3)+'</td>'+
-      '<td>'+(p.avg_I3||0).toFixed(3)+'</td>'+
-      '<td>'+(p.avg_I4||0).toFixed(3)+'</td>'+
-      '<td>'+(p.avg_I5||0).toFixed(3)+'</td>'+
-      '</tr>';
+      '<td>'+fmt(p.n)+'</td><td>'+p.ipm_promedio+'</td><td>'+pill(p.pct_pobre)+'</td>'+
+      '<td>'+(p.avg_I1||0).toFixed(3)+'</td><td>'+(p.avg_I2||0).toFixed(3)+'</td>'+
+      '<td>'+(p.avg_I3||0).toFixed(3)+'</td><td>'+(p.avg_I4||0).toFixed(3)+'</td>'+
+      '<td>'+(p.avg_I5||0).toFixed(3)+'</td></tr>';
   }).join('');
 }
+
 
 function renderRandomForest(rf) {
   if (!rf) return;
 
   document.getElementById('rfMetrics').innerHTML =
-    '<div class="metric-box"><div class="metric-box__val">'+rf.accuracy+'%</div><div class="metric-box__lbl">Accuracy</div></div>'+
+    '<div class="metric-box metric-box--green"><div class="metric-box__val">'+rf.accuracy+'%</div><div class="metric-box__lbl">Accuracy</div></div>'+
     '<div class="metric-box metric-box--danger"><div class="metric-box__val">'+rf.f1+'%</div><div class="metric-box__lbl">F1-Score</div></div>'+
     '<div class="metric-box"><div class="metric-box__val">'+rf.precision+'%</div><div class="metric-box__lbl">Precision</div></div>'+
-    '<div class="metric-box metric-box--green"><div class="metric-box__val">'+rf.recall+'%</div><div class="metric-box__lbl">Recall</div></div>'+
+    '<div class="metric-box"><div class="metric-box__val">'+rf.recall+'%</div><div class="metric-box__lbl">Recall</div></div>'+
     '<div class="metric-box"><div class="metric-box__val">'+rf.tiempo_fit+'s</div><div class="metric-box__lbl">Tiempo fit</div></div>';
 
-  const imps = rf.importancias || [];
+  const imps   = rf.importancias || [];
   const maxImp = Math.max.apply(null, imps.map(function(x){return x.valor;}));
   document.getElementById('rfImportance').innerHTML = imps.map(function(imp){
-    const label = INDICADOR_LABELS[imp.indicador] || imp.indicador;
-    const pct = maxImp > 0 ? (imp.valor / maxImp * 100).toFixed(1) : 0;
+    const label = IND[imp.indicador]||imp.indicador;
+    const pct   = maxImp>0 ? (imp.valor/maxImp*100).toFixed(1) : 0;
     return '<div class="imp-row"><div class="imp-label">'+label+'</div>'+
       '<div class="imp-track"><div class="imp-fill imp-fill--rf" style="width:'+pct+'%"></div></div>'+
       '<div class="imp-val">'+imp.valor+'%</div></div>';
@@ -537,144 +542,118 @@ function renderRandomForest(rf) {
   new Chart(document.getElementById('chartRFImportance'),{
     type:'bar',
     data:{
-      labels: imps.map(function(i){ return INDICADOR_LABELS[i.indicador]||i.indicador; }),
-      datasets:[{label:'Importancia (%)',data:imps.map(function(i){return i.valor;}),backgroundColor:imps.map(function(_,idx){ return idx<3?C.rojo:C.acento; }),borderRadius:6,borderSkipped:false}]
+      labels: imps.map(function(i){ return IND[i.indicador]||i.indicador; }),
+      datasets:[{label:'Importancia (%)',data:imps.map(function(i){return i.valor;}),
+        backgroundColor:imps.map(function(_,idx){ return idx<3?C.rojo:C.acento; }),borderRadius:6,borderSkipped:false}]
     },
-    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,scales:{x:{grid:{color:'#eaf0fb'},ticks:{callback:function(v){return v+'%';}}},y:{grid:{display:false},ticks:{font:{size:10}}}},plugins:{legend:{display:false}}}
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      scales:{x:{grid:{color:'#eaf0fb'},ticks:{callback:function(v){return v+'%';}}},y:{grid:{display:false},ticks:{font:{size:10}}}},
+      plugins:{legend:{display:false}}}
   });
 
+  
   const conf = rf.confusion || [];
-  let tp=0,tn=0,fp=0,fn=0;
+  let tp=0, tn=0, fp=0, fn=0;
   conf.forEach(function(r){
-    const real = Number(r.es_pobre_ipm); const pred = Number(r.prediction); const n = r.count||0;
-    if(real===1&&pred===1) tp+=n;
-    else if(real===0&&pred===0) tn+=n;
-    else if(real===0&&pred===1) fp+=n;
-    else if(real===1&&pred===0) fn+=n;
+    const real = parseInt(r.es_pobre_ipm,10);
+    const pred = Math.round(parseFloat(r.prediction));
+    const n    = parseInt(r.count,10) || 0;
+    if(real===1 && pred===1) tp+=n;
+    else if(real===0 && pred===0) tn+=n;
+    else if(real===0 && pred===1) fp+=n;
+    else if(real===1 && pred===0) fn+=n;
   });
+  const total  = tp+tn+fp+fn;
+  const accConf = total>0 ? ((tp+tn)/total*100).toFixed(1) : '—';
   document.getElementById('confusionMatrix').innerHTML =
     '<div class="confusion-grid">'+
     '<div class="conf-header"></div><div class="conf-header">Pred. Pobre</div><div class="conf-header">Pred. No pobre</div>'+
     '<div class="conf-header">Real Pobre</div>'+
-    '<div class="conf-cell conf-cell--tp"><div class="conf-val">'+fmt(tp)+'</div><div class="conf-lbl">VP (True Pos.)</div></div>'+
-    '<div class="conf-cell conf-cell--fn"><div class="conf-val">'+fmt(fn)+'</div><div class="conf-lbl">FN (False Neg.)</div></div>'+
+    '<div class="conf-cell conf-cell--tp"><div class="conf-val">'+fmt(tp)+'</div><div class="conf-lbl">VP · True Pos.</div></div>'+
+    '<div class="conf-cell conf-cell--fn"><div class="conf-val">'+fmt(fn)+'</div><div class="conf-lbl">FN · False Neg.</div></div>'+
     '<div class="conf-header">Real No pobre</div>'+
-    '<div class="conf-cell conf-cell--fp"><div class="conf-val">'+fmt(fp)+'</div><div class="conf-lbl">FP (False Pos.)</div></div>'+
-    '<div class="conf-cell conf-cell--tn"><div class="conf-val">'+fmt(tn)+'</div><div class="conf-lbl">VN (True Neg.)</div></div>'+
-    '</div>';
+    '<div class="conf-cell conf-cell--fp"><div class="conf-val">'+(fp>0?fmt(fp):'0')+'</div><div class="conf-lbl">FP · False Pos.</div></div>'+
+    '<div class="conf-cell conf-cell--tn"><div class="conf-val">'+fmt(tn)+'</div><div class="conf-lbl">VN · True Neg.</div></div>'+
+    '</div>'+
+    '<div style="margin-top:10px;font-size:.78rem;color:#6b7fa3;">Accuracy sobre test: <strong style="color:#1a4fa0;">'+accConf+'%</strong> &middot; Total: '+fmt(total)+' registros</div>';
 
   document.getElementById('tablaRFImportance').innerHTML = imps.map(function(imp,i){
-    const badge = i===0?'<span style="background:#b83232;color:white;border-radius:10px;padding:2px 8px;font-size:.7rem;">Top</span>':'';
-    return '<tr><td><strong>'+(INDICADOR_LABELS[imp.indicador]||imp.indicador)+'</strong> <small style="color:#888;">'+imp.indicador+'</small></td>'+
-      '<td><div style="display:flex;align-items:center;gap:8px;"><div style="flex:1;background:#eaf0fb;border-radius:3px;height:8px;"><div style="width:'+imp.valor+'%;background:'+C.rojo+';height:8px;border-radius:3px;"></div></div><span>'+imp.valor+'%</span></div></td>'+
-      '<td>'+badge+'</td></tr>';
+    const badge = i===0?'<span style="background:#b83232;color:white;border-radius:10px;padding:2px 8px;font-size:.7rem;">Top</span>':
+                  i<3?'<span style="background:#d4860a;color:white;border-radius:10px;padding:2px 8px;font-size:.7rem;">Clave</span>':'';
+    return '<tr><td><strong>'+(IND[imp.indicador]||imp.indicador)+'</strong> <small style="color:#aaa;">'+imp.indicador+'</small></td>'+
+      '<td><div style="display:flex;align-items:center;gap:8px;">'+
+      '<div style="flex:1;background:#eaf0fb;border-radius:3px;height:8px;"><div style="width:'+(imp.valor/maxImp*100).toFixed(1)+'%;background:'+C.rojo+';height:8px;border-radius:3px;"></div></div>'+
+      '<span>'+imp.valor+'%</span></div></td><td>'+badge+'</td></tr>';
   }).join('');
 }
+
 
 function renderRegresion(rl) {
   if (!rl) return;
 
   document.getElementById('regMetrics').innerHTML =
-    '<div class="metric-box metric-box--green"><div class="metric-box__val">'+rl.r2+'</div><div class="metric-box__lbl">R² (Coef. Determinación)</div></div>'+
+    '<div class="metric-box metric-box--green"><div class="metric-box__val">'+rl.r2+'</div><div class="metric-box__lbl">R² Determinación</div></div>'+
     '<div class="metric-box"><div class="metric-box__val">'+rl.rmse+'</div><div class="metric-box__lbl">RMSE</div></div>'+
     '<div class="metric-box"><div class="metric-box__val">'+rl.mae+'</div><div class="metric-box__lbl">MAE</div></div>'+
     '<div class="metric-box"><div class="metric-box__val">'+rl.intercepto+'</div><div class="metric-box__lbl">Intercepto</div></div>'+
     '<div class="metric-box"><div class="metric-box__val">'+rl.tiempo_fit+'s</div><div class="metric-box__lbl">Tiempo fit</div></div>';
 
-  const coefs = rl.coeficientes || [];
+  const coefs  = rl.coeficientes || [];
   const maxAbs = Math.max.apply(null, coefs.map(function(x){return Math.abs(x.coef);}));
 
   document.getElementById('regCoefBars').innerHTML = coefs.map(function(c){
-    const label = INDICADOR_LABELS[c.indicador]||c.indicador;
-    const pct = maxAbs > 0 ? (Math.abs(c.coef)/maxAbs*100).toFixed(1) : 0;
-    const col = c.coef >= 0 ? C.verde : C.rojo;
+    const label = IND[c.indicador]||c.indicador;
+    const pct   = maxAbs>0 ? (Math.abs(c.coef)/maxAbs*100).toFixed(1) : 0;
+    const col   = c.coef>=0 ? C.verde : C.rojo;
     return '<div class="imp-row"><div class="imp-label">'+label+'</div>'+
-      '<div class="imp-track"><div class="imp-fill imp-fill--reg" style="width:'+pct+'%;background:'+col+'"></div></div>'+
+      '<div class="imp-track"><div class="imp-fill" style="width:'+pct+'%;background:'+col+'"></div></div>'+
       '<div class="imp-val" style="color:'+col+'">'+c.coef+'</div></div>';
   }).join('');
 
   new Chart(document.getElementById('chartRegCoef'),{
     type:'bar',
     data:{
-      labels: coefs.map(function(c){return INDICADOR_LABELS[c.indicador]||c.indicador;}),
+      labels: coefs.map(function(c){return IND[c.indicador]||c.indicador;}),
       datasets:[{label:'Coeficiente',data:coefs.map(function(c){return c.coef;}),
         backgroundColor:coefs.map(function(c){return c.coef>=0?'rgba(26,122,74,.7)':'rgba(184,50,50,.7)';}),
         borderRadius:4,borderSkipped:false}]
     },
-    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,scales:{x:{grid:{color:'#eaf0fb'}},y:{grid:{display:false},ticks:{font:{size:10}}}},plugins:{legend:{display:false}}}
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      scales:{x:{grid:{color:'#eaf0fb'}},y:{grid:{display:false},ticks:{font:{size:10}}}},
+      plugins:{legend:{display:false}}}
   });
 
   document.getElementById('tablaRegCoef').innerHTML = coefs.map(function(c){
-    const isPos = c.coef >= 0;
-    const cls = isPos ? 'coef-positive' : 'coef-negative';
-    const interp = isPos
-      ? 'Aumenta el score en '+c.coef+' por unidad'
-      : 'Reduce el score en '+Math.abs(c.coef)+' por unidad';
-    return '<tr><td><strong>'+(INDICADOR_LABELS[c.indicador]||c.indicador)+'</strong> <small style="color:#aaa;">'+c.indicador+'</small></td>'+
+    const isPos = c.coef>=0;
+    const cls   = isPos ? 'coef-positive' : 'coef-negative';
+    const interp = 'Por cada unidad de este indicador, el score IPM '+(isPos?'aumenta en '+c.coef:'disminuye en '+Math.abs(c.coef));
+    return '<tr><td><strong>'+(IND[c.indicador]||c.indicador)+'</strong> <small style="color:#aaa;">'+c.indicador+'</small></td>'+
       '<td class="'+cls+'">'+c.coef+'</td>'+
       '<td style="font-size:.75rem;color:#666;">'+interp+'</td></tr>';
   }).join('');
 }
 
 
-function generateFallbackML() {
-  return {
-    kmeans: {
-      k: 4, wssse: 12450.32,
-      perfil: [
-        {cluster:0,n:89234,ipm_promedio:8.42,pct_pobre:91.2,avg_I1:0.82,avg_I2:0.34,avg_I3:0.21,avg_I4:0.45,avg_I5:0.18},
-        {cluster:1,n:67891,ipm_promedio:4.15,pct_pobre:38.7,avg_I1:0.42,avg_I2:0.12,avg_I3:0.08,avg_I4:0.19,avg_I5:0.06},
-        {cluster:2,n:112450,ipm_promedio:11.87,pct_pobre:98.1,avg_I1:0.95,avg_I2:0.68,avg_I3:0.54,avg_I4:0.79,avg_I5:0.41},
-        {cluster:3,n:46037,ipm_promedio:1.23,pct_pobre:4.3,avg_I1:0.11,avg_I2:0.03,avg_I3:0.02,avg_I4:0.05,avg_I5:0.01},
-      ],
-      dist_sisben: [
-        {cluster:0,grupo_desc:'A – Pobreza extrema',n:72000},{cluster:0,grupo_desc:'B – Pobreza moderada',n:14000},{cluster:0,grupo_desc:'C – Vulnerable',n:3000},{cluster:0,grupo_desc:'D – No pobre',n:234},
-        {cluster:1,grupo_desc:'A – Pobreza extrema',n:12000},{cluster:1,grupo_desc:'B – Pobreza moderada',n:28000},{cluster:1,grupo_desc:'C – Vulnerable',n:22000},{cluster:1,grupo_desc:'D – No pobre',n:5891},
-        {cluster:2,grupo_desc:'A – Pobreza extrema',n:98000},{cluster:2,grupo_desc:'B – Pobreza moderada',n:11000},{cluster:2,grupo_desc:'C – Vulnerable',n:2800},{cluster:2,grupo_desc:'D – No pobre',n:650},
-        {cluster:3,grupo_desc:'A – Pobreza extrema',n:200},{cluster:3,grupo_desc:'B – Pobreza moderada',n:2100},{cluster:3,grupo_desc:'C – Vulnerable',n:12000},{cluster:3,grupo_desc:'D – No pobre',n:31737},
-      ]
-    },
-    random_forest: {
-      accuracy:92.4,precision:91.8,recall:92.1,f1:91.9,tiempo_fit:18.3,
-      importancias:[
-        {indicador:'I7',valor:18.4},{indicador:'I1',valor:16.2},{indicador:'I12',valor:13.7},
-        {indicador:'I6',valor:11.3},{indicador:'I10',valor:9.8},{indicador:'I15',valor:8.5},
-        {indicador:'I13',valor:6.2},{indicador:'I2',valor:5.1},{indicador:'I8',valor:4.3},
-        {indicador:'I3',valor:3.2},{indicador:'I9',valor:2.1},{indicador:'I4',valor:1.3},
-        {indicador:'I5',valor:0.8},{indicador:'I11',valor:0.5},{indicador:'I14',valor:0.3},
-      ],
-      confusion:[
-        {es_pobre_ipm:1,prediction:1,count:52341},{es_pobre_ipm:0,prediction:0,count:31208},
-        {es_pobre_ipm:1,prediction:0,count:2871},{es_pobre_ipm:0,prediction:1,count:3580},
-      ]
-    },
-    regresion_lineal: {
-      rmse:0.8234,r2:0.8712,mae:0.6102,intercepto:0.3421,tiempo_fit:4.2,
-      coeficientes:[
-        {indicador:'I7',coef:1.2341},{indicador:'I1',coef:1.1832},{indicador:'I12',coef:0.9871},
-        {indicador:'I6',coef:0.8543},{indicador:'I10',coef:0.7821},{indicador:'I15',coef:0.7123},
-        {indicador:'I13',coef:0.5432},{indicador:'I2',coef:0.4821},{indicador:'I8',coef:0.3910},
-        {indicador:'I3',coef:0.3102},{indicador:'I9',coef:0.2543},{indicador:'I4',coef:0.1982},
-        {indicador:'I5',coef:0.1201},{indicador:'I11',coef:0.0821},{indicador:'I14',coef:0.0543},
-      ]
-    }
-  };
-}
-
 (async function(){
   const data = await loadData();
-  if(!data) return;
+  if (!data) return;
   document.getElementById('loading').style.display   = 'none';
   document.getElementById('dashboard').style.display = 'block';
   render(data);
 
-  let ml = await loadML();
+  const ml = await loadML();
   if (!ml) {
-    console.info('Usando datos ML de demostración. Ejecuta spark.py para datos reales.');
-    ml = generateFallbackML();
+
+    document.getElementById('ml').insertAdjacentHTML('afterend',
+      '<div class="info-box fade-up" style="margin:0 0 24px;background:#fff8e6;border-color:#f5d98a;color:#7a5200;">'+
+      '<strong>&#9888; Datos ML no encontrados.</strong> Ejecuta <code>python spark.py</code> para generar '+
+      '<code>ml_resultados.json</code> y luego copia el archivo a <code>static/</code> o agrega el endpoint '+
+      '<code>/api/ml_resultados</code> en app.py.</div>'
+    );
+    return;
   }
   renderKMeans(ml.kmeans);
-  renderRandomForest(ml.random_forest || ml.random_forest);
+  renderRandomForest(ml.random_forest);
   renderRegresion(ml.regresion_lineal);
 })();
 </script>

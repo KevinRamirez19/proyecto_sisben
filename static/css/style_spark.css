@@ -276,3 +276,59 @@ tbody tr:hover td { background: var(--azul-suave); }
   .ml-info-badge.rf   { background: #b83232; }
   .ml-info-badge.reg  { background: #1a7a4a; }
   .ml-info-badge.km   { background: #7a3db5; }
+
+    .sec-tag--ml  { background:#e8f0fc; color:#1a4fa0; border-color:#c2d3f5; }
+  .sec-tag--rf  { background:#fdf3e7; color:#d4860a; border-color:#f5dbb5; }
+  .sec-tag--reg { background:#eafaf2; color:#1a7a4a; border-color:#b5e8cc; }
+
+  .metric-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:14px; margin:16px 0 24px; }
+  .metric-box { background:#f5f8ff; border:1px solid #dce8fb; border-radius:10px; padding:14px 12px; text-align:center; }
+  .metric-box--danger { background:#fff5f5; border-color:#f8d0d0; }
+  .metric-box--green  { background:#f2fbf6; border-color:#c2e8d2; }
+  .metric-box__val { font-size:1.7rem; font-weight:700; color:#1a4fa0; line-height:1; }
+  .metric-box--danger .metric-box__val { color:#b83232; }
+  .metric-box--green  .metric-box__val { color:#1a7a4a; }
+  .metric-box__lbl { font-size:.72rem; color:#6b7fa3; margin-top:4px; text-transform:uppercase; letter-spacing:.04em; }
+
+  .importance-bar-wrap { margin-top:6px; }
+  .imp-row { display:flex; align-items:center; gap:10px; margin-bottom:7px; }
+  .imp-label { flex:0 0 155px; font-size:.74rem; color:#444; text-align:right; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .imp-track { flex:1; background:#eaf0fb; border-radius:4px; height:10px; }
+  .imp-fill  { height:10px; border-radius:4px; transition:width .5s ease; }
+  .imp-fill--rf  { background:linear-gradient(90deg,#b83232,#d4860a); }
+  .imp-fill--reg { background:linear-gradient(90deg,#1a7a4a,#3b7dd8); }
+  .imp-val { flex:0 0 42px; font-size:.74rem; color:#1a4fa0; font-weight:600; text-align:right; }
+
+  .coef-positive { color:#1a7a4a; font-weight:600; }
+  .coef-negative { color:#b83232; font-weight:600; }
+
+  .cluster-profiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-top:16px; }
+  .cluster-card { border:1px solid #dce8fb; border-radius:10px; padding:14px; background:#fafcff; }
+  .cluster-card__num { font-size:.7rem; text-transform:uppercase; color:#6b7fa3; letter-spacing:.06em; }
+  .cluster-card__ipm { font-size:1.5rem; font-weight:700; color:#1a4fa0; margin:2px 0; }
+  .cluster-card__pob { font-size:.8rem; color:#b83232; font-weight:600; }
+  .cluster-card__n   { font-size:.72rem; color:#888; margin-top:4px; }
+  .cluster-card__bars { margin-top:10px; }
+  .cl-bar-row { display:flex; align-items:center; gap:6px; margin-bottom:4px; }
+  .cl-bar-lbl { flex:0 0 28px; font-size:.65rem; color:#888; }
+  .cl-bar-track { flex:1; background:#eaf0fb; border-radius:3px; height:7px; }
+  .cl-bar-fill { height:7px; border-radius:3px; }
+  .cl-bar-val { flex:0 0 30px; font-size:.65rem; color:#555; text-align:right; }
+
+  .confusion-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:12px; max-width:340px; }
+  .conf-header { background:#1a4fa0; color:white; font-size:.7rem; text-align:center; padding:6px; border-radius:4px; font-weight:600; }
+  .conf-cell   { background:#f5f8ff; border:1px solid #dce8fb; border-radius:6px; text-align:center; padding:12px 6px; }
+  .conf-cell--tp,.conf-cell--tn { background:#e8f7ee; border-color:#b5e8cc; }
+  .conf-cell--fp,.conf-cell--fn { background:#fff5f5; border-color:#f8d0d0; }
+  .conf-val { font-size:1.2rem; font-weight:700; color:#1a4fa0; }
+  .conf-lbl { font-size:.64rem; color:#6b7fa3; }
+
+  .ml-info-badge { display:inline-flex; align-items:center; gap:6px; background:#1a4fa0; color:white; border-radius:20px; padding:5px 14px; font-size:.75rem; font-weight:600; margin-bottom:12px; }
+  .ml-info-badge.rf  { background:#b83232; }
+  .ml-info-badge.reg { background:#1a7a4a; }
+  .ml-info-badge.km  { background:#7a3db5; }
+
+  .coef-table { width:100%; border-collapse:collapse; font-size:.8rem; }
+  .coef-table th { background:#f0f4fb; padding:8px 10px; text-align:left; color:#3b7dd8; font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; }
+  .coef-table td { padding:7px 10px; border-bottom:1px solid #eef2fb; }
+  .coef-table tr:hover td { background:#f8faff; }
