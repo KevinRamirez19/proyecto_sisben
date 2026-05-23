@@ -1,9 +1,3 @@
-/* ═══════════════════════════════════════════════
-   style_conocimientos.css
-   Aligned with style_spark.css design system
-   ═══════════════════════════════════════════════ */
-
-/* ── Tokens (same as spark) ─────────────────── */
 :root {
   --azul:   #1a4fa0;
   --claro:  #3b7dd8;
@@ -31,7 +25,6 @@
   --muted:  #6b7fa3;
 }
 
-/* ── Hero (exact match to spark) ────────────── */
 .page-hero {
   background: linear-gradient(135deg, #0d1e3d 0%, #1a3060 60%, #1a4fa0 100%);
   padding: 40px 32px 36px;
@@ -95,7 +88,6 @@
   margin-top: 3px;
 }
 
-/* ── Layout (same as spark) ─────────────────── */
 #dashboard { background: var(--bg); min-height: 100vh; }
 .dash-main {
   max-width: 1120px;
@@ -108,7 +100,6 @@
   margin: 36px 0;
 }
 
-/* ── Section headers (same as spark) ────────── */
 .sec-header {
   margin-bottom: 20px;
 }
@@ -140,10 +131,8 @@
   margin: 0;
 }
 
-/* ── Fade-up animation ───────────────────────── */
 .fade-up { /* JS handles the animation */ }
 
-/* ── Chart card (same as spark) ─────────────── */
 .chart-card {
   background: var(--card);
   border-radius: 16px;
@@ -164,7 +153,6 @@
   margin-bottom: 16px;
 }
 
-/* ── Pipeline ────────────────────────────────── */
 .pipeline-wrap {
   background: var(--card);
   border-radius: 16px;
@@ -230,7 +218,6 @@
 }
 .pipe-arrow span::before { content: '→'; }
 
-/* ── Pyramid cards ───────────────────────────── */
 .pyramid-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -350,7 +337,6 @@
 .tech-pill--l3 { background: var(--l3-bg); color: #0d4a2d; }
 .tech-pill--l4 { background: var(--l4-bg); color: #7a1010; }
 
-/* ── MLlib cards ─────────────────────────────── */
 .mllib-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -440,7 +426,6 @@
   margin-top: 3px;
 }
 
-/* Cluster list */
 .mllib-clusters { display: flex; flex-direction: column; gap: 8px; }
 .cluster-row {
   display: flex;
@@ -528,7 +513,6 @@
 }
 .imp-val--top { color: var(--rojo); }
 
-/* Confusion matrix mini */
 .confusion-mini {}
 .confusion-title {
   font-size: .75rem;
@@ -568,7 +552,6 @@
   margin-top: 3px;
 }
 
-/* Detail row */
 .mllib-detail-row {
   display: flex;
   gap: 16px;
@@ -591,7 +574,6 @@
   color: var(--azul);
 }
 
-/* ── Comparative table ───────────────────────── */
 .pgc-table-card {
   background: var(--card);
   border-radius: 16px;
@@ -640,7 +622,6 @@
   color: var(--azul);
 }
 
-/* Row accent bars */
 .row-l1 td:first-child { border-left: 4px solid var(--l1); }
 .row-l2 td:first-child { border-left: 4px solid var(--l2); }
 .row-l3 td:first-child { border-left: 4px solid var(--l3); }
@@ -668,7 +649,6 @@
   font-weight: 600;
 }
 
-/* Finding list */
 .finding-list { list-style: none; margin: 0; padding: 0; }
 .finding-list li {
   padding: 4px 0 4px 16px;
@@ -686,7 +666,6 @@
   top: 5px;
 }
 
-/* ── Responsive ──────────────────────────────── */
 @media (max-width: 720px) {
   .page-hero { padding: 28px 20px 24px; }
   .page-hero h1 { font-size: 1.4rem; }
